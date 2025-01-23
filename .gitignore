@@ -70,5 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-/[Aa]ssets/ModularHousePack1/
-/[Aa]ssets/nappin/
+
+# Large and unchanging assets
+[Aa]ssets/ModularHousePack1/
+[Aa]ssets/nappin/House Props Softpack/Models/
