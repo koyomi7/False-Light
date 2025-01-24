@@ -5,8 +5,11 @@ public class LightSwitchScript : MonoBehaviour {
     [SerializeField] private GameObject lightObject;
     [SerializeField] private GameObject[] lampObject;
     [SerializeField] private Material[] stateMaterial; // inactive = 0, active = 1
+    [SerializeField] private AudioClip[] toggleOnSound;
+    [SerializeField] private AudioClip[] toggleOffSound;
     private MeshRenderer[] meshRenderer;
     private Material[] materials;
+    private AudioSource audioSource;
     private const string activeMaterial = "EmissiveWarm";
     private int i = 0; // index of material emission state in materials array
 
@@ -20,6 +23,8 @@ public class LightSwitchScript : MonoBehaviour {
         for (; i < materials.Length; i++)
             if (materials[i].name.Contains(activeMaterial)) break;
         
+        audioSource = transform.GetComponent<AudioSource>();
+        
         // test function to toggle switch every 3 seconds
         StartCoroutine(TestLightSwitch());
     }
@@ -27,9 +32,20 @@ public class LightSwitchScript : MonoBehaviour {
     IEnumerator TestLightSwitch() {
         Debug.Log("Toggled light switch");
         lightObject.SetActive(!lightObject.activeSelf);
-        materials[i] = lightObject.activeSelf ? stateMaterial[1] : stateMaterial[0];
+        if (lightObject.activeSelf) {
+            transform.GetComponent<Animator>().Play("switchOn");
+            materials[i] = stateMaterial[1];
+            audioSource.clip = toggleOnSound[Random.Range(0, toggleOnSound.Length)];
+        }
+        else {
+            transform.GetComponent<Animator>().Play("switchOff");
+            materials[i] = stateMaterial[0];
+            audioSource.clip = toggleOffSound[Random.Range(0, toggleOffSound.Length)];
+        }
         for (int _i = 0; _i < meshRenderer.Length; _i++)
             meshRenderer[_i].materials = materials;
+
+        audioSource.Play();
 
         yield return new WaitForSeconds(3);
         StartCoroutine(TestLightSwitch());
