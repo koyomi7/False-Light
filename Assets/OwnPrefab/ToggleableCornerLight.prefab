@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8406328958011601373}
   - component: {fileID: 8618222898967022607}
   - component: {fileID: 449226215556232031}
+  - component: {fileID: 503953240433079365}
   m_Layer: 0
   m_Name: button
   m_TagString: Untagged
@@ -28,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378728086988260794}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.49250126, y: 0, z: 0}
+  m_LocalRotation: {x: -0.0001727967, y: -0.00006753297, z: 0.46174857, w: 0.8870108}
+  m_LocalPosition: {x: -0.49251318, y: 0, z: 0.00000340598}
   m_LocalScale: {x: -0.5, y: 0.39999998, z: -0.2857143}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1099364176447430399}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.014, y: -0.016, z: 55}
 --- !u!33 &3560441835531903678
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -124,6 +125,27 @@ MonoBehaviour:
   stateMaterial:
   - {fileID: 2100000, guid: 3441f6441092d3c459a48c3c48ea63c6, type: 2}
   - {fileID: 2100000, guid: ad2591d1028f32d4a8bae13135f480f7, type: 2}
+--- !u!95 &503953240433079365
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378728086988260794}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5359c8ae18b66e24b9a80f910c42e550, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6820897698924548292
 GameObject:
   m_ObjectHideFlags: 0
