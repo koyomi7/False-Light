@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 5963637308765477453}
   - component: {fileID: 8679320583589238354}
   - component: {fileID: 4530585050721604477}
+  - component: {fileID: 3297504950196229930}
   m_Layer: 0
   m_Name: button
   m_TagString: Untagged
@@ -230,6 +231,27 @@ MonoBehaviour:
   stateMaterial:
   - {fileID: 2100000, guid: 3441f6441092d3c459a48c3c48ea63c6, type: 2}
   - {fileID: 2100000, guid: ad2591d1028f32d4a8bae13135f480f7, type: 2}
+--- !u!95 &3297504950196229930
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203066498722577368}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5359c8ae18b66e24b9a80f910c42e550, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6506924411213766439
 GameObject:
   m_ObjectHideFlags: 0

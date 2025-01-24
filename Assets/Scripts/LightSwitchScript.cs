@@ -27,7 +27,14 @@ public class LightSwitchScript : MonoBehaviour {
     IEnumerator TestLightSwitch() {
         Debug.Log("Toggled light switch");
         lightObject.SetActive(!lightObject.activeSelf);
-        materials[i] = lightObject.activeSelf ? stateMaterial[1] : stateMaterial[0];
+        if (lightObject.activeSelf) {
+            transform.GetComponent<Animator>().Play("switchOn");
+            materials[i] = stateMaterial[1];
+        }
+        else {
+            transform.GetComponent<Animator>().Play("switchOff");
+            materials[i] = stateMaterial[0];
+        }
         for (int _i = 0; _i < meshRenderer.Length; _i++)
             meshRenderer[_i].materials = materials;
 
