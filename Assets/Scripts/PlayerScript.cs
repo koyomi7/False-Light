@@ -43,6 +43,11 @@ public class PlayerScript : MonoBehaviour
     private float staminaFullTimer = 0f;
     private const float StaminaFullDelay = 2f; // Time in seconds before hiding the stamina bar
 
+    // Crosshair and interaction variables
+    [SerializeField] private Image crosshair; // Reference to the crosshair UI Image
+    [SerializeField] private float interactionDistance = 3f; // Max distance for interaction
+    [SerializeField] private LayerMask interactableLayer; // Layer for interactable objects
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -64,6 +69,7 @@ public class PlayerScript : MonoBehaviour
         UpdateStaminaBar();
         HandleStaminaBarVisibility();
         HandleFootstepSounds();
+        HandleInteraction();
     }
 
     void HandleMovement()
@@ -191,6 +197,28 @@ public class PlayerScript : MonoBehaviour
             {
                 audioSource.Stop();
             }
+        }
+    }
+
+    void HandleInteraction() {
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
+        Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.red);
+        // Check if the ray hits an interactable object
+        if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer)) {
+            crosshair.color = Color.green; // Change crosshair color to green
+
+            // Check for 'E' key press to interact
+            if (Input.GetKeyDown(KeyCode.F)) {
+                // Call the Interact method on the object
+                InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
+                if (interactable != null)
+                    interactable.Interact();
+            }
+        }
+        else {
+            // Reset crosshair color if not aiming at an interactable object
+            crosshair.color = Color.white; // Reset crosshair color to white
         }
     }
 }
