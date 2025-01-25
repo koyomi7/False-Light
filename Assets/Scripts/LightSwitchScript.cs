@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class LightSwitchScript : MonoBehaviour {
+public class InteractableObject : MonoBehaviour {
     [SerializeField] private GameObject lightObject;
     [SerializeField] private GameObject[] lampObject;
     [SerializeField] private Material[] stateMaterial; // inactive = 0, active = 1
@@ -24,12 +24,9 @@ public class LightSwitchScript : MonoBehaviour {
             if (materials[i].name.Contains(activeMaterial)) break;
         
         audioSource = transform.GetComponent<AudioSource>();
-        
-        // test function to toggle switch every 3 seconds
-        StartCoroutine(TestLightSwitch());
     }
 
-    IEnumerator TestLightSwitch() {
+    public void Interact() {
         Debug.Log("Toggled light switch");
         lightObject.SetActive(!lightObject.activeSelf);
         if (lightObject.activeSelf) {
@@ -46,7 +43,10 @@ public class LightSwitchScript : MonoBehaviour {
             meshRenderer[_i].materials = materials;
 
         audioSource.Play();
+    }
 
+    IEnumerator TestLightSwitch() {
+        Interact();
         yield return new WaitForSeconds(3);
         StartCoroutine(TestLightSwitch());
     }
