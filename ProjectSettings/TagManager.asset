@@ -6,6 +6,15 @@ TagManager:
   tags:
   - Door
   - LightSwitch
+  - DeskDrawer
+  - Shelf
+  - SinkDrawer
+  - KitchenShelf
+  - KitchenIsland
+  - FridgeDoor
+  - KitchenDrawer
+  - Wardrobe
+  - WDrawer
   layers:
   - Default
   - TransparentFX

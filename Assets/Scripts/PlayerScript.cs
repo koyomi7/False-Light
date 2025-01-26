@@ -97,7 +97,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl) && canMove)
         {
             characterController.height = crouchHeight;
-            characterController.center = new Vector3(0, defaultHeight - 1, 0); // Adjust center for crouching
+            characterController.center = new Vector3(0, defaultHeight - 1.5f, 0); // Adjust center for crouching
             currentWalkSpeed = crouchSpeed; // Set speed to crouch speed
         }
         else
@@ -221,6 +221,52 @@ public class PlayerScript : MonoBehaviour
                     LightSwitchScript interactable = hit.collider.GetComponent<LightSwitchScript>();
                     if (interactable != null) interactable.Interact();
                 }
+                // Call the Interact method on the drawer script
+                else if (hit.collider.CompareTag("DeskDrawer")) {
+                    DeskDrawerScript interactable = hit.collider.GetComponent<DeskDrawerScript>();
+                    if (interactable != null) interactable.Interact();
+                }
+                // Call the Interact method on the shelf script
+                else if (hit.collider.CompareTag("Shelf")) {
+                    ShelfScript interactable = hit.collider.GetComponent<ShelfScript>();
+                    if (interactable != null) interactable.Interact();
+                }
+                // Call the Interact method on the sink drawer script
+                else if (hit.collider.CompareTag("SinkDrawer")) {
+                    SinkDrawerScript interactable = hit.collider.GetComponent<SinkDrawerScript>();
+                    if (interactable != null) interactable.Interact();
+                }
+                // Call the Interact method on the kitchen shelf script
+                else if (hit.collider.CompareTag("KitchenShelf")) {
+                    KitchenShelfScript interactable = hit.collider.GetComponent<KitchenShelfScript>();
+                    if (interactable != null) interactable.Interact();
+                }
+                // Call the Interact method on the kitchen island script
+                else if (hit.collider.CompareTag("KitchenIsland")) {
+                    KitchenIslandScript interactable = hit.collider.GetComponent<KitchenIslandScript>();
+                    if (interactable != null) interactable.Interact();
+                }
+                // Call the Interact method on the fridge door script
+                else if (hit.collider.CompareTag("FridgeDoor")) {
+                    FridgeDoorScript interactable = hit.collider.GetComponent<FridgeDoorScript>();
+                    if (interactable != null) interactable.Interact();
+                }
+                // Call the Interact method on the kitchen drawer script
+                else if (hit.collider.CompareTag("KitchenDrawer")) {
+                    KitchenDrawerScript interactable = hit.collider.GetComponent<KitchenDrawerScript>();
+                    if (interactable != null) interactable.Interact();
+                }
+                // Call the Interact method on the wardrobe script
+                else if (hit.collider.CompareTag("Wardrobe")) {
+                    WardrobeScript interactable = hit.collider.GetComponent<WardrobeScript>();
+                    if (interactable != null) interactable.Interact();
+                }
+                // Call the Interact method on the wardrobe drawer script
+                else if (hit.collider.CompareTag("WDrawer")) {
+                    WDrawerScript interactable = hit.collider.GetComponent<WDrawerScript>();
+                    if (interactable != null) interactable.Interact();
+                }
+                
             }
         }
         else {
