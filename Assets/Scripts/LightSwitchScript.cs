@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class InteractableObject : MonoBehaviour {
+public class LightSwitchScript : MonoBehaviour {
     [SerializeField] private GameObject lightObject;
     [SerializeField] private GameObject[] lampObject;
     [SerializeField] private Material[] stateMaterial; // inactive = 0, active = 1
