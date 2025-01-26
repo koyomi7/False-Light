@@ -45,8 +45,9 @@ public class PlayerScript : MonoBehaviour
 
     // Crosshair and interaction variables
     [SerializeField] private Image crosshair; // Reference to the crosshair UI Image
-    [SerializeField] private float interactionDistance = 3f; // Max distance for interaction
+    [SerializeField] private float interactionDistance = 1f; // Max distance for interaction
     [SerializeField] private LayerMask interactableLayer; // Layer for interactable objects
+    [SerializeField] private TMPro.TextMeshProUGUI interactionText; // Reference to the interaction text
 
     void Start()
     {
@@ -206,19 +207,25 @@ public class PlayerScript : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.red);
         // Check if the ray hits an interactable object
         if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer)) {
-            crosshair.color = Color.green; // Change crosshair color to green
+            interactionText.gameObject.SetActive(true); // Show interaction text
 
-            // Check for 'E' key press to interact
+            // Check for 'F' key press to interact
             if (Input.GetKeyDown(KeyCode.F)) {
-                // Call the Interact method on the object
-                InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
-                if (interactable != null)
-                    interactable.Interact();
+                // Call the Interact method on the door script
+                if (hit.collider.CompareTag("Door")){
+                    DoorScript doors = hit.collider.GetComponent<DoorScript>();
+                    if (doors != null) doors.Interact();
+                }
+                // Call the Interact method on the light switch script
+                else if (hit.collider.CompareTag("LightSwitch")) {
+                    LightSwitchScript interactable = hit.collider.GetComponent<LightSwitchScript>();
+                    if (interactable != null) interactable.Interact();
+                }
             }
         }
         else {
             // Reset crosshair color if not aiming at an interactable object
-            crosshair.color = Color.white; // Reset crosshair color to white
+            interactionText.gameObject.SetActive(false); // Hide interaction text
         }
     }
 }
