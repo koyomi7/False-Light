@@ -72,8 +72,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Large and unchanging assets
-[Aa]ssets/ModularHousePack1/
-![Aa]ssets/ModularHousePack1/Prefabs/Modules/
+[Aa]ssets/ModularHousePack1/Art/
 [Aa]ssets/nappin/House Props Softpack/Models/
 [Aa]ssets/GeniusCrate_Games/Kitchen_Set/Model/
 [Aa]ssets/GeniusCrate_Games/Kitchen_Set/Texture Maps/
