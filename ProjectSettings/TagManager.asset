@@ -19,11 +19,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Interactable
+  - PostProcessingVolume
   - Water
   - UI
+  - Interactable
   - Obstacle
-  - 
   - 
   - 
   - 
