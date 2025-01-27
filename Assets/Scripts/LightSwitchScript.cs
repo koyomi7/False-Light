@@ -24,6 +24,14 @@ public class LightSwitchScript : MonoBehaviour {
             if (materials[i].name.Contains(activeMaterial)) break;
         
         audioSource = transform.GetComponent<AudioSource>();
+
+        // Starts off
+        lightObject.SetActive(false);
+        transform.GetComponent<Animator>().Play("switchOff");
+        materials[i] = stateMaterial[0];
+        audioSource.clip = toggleOffSound[Random.Range(0, toggleOffSound.Length)];
+        for (int _i = 0; _i < meshRenderer.Length; _i++)
+            meshRenderer[_i].materials = materials;
     }
 
     public void Interact() {
