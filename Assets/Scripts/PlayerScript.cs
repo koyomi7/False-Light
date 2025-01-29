@@ -8,7 +8,6 @@ public class PlayerScript : MonoBehaviour
 {
     // Movement variables
     [SerializeField] private Camera playerCamera;
-    [SerializeField] private float currentWalkSpeed; // Make this serialized to see changes in the Inspector
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
     [SerializeField] private float gravity;
@@ -35,9 +34,9 @@ public class PlayerScript : MonoBehaviour
     private float rotationX = 0;
     private CharacterController characterController;
 
-    private bool canMove = true;
     private bool isMoving = false; // Track if the player is moving
     private bool isSprinting = false; // Track if the player is sprinting
+    private bool isCrouching = false; // Track if the player is crouching
 
     // Timer for stamina bar visibility
     private float staminaFullTimer = 0f;
@@ -57,9 +56,7 @@ public class PlayerScript : MonoBehaviour
 
         characterController.height = defaultHeight;
         currentStamina = maxStamina;
-        currentWalkSpeed = walkSpeed;
 
-        audioSource = GetComponent<AudioSource>();
         audioSource.enabled = false;
     }
 
@@ -75,71 +72,48 @@ public class PlayerScript : MonoBehaviour
 
     void HandleMovement()
     {
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
 
-        // Check if the player is sprinting (holding Left Shift) and has stamina
-        isSprinting = Input.GetKey(KeyCode.LeftShift) && currentStamina > 0 && isMoving; // Only sprint if moving
-        currentWalkSpeed = isSprinting ? runSpeed : walkSpeed;
+        isMoving = moveX != 0 || moveZ != 0;
+        isSprinting = Input.GetKey(KeyCode.LeftShift) && currentStamina > 0 && !isCrouching;
 
-        float curSpeedX = canMove ? currentWalkSpeed * Input.GetAxis("Vertical") : 0;
-        float curSpeedY = canMove ? currentWalkSpeed * Input.GetAxis("Horizontal") : 0;
-        float movementDirectionY = moveDirection.y;
-        moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-
-        moveDirection.y = movementDirectionY;
-
-        if (!characterController.isGrounded)
+        if (Input.GetKey(KeyCode.LeftControl))
         {
-            moveDirection.y -= gravity * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.LeftControl) && canMove)
-        {
-            characterController.height = crouchHeight;
-            characterController.center = new Vector3(0, defaultHeight - 1.5f, 0); // Adjust center for crouching
-            currentWalkSpeed = crouchSpeed; // Set speed to crouch speed
+            isCrouching = true;
+            characterController.height = Mathf.Lerp(characterController.height, crouchHeight, Time.deltaTime * 10);
         }
         else
         {
-            characterController.height = defaultHeight;
-            characterController.center = new Vector3(0, 0, 0); // Reset center when standing
-            currentWalkSpeed = isSprinting ? runSpeed : walkSpeed; // Revert to walk or run speed
+            isCrouching = false;
+            characterController.height = Mathf.Lerp(characterController.height, defaultHeight, Time.deltaTime * 10);
         }
+
+        float speed = isCrouching ? crouchSpeed : (Input.GetKey(KeyCode.LeftShift) && currentStamina > 0 ? runSpeed : walkSpeed);
+        
+        Vector3 move = transform.right * moveX + transform.forward * moveZ;
+        moveDirection.x = move.x * speed;
+        moveDirection.z = move.z * speed;
+
+        if (!characterController.isGrounded) moveDirection.y -= gravity * Time.deltaTime;
 
         characterController.Move(moveDirection * Time.deltaTime);
 
-        // Check if the player is moving
-        isMoving = (Mathf.Abs(curSpeedX) > 0.1f || Mathf.Abs(curSpeedY) > 0.1f) && characterController.isGrounded;
-
-        if (canMove)
-        {
-            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
-        }
+        rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+        rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
     }
 
     void HandleStamina()
     {
-        // Check if the player is sprinting (holding Left Shift) and moving
-        if (isSprinting)
+        if (Input.GetKey(KeyCode.LeftShift) && !isCrouching && characterController.velocity.magnitude > 0.1f)
         {
-            // Drain stamina when sprinting
             currentStamina -= staminaDepletionRate * Time.deltaTime;
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-
-            // If stamina runs out, stop sprinting
-            if (currentStamina <= 0)
-            {
-                isSprinting = false;
-                currentWalkSpeed = walkSpeed; // Revert to walk speed when stamina runs out
-            }
         }
         else
         {
-            // Regenerate stamina when not sprinting
             currentStamina += staminaRegenRate * Time.deltaTime;
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
         }
@@ -215,6 +189,16 @@ public class PlayerScript : MonoBehaviour
                 if (hit.collider.CompareTag("Door")){
                     DoorScript doors = hit.collider.GetComponent<DoorScript>();
                     if (doors != null) doors.Interact();
+                }
+                // Call the Interact method on the scare door script
+                else if (hit.collider.CompareTag("ScareDoor")) {
+                    ScareDoorScript scareDoor = hit.collider.GetComponent<ScareDoorScript>();
+                    if (scareDoor != null) scareDoor.Interact();
+                }
+                // Call the Interact method on the scare bathroom door script
+                else if (hit.collider.CompareTag("ScareBathroomDoor")) {
+                    ScareBathroomDoorScript scareBathroomDoor = hit.collider.GetComponent<ScareBathroomDoorScript>();
+                    if (scareBathroomDoor != null) scareBathroomDoor.Interact();
                 }
                 // Call the Interact method on the light switch script
                 else if (hit.collider.CompareTag("LightSwitch")) {
