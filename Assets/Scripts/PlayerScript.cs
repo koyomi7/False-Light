@@ -250,6 +250,11 @@ public class PlayerScript : MonoBehaviour
                     WDrawerScript interactable = hit.collider.GetComponent<WDrawerScript>();
                     if (interactable != null) interactable.Interact();
                 }
+                // Call the Interact method on the pill script
+                else if (hit.collider.CompareTag("Pill")) {
+                    PillScript interactable = hit.collider.GetComponent<PillScript>();
+                    if (interactable != null) interactable.Interact();
+                }
                 
             }
         }
