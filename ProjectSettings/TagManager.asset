@@ -17,6 +17,7 @@ TagManager:
   - WDrawer
   - ScareDoor
   - ScareBathroomDoor
+  - Pill
   layers:
   - Default
   - TransparentFX
