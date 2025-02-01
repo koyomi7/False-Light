@@ -1,13 +1,18 @@
 using UnityEngine;
+using System.Collections;
 
 public class ScareDoorScript : MonoBehaviour
 {
     [SerializeField] private Animator doorAnimator;
+    [SerializeField] private Animator ghostAnimator;
     [SerializeField] private bool isOpen = false;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource ghostAudioSource;
     [SerializeField] private AudioClip DoorOpenSound;
     [SerializeField] private AudioClip DoorCloseSound;
     [SerializeField] private AudioClip FootstepsBehindDoor; 
+    [SerializeField] private GameObject Ghost;
+    [SerializeField] private Transform player; // Reference to player for ghost to move towards
 
     private bool isOnCooldown = false; 
     private float cooldownTimer = 0f; 
@@ -18,24 +23,24 @@ public class ScareDoorScript : MonoBehaviour
     void Start()
     {
         audioSource.enabled = false;
+        Ghost.SetActive(false);
     }
 
     void Update()
     {
-        // Cooldown time to avoid spams
         if (isOnCooldown)
         {
             cooldownTimer -= Time.deltaTime;
             if (cooldownTimer <= 0f)
             {
-                isOnCooldown = false; // End the cooldown
+                isOnCooldown = false;
             }
         }
     }
 
     public void Interact()
     {
-        if (isOnCooldown) return; // Exit if cooldown is active
+        if (isOnCooldown) return;
 
         if (isOpen)
         {
@@ -73,23 +78,75 @@ public class ScareDoorScript : MonoBehaviour
         if (isOpen)
         {
             Debug.Log("RUNNING TO YO FACE");
-            // If the door is open, play scary footsteps sound
-            audioSource.enabled = true;
-            audioSource.clip = FootstepsBehindDoor;
-            audioSource.Play();
+            StartCoroutine(RunningGhostSequence());
         }
         else
         {
-            // If the door is closed, open it
             Debug.Log("STARE AT YO FACE");
-            OpenDoor();
+            StartCoroutine(HangingGhostSequence());
         }
 
-        // Disable the scare trigger after activation
         if (scareTrigger != null)
         {
             scareTrigger.SetActive(false); 
             Debug.Log("Scare trigger disabled");
         }
+    }
+
+private IEnumerator RunningGhostSequence()
+    {
+        // Setup ghost
+        Ghost.SetActive(true);
+        ghostAnimator.Play("FastCrawl");
+        
+        // Play footstep sound
+        ghostAudioSource.enabled = true;
+        ghostAudioSource.clip = FootstepsBehindDoor;
+        audioSource.Play();
+
+        float elapsedTime = 0f;
+        Vector3 startPos = Ghost.transform.position;
+        // Only use X and Z from player position, keep ghost's Y position
+        Vector3 targetPos = new Vector3(player.position.x, Ghost.transform.position.y, player.position.z);
+        
+        while (elapsedTime < 1.2f)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / 1.2f;
+            
+            // Calculate direction to player but only on X and Z axes
+            Vector3 directionToPlayer = (targetPos - Ghost.transform.position).normalized;
+            directionToPlayer.y = 0; // Keep y rotation level
+            
+            // Make ghost face player on ground plane
+            if(directionToPlayer != Vector3.zero) // Prevent error when vectors are identical
+            {
+                Ghost.transform.forward = directionToPlayer;
+            }
+            
+            // Move ghost
+            Ghost.transform.position = Vector3.Lerp(startPos, targetPos, t);
+            
+            yield return null;
+        }
+
+        // Destroy ghost after reaching player
+        Destroy(Ghost);
+    }
+
+    private IEnumerator HangingGhostSequence()
+    {
+        // Setup ghost
+        Ghost.SetActive(true);
+        Ghost.transform.Rotate(0, 0, 180);
+        Ghost.transform.position = new Vector3(Ghost.transform.position.x, 5.5f, Ghost.transform.position.z);
+        ghostAnimator.Play("Hanging");
+        OpenDoor();
+
+        // Wait 2 seconds
+        yield return new WaitForSeconds(2f);
+
+        // Destroy ghost
+        Destroy(Ghost);
     }
 }
