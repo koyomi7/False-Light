@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WardrobeScript : MonoBehaviour
+public class WardrobeScript : MonoBehaviour, IInteractable
 {
     [SerializeField] private Animator wardrobeAnimator;
     [SerializeField] private bool isOpen = false;

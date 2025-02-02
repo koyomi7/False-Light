@@ -46,7 +46,17 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Image crosshair; // Reference to the crosshair UI Image
     [SerializeField] private float interactionDistance = 1f; // Max distance for interaction
     [SerializeField] private LayerMask interactableLayer; // Layer for interactable objects
+    [SerializeField] private LayerMask playerLayer; // Layer for player object
     [SerializeField] private TMPro.TextMeshProUGUI interactionText; // Reference to the interaction text
+    private IInteractable currentInteractable; // Track the currently targeted interactable
+    [SerializeField] private string[] tagsToIgnore;
+
+    private void OnCollisionEnter(Collision collision) {
+        foreach (string tagToIgnore in tagsToIgnore) {
+            if (collision.gameObject.CompareTag(tagToIgnore))
+                Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider, true);
+        }
+    }
 
     void Start()
     {
@@ -58,6 +68,21 @@ public class PlayerScript : MonoBehaviour
         currentStamina = maxStamina;
 
         audioSource.enabled = false;
+        
+        foreach (string tagToIgnore in tagsToIgnore) {
+            // Find all objects with the specified tag
+            GameObject[] objectsToIgnore = GameObject.FindGameObjectsWithTag(tagToIgnore);
+
+            // Get the player's collider(s)
+            Collider playerCollider = GetComponent<Collider>();
+
+            // Ignore collisions between the player and tagged objects
+            foreach (GameObject obj in objectsToIgnore) {
+                Collider objCollider = obj.GetComponent<Collider>();
+                if (objCollider != null && playerCollider != null)
+                    Physics.IgnoreCollision(playerCollider, objCollider, true);
+            }
+        }
     }
 
     void Update()
@@ -67,6 +92,7 @@ public class PlayerScript : MonoBehaviour
         UpdateStaminaBar();
         HandleStaminaBarVisibility();
         HandleFootstepSounds();
+        CheckForInteractable();
         HandleInteraction();
     }
 
@@ -175,92 +201,144 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void HandleInteraction() {
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+    private void CheckForInteractable() {
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.red);
-        // Check if the ray hits an interactable object
-        if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer)) {
-            interactionText.gameObject.SetActive(true); // Show interaction text
 
-            // Check for 'F' key press to interact
-            if (Input.GetKeyDown(KeyCode.F)) {
-                // Call the Interact method on the door script
-                if (hit.collider.CompareTag("Door")){
-                    DoorScript doors = hit.collider.GetComponent<DoorScript>();
-                    if (doors != null) doors.Interact();
+        // Check for interactables
+        if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer)) {
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            if (interactable != null) {
+                // Check for obstructions
+                RaycastHit obstructionHit;
+                Vector3 directionToInteractable = (hit.point - playerCamera.transform.position).normalized;
+                float distanceToInteractable = Vector3.Distance(playerCamera.transform.position, hit.point);
+
+                bool hasObstruction = Physics.Raycast(
+                    playerCamera.transform.position,
+                    directionToInteractable,
+                    out obstructionHit,
+                    distanceToInteractable,
+                    Physics.DefaultRaycastLayers,
+                    QueryTriggerInteraction.Ignore
+                );
+
+                // Update UI text if there's no obstruction
+                if (!hasObstruction || obstructionHit.collider == hit.collider) {
+                    currentInteractable = interactable;
+
+                    // Show text
+                    if (interactionText != null)
+                        interactionText.gameObject.SetActive(true);
+                    
+                    return;
                 }
-                // Call the Interact method on the scare door script
-                else if (hit.collider.CompareTag("ScareDoor")) {
-                    ScareDoorScript scareDoor = hit.collider.GetComponent<ScareDoorScript>();
-                    if (scareDoor != null) scareDoor.Interact();
-                }
-                // Call the Interact method on the scare bathroom door script
-                else if (hit.collider.CompareTag("ScareBathroomDoor")) {
-                    ScareBathroomDoorScript scareBathroomDoor = hit.collider.GetComponent<ScareBathroomDoorScript>();
-                    if (scareBathroomDoor != null) scareBathroomDoor.Interact();
-                }
-                // Call the Interact method on the light switch script
-                else if (hit.collider.CompareTag("LightSwitch")) {
-                    LightSwitchScript interactable = hit.collider.GetComponent<LightSwitchScript>();
-                    if (interactable != null) interactable.Interact();
-                }
-                // Call the Interact method on the drawer script
-                else if (hit.collider.CompareTag("DeskDrawer")) {
-                    DeskDrawerScript interactable = hit.collider.GetComponent<DeskDrawerScript>();
-                    if (interactable != null) interactable.Interact();
-                }
-                // Call the Interact method on the shelf script
-                else if (hit.collider.CompareTag("Shelf")) {
-                    ShelfScript interactable = hit.collider.GetComponent<ShelfScript>();
-                    if (interactable != null) interactable.Interact();
-                }
-                // Call the Interact method on the sink drawer script
-                else if (hit.collider.CompareTag("SinkDrawer")) {
-                    SinkDrawerScript interactable = hit.collider.GetComponent<SinkDrawerScript>();
-                    if (interactable != null) interactable.Interact();
-                }
-                // Call the Interact method on the kitchen shelf script
-                else if (hit.collider.CompareTag("KitchenShelf")) {
-                    KitchenShelfScript interactable = hit.collider.GetComponent<KitchenShelfScript>();
-                    if (interactable != null) interactable.Interact();
-                }
-                // Call the Interact method on the kitchen island script
-                else if (hit.collider.CompareTag("KitchenIsland")) {
-                    KitchenIslandScript interactable = hit.collider.GetComponent<KitchenIslandScript>();
-                    if (interactable != null) interactable.Interact();
-                }
-                // Call the Interact method on the fridge door script
-                else if (hit.collider.CompareTag("FridgeDoor")) {
-                    FridgeDoorScript interactable = hit.collider.GetComponent<FridgeDoorScript>();
-                    if (interactable != null) interactable.Interact();
-                }
-                // Call the Interact method on the kitchen drawer script
-                else if (hit.collider.CompareTag("KitchenDrawer")) {
-                    KitchenDrawerScript interactable = hit.collider.GetComponent<KitchenDrawerScript>();
-                    if (interactable != null) interactable.Interact();
-                }
-                // Call the Interact method on the wardrobe script
-                else if (hit.collider.CompareTag("Wardrobe")) {
-                    WardrobeScript interactable = hit.collider.GetComponent<WardrobeScript>();
-                    if (interactable != null) interactable.Interact();
-                }
-                // Call the Interact method on the wardrobe drawer script
-                else if (hit.collider.CompareTag("WDrawer")) {
-                    WDrawerScript interactable = hit.collider.GetComponent<WDrawerScript>();
-                    if (interactable != null) interactable.Interact();
-                }
-                // Call the Interact method on the pill script
-                else if (hit.collider.CompareTag("Pill")) {
-                    PillScript interactable = hit.collider.GetComponent<PillScript>();
-                    if (interactable != null) interactable.Interact();
-                }
-                
             }
         }
-        else {
-            // Reset crosshair color if not aiming at an interactable object
-            interactionText.gameObject.SetActive(false); // Hide interaction text
-        }
+
+        // No valid interactable: hide the text
+        currentInteractable = null;
+        if (interactionText != null) interactionText.gameObject.SetActive(false);
     }
+
+    private void HandleInteraction() {
+        if (Input.GetKeyDown(KeyCode.F) && currentInteractable != null)
+            currentInteractable.Interact();
+    }
+
+    // void HandleInteraction() {
+    //     Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+    //     RaycastHit hit;
+    //     Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.red);
+
+    //     // Does not do anything for non-interactable objects
+    //     if (Physics.Raycast(ray, out hit, interactionDistance, obstacleLayer)) {
+    //         interactionText.gameObject.SetActive(false); // Hide interaction text
+    //         return;
+    //     }
+
+    //     // Check if the ray hits an interactable object
+    //     if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer)) {
+    //         interactionText.gameObject.SetActive(true); // Show interaction text
+
+    //         // Check for 'F' key press to interact
+    //         if (Input.GetKeyDown(KeyCode.F)) {
+    //             // Call the Interact method on the door script
+    //             if (hit.collider.CompareTag("Door")){
+    //                 DoorScript doors = hit.collider.GetComponent<DoorScript>();
+    //                 if (doors != null) doors.Interact();
+    //             }
+    //             // Call the Interact method on the scare door script
+    //             else if (hit.collider.CompareTag("ScareDoor")) {
+    //                 ScareDoorScript scareDoor = hit.collider.GetComponent<ScareDoorScript>();
+    //                 if (scareDoor != null) scareDoor.Interact();
+    //             }
+    //             // Call the Interact method on the scare bathroom door script
+    //             else if (hit.collider.CompareTag("ScareBathroomDoor")) {
+    //                 ScareBathroomDoorScript scareBathroomDoor = hit.collider.GetComponent<ScareBathroomDoorScript>();
+    //                 if (scareBathroomDoor != null) scareBathroomDoor.Interact();
+    //             }
+    //             // Call the Interact method on the light switch script
+    //             else if (hit.collider.CompareTag("LightSwitch")) {
+    //                 LightSwitchScript interactable = hit.collider.GetComponent<LightSwitchScript>();
+    //                 if (interactable != null) interactable.Interact();
+    //             }
+    //             // Call the Interact method on the drawer script
+    //             else if (hit.collider.CompareTag("DeskDrawer")) {
+    //                 DeskDrawerScript interactable = hit.collider.GetComponent<DeskDrawerScript>();
+    //                 if (interactable != null) interactable.Interact();
+    //             }
+    //             // Call the Interact method on the shelf script
+    //             else if (hit.collider.CompareTag("Shelf")) {
+    //                 ShelfScript interactable = hit.collider.GetComponent<ShelfScript>();
+    //                 if (interactable != null) interactable.Interact();
+    //             }
+    //             // Call the Interact method on the sink drawer script
+    //             else if (hit.collider.CompareTag("SinkDrawer")) {
+    //                 SinkDrawerScript interactable = hit.collider.GetComponent<SinkDrawerScript>();
+    //                 if (interactable != null) interactable.Interact();
+    //             }
+    //             // Call the Interact method on the kitchen shelf script
+    //             else if (hit.collider.CompareTag("KitchenShelf")) {
+    //                 KitchenShelfScript interactable = hit.collider.GetComponent<KitchenShelfScript>();
+    //                 if (interactable != null) interactable.Interact();
+    //             }
+    //             // Call the Interact method on the kitchen island script
+    //             else if (hit.collider.CompareTag("KitchenIsland")) {
+    //                 KitchenIslandScript interactable = hit.collider.GetComponent<KitchenIslandScript>();
+    //                 if (interactable != null) interactable.Interact();
+    //             }
+    //             // Call the Interact method on the fridge door script
+    //             else if (hit.collider.CompareTag("FridgeDoor")) {
+    //                 FridgeDoorScript interactable = hit.collider.GetComponent<FridgeDoorScript>();
+    //                 if (interactable != null) interactable.Interact();
+    //             }
+    //             // Call the Interact method on the kitchen drawer script
+    //             else if (hit.collider.CompareTag("KitchenDrawer")) {
+    //                 KitchenDrawerScript interactable = hit.collider.GetComponent<KitchenDrawerScript>();
+    //                 if (interactable != null) interactable.Interact();
+    //             }
+    //             // Call the Interact method on the wardrobe script
+    //             else if (hit.collider.CompareTag("Wardrobe")) {
+    //                 WardrobeScript interactable = hit.collider.GetComponent<WardrobeScript>();
+    //                 if (interactable != null) interactable.Interact();
+    //             }
+    //             // Call the Interact method on the wardrobe drawer script
+    //             else if (hit.collider.CompareTag("WDrawer")) {
+    //                 WDrawerScript interactable = hit.collider.GetComponent<WDrawerScript>();
+    //                 if (interactable != null) interactable.Interact();
+    //             }
+    //             // Call the Interact method on the pill script
+    //             else if (hit.collider.CompareTag("Pill")) {
+    //                 PillScript interactable = hit.collider.GetComponent<PillScript>();
+    //                 if (interactable != null) interactable.Interact();
+    //             }
+                
+    //         }
+    //     }
+    //     else {
+    //         // Reset crosshair color if not aiming at an interactable object
+    //         interactionText.gameObject.SetActive(false); // Hide interaction text
+    //     }
+    // }
 }
