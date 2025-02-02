@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WDrawerScript : MonoBehaviour
+public class WDrawerScript : MonoBehaviour, IInteractable
 {
     [SerializeField] private Animator wDrawerAnimator;
     [SerializeField] private bool isOpen = false;

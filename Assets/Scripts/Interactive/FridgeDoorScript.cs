@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FridgeDoorScript : MonoBehaviour
+public class FridgeDoorScript : MonoBehaviour, IInteractable
 {
     [SerializeField] private Animator fridgeDoorAnimator;
     [SerializeField] private bool isOpen = false;
