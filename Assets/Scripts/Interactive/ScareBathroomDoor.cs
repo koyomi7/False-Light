@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ScareBathroomDoorScript : MonoBehaviour
+public class ScareBathroomDoorScript : MonoBehaviour, IInteractable
 {
     [SerializeField] private Animator doorAnimator;
     [SerializeField] private Animator ghostAnimator;

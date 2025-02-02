@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SinkDrawerScript : MonoBehaviour
+public class SinkDrawerScript : MonoBehaviour, IInteractable
 {
     [SerializeField] private Animator sinkDrawerAnimator;
     [SerializeField] private bool isOpen = false;

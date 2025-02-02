@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DeskDrawerScript : MonoBehaviour
+public class DeskDrawerScript : MonoBehaviour, IInteractable
 {
     [SerializeField] private Animator drawerAnimator;
     [SerializeField] private bool isOpen = false;

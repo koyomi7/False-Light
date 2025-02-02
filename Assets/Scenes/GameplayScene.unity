@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 148141175}
   - component: {fileID: 148141174}
   - component: {fileID: 148141173}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1576,6 +1576,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 865161049}
     m_Modifications:
+    - target: {fileID: 936464348198832063, guid: 97bc4339b3151c34799878d35be91e6f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.8128483
+      objectReference: {fileID: 0}
+    - target: {fileID: 936464348198832063, guid: 97bc4339b3151c34799878d35be91e6f,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.007975921
+      objectReference: {fileID: 0}
+    - target: {fileID: 936464348198832063, guid: 97bc4339b3151c34799878d35be91e6f,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.14895357
+      objectReference: {fileID: 0}
     - target: {fileID: 1183954211861453222, guid: 97bc4339b3151c34799878d35be91e6f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4135,7 +4150,7 @@ GameObject:
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
   - component: {fileID: 330585549}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -4529,8 +4544,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7838235, y: 0.32939246, z: 0.994333}
-  m_Center: {x: 0.39144462, y: 0.00075304083, z: 0.0007524236}
+  m_Size: {x: 0.8, y: 0.32939246, z: 0.9943335}
+  m_Center: {x: 0.4, y: 0.00075304986, z: 0.0007504763}
 --- !u!23 &332444036
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23073,7 +23088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1572284151}
   - component: {fileID: 1572284150}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FootSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24357,8 +24372,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7838235, y: 0.32939246, z: 0.994333}
-  m_Center: {x: 0.39144462, y: 0.00075304083, z: 0.0007524236}
+  m_Size: {x: 0.8, y: 0.32939246, z: 0.994333}
+  m_Center: {x: 0.4, y: 0.00075304083, z: 0.0007524236}
 --- !u!23 &1644656306
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27968,8 +27983,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7838235, y: 0.32939246, z: 0.994333}
-  m_Center: {x: 0.39144462, y: 0.00075304083, z: 0.0007524236}
+  m_Size: {x: 0.8, y: 0.32939246, z: 0.994333}
+  m_Center: {x: 0.4, y: 0.00075304083, z: 0.0007524236}
 --- !u!23 &1875028595
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30836,7 +30851,7 @@ GameObject:
   - component: {fileID: 2126144581}
   - component: {fileID: 2126144580}
   - component: {fileID: 2126144579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -30874,11 +30889,29 @@ MonoBehaviour:
   walkSound: {fileID: 8300000, guid: e00e00f321e1eb041aebe51f73ae8adb, type: 3}
   runSound: {fileID: 8300000, guid: 53469bd62c440294fa37c5ce21fa7b3e, type: 3}
   crosshair: {fileID: 700290860}
-  interactionDistance: 1
+  interactionDistance: 1.6
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
   interactionText: {fileID: 805979569}
+  tagsToIgnore:
+  - DeskDrawer
+  - Door
+  - FridgeDoor
+  - KitchenDrawer
+  - KitchenIsland
+  - KitchenShelf
+  - LightSwitch
+  - Pill
+  - ScareBathroomDoor
+  - ScareDoor
+  - ShelfScript
+  - SinkDrawer
+  - Wardrobe
+  - WDrawer
 --- !u!143 &2126144580
 CharacterController:
   m_ObjectHideFlags: 0

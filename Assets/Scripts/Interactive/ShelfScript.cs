@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShelfScript : MonoBehaviour
+public class ShelfScript : MonoBehaviour, IInteractable
 {
     [SerializeField] private Animator shelfAnimator;
     [SerializeField] private bool isOpen = false;
