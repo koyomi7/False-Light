@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KitchenDrawerScript : MonoBehaviour
+public class KitchenDrawerScript : MonoBehaviour, IInteractable
 {
     [SerializeField] private Animator kitchenDrawerAnimator;
     [SerializeField] private bool isOpen = false;
