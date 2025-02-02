@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DoorScript : MonoBehaviour
+public class DoorScript : MonoBehaviour, IInteractable
 {
     [SerializeField] private Animator doorAnimator;
     [SerializeField] private bool isOpen = false;
