@@ -203,10 +203,11 @@ public class PlayerScript : MonoBehaviour
 
     private void CheckForInteractable() {
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-        RaycastHit hit;
+        RaycastHit[] hits = Physics.RaycastAll(ray, interactionDistance, interactableLayer);
 
         // Check for interactables
-        if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer)) {
+        if (hits.Length != 0) {
+            RaycastHit hit = hits[0];
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
             if (interactable != null) {
                 // Check for obstructions
@@ -226,6 +227,13 @@ public class PlayerScript : MonoBehaviour
                 // Update UI text if there's no obstruction
                 if (!hasObstruction || obstructionHit.collider == hit.collider) {
                     currentInteractable = interactable;
+
+                    // bootleg code because mesh colliders dont work
+                    foreach (RaycastHit _hit in hits) {
+                        if (_hit.collider.CompareTag("Pill"))
+                            currentInteractable = _hit.collider.GetComponent<IInteractable>();
+                    }
+                    
 
                     // Show text
                     if (interactionText != null)
