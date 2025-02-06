@@ -203,42 +203,52 @@ public class PlayerScript : MonoBehaviour
 
     private void CheckForInteractable() {
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-        RaycastHit hit;
+        RaycastHit[] hits = Physics.RaycastAll(ray, interactionDistance);
 
-        // Check for interactables
-        if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer)) {
+        // Sort hits by distance (closest first)
+        System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
+        for (int i = 0; i < hits.Length; i++) {
+            RaycastHit hit = hits[i];
+            // Skip triggers
+            if (hit.collider.isTrigger) continue;
+
+            // Check if the hit object is interactable
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
             if (interactable != null) {
-                // Check for obstructions
-                RaycastHit obstructionHit;
-                Vector3 directionToInteractable = (hit.point - playerCamera.transform.position).normalized;
-                float distanceToInteractable = Vector3.Distance(playerCamera.transform.position, hit.point);
+                // no obstruction
+                currentInteractable = interactable;
+                interactionText.gameObject.SetActive(true);
 
-                bool hasObstruction = Physics.Raycast(
-                    playerCamera.transform.position,
-                    directionToInteractable,
-                    out obstructionHit,
-                    distanceToInteractable,
-                    Physics.DefaultRaycastLayers,
-                    QueryTriggerInteraction.Ignore
-                );
+                // check remaining layers for pills
+                for (int j = i; j < hits.Length; j++) {
+                    // asserts that remaining layers are interactable layers
+                        // i.e., a pill object within a drawer object
+                    if (!((interactableLayer.value & (1 << hit.collider.gameObject.layer)) > 0)) {
+                        break;
+                    }
 
-                // Update UI text if there's no obstruction
-                if (!hasObstruction || obstructionHit.collider == hit.collider) {
-                    currentInteractable = interactable;
-
-                    // Show text
-                    if (interactionText != null)
-                        interactionText.gameObject.SetActive(true);
-                    
-                    return;
+                    // returns the pill object instead
+                    if (hits[j].collider.CompareTag("Pill")) {
+                        currentInteractable = hits[j].collider.GetComponent<IInteractable>();
+                        break;
+                    }
                 }
+                
+                return;
+            }
+            else {
+                // The hit is a non-interactable obstruction (e.g., a wall)
+                // Block interaction and exit early
+                currentInteractable = null;
+                interactionText.gameObject.SetActive(false);
+                return;
             }
         }
 
-        // No valid interactable: hide the text
+        // No hits at all: hide the text
         currentInteractable = null;
-        if (interactionText != null) interactionText.gameObject.SetActive(false);
+        interactionText.gameObject.SetActive(false);
     }
 
     private void HandleInteraction() {
