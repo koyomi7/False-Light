@@ -32426,15 +32426,12 @@ MonoBehaviour:
   interactionText: {fileID: 805979569}
   tagsToIgnore:
   - DeskDrawer
-  - Door
   - FridgeDoor
   - KitchenDrawer
   - KitchenIsland
   - KitchenShelf
   - LightSwitch
   - Pill
-  - ScareBathroomDoor
-  - ScareDoor
   - Shelf
   - SinkDrawer
   - Wardrobe
