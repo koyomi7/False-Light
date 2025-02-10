@@ -18,6 +18,7 @@ TagManager:
   - ScareDoor
   - ScareBathroomDoor
   - Pill
+  - PlayerClip
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - UI
   - Interactable
   - Player
-  - 
+  - Brush
   - 
   - 
   - 
