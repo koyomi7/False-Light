@@ -240,6 +240,7 @@ public class PlayerScript : MonoBehaviour
             else {
                 // The hit is a non-interactable obstruction (e.g., a wall)
                 // Block interaction and exit early
+                if (hit.collider.CompareTag("PlayerClip")) continue; // Can interact through player clip brush
                 currentInteractable = null;
                 interactionText.gameObject.SetActive(false);
                 return;
