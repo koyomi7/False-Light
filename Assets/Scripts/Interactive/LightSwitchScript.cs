@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class LightSwitchScript : MonoBehaviour, IInteractable {
+    [SerializeField] private GameObject lightSwitchObject;
     [SerializeField] private GameObject lightObject;
     [SerializeField] private GameObject[] lampObject;
     [SerializeField] private Material[] stateMaterial; // inactive = 0, active = 1
@@ -25,6 +26,7 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
     private const string activeMaterial = "EmissiveWarm";
     private int i = 0; // index of material emission state in materials array
     private bool isFlickering = false;
+    private bool hasLightSwitch;
 
     void Start() {
         meshRenderer = new MeshRenderer[lampObject.Length];
@@ -37,6 +39,8 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
         
         audioSource = transform.GetComponent<AudioSource>();
 
+        hasLightSwitch = lightSwitchObject != null;
+
         // Starts off
         SetLightState(false);
 
@@ -46,10 +50,9 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
         }
     }
 
-    private void SetLightState(bool state)
-    {
+    private void SetLightState(bool state) {
         lightObject.SetActive(state);
-        transform.GetComponent<Animator>().Play(state ? "switchOn" : "switchOff");
+        if (hasLightSwitch) lightSwitchObject.GetComponent<Animator>().Play(state ? "switchOn" : "switchOff");
         materials[i] = state ? stateMaterial[1] : stateMaterial[0];
         audioSource.clip = state ? 
             toggleOnSound[Random.Range(0, toggleOnSound.Length)] : 
