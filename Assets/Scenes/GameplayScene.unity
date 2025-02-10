@@ -14011,6 +14011,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: LightSwitch
       objectReference: {fileID: 0}
+    - target: {fileID: 6319323875742192652, guid: ebc8dede8b6ef4e43bb3ff1824163208,
+        type: 3}
+      propertyPath: lampObject.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319323875742192652, guid: ebc8dede8b6ef4e43bb3ff1824163208,
+        type: 3}
+      propertyPath: lampObject.Array.data[0]
+      value: 
+      objectReference: {fileID: 1972967171}
+    - target: {fileID: 6319323875742192652, guid: ebc8dede8b6ef4e43bb3ff1824163208,
+        type: 3}
+      propertyPath: lampObject.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6752635943729965317, guid: ebc8dede8b6ef4e43bb3ff1824163208,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14035,6 +14050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158625408507267993, guid: ebc8dede8b6ef4e43bb3ff1824163208,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7464768924871846485, guid: ebc8dede8b6ef4e43bb3ff1824163208,
         type: 3}
@@ -20396,6 +20416,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: LightSwitch
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319323875742192652, guid: ebc8dede8b6ef4e43bb3ff1824163208,
+        type: 3}
+      propertyPath: lampObject.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319323875742192652, guid: ebc8dede8b6ef4e43bb3ff1824163208,
+        type: 3}
+      propertyPath: lampObject.Array.data[0]
+      value: 
+      objectReference: {fileID: 1474502816}
+    - target: {fileID: 6319323875742192652, guid: ebc8dede8b6ef4e43bb3ff1824163208,
+        type: 3}
+      propertyPath: lampObject.Array.data[2]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6752635943729965317, guid: ebc8dede8b6ef4e43bb3ff1824163208,
         type: 3}
