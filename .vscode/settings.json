@@ -51,9 +51,11 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "False-Light.sln",
+    "dotnet.defaultSolution": "My project.sln",
     "cSpell.words": [
+        "Backgroud",
         "Behaviour",
+        "Glichted",
         "Interactable",
         "Regen",
         "UGUI"

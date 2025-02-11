@@ -10,12 +10,14 @@ public class KitchenScareScript : MonoBehaviour
     [SerializeField] private GameObject ghostTrigger;
     [SerializeField] private Animator ghostAnimator;
     [SerializeField] private GameObject AirWall;
+    [SerializeField] private GameObject scareTrigger;
 
     void Start()
     {
         AirWall.SetActive(false);
         Ghost.SetActive(false);
         ghostTrigger.SetActive(true);
+        scareTrigger.SetActive(false);
     }
 
     public void StartSequence()
@@ -32,7 +34,8 @@ public class KitchenScareScript : MonoBehaviour
     {
         ghostAudioSource.Stop(); 
         Destroy(AirWall);
-        Ghost.SetActive(false);
+        Destroy(Ghost);
+        scareTrigger.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
