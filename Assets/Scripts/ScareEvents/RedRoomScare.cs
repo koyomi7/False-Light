@@ -51,7 +51,6 @@ public class GhostRetreatScare : MonoBehaviour
         ghostAnimator.Play("WalkingBack");
         ghostAudioSource.clip = footSteps;
         ghostAudioSource.Play();
-        endingTrigger.SetActive(true);  
     }
 
     private void StartSequence()
@@ -59,6 +58,14 @@ public class GhostRetreatScare : MonoBehaviour
         Ghost.SetActive(true);
         ghostTrigger.SetActive(false);
         Debug.Log("Ghost appeared");
+        endingTrigger.SetActive(true);  
+    }
+
+    private void OnAnimationComplete()
+    {
+        Destroy(Ghost);
+        Destroy(ghostTrigger);
+        Destroy(endingTrigger);
     }
 
     private void OnTriggerEnter(Collider other)
