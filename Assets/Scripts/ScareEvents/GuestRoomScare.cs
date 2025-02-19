@@ -14,7 +14,7 @@ public class GuestRoomScare : MonoBehaviour
     [SerializeField] private GameObject ghostTrigger;
     [SerializeField] private GameObject scareTrigger;
     [SerializeField] private Animator ghostAnimator;
-    [SerializeField] private float ghostSpeed = 3f;
+    [SerializeField] private float ghostSpeed = 0.7f;
 
     private bool isGhostRunning = false;
 
@@ -56,10 +56,10 @@ public class GuestRoomScare : MonoBehaviour
         yield return new WaitForSeconds(1f); 
 
         // Reappear the ghost
-        Ghost.transform.position = new Vector3(Ghost.transform.position.x, 0.4f, Ghost.transform.position.z);
+        Ghost.transform.position = new Vector3(Ghost.transform.position.x, 0f, Ghost.transform.position.z);
         Ghost.transform.rotation = Quaternion.Euler(180, 180, 0);
         Ghost.SetActive(true);
-        ghostAnimator.Play("Hop");
+        ghostAnimator.Play("ClownRun");
 
         ghostAudioSource.clip = GhostRoar;
         ghostAudioSource.Play();
@@ -73,6 +73,7 @@ public class GuestRoomScare : MonoBehaviour
     private void RunToPlayer()
     {
         Vector3 direction = (player.position - Ghost.transform.position).normalized;
+        direction.y = 0; // Prevent ghost from moving up or down
         Ghost.transform.position += direction * ghostSpeed * Time.deltaTime;
         Ghost.transform.LookAt(player);
 
