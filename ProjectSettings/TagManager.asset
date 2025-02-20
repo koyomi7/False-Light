@@ -19,6 +19,7 @@ TagManager:
   - ScareBathroomDoor
   - Pill
   - PlayerClip
+  - DrawerDoor
   layers:
   - Default
   - TransparentFX
