@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5508639c65092443959df8aa9f1a91b, type: 3}
+  m_Name: READ ME!
+  m_EditorClassIdentifier: 
+  nameAndVer: LOW POLY CHESS PIECES
+  smallName: Low Poly Chess Pieces
+  docs: 
+  onlineDocs: 
+  tuts: 
+  forum: 
+  mail: smallbigsquare@gmail.com
+  rate: https://assetstore.unity.com/packages/slug/310624
+  pub: https://assetstore.unity.com/publishers/90279
