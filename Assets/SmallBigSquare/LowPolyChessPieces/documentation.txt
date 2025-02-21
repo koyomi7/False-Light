@@ -1,0 +1,31 @@
+Documentation for Low Poly Chess Pieces
+
+For URP users
+Select -> Window/Rendering/Render Pipeline Converter/
+Check -> Material Upgrade
+Click -> Initialize and Convert
+
+For HDRP users
+Select -> Edit/Rendering/Materials/Convert All Built-in materials to HDRP
+
+If you have any questions email me: smallbigsquare@gmail.com
+
+Each object consists of 24-2000 vertices and 12-1000 triangles
+All objects use the same texture resurect1024.png
+
+
+If you have any questions or if you find a bug don't hesitate to email me: smallbigsquare@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
