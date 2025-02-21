@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4355470243685451542
+--- !u!1 &1645528516090194743
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 128632201287100928}
-  - component: {fileID: 1077381624132907155}
-  - component: {fileID: 6965504200124384824}
-  - component: {fileID: 3349206917304524994}
+  - component: {fileID: 1507162439575347094}
+  - component: {fileID: 7618477561524223936}
+  - component: {fileID: 528911455773489489}
+  - component: {fileID: 3828060575980847862}
   m_Layer: 0
-  m_Name: coffeTable
+  m_Name: waterDispenser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!4 &128632201287100928
+--- !u!4 &1507162439575347094
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4355470243685451542}
+  m_GameObject: {fileID: 1645528516090194743}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5251131741874855339}
+  m_Father: {fileID: 2792708387186124762}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1077381624132907155
+--- !u!33 &7618477561524223936
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4355470243685451542}
-  m_Mesh: {fileID: 3003203712537076119, guid: 586fd122a459a1040aaa87eda129f418, type: 3}
---- !u!23 &6965504200124384824
+  m_GameObject: {fileID: 1645528516090194743}
+  m_Mesh: {fileID: -3518386657526378199, guid: d31ae3b3f8108284bba44064ed9dff1c, type: 3}
+--- !u!23 &528911455773489489
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4355470243685451542}
+  m_GameObject: {fileID: 1645528516090194743}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,6 +63,9 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 3441f6441092d3c459a48c3c48ea63c6, type: 2}
+  - {fileID: 2100000, guid: 35261150e5398c0439d6fd7481f62b62, type: 2}
+  - {fileID: 2100000, guid: 7f64eac4bd640ef44ae0187dbfcb4089, type: 2}
+  - {fileID: 2100000, guid: fac6997ebfb39364db1173ae4a1c49e6, type: 2}
   - {fileID: 2100000, guid: 31e87d42f3ffa2546b1f527e7a0a4b9d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -85,20 +88,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3349206917304524994
+--- !u!65 &3828060575980847862
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4355470243685451542}
+  m_GameObject: {fileID: 1645528516090194743}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.74431515, y: 0.59181046, z: 1.4886303}
-  m_Center: {x: 0.039902523, y: 0.29590517, z: 0.0000002682209}
---- !u!1 &4869539996879210257
+  m_Size: {x: 0.40259323, y: 1.5780748, z: 0.44976437}
+  m_Center: {x: -0.00000025331974, y: 0.78836936, z: 0.013205312}
+--- !u!1 &3281542857924279648
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,27 +109,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5251131741874855339}
+  - component: {fileID: 2792708387186124762}
   m_Layer: 0
-  m_Name: (Prb)CoffeTable
+  m_Name: (Prb)WaterDispenser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!4 &5251131741874855339
+--- !u!4 &2792708387186124762
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4869539996879210257}
+  m_GameObject: {fileID: 3281542857924279648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 128632201287100928}
+  - {fileID: 1507162439575347094}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
