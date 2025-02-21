@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
     [SerializeField] private bool canFlicker = true;
     [SerializeField] private float flickerDuration = 1f;
     [SerializeField] private int flickerCount = 3;
+    [SerializeField] private bool isCeilingFan = false;
 
     private MeshRenderer[] meshRenderer;
     private Material[] materials;
@@ -27,6 +29,10 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
     private int i = 0; // index of material emission state in materials array
     private bool isFlickering = false;
     private bool hasLightSwitch;
+    private const float CEILING_FAN_MAX_VELOCITY = 130f;
+    private float ceilingFanVelocity = 0f;
+    [SerializeField] private float ceilingFanAcceleration = 0f;
+    [SerializeField] private float ceilingFanDrag = 0f;
 
     void Start() {
         meshRenderer = new MeshRenderer[lampObject.Length];
@@ -42,7 +48,7 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
         hasLightSwitch = lightSwitchObject != null;
 
         // Starts off
-        SetLightState(false);
+        SetLightState(false, true);
 
         if (enableRandomEvents)
         {
@@ -50,18 +56,30 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
         }
     }
 
-    private void SetLightState(bool state) {
+    void Update() {
+        if (isCeilingFan) {
+            // Rotate ceiling fan
+            for (int i = 0; i < lampObject.Length; i++) {
+                lampObject[i].transform.Rotate(0, ceilingFanVelocity * Time.deltaTime, 0);
+            }
+            if (lightObject.activeSelf)
+                ceilingFanVelocity = Mathf.Clamp(ceilingFanVelocity + ceilingFanAcceleration * Time.deltaTime, 0, CEILING_FAN_MAX_VELOCITY);
+            else ceilingFanVelocity = ceilingFanVelocity * (1 - ceilingFanDrag * Time.deltaTime);
+        }
+    }
+
+    private void SetLightState(bool state, bool start=false) {
         lightObject.SetActive(state);
         if (hasLightSwitch) lightSwitchObject.GetComponent<Animator>().Play(state ? "switchOn" : "switchOff");
         materials[i] = state ? stateMaterial[1] : stateMaterial[0];
         audioSource.clip = state ? 
-            toggleOnSound[Random.Range(0, toggleOnSound.Length)] : 
-            toggleOffSound[Random.Range(0, toggleOffSound.Length)];
+            toggleOnSound[UnityEngine.Random.Range(0, toggleOnSound.Length)] : 
+            toggleOffSound[UnityEngine.Random.Range(0, toggleOffSound.Length)];
 
         for (int _i = 0; _i < meshRenderer.Length; _i++)
             meshRenderer[_i].materials = materials;
-
-        audioSource.Play();
+        
+        if (!start) audioSource.Play();
     }
 
     public void Interact() {
@@ -76,12 +94,12 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
     {
         while (enableRandomEvents)
         {
-            float waitTime = Random.Range(minTimeBetweenEvents, maxTimeBetweenEvents);
+            float waitTime = UnityEngine.Random.Range(minTimeBetweenEvents, maxTimeBetweenEvents);
             yield return new WaitForSeconds(waitTime);
 
-            if (Random.value < eventChance && lightObject.activeSelf)
+            if (UnityEngine.Random.value < eventChance && lightObject.activeSelf)
             {
-                if (Random.value < 0.5f && canFlicker)
+                if (UnityEngine.Random.value < 0.5f && canFlicker)
                 {
                     StartCoroutine(FlickerEffect());
                 }
@@ -89,7 +107,7 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
                 {
                     SetLightState(false);
                     // Optionally turn it back on after a delay
-                    StartCoroutine(TurnOnAfterDelay(Random.Range(2f, 5f)));
+                    StartCoroutine(TurnOnAfterDelay(UnityEngine.Random.Range(2f, 5f)));
                 }
             }
         }
