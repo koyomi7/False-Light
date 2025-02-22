@@ -51,6 +51,11 @@ public class PlayerScript : MonoBehaviour
     private IInteractable currentInteractable; // Track the currently targeted interactable
     [SerializeField] private string[] tagsToIgnore;
 
+    [Header("Pickup Settings")]
+    [SerializeField] public Transform holdPoint; // Assign in Inspector (child of the camera)
+    [SerializeField] public float throwForce = 10f;
+    private GameObject heldObject;
+
     private void OnCollisionEnter(Collision collision) {
         foreach (string tagToIgnore in tagsToIgnore) {
             if (collision.gameObject.CompareTag(tagToIgnore))
@@ -92,8 +97,38 @@ public class PlayerScript : MonoBehaviour
         UpdateStaminaBar();
         HandleStaminaBarVisibility();
         HandleFootstepSounds();
-        CheckForInteractable();
+        if (heldObject == null) CheckForInteractable();
         HandleInteraction();
+    }
+
+    public void Pickup(GameObject obj) {
+        if (heldObject == null) {
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            if (rb != null) rb.isKinematic = true; // Disable physics
+
+            // Parent the object to the hold point
+            obj.transform.SetParent(holdPoint);
+            obj.transform.localPosition = Vector3.zero;
+            obj.transform.localRotation = Quaternion.identity;
+            heldObject = obj;
+            currentInteractable = null;
+            interactionText.gameObject.SetActive(false);
+            Debug.Log("PICKED UP OBJECT");
+        }
+    }
+
+    public void Drop() {
+        if (heldObject != null) {
+            Rigidbody rb = heldObject.GetComponent<Rigidbody>();
+            if (rb != null) {
+                rb.isKinematic = false; // Re-enable physics
+                rb.AddForce(holdPoint.forward * throwForce, ForceMode.Impulse); // Throw
+            }
+
+            heldObject.transform.SetParent(null); // Unparent
+            heldObject = null;
+            Debug.Log("DROPPED OBJECT");
+        }
     }
 
     void HandleMovement()
@@ -204,6 +239,7 @@ public class PlayerScript : MonoBehaviour
     private void CheckForInteractable() {
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         RaycastHit[] hits = Physics.RaycastAll(ray, interactionDistance);
+        Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward);
 
         // Sort hits by distance (closest first)
         System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
@@ -253,8 +289,10 @@ public class PlayerScript : MonoBehaviour
     }
 
     private void HandleInteraction() {
-        if (Input.GetKeyDown(KeyCode.F) && currentInteractable != null)
-            currentInteractable.Interact();
+        if (Input.GetKeyDown(KeyCode.F)) {
+            if (heldObject != null) Drop();
+            else if (currentInteractable != null) currentInteractable.Interact();
+        }
     }
 
     // void HandleInteraction() {
