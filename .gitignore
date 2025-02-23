@@ -71,14 +71,19 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# Large and unchanging assets
-[Aa]ssets/ModularHousePack1/Art/
-[Aa]ssets/nappin/House Props Softpack/Models/
-[Aa]ssets/GeniusCrate_Games/Kitchen_Set/Model/
-[Aa]ssets/GeniusCrate_Games/Kitchen_Set/Texture Maps/
-[Aa]ssets/ADI/Voxel Office Props/Models/
-[Aa]ssets/ADI/Voxel Office Props/Vox Files/
+#-=-=-=Large and unchanging assets=-=-=-
+# UNITY IMPORTS
+[Aa]ssets/ModularHousePack1/
+[Aa]ssets/nappin/
+[Aa]ssets/GeniusCrate_Games/
+[Aa]ssets/SmallBigSquare/
+[Aa]ssets/TextMesh*Pro/
+
+# EXTERNAL IMPORTS
 [Aa]ssets/Import/
-[Aa]ssets/SmallBigSquare/LowPolyChessPieces/Meshes/
-[Aa]ssets/nappin/Office Props Softpack/Models/
+[Aa]ssets/Animations/
+[Aa]ssets/Sound/
+[Aa]ssets/Models/
+
+# OTHER
 .vscode/

@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Animator doorAnimator;
+
     [SerializeField] private bool isOpen = false;
-    [SerializeField] public AudioSource audioSource;
     [SerializeField] public AudioClip DoorOpenSound;
     [SerializeField] public AudioClip DoorCloseSound;
+    [HideInInspector] private Animator doorAnimator;
+    [HideInInspector] public AudioSource audioSource;
 
     // variables for random interactions
     [SerializeField] private bool enableRandomInteractions = true;
