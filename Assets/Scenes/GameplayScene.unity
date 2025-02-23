@@ -7819,7 +7819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832184502b4852b43bb27dac914f21c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bathroomDoor: {fileID: 0}
+  bathroomDoor: {fileID: 1409344705}
 --- !u!1001 &520353832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9192,7 +9192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4206b878db1baf44998b5c39caee2f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scareDoor: {fileID: 0}
+  scareDoor: {fileID: 7157945860830622869}
 --- !u!1 &596239153
 GameObject:
   m_ObjectHideFlags: 0
@@ -19645,7 +19645,7 @@ GameObject:
   - component: {fileID: 1409344701}
   - component: {fileID: 1409344700}
   - component: {fileID: 1409344699}
-  - component: {fileID: 1409344703}
+  - component: {fileID: 1409344705}
   - component: {fileID: 1409344704}
   - component: {fileID: 1409344702}
   m_Layer: 6
@@ -19840,27 +19840,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1409344703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409344697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  DoorOpenSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
-  DoorCloseSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
-  audioSource: {fileID: 0}
-  enableRandomInteractions: 1
-  minTimeBetweenRandomInteractions: 60
-  maxTimeBetweenRandomInteractions: 120
-  randomInteractionChance: 0.3
-  playerDetectionRadius: 10
 --- !u!95 &1409344704
 Animator:
   serializedVersion: 5
@@ -19882,6 +19861,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1409344705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409344697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff81b4dfc91f5943843f3c9e9a851a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnimator: {fileID: 1409344704}
+  ghostAnimator: {fileID: 5866666020651857725}
+  isOpen: 0
+  audioSource: {fileID: 1409344702}
+  ghostAudioSource: {fileID: 1259227822}
+  DoorOpenSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
+  DoorCloseSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
+  FootstepsBehindDoor: {fileID: 8300000, guid: 5a8317aeb8ad0aa45a4ee8010d07cace, type: 3}
+  DoorSlamSound: {fileID: 8300000, guid: e469232fe5d373e49b149bdf7d855a30, type: 3}
+  airWall: {fileID: 199066800}
+  Ghost: {fileID: 919132148265613309}
+  doorPos: {fileID: 918027322}
+  scareTrigger: {fileID: 503815165}
 --- !u!1 &1415585763
 GameObject:
   m_ObjectHideFlags: 0
@@ -103367,7 +103371,7 @@ GameObject:
   - component: {fileID: 2031193361350148965}
   - component: {fileID: 7157945860830622865}
   - component: {fileID: 1723744935785195825}
-  - component: {fileID: 7157945860830622867}
+  - component: {fileID: 7157945860830622869}
   - component: {fileID: 7157945860830622866}
   - component: {fileID: 7157945860830622868}
   m_Layer: 6
@@ -112457,27 +112461,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7157945860830622867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6351132314098279483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
-  DoorOpenSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
-  DoorCloseSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
-  audioSource: {fileID: 0}
-  enableRandomInteractions: 1
-  minTimeBetweenRandomInteractions: 60
-  maxTimeBetweenRandomInteractions: 120
-  randomInteractionChance: 0.3
-  playerDetectionRadius: 10
 --- !u!82 &7157945860830622868
 AudioSource:
   m_ObjectHideFlags: 0
@@ -112574,6 +112557,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7157945860830622869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6351132314098279483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d49f842d979324c9411b3973983369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnimator: {fileID: 7157945860830622866}
+  ghostAnimator: {fileID: 5866666020391215624}
+  isOpen: 0
+  audioSource: {fileID: 7157945860830622868}
+  ghostAudioSource: {fileID: 1996372219}
+  DoorOpenSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
+  DoorCloseSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
+  FootstepsBehindDoor: {fileID: 8300000, guid: 7723dddaaadb36848a0515a32492109a, type: 3}
+  Ghost: {fileID: 919132148525982408}
+  player: {fileID: 2126144581}
+  scareTrigger: {fileID: 588600697}
 --- !u!65 &7158848476176630845
 BoxCollider:
   m_ObjectHideFlags: 0
