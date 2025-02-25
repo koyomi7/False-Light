@@ -11,6 +11,8 @@ public class KitchenScareScript : MonoBehaviour
     [SerializeField] private Animator ghostAnimator;
     [SerializeField] private GameObject AirWall;
     [SerializeField] private GameObject scareTrigger;
+    [SerializeField] private GameObject kitchenProps;
+    [SerializeField] private Animator kitchenPropsAnimator; 
 
     void Start()
     {
@@ -18,18 +20,30 @@ public class KitchenScareScript : MonoBehaviour
         Ghost.SetActive(false);
         ghostTrigger.SetActive(true);
         scareTrigger.SetActive(false);
+        kitchenProps.SetActive(true);
     }
 
     public void StartSequence()
     {
         AirWall.SetActive(true);
+        StartCoroutine(gracePeriod());
         Ghost.SetActive(true);
-        ghostAnimator.Play("SlowCrawl");
+        ghostAnimator.Play("Dive");
         ghostAudioSource.clip = crawlingSound;
         ghostAudioSource.Play();
         ghostTrigger.SetActive(false);
     }
 
+    public IEnumerator gracePeriod()
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
+    
+    public void OnGhostHit()
+    {
+        kitchenPropsAnimator.Play("Scatter");
+    }   
+    
     public void OnAnimationComplete()
     {
         ghostAudioSource.Stop(); 
