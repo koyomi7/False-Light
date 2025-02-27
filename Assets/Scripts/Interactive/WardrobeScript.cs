@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class WardrobeScript : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Animator wardrobeAnimator;
     [SerializeField] private bool isOpen = false;
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip wardrobeOpenSound;
     [SerializeField] private AudioClip wardrobeCloseSound;
+    [HideInInspector] private Animator wardrobeAnimator;
+    [HideInInspector] private AudioSource audioSource;
     // variables for random interactions
     [SerializeField] private bool enableRandomInteractions = true;
     [SerializeField] private float minTimeBetweenRandomInteractions = 60f;
