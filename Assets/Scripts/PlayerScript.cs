@@ -56,13 +56,6 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] public float throwForce = 10f;
     private GameObject heldObject;
 
-    private void OnCollisionEnter(Collision collision) {
-        foreach (string tagToIgnore in tagsToIgnore) {
-            if (collision.gameObject.CompareTag(tagToIgnore))
-                Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider, true);
-        }
-    }
-
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -74,19 +67,10 @@ public class PlayerScript : MonoBehaviour
 
         audioSource.enabled = false;
         
-        foreach (string tagToIgnore in tagsToIgnore) {
-            // Find all objects with the specified tag
-            GameObject[] objectsToIgnore = GameObject.FindGameObjectsWithTag(tagToIgnore);
-
-            // Get the player's collider(s)
-            Collider playerCollider = GetComponent<Collider>();
-
-            // Ignore collisions between the player and tagged objects
-            foreach (GameObject obj in objectsToIgnore) {
-                Collider objCollider = obj.GetComponent<Collider>();
-                if (objCollider != null && playerCollider != null)
-                    Physics.IgnoreCollision(playerCollider, objCollider, true);
-            }
+        // Ignore collisions between the player and tagged objects
+        foreach (GameObject objectToIgnore in GameObject.FindGameObjectsWithTag("NoCollide")) {
+            foreach (Collider collider in objectToIgnore.GetComponentsInChildren<Collider>())
+                Physics.IgnoreCollision(GetComponent<Collider>(), collider, true);
         }
     }
 

@@ -20,6 +20,7 @@ TagManager:
   - Pill
   - PlayerClip
   - DrawerDoor
+  - NoCollide
   layers:
   - Default
   - TransparentFX
