@@ -7,7 +7,7 @@ public class ClockScript : MonoBehaviour {
     [SerializeField] public float speed = 1f;
     private const float SECOND_ROT = 360f / 60f;
     private const float MINUTE_ROT = 360f / 60f / 60f;
-    private const float HOUR_ROT = 360f / 60f / 60f / 24f;
+    private const float HOUR_ROT = 360f / 60f / 60f / 12f;
 
     void Update() {
         secondHand.transform.Rotate(0, 0, speed * SECOND_ROT * Time.deltaTime);
