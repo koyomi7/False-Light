@@ -44,7 +44,7 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable {
         overrideController["PARTLY_OPEN_2"] = partlyOpen2Clip;
 
         audioSource = GetComponent<AudioSource>();
-        audioSource.enabled = false;
+        audioSource.enabled = true;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (enableRandomInteractions)
@@ -91,13 +91,11 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable {
 
         animator.SetTrigger(state.ToString());
         switch (state) {
-            case states.CLOSED: state = states.OPEN; break;
-            case states.OPEN: state = states.CLOSED; break;
-            case states.PARTLY_OPEN_1: state = states.CLOSED; break;
-            case states.PARTLY_OPEN_2: state = states.CLOSED; break;
+            case states.CLOSED: state = states.OPEN; audioSource.clip = openSound; break;
+            case states.OPEN: state = states.CLOSED; audioSource.clip = closeSound; break;
+            case states.PARTLY_OPEN_1: state = states.CLOSED; audioSource.clip = closeSound; break;
+            case states.PARTLY_OPEN_2: state = states.CLOSED; audioSource.clip = closeSound; break;
         }
-        audioSource.enabled = true;
-        audioSource.clip = openSound;
         audioSource.Play();
         isOnCooldown = true;
         cooldownTimer = CooldownDuration;
