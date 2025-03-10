@@ -48,6 +48,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer; // Layer for interactable objects
     [SerializeField] private LayerMask playerLayer; // Layer for player object
     [SerializeField] private TMPro.TextMeshProUGUI interactionText; // Reference to the interaction text
+    [SerializeField] private TMPro.TextMeshProUGUI keysNeededText; // NEW: Reference to the "Keys Needed" text
     private IInteractable currentInteractable; // Track the currently targeted interactable
     [SerializeField] private string[] tagsToIgnore;
 
@@ -55,6 +56,10 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] public Transform holdPoint; // Assign in Inspector (child of the camera)
     [SerializeField] public float throwForce = 10f;
     private GameObject heldObject;
+
+    // Timer for "Keys Needed" visibility
+    private float keysNeededTimer = 0f;
+    private const float KeysNeededDisplayTime = 2f; // Time in seconds to show "Keys Needed"
 
     void Start()
     {
@@ -66,9 +71,17 @@ public class PlayerScript : MonoBehaviour
         currentStamina = maxStamina;
 
         audioSource.enabled = false;
-        
+
+        // Initialize UI elements
+        if (keysNeededText != null)
+        {
+            keysNeededText.gameObject.SetActive(false); // Hide "Keys Needed" text by default
+            keysNeededText.text = "Key Required"; // Set default text
+        }
+
         // Ignore collisions between the player and tagged objects
-        foreach (GameObject objectToIgnore in GameObject.FindGameObjectsWithTag("NoCollide")) {
+        foreach (GameObject objectToIgnore in GameObject.FindGameObjectsWithTag("NoCollide"))
+        {
             foreach (Collider collider in objectToIgnore.GetComponentsInChildren<Collider>())
                 Physics.IgnoreCollision(GetComponent<Collider>(), collider, true);
         }
@@ -83,14 +96,16 @@ public class PlayerScript : MonoBehaviour
         HandleFootstepSounds();
         if (heldObject == null) CheckForInteractable();
         HandleInteraction();
+        UpdateKeysNeededVisibility(); // NEW: Handle "Keys Needed" text visibility
     }
 
-    public void Pickup(GameObject obj) {
-        if (heldObject == null) {
+    public void Pickup(GameObject obj)
+    {
+        if (heldObject == null)
+        {
             Rigidbody rb = obj.GetComponent<Rigidbody>();
             if (rb != null) rb.isKinematic = true; // Disable physics
 
-            // Parent the object to the hold point
             obj.transform.SetParent(holdPoint);
             obj.transform.localPosition = Vector3.zero;
             obj.transform.localRotation = Quaternion.identity;
@@ -101,10 +116,13 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    public void Drop() {
-        if (heldObject != null) {
+    public void Drop()
+    {
+        if (heldObject != null)
+        {
             Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-            if (rb != null) {
+            if (rb != null)
+            {
                 rb.isKinematic = false; // Re-enable physics
                 rb.AddForce(holdPoint.forward * throwForce, ForceMode.Impulse); // Throw
             }
@@ -135,7 +153,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         float speed = isCrouching ? crouchSpeed : (Input.GetKey(KeyCode.LeftShift) && currentStamina > 0 ? runSpeed : walkSpeed);
-        
+
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
         moveDirection.x = move.x * speed;
         moveDirection.z = move.z * speed;
@@ -176,13 +194,9 @@ public class PlayerScript : MonoBehaviour
     {
         if (staminaBar == null) return;
 
-        // Check if stamina is full
         if (currentStamina >= maxStamina)
         {
-            // Increment the timer
             staminaFullTimer += Time.deltaTime;
-
-            // Hide the stamina bar after 2 seconds of full stamina
             if (staminaFullTimer >= StaminaFullDelay)
             {
                 staminaBar.gameObject.SetActive(false);
@@ -191,7 +205,6 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            // Reset the timer and show the stamina bar
             staminaFullTimer = 0f;
             staminaBar.gameObject.SetActive(true);
             staminaBarBackground.gameObject.SetActive(true);
@@ -220,36 +233,34 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void CheckForInteractable() {
+    private void CheckForInteractable()
+    {
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         RaycastHit[] hits = Physics.RaycastAll(ray, interactionDistance);
         Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward);
 
-        // Sort hits by distance (closest first)
         System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
 
-        for (int i = 0; i < hits.Length; i++) {
+        for (int i = 0; i < hits.Length; i++)
+        {
             RaycastHit hit = hits[i];
-            // Skip triggers
             if (hit.collider.isTrigger) continue;
 
-            // Check if the hit object is interactable
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-            if (interactable != null) {
-                // no obstruction
+            if (interactable != null)
+            {
                 currentInteractable = interactable;
                 interactionText.gameObject.SetActive(true);
 
-                // check remaining layers for pills
-                for (int j = i; j < hits.Length; j++) {
-                    // asserts that remaining layers are interactable layers
-                        // i.e., a pill object within a drawer object
-                    if (!((interactableLayer.value & (1 << hit.collider.gameObject.layer)) > 0)) {
+                for (int j = i; j < hits.Length; j++)
+                {
+                    if (!((interactableLayer.value & (1 << hit.collider.gameObject.layer)) > 0))
+                    {
                         break;
                     }
 
-                    // returns the pill object instead
-                    if (hits[j].collider.CompareTag("Pill")) {
+                    if (hits[j].collider.CompareTag("Pill"))
+                    {
                         currentInteractable = hits[j].collider.GetComponent<IInteractable>();
                         break;
                     }
@@ -257,121 +268,69 @@ public class PlayerScript : MonoBehaviour
                 
                 return;
             }
-            else {
-                // The hit is a non-interactable obstruction (e.g., a wall)
-                // Block interaction and exit early
-                if (hit.collider.CompareTag("PlayerClip")) continue; // Can interact through player clip brush
+            else
+            {
+                if (hit.collider.CompareTag("PlayerClip")) continue;
                 currentInteractable = null;
                 interactionText.gameObject.SetActive(false);
                 return;
             }
         }
 
-        // No hits at all: hide the text
         currentInteractable = null;
         interactionText.gameObject.SetActive(false);
     }
 
-    private void HandleInteraction() {
-        if (Input.GetKeyDown(KeyCode.F)) {
-            if (heldObject != null) Drop();
-            else if (currentInteractable != null) currentInteractable.Interact();
+    private void HandleInteraction()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (heldObject != null)
+            {
+                Drop();
+            }
+            else if (currentInteractable != null)
+            {
+                // Check if the interactable is a door requiring a key
+                GenericAccessMechanismScript door = currentInteractable as GenericAccessMechanismScript;
+                if (door != null && door.requiresKey && !door.isUnlocked)
+                {
+                    if (!KeyInventory.Instance.HasKey())
+                    {
+                        ShowKeysNeededText(); // Show "Keys Needed" if no key is available
+                    }
+                    else
+                    {
+                        currentInteractable.Interact(); // Proceed with interaction
+                    }
+                }
+                else
+                {
+                    currentInteractable.Interact(); // Proceed with interaction
+                }
+                
+            }
         }
     }
 
-    // void HandleInteraction() {
-    //     Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-    //     RaycastHit hit;
-    //     Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.red);
+    private void ShowKeysNeededText()
+    {
+        if (keysNeededText != null)
+        {
+            keysNeededText.gameObject.SetActive(true);
+            keysNeededTimer = KeysNeededDisplayTime; // Reset timer
+        }
+    }
 
-    //     // Does not do anything for non-interactable objects
-    //     if (Physics.Raycast(ray, out hit, interactionDistance, obstacleLayer)) {
-    //         interactionText.gameObject.SetActive(false); // Hide interaction text
-    //         return;
-    //     }
-
-    //     // Check if the ray hits an interactable object
-    //     if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer)) {
-    //         interactionText.gameObject.SetActive(true); // Show interaction text
-
-    //         // Check for 'F' key press to interact
-    //         if (Input.GetKeyDown(KeyCode.F)) {
-    //             // Call the Interact method on the door script
-    //             if (hit.collider.CompareTag("Door")){
-    //                 DoorScript doors = hit.collider.GetComponent<DoorScript>();
-    //                 if (doors != null) doors.Interact();
-    //             }
-    //             // Call the Interact method on the scare door script
-    //             else if (hit.collider.CompareTag("ScareDoor")) {
-    //                 ScareDoorScript scareDoor = hit.collider.GetComponent<ScareDoorScript>();
-    //                 if (scareDoor != null) scareDoor.Interact();
-    //             }
-    //             // Call the Interact method on the scare bathroom door script
-    //             else if (hit.collider.CompareTag("ScareBathroomDoor")) {
-    //                 ScareBathroomDoorScript scareBathroomDoor = hit.collider.GetComponent<ScareBathroomDoorScript>();
-    //                 if (scareBathroomDoor != null) scareBathroomDoor.Interact();
-    //             }
-    //             // Call the Interact method on the light switch script
-    //             else if (hit.collider.CompareTag("LightSwitch")) {
-    //                 LightSwitchScript interactable = hit.collider.GetComponent<LightSwitchScript>();
-    //                 if (interactable != null) interactable.Interact();
-    //             }
-    //             // Call the Interact method on the drawer script
-    //             else if (hit.collider.CompareTag("DeskDrawer")) {
-    //                 DeskDrawerScript interactable = hit.collider.GetComponent<DeskDrawerScript>();
-    //                 if (interactable != null) interactable.Interact();
-    //             }
-    //             // Call the Interact method on the shelf script
-    //             else if (hit.collider.CompareTag("Shelf")) {
-    //                 ShelfScript interactable = hit.collider.GetComponent<ShelfScript>();
-    //                 if (interactable != null) interactable.Interact();
-    //             }
-    //             // Call the Interact method on the sink drawer script
-    //             else if (hit.collider.CompareTag("SinkDrawer")) {
-    //                 SinkDrawerScript interactable = hit.collider.GetComponent<SinkDrawerScript>();
-    //                 if (interactable != null) interactable.Interact();
-    //             }
-    //             // Call the Interact method on the kitchen shelf script
-    //             else if (hit.collider.CompareTag("KitchenShelf")) {
-    //                 KitchenShelfScript interactable = hit.collider.GetComponent<KitchenShelfScript>();
-    //                 if (interactable != null) interactable.Interact();
-    //             }
-    //             // Call the Interact method on the kitchen island script
-    //             else if (hit.collider.CompareTag("KitchenIsland")) {
-    //                 KitchenIslandScript interactable = hit.collider.GetComponent<KitchenIslandScript>();
-    //                 if (interactable != null) interactable.Interact();
-    //             }
-    //             // Call the Interact method on the fridge door script
-    //             else if (hit.collider.CompareTag("FridgeDoor")) {
-    //                 FridgeDoorScript interactable = hit.collider.GetComponent<FridgeDoorScript>();
-    //                 if (interactable != null) interactable.Interact();
-    //             }
-    //             // Call the Interact method on the kitchen drawer script
-    //             else if (hit.collider.CompareTag("KitchenDrawer")) {
-    //                 KitchenDrawerScript interactable = hit.collider.GetComponent<KitchenDrawerScript>();
-    //                 if (interactable != null) interactable.Interact();
-    //             }
-    //             // Call the Interact method on the wardrobe script
-    //             else if (hit.collider.CompareTag("Wardrobe")) {
-    //                 WardrobeScript interactable = hit.collider.GetComponent<WardrobeScript>();
-    //                 if (interactable != null) interactable.Interact();
-    //             }
-    //             // Call the Interact method on the wardrobe drawer script
-    //             else if (hit.collider.CompareTag("WDrawer")) {
-    //                 WDrawerScript interactable = hit.collider.GetComponent<WDrawerScript>();
-    //                 if (interactable != null) interactable.Interact();
-    //             }
-    //             // Call the Interact method on the pill script
-    //             else if (hit.collider.CompareTag("Pill")) {
-    //                 PillScript interactable = hit.collider.GetComponent<PillScript>();
-    //                 if (interactable != null) interactable.Interact();
-    //             }
-                
-    //         }
-    //     }
-    //     else {
-    //         // Reset crosshair color if not aiming at an interactable object
-    //         interactionText.gameObject.SetActive(false); // Hide interaction text
-    //     }
-    // }
+    private void UpdateKeysNeededVisibility()
+    {
+        if (keysNeededText != null && keysNeededText.gameObject.activeSelf)
+        {
+            keysNeededTimer -= Time.deltaTime;
+            if (keysNeededTimer <= 0f)
+            {
+                keysNeededText.gameObject.SetActive(false); // Hide after timer expires
+            }
+        }
+    }
 }
