@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class GenericAccessMechanismScript : MonoBehaviour, IInteractable {
+public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
+{
     [Header("State Settings")]
     [SerializeField] private states state = states.CLOSED;
 
@@ -27,17 +28,20 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable {
     private float cooldownTimer = 0f;
     private const float CooldownDuration = 1f;
 
+    [Header("Key Settings")]
+    [SerializeField] public bool requiresKey = false; 
+    [SerializeField] public bool isUnlocked = false; 
+
     // Other variables
     private Transform player;
-    private enum states {CLOSED, OPEN, PARTLY_OPEN_1, PARTLY_OPEN_2};
+    private enum states { CLOSED, OPEN, PARTLY_OPEN_1, PARTLY_OPEN_2 };
 
-    void Start() {
-        // Gets the current generic interaction runtime animator controller and creates an override controller based on it
+    void Start()
+    {
         animator = GetComponent<Animator>();
         AnimatorOverrideController overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = overrideController;
 
-        // Overrides the default animation clips
         overrideController["CLOSED"] = closedClip;
         overrideController["OPEN"] = openClip;
         overrideController["PARTLY_OPEN_1"] = partlyOpen1Clip;
@@ -51,50 +55,78 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable {
             StartCoroutine(RandomInteractionCoroutine());
     }
 
-    void Update() {
-        // Cooldown time to avoid spams
-        if (isOnCooldown) {
+    void Update()
+    {
+        if (isOnCooldown)
+        {
             cooldownTimer -= Time.deltaTime;
-            if (cooldownTimer <= 0f) isOnCooldown = false; // End the cooldown
+            if (cooldownTimer <= 0f) isOnCooldown = false;
         }
     }
 
-    private IEnumerator RandomInteractionCoroutine() {
-        while (enableRandomInteractions) {
-            // Wait for random time
+    private IEnumerator RandomInteractionCoroutine()
+    {
+        while (enableRandomInteractions)
+        {
             float waitTime = Random.Range(minTimeBetweenRandomInteractions, maxTimeBetweenRandomInteractions);
             yield return new WaitForSeconds(waitTime);
 
-            // Check if player is within range and random chance is met
             if (IsPlayerNearby() && Random.value < randomInteractionChance)
                 RandomInteract();
         }
     }
 
-    private bool IsPlayerNearby() {
+    private bool IsPlayerNearby()
+    {
         if (player == null) return false;
         return Vector3.Distance(transform.position, player.position) <= playerDetectionRadius;
     }
 
-    private void RandomInteract() {
-        if (isOnCooldown) return; // Exit if cooldown is active
+    private void RandomInteract()
+    {
+        if (isOnCooldown) return;
 
-        // Add some randomness to the interaction
         float randomValue = Random.value;
-
         if ((state.Equals(states.CLOSED) && randomValue > 0.5f) || (!state.Equals(states.CLOSED) && randomValue <= 0.5f))
             Interact();
     }
 
-    public void Interact() {
-        if (isOnCooldown) return; // Exit if cooldown is active
+    public void Interact()
+    {
+        if (isOnCooldown) return;
 
+        // Check if a key is required and the door is still locked
+        if (requiresKey && !isUnlocked && state == states.CLOSED)
+        {
+            if (!KeyInventory.Instance.HasKey())
+            {
+                Debug.Log("You need a key to open this!");
+                return; // Exit if no key is available
+            }
+            KeyInventory.Instance.UseKey(); // Consume the key
+            isUnlocked = true; // Mark the door as unlocked
+        }
+
+        // Proceed with state change and animation
         animator.SetTrigger(state.ToString());
-        switch (state) {
-            case states.CLOSED: state = states.OPEN; audioSource.clip = openSound; break;
-            case states.OPEN: state = states.CLOSED; audioSource.clip = closeSound; break;
-            case states.PARTLY_OPEN_1: state = states.CLOSED; audioSource.clip = closeSound; break;
-            case states.PARTLY_OPEN_2: state = states.CLOSED; audioSource.clip = closeSound; break;
+        switch (state)
+        {
+            case states.CLOSED:
+                state = states.OPEN;
+                audioSource.clip = openSound;
+                break;
+            case states.OPEN:
+                state = states.CLOSED;
+                audioSource.clip = closeSound;
+                break;
+            case states.PARTLY_OPEN_1:
+                state = states.CLOSED;
+                audioSource.clip = closeSound;
+                break;
+            case states.PARTLY_OPEN_2:
+                state = states.CLOSED;
+                audioSource.clip = closeSound;
+                break;
         }
         audioSource.Play();
         isOnCooldown = true;
