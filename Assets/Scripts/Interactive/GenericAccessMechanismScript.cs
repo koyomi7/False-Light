@@ -87,6 +87,13 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
         if (isOnCooldown) return;
 
         float randomValue = Random.value;
+        
+        // if door is locked, do not open it randomly
+        if (requiresKey && !isUnlocked && state.Equals(states.CLOSED)){
+            Debug.Log("Door is locked, cannot open randomly");
+            return;
+        } 
+
         if ((state.Equals(states.CLOSED) && randomValue > 0.5f) || (!state.Equals(states.CLOSED) && randomValue <= 0.5f))
             Interact();
     }

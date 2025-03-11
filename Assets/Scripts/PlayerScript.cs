@@ -29,6 +29,11 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip walkSound;
     [SerializeField] private AudioClip runSound;
+    
+    // Keys sound variables
+    [SerializeField] private AudioClip OpenDoorFailedSound;
+    [SerializeField] private AudioSource KeysAudioSource;
+    [SerializeField] private AudioClip UnlockDoorSound;
 
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
@@ -96,7 +101,7 @@ public class PlayerScript : MonoBehaviour
         HandleFootstepSounds();
         if (heldObject == null) CheckForInteractable();
         HandleInteraction();
-        UpdateKeysNeededVisibility(); // NEW: Handle "Keys Needed" text visibility
+        UpdateKeysNeededVisibility(); 
     }
 
     public void Pickup(GameObject obj)
@@ -297,16 +302,20 @@ public class PlayerScript : MonoBehaviour
                 {
                     if (!KeyInventory.Instance.HasKey())
                     {
-                        ShowKeysNeededText(); // Show "Keys Needed" if no key is available
+                        ShowKeysNeededText();
+                        KeysAudioSource.clip = OpenDoorFailedSound;
+                        KeysAudioSource.Play();
                     }
                     else
                     {
-                        currentInteractable.Interact(); // Proceed with interaction
+                        currentInteractable.Interact();
+                        KeysAudioSource.clip = UnlockDoorSound;
+                        KeysAudioSource.Play();
                     }
                 }
                 else
                 {
-                    currentInteractable.Interact(); // Proceed with interaction
+                    currentInteractable.Interact(); 
                 }
                 
             }
