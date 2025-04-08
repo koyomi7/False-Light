@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 7294586179536358869}
   - component: {fileID: 965524164662158100}
   - component: {fileID: 3146092561411041047}
+  - component: {fileID: 4631023214574074865}
   m_Layer: 6
   m_Name: Model
   m_TagString: NoCollide
@@ -423,6 +424,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  requiresKey: 0
+  isUnlocked: 0
 --- !u!95 &965524164662158100
 Animator:
   serializedVersion: 5
@@ -435,7 +438,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -540,6 +543,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &4631023214574074865
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2286960956913256163}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2307791268652353812
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +585,7 @@ GameObject:
   - component: {fileID: 8041242444585550299}
   - component: {fileID: 6937432720913038163}
   - component: {fileID: 3328478256364565344}
+  - component: {fileID: 8908609255642241848}
   m_Layer: 6
   m_Name: Model
   m_TagString: NoCollide
@@ -673,6 +704,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  requiresKey: 0
+  isUnlocked: 0
 --- !u!95 &6937432720913038163
 Animator:
   serializedVersion: 5
@@ -685,7 +718,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -790,6 +823,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &8908609255642241848
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2307791268652353812}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2536770401016008296
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +869,7 @@ GameObject:
   - component: {fileID: 4956642595897573736}
   - component: {fileID: 6565952585208553108}
   - component: {fileID: 3923792261364614577}
+  - component: {fileID: 542915168989853675}
   m_Layer: 6
   m_Name: Model
   m_TagString: NoCollide
@@ -1011,6 +1072,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  requiresKey: 0
+  isUnlocked: 0
 --- !u!95 &6565952585208553108
 Animator:
   serializedVersion: 5
@@ -1023,7 +1086,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -1128,6 +1191,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &542915168989853675
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2536770401016008296}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2871734972186297171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,6 +1237,7 @@ GameObject:
   - component: {fileID: 937727428291913508}
   - component: {fileID: 1378820304881792531}
   - component: {fileID: 1660836990188535567}
+  - component: {fileID: 4718226499588656428}
   m_Layer: 6
   m_Name: Model
   m_TagString: NoCollide
@@ -1349,6 +1440,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  requiresKey: 0
+  isUnlocked: 0
 --- !u!95 &1378820304881792531
 Animator:
   serializedVersion: 5
@@ -1361,7 +1454,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -1466,6 +1559,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &4718226499588656428
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871734972186297171}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3183480514254067658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,6 +1605,7 @@ GameObject:
   - component: {fileID: 5661716021505366811}
   - component: {fileID: 2444233035580102932}
   - component: {fileID: 2670470601734024884}
+  - component: {fileID: 6590533216116876902}
   m_Layer: 6
   m_Name: Model
   m_TagString: NoCollide
@@ -1687,6 +1808,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  requiresKey: 0
+  isUnlocked: 0
 --- !u!95 &2444233035580102932
 Animator:
   serializedVersion: 5
@@ -1699,7 +1822,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -1804,6 +1927,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &6590533216116876902
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183480514254067658}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3463359100851591225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,6 +2001,7 @@ GameObject:
   - component: {fileID: 5134754994201922774}
   - component: {fileID: 2613956429525486854}
   - component: {fileID: 3572286646863424506}
+  - component: {fileID: 4246576583581941952}
   m_Layer: 6
   m_Name: Model
   m_TagString: NoCollide
@@ -1969,6 +2120,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  requiresKey: 0
+  isUnlocked: 0
 --- !u!95 &2613956429525486854
 Animator:
   serializedVersion: 5
@@ -1981,7 +2134,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -2086,6 +2239,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &4246576583581941952
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5912061970268735842}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6282528412449455470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,6 +2661,7 @@ GameObject:
   - component: {fileID: 8787748213413852758}
   - component: {fileID: 4794176689363845835}
   - component: {fileID: 8758342032479297826}
+  - component: {fileID: 1685487248277233284}
   m_Layer: 6
   m_Name: Model
   m_TagString: NoCollide
@@ -2599,6 +2780,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  requiresKey: 0
+  isUnlocked: 0
 --- !u!95 &4794176689363845835
 Animator:
   serializedVersion: 5
@@ -2611,7 +2794,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -2716,6 +2899,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &1685487248277233284
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713736720422117325}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7020565017804853603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,6 +3009,7 @@ GameObject:
   - component: {fileID: 483612567090618143}
   - component: {fileID: 7580134474615141999}
   - component: {fileID: 325295629785165772}
+  - component: {fileID: 5783173954004829802}
   m_Layer: 6
   m_Name: Model
   m_TagString: NoCollide
@@ -3001,6 +3212,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  requiresKey: 0
+  isUnlocked: 0
 --- !u!95 &7580134474615141999
 Animator:
   serializedVersion: 5
@@ -3013,7 +3226,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -3118,6 +3331,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &5783173954004829802
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7818895495838271681}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7845900419972341011
 GameObject:
   m_ObjectHideFlags: 0
@@ -3169,6 +3409,7 @@ GameObject:
   - component: {fileID: 8104083256600474479}
   - component: {fileID: 5056417587943107118}
   - component: {fileID: 1871893439428460201}
+  - component: {fileID: 8851042684440586291}
   m_Layer: 6
   m_Name: Model
   m_TagString: NoCollide
@@ -3371,6 +3612,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  requiresKey: 0
+  isUnlocked: 0
 --- !u!95 &5056417587943107118
 Animator:
   serializedVersion: 5
@@ -3383,7 +3626,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -3488,6 +3731,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &8851042684440586291
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8135751094903536634}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8816206260144224460
 GameObject:
   m_ObjectHideFlags: 0
@@ -3503,6 +3773,7 @@ GameObject:
   - component: {fileID: 8113610294959485396}
   - component: {fileID: 7066123655263307233}
   - component: {fileID: 3794777614625514241}
+  - component: {fileID: 6549252846970356035}
   m_Layer: 6
   m_Name: Model
   m_TagString: NoCollide
@@ -3621,6 +3892,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  requiresKey: 0
+  isUnlocked: 0
 --- !u!95 &7066123655263307233
 Animator:
   serializedVersion: 5
@@ -3633,7 +3906,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -3738,3 +4011,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &6549252846970356035
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8816206260144224460}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
