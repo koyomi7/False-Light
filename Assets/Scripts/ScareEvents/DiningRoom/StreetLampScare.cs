@@ -18,6 +18,7 @@ public class LampGhostScare : MonoBehaviour
     void Start()
     { 
         ghost.SetActive(false);
+        this.gameObject.SetActive(false);
         flickerTimer = flickerSpeed;
     }
 

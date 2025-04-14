@@ -12,6 +12,7 @@ public class DinningScare : MonoBehaviour
     [SerializeField] private GameObject endingTrigger;
     [SerializeField] private Animator ghostAnimator;
     [SerializeField] private GameObject scareTrigger;
+    [SerializeField] private GameObject streetLampScareTrigger;
 
     [Header("Stare Mechanics")]
     [SerializeField] private float maxStareTime = 3f; 
@@ -80,6 +81,7 @@ public class DinningScare : MonoBehaviour
         Destroy(Ghost);
         Destroy(endingTrigger);
         ResetEffects();
+        streetLampScareTrigger.SetActive(true); // Activate the street lamp scare trigger
     }
 
     private void OnTriggerEnter(Collider other)
@@ -183,6 +185,7 @@ public class DinningScare : MonoBehaviour
         ghostAudioSource.Stop();
         Destroy(Ghost);
         Destroy(endingTrigger);
+        streetLampScareTrigger.SetActive(true); // Activate the street lamp scare trigger
     }
 
     private void ResetEffects()

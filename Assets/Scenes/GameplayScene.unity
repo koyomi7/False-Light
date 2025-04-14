@@ -7425,6 +7425,7 @@ MonoBehaviour:
   endingTrigger: {fileID: 931606287}
   ghostAnimator: {fileID: 448307752}
   scareTrigger: {fileID: 889094947}
+  streetLampScareTrigger: {fileID: 1614421833}
   maxStareTime: 5
   teleportTarget: {fileID: 1163289846}
   blackoutPanel: {fileID: 2103339630}
@@ -14181,6 +14182,7 @@ MonoBehaviour:
   endingTrigger: {fileID: 931606287}
   ghostAnimator: {fileID: 448307752}
   scareTrigger: {fileID: 889094947}
+  streetLampScareTrigger: {fileID: 1614421833}
   maxStareTime: 5
   teleportTarget: {fileID: 1163289846}
   blackoutPanel: {fileID: 2103339630}
@@ -14458,6 +14460,7 @@ MonoBehaviour:
   endingTrigger: {fileID: 931606287}
   ghostAnimator: {fileID: 448307752}
   scareTrigger: {fileID: 889094947}
+  streetLampScareTrigger: {fileID: 1614421833}
   maxStareTime: 5
   teleportTarget: {fileID: 1163289846}
   blackoutPanel: {fileID: 2103339630}
@@ -22986,6 +22989,7 @@ MonoBehaviour:
   endingTrigger: {fileID: 931606287}
   ghostAnimator: {fileID: 448307752}
   scareTrigger: {fileID: 889094947}
+  streetLampScareTrigger: {fileID: 0}
   maxStareTime: 5
   teleportTarget: {fileID: 0}
   blackoutPanel: {fileID: 0}
