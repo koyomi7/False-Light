@@ -249,7 +249,7 @@ public class PlayerScript : MonoBehaviour
         for (int i = 0; i < hits.Length; i++)
         {
             RaycastHit hit = hits[i];
-            if (hit.collider.isTrigger) continue;
+            // if (hit.collider.isTrigger) continue;
 
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
             if (interactable != null)
