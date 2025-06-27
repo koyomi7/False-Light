@@ -9,6 +9,7 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
     [SerializeField] private Material[] stateMaterial; // inactive = 0, active = 1
     [SerializeField] private AudioClip[] toggleOnSound;
     [SerializeField] private AudioClip[] toggleOffSound;
+    [SerializeField] private bool startsOn = false;
 
     [Header("Random Behavior")]
     [SerializeField] private bool enableRandomEvents = true;
@@ -47,8 +48,8 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
 
         hasLightSwitch = lightSwitchObject != null;
 
-        // Starts off
-        SetLightState(false, true);
+        // Sets light state
+        SetLightState(startsOn, true);
 
         if (enableRandomEvents)
         {
