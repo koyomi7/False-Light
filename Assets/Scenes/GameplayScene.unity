@@ -41257,7 +41257,7 @@ Transform:
   m_GameObject: {fileID: 2126144578}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0003416273, y: 0.3859819, z: 0.006029704, w: 0.9224866}
-  m_LocalPosition: {x: 2.061, y: 1.28, z: 2.58}
+  m_LocalPosition: {x: 1.789, y: 3.707, z: 9.367}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -53853,7 +53853,7 @@ GameObject:
   - component: {fileID: 7167165221814454814}
   m_Layer: 0
   m_Name: Mini Fridge Parent
-  m_TagString: Untagged
+  m_TagString: NoCollide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -210963,7 +210963,7 @@ GameObject:
   - component: {fileID: 415690782173047618}
   m_Layer: 0
   m_Name: Dresser Parent
-  m_TagString: Untagged
+  m_TagString: NoCollide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -223577,7 +223577,7 @@ GameObject:
   - component: {fileID: 4850989135496635576}
   m_Layer: 0
   m_Name: wardrobe
-  m_TagString: Untagged
+  m_TagString: NoCollide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
