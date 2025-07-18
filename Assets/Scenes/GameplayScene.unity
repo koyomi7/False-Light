@@ -226699,7 +226699,7 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
-  closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
+  closedClip: {fileID: 7400000, guid: d6418f861c5698d47a989c29203de552, type: 2}
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
