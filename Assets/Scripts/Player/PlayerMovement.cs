@@ -141,11 +141,11 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f; // Small downward force to stick to ground
-            Debug.Log("Grounded");
+            // Debug.Log("Grounded");
         }
         else
         {
-            Debug.Log("Not grounded");
+            // Debug.Log("Not grounded");
         }
 
         // Calculates gravity
