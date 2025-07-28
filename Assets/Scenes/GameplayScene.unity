@@ -58103,6 +58103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e178633105855d409d68c29cd6c4ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crouchHeight: 0.3
   crouchSpeed: 5
   crouchKey: 306
   playerObj: {fileID: 182526348}
