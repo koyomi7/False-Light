@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Image staminaBarBackground;
 
     const float gravity = -9.81f;
-    const float groundCheckDistance = 0.76f; // Radius 0.75 + 0.01 skin width
     const float defaultHeight = 1.5f;
     const float crouchHeight = 0.3f;
     const float heightSpeed = 10f;
@@ -34,13 +33,13 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
     float moveSpeed;
+    float stamina;
+    float staminaFullTimer;
+    float staminaEmptyTimer;
     bool isGrounded;
     bool isMoving;
     bool isCrouching;
     bool isSprinting;
-    float stamina;
-    float staminaFullTimer;
-    float staminaEmptyTimer;
     Vector3 moveDirection;
     Vector3 velocity;
     CharacterController controller;
@@ -58,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandleInput();
-        HandleCrouching();
+        // HandleCrouching();
         HandleSprinting();
         HandleGravity();
         HandleMovement();
@@ -135,20 +134,9 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleGravity()
     {
-        // Ground check
-        isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
-
+        isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
-        {
             velocity.y = -2f; // Small downward force to stick to ground
-            // Debug.Log("Grounded");
-        }
-        else
-        {
-            // Debug.Log("Not grounded");
-        }
-
-        // Calculates gravity
         velocity.y += gravity * Time.deltaTime;
     }
 
