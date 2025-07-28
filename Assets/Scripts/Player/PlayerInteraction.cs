@@ -21,7 +21,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         CheckForInteractable();
         HandleInteraction();
-        Debug.Log(heldObject);
+        // Debug.Log(heldObject);
     }
 
     public void Pickup(GameObject obj)
