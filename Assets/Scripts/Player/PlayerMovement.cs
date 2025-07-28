@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         HandleInput();
         // HandleCrouching();
         HandleSprinting();
-        HandleGravity();
+        // HandleGravity();
         HandleMovement();
         HandleFootstepSounds();
     }

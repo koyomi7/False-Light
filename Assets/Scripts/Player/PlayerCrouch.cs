@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerCrouch : MonoBehaviour
 {
     [Header("Crouch Settings")]
+    const float standingHeight = 1.5f;
+    [SerializeField] float crouchHeight = 0.75f;
     [SerializeField] private float crouchSpeed = 5f;
     [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
 
@@ -29,9 +31,12 @@ public class PlayerCrouch : MonoBehaviour
     // Current state
     private bool isCrouching = false;
     private Coroutine crouchCoroutine;
+    float crouchHeightRatio;
 
     void Start()
     {
+        // Ratio
+        crouchHeightRatio = crouchHeight / standingHeight;
         // Store original values
         originalControllerHeight = controller.height;
         originalControllerCenterY = controller.center.y;
@@ -40,11 +45,14 @@ public class PlayerCrouch : MonoBehaviour
         originalCameraPosY = cameraPos.localPosition.y;
 
         // Calculate target values (half height)
-        targetControllerHeight = originalControllerHeight * 0.5f;
-        targetControllerCenterY = originalControllerCenterY - (originalControllerHeight - targetControllerHeight) * 0.5f;
-        targetPlayerPositionY = originalPlayerPositionY - originalPlayerScaleY * 0.5f;
-        targetPlayerScaleY = originalPlayerScaleY * 0.5f;
-        targetCameraPosY = 0;
+        targetControllerHeight = originalControllerHeight * crouchHeightRatio;
+        Debug.Log(originalControllerCenterY);
+        Debug.Log(targetControllerHeight);
+        Debug.Log(originalPlayerScaleY);
+        targetControllerCenterY = originalControllerCenterY - (originalPlayerScaleY - targetControllerHeight * 0.5f);
+        targetPlayerPositionY = originalPlayerPositionY - (originalPlayerScaleY - originalPlayerScaleY * crouchHeightRatio);
+        targetPlayerScaleY = originalPlayerScaleY * crouchHeightRatio;
+        targetCameraPosY = originalCameraPosY - crouchHeight;
     }
 
     void Update()
@@ -83,7 +91,7 @@ public class PlayerCrouch : MonoBehaviour
     {
         if (!Application.isPlaying) return;
         
-        Vector3 castOrigin = transform.position - Vector3.up * (targetPlayerScaleY * 0.5f);
+        Vector3 castOrigin = transform.position - Vector3.up * (targetPlayerScaleY * crouchHeightRatio);
         float castDistance = originalControllerHeight - targetControllerHeight;
 
         // Draw the cast origin sphere
