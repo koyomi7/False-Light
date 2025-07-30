@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float walkSpeed;
     [SerializeField] float sprintSpeed;
 
+    [Header("Crouching")]
+    [SerializeField] KeyCode crouchKey;
+    [SerializeField, Range(minCrouchHeight, standingHeight)] float crouchHeight;
+    [SerializeField] float crouchTransitionSpeed;
+
     [Header("Stamina")]
     [SerializeField] float maxStamina;
     [SerializeField] float staminaDepletionRate;
@@ -15,23 +21,42 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Sounds")]
     [SerializeField] AudioSource footstepsAudioSource;
-    [SerializeField] private AudioClip walkSound;
-    [SerializeField] private AudioClip sprintSound;
+    [SerializeField] AudioClip walkSound;
+    [SerializeField] AudioClip sprintSound;
 
-    [Header("Other")]
+    [Header("References")]
+    [SerializeField] Transform playerObj;
     [SerializeField] Transform orientation;
+    [SerializeField] Transform cameraPos;
     [SerializeField] LayerMask groundMask;
     [SerializeField] Image staminaBar;
     [SerializeField] Image staminaBarBackground;
 
+    const float controllerRadius = 0.1875f;
+    const float standingHeight = 1.5f;
+    const float minCrouchHeight = controllerRadius * 2;
     const float gravity = -9.81f;
-    const float defaultHeight = 1.5f;
-    const float crouchHeight = 0.3f;
-    const float heightSpeed = 10f;
     const float staminaFullDelay = 2f; // Time in seconds before hiding the stamina bar
     const float staminaEmptyDelay = 2f; // Time in seconds before being able to sprint on empty stamina
+
     float horizontalInput;
     float verticalInput;
+
+    // Original values for crouching
+    float originalControllerHeight;
+    float originalControllerCenterY;
+    float originalPlayerPositionY;
+    float originalPlayerScaleY;
+    float originalCameraPosY;
+
+    // Target values for crouching
+    float targetControllerHeight;
+    float targetControllerCenterY;
+    float targetPlayerPositionY;
+    float targetPlayerScaleY;
+    float targetCameraPosY;
+    
+    float crouchHeightRatio;
     float moveSpeed;
     float stamina;
     float staminaFullTimer;
@@ -43,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
     Vector3 velocity;
     CharacterController controller;
+    Coroutine crouchCoroutine;
 
     void Start()
     {
@@ -52,14 +78,31 @@ public class PlayerMovement : MonoBehaviour
         staminaEmptyTimer = 0f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        // Standing-to-crouching Ratio
+        crouchHeightRatio = crouchHeight / standingHeight;
+
+        // Stores original values for crouching
+        originalControllerHeight = controller.height;
+        originalControllerCenterY = controller.center.y;
+        originalPlayerPositionY = playerObj.localPosition.y;
+        originalPlayerScaleY = playerObj.localScale.y;
+        originalCameraPosY = cameraPos.localPosition.y;
+
+        // Calculates target values for crouching
+        targetControllerHeight = originalControllerHeight * crouchHeightRatio;
+        targetControllerCenterY = originalControllerCenterY - (originalPlayerScaleY - targetControllerHeight * 0.5f);
+        targetPlayerPositionY = originalPlayerPositionY - (originalPlayerScaleY - originalPlayerScaleY * crouchHeightRatio);
+        targetPlayerScaleY = originalPlayerScaleY * crouchHeightRatio;
+        targetCameraPosY = crouchHeight - originalCameraPosY;
     }
 
     void Update()
     {
         HandleInput();
-        // HandleCrouching();
+        HandleCrouching();
         HandleSprinting();
-        // HandleGravity();
+        HandleGravity();
         HandleMovement();
         HandleFootstepSounds();
     }
@@ -74,16 +117,105 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleCrouching()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKeyDown(crouchKey))
         {
-            isCrouching = true;
-            controller.height = Mathf.Lerp(controller.height, crouchHeight, Time.deltaTime * heightSpeed);
+            // Crouch -> Stand
+            if (isCrouching)
+            {
+                // Checks if there's enough space to stand up
+                if (CanStandUp())
+                {
+                    if (crouchCoroutine != null)
+                        StopCoroutine(crouchCoroutine);
+
+                    crouchCoroutine = StartCoroutine(SmoothCrouch(false));
+                }
+            }
+            // Stand -> Crouch
+            else
+            {
+                if (crouchCoroutine != null)
+                    StopCoroutine(crouchCoroutine);
+
+                crouchCoroutine = StartCoroutine(SmoothCrouch(true));
+            }
         }
-        else
+    }
+
+    bool CanStandUp()
+    {
+        // Casts a sphere from the player's crouched position to the player's standing position to check for obstacles
+        Vector3 castOrigin = transform.position + Vector3.up * (-standingHeight * 0.5f + targetControllerHeight - controllerRadius);
+        float castDistance = originalControllerHeight - targetControllerHeight;
+
+        return !Physics.SphereCast(castOrigin, controller.radius, Vector3.up, out RaycastHit hit, castDistance);
+    }
+
+    IEnumerator SmoothCrouch(bool crouch)
+    {
+        isCrouching = crouch;
+
+        float startControllerHeight = controller.height;
+        float startControllerCenterY = controller.center.y;
+        float startPlayerPositionY = playerObj.localPosition.y;
+        float startPlayerScaleY = playerObj.localScale.y;
+        float startCameraPosY = cameraPos.localPosition.y;
+
+        float endControllerHeight = crouch ? targetControllerHeight : originalControllerHeight;
+        float endControllerCenterY = crouch ? targetControllerCenterY : originalControllerCenterY;
+        float endPlayerPositionY = crouch ? targetPlayerPositionY : originalPlayerPositionY;
+        float endPlayerScaleY = crouch ? targetPlayerScaleY : originalPlayerScaleY;
+        float endCameraPosY = crouch ? targetCameraPosY : originalCameraPosY;
+
+        float elapsedTime = 0f;
+
+        // Interpolates values
+        while (elapsedTime < 1f)
         {
-            isCrouching = false;
-            controller.height = Mathf.Lerp(controller.height, defaultHeight, Time.deltaTime * heightSpeed);
+            elapsedTime += Time.deltaTime * crouchTransitionSpeed;
+            float t = Mathf.SmoothStep(0f, 1f, elapsedTime);
+
+            // Character controller
+            controller.height = Mathf.Lerp(startControllerHeight, endControllerHeight, t);
+            Vector3 newCenter = controller.center;
+            newCenter.y = Mathf.Lerp(startControllerCenterY, endControllerCenterY, t);
+            controller.center = newCenter;
+
+            // Player object position
+            Vector3 newPosition = playerObj.localPosition;
+            newPosition.y = Mathf.Lerp(startPlayerPositionY, endPlayerPositionY, t);
+            playerObj.localPosition = newPosition;
+
+            // Player object scale
+            Vector3 newScale = playerObj.localScale;
+            newScale.y = Mathf.Lerp(startPlayerScaleY, endPlayerScaleY, t);
+            playerObj.localScale = newScale;
+
+            // Camera position
+            Vector3 newCameraPos = cameraPos.localPosition;
+            newCameraPos.y = Mathf.Lerp(startCameraPosY, endCameraPosY, t);
+            cameraPos.localPosition = newCameraPos;
+
+            yield return null;
         }
+
+        // Ensure final values are set exactly
+        controller.height = endControllerHeight;
+        Vector3 finalCenter = controller.center;
+        finalCenter.y = endControllerCenterY;
+        controller.center = finalCenter;
+
+        Vector3 finalPosition = playerObj.localPosition;
+        finalPosition.y = endPlayerPositionY;
+        playerObj.localPosition = finalPosition;
+
+        Vector3 finalScale = playerObj.localScale;
+        finalScale.y = endPlayerScaleY;
+        playerObj.localScale = finalScale;
+
+        Vector3 finalCameraPos = cameraPos.localPosition;
+        finalCameraPos.y = endCameraPosY;
+        cameraPos.localPosition = finalCameraPos;
     }
 
     void HandleSprinting()
