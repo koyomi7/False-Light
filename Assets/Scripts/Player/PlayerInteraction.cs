@@ -61,48 +61,42 @@ public class PlayerInteraction : MonoBehaviour
     void CheckForInteractable()
     {
         if (heldObject != null) return;
-        Ray ray = new Ray(playerCam.transform.position, playerCam.transform.forward);
-        RaycastHit[] hits = Physics.RaycastAll(ray, interactionDistance);
-        Debug.DrawRay(playerCam.transform.position, playerCam.transform.forward);
+        
+        // Get camera's forward vector and its pitch angle
+        Vector3 cameraForward = playerCam.transform.forward;
+        float pitchAngle = Vector3.Angle(Vector3.forward, new Vector3(cameraForward.x, 0, cameraForward.z).normalized);
+        
+        // Calculate dynamic interaction distance based on camera pitch
+        // When looking more up/down (higher pitch), use longer distance
+        float dynamicDistance = interactionDistance * (1 + Mathf.Abs(Mathf.Sin(pitchAngle * Mathf.Deg2Rad)) * 0.5f);
+        
+        Ray ray = new Ray(playerCam.transform.position, cameraForward);
+        RaycastHit[] hits = Physics.RaycastAll(ray, dynamicDistance);
+        Debug.DrawRay(playerCam.transform.position, cameraForward * dynamicDistance, Color.green);
 
         System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
 
-        for (int i = 0; i < hits.Length; i++)
+        foreach (RaycastHit hit in hits)
         {
-            RaycastHit hit = hits[i];
-            // if (hit.collider.isTrigger) continue;
-
+            if (hit.collider.CompareTag("PlayerClip")) continue;
+            
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
             if (interactable != null)
             {
                 currentInteractable = interactable;
                 interactionText.gameObject.SetActive(true);
-
-                for (int j = i; j < hits.Length; j++)
-                {
-                    if (!((interactableLayer.value & (1 << hit.collider.gameObject.layer)) > 0))
-                    {
-                        break;
-                    }
-
-                    if (hits[j].collider.CompareTag("Pill"))
-                    {
-                        currentInteractable = hits[j].collider.GetComponent<IInteractable>();
-                        break;
-                    }
-                }
-
                 return;
             }
             else
             {
-                if (hit.collider.CompareTag("PlayerClip")) continue;
+                // Hit something that's not interactable
                 currentInteractable = null;
                 interactionText.gameObject.SetActive(false);
                 return;
             }
         }
 
+        // Didn't hit anything interactable
         currentInteractable = null;
         interactionText.gameObject.SetActive(false);
     }
