@@ -46522,8 +46522,8 @@ Transform:
   m_GameObject: {fileID: 1003678446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 10.35, z: 8.5}
-  m_LocalScale: {x: 10, y: 3, z: 1}
+  m_LocalPosition: {x: 43.401, y: 8.227, z: 13.202}
+  m_LocalScale: {x: 0.0592249, y: 0.1899, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -72308,7 +72308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f0ac56796c54641a11e28453bc341a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionDistance: 1.5
+  interactionDistance: 1
   throwForce: 10
   holdPoint: {fileID: 245458352}
   playerCam: {fileID: 1522447383}
@@ -72697,7 +72697,7 @@ GameObject:
   - component: {fileID: 1519751538}
   m_Layer: 10
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73005,7 +73005,7 @@ GameObject:
   - component: {fileID: 1521438550}
   m_Layer: 0
   m_Name: Interior_Door_Wall
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143750,7 +143750,7 @@ GameObject:
   - component: {fileID: 31108972199393524}
   m_Layer: 0
   m_Name: Body Model
-  m_TagString: NoCollide
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

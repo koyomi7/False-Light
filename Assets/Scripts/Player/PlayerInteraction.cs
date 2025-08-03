@@ -8,7 +8,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] float interactionDistance;
     [SerializeField] float throwForce;
 
-    [Header("Other")]
+    [Header("References")]
     [SerializeField] Transform holdPoint;
     [SerializeField] Camera playerCam;
     [SerializeField] TMPro.TextMeshProUGUI interactionText;
@@ -62,43 +62,45 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (heldObject != null) return;
         
-        // Get camera's forward vector and its pitch angle
-        Vector3 cameraForward = playerCam.transform.forward;
-        float pitchAngle = Vector3.Angle(Vector3.forward, new Vector3(cameraForward.x, 0, cameraForward.z).normalized);
-        
-        // Calculate dynamic interaction distance based on camera pitch
-        // When looking more up/down (higher pitch), use longer distance
-        float dynamicDistance = interactionDistance * (1 + Mathf.Abs(Mathf.Sin(pitchAngle * Mathf.Deg2Rad)) * 0.5f);
-        
-        Ray ray = new Ray(playerCam.transform.position, cameraForward);
-        RaycastHit[] hits = Physics.RaycastAll(ray, dynamicDistance);
-        Debug.DrawRay(playerCam.transform.position, cameraForward * dynamicDistance, Color.green);
+        // Gets camera's pitch angle from local rotation
+        float pitch = playerCam.transform.localEulerAngles.x;
+        pitch = (pitch > 180) ? pitch - 360 : pitch; // Normalize to -180 to 180 range
 
+        // Calculates distance multiplier based on pitch (0° at horizon, max at ±90°)
+        float pitchMultiplier = 1 + Mathf.Abs(pitch) / 90f; // Ranges from 1 to 2
+        float dynamicDistance = interactionDistance * pitchMultiplier;
+
+        Ray ray = new Ray(playerCam.transform.position, playerCam.transform.forward);
+        Debug.DrawRay(ray.origin, ray.direction * dynamicDistance, Color.green);
+
+        // Gets all hits in the ray path
+        RaycastHit[] hits = Physics.RaycastAll(ray, dynamicDistance);
         System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
+        // Resets interactable at start
+        currentInteractable = null;
+        interactionText.gameObject.SetActive(false);
 
         foreach (RaycastHit hit in hits)
         {
-            if (hit.collider.CompareTag("PlayerClip")) continue;
-            
+            // Obstacle blocks everything behind it
+            if (hit.collider.CompareTag("Obstacle"))
+            {
+                return;
+            }
+
+            // Check for interactables
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
             if (interactable != null)
             {
                 currentInteractable = interactable;
                 interactionText.gameObject.SetActive(true);
+                // Found an interactable - don't check further objects
                 return;
             }
-            else
-            {
-                // Hit something that's not interactable
-                currentInteractable = null;
-                interactionText.gameObject.SetActive(false);
-                return;
-            }
+            
+            // If it's neither obstacle nor interactable, continue to next hit
         }
-
-        // Didn't hit anything interactable
-        currentInteractable = null;
-        interactionText.gameObject.SetActive(false);
     }
     
     void HandleInteraction()
