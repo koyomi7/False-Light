@@ -8,7 +8,7 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] float sensX;
     [SerializeField] float sensY;
 
-    [Header("Other")]
+    [Header("References")]
     [SerializeField] Transform orientation;
 
     float xRotation;
