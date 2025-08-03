@@ -13,14 +13,10 @@ TagManager:
   - KitchenIsland
   - FridgeDoor
   - KitchenDrawer
-  - Wardrobe
-  - WDrawer
-  - ScareDoor
-  - ScareBathroomDoor
   - Pill
   - PlayerClip
-  - DrawerDoor
   - NoCollide
+  - Obstacle
   layers:
   - Default
   - TransparentFX
