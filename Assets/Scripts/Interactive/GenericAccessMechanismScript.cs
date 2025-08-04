@@ -4,7 +4,7 @@ using UnityEngine;
 public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
 {
     [Header("State Settings")]
-    [SerializeField] private states state = states.CLOSED;
+    [SerializeField] public states state = states.CLOSED;
 
     [Header("Audio Settings")]
     [SerializeField] private AudioClip closeSound;
@@ -24,7 +24,7 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
     [SerializeField] private float maxTimeBetweenRandomInteractions = 120f;
     [SerializeField] private float randomInteractionChance = 0.3f; // 30% chance
     [SerializeField] private float playerDetectionRadius = 10f; // Only activate when player is nearby
-    private bool isOnCooldown = false;
+    public bool isOnCooldown = false;
     private float cooldownTimer = 0f;
     private const float CooldownDuration = 1f;
 
@@ -34,7 +34,7 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
 
     // Other variables
     private Transform player;
-    private enum states { CLOSED, OPEN, PARTLY_OPEN_1, PARTLY_OPEN_2 };
+    public enum states { CLOSED, OPEN, PARTLY_OPEN_1, PARTLY_OPEN_2 };
 
     void Start()
     {
