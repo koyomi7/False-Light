@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
@@ -21,41 +22,34 @@ public class PlayerInteraction : MonoBehaviour
     {
         CheckForInteractable();
         HandleInteraction();
-        // Debug.Log(heldObject);
     }
 
     public void Pickup(GameObject obj)
     {
-        if (heldObject == null)
-        {
-            Rigidbody rb = obj.GetComponent<Rigidbody>();
-            if (rb != null) rb.isKinematic = true; // Disable physics
+        if (heldObject != null) return;
 
-            obj.transform.SetParent(holdPoint);
-            obj.transform.localPosition = Vector3.zero;
-            obj.transform.localRotation = Quaternion.identity;
-            heldObject = obj;
-            currentInteractable = null;
-            interactionText.gameObject.SetActive(false);
-            Debug.Log("PICKED UP OBJECT");
-        }
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        if (rb != null) rb.isKinematic = true; // Disable physics
+
+        obj.transform.SetParent(holdPoint);
+        obj.transform.localPosition = Vector3.zero;
+        obj.transform.localRotation = Quaternion.identity;
+        heldObject = obj;
+        currentInteractable = null;
+        interactionText.SetText("[F] to drop\n[LMB] to throw");
+        Debug.Log($"Player picked up {heldObject.name}");
     }
 
-    public void Drop()
+    public void Drop(bool _throw = false)
     {
-        if (heldObject != null)
-        {
-            Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.isKinematic = false; // Re-enable physics
-                rb.AddForce(holdPoint.forward * throwForce, ForceMode.Impulse); // Throw
-            }
-
-            heldObject.transform.SetParent(null); // Unparent
-            heldObject = null;
-            Debug.Log("DROPPED OBJECT");
-        }
+        if (heldObject == null) return;
+        
+        Rigidbody rb = heldObject.GetComponent<Rigidbody>();
+        rb.isKinematic = false; // Re-enable physics
+        if (_throw) rb.AddForce(holdPoint.forward * throwForce, ForceMode.Impulse); // Throw
+        heldObject.transform.SetParent(null); // Unparent
+        Debug.Log(_throw ? $"Player threw {heldObject.name}" : $"Player dropped {heldObject.name}");
+        heldObject = null;
     }
 
     void CheckForInteractable()
@@ -91,18 +85,31 @@ public class PlayerInteraction : MonoBehaviour
 
             // Check for interactables
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-            if (interactable != null)
+            if (interactable == null) continue; // neither obstacle nor interactable -> continue to next hit
+
+            // Found an interactable
+            currentInteractable = interactable;
+
+            // Access Mechanism
+            if (hit.collider.CompareTag("AccessMechanism"))
             {
-                currentInteractable = interactable;
-                interactionText.gameObject.SetActive(true);
-                // Found an interactable - don't check further objects
-                return;
+                GenericAccessMechanismScript access = hit.collider.GetComponent<GenericAccessMechanismScript>();
+                bool accessible = !access.isOnCooldown;
+                bool closed = access.state == GenericAccessMechanismScript.states.CLOSED ? true : false;
+                interactionText.SetText(closed ? "[F] to open" : "[F] to close");
+                if (accessible) interactionText.gameObject.SetActive(true);
             }
-            
-            // If it's neither obstacle nor interactable, continue to next hit
+            // Interactive Prop
+            else if (hit.collider.CompareTag("InteractiveProp"))
+            {
+                interactionText.SetText("[F] to pickup");
+                interactionText.gameObject.SetActive(true);
+            }
+
+            return; // don't check further objects
         }
     }
-    
+
     void HandleInteraction()
     {
         if (Input.GetKeyDown(KeyCode.F))
@@ -125,16 +132,23 @@ public class PlayerInteraction : MonoBehaviour
                     // }
                     // else
                     // {
-                        currentInteractable.Interact();
+                    currentInteractable.Interact();
                     //     KeysAudioSource.clip = UnlockDoorSound;
                     //     KeysAudioSource.Play();
                     // }
                 }
                 else
                 {
-                    currentInteractable.Interact(); 
+                    currentInteractable.Interact();
                 }
-                
+
+            }
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (heldObject != null)
+            {
+                Drop(true);
             }
         }
     }
