@@ -8809,6 +8809,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 1
   isUnlocked: 0
 --- !u!65 &204615726
@@ -10258,7 +10259,7 @@ GameObject:
   - component: {fileID: 250777529}
   m_Layer: 6
   m_Name: Black King
-  m_TagString: NoCollide
+  m_TagString: InteractiveProp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33466,7 +33467,7 @@ GameObject:
   - component: {fileID: 731059485}
   m_Layer: 6
   m_Name: Interior_Door
-  m_TagString: Door
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33630,6 +33631,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!65 &731059488
@@ -39335,6 +39337,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &826137033
@@ -54333,6 +54336,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 1
   isUnlocked: 0
 --- !u!65 &1194638655
@@ -107635,6 +107639,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!65 &204516086313553481
@@ -112326,6 +112331,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!23 &399518231151763896
@@ -112478,6 +112484,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &404126952835605008
@@ -114111,6 +114118,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!4 &476345147572975978
@@ -115540,6 +115548,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!33 &540539482679005969
@@ -116794,6 +116803,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!65 &617720187825368429
@@ -119990,6 +120000,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &794680276239091683
@@ -122967,6 +122978,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!4 &935643026414907665
@@ -127508,6 +127520,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!4 &1168004632399299629
@@ -142411,6 +142424,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &1919330389826706758
@@ -142845,6 +142859,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!4 &1945229854875757740
@@ -146203,6 +146218,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!4 &2126556832041093697
@@ -150101,6 +150117,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!65 &2348604335923605017
@@ -155008,6 +155025,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!4 &2584693976527761867
@@ -161526,6 +161544,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!64 &2912772392418223588
@@ -163240,6 +163259,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &2990183750139388146
@@ -170274,6 +170294,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &3328809607805404063
@@ -176049,6 +176070,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!4 &3589321232993819432
@@ -176642,6 +176664,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!4 &3625182154776426495
@@ -178790,6 +178813,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!23 &3749669960474375322
@@ -180655,6 +180679,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!23 &3872693765121804726
@@ -190072,6 +190097,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!65 &4296420210676968079
@@ -190942,6 +190968,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &4338370608245769100
@@ -192075,6 +192102,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!4 &4387848570901617141
@@ -196275,6 +196303,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!23 &4590312321606727886
@@ -198400,6 +198429,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!23 &4704451170544040097
@@ -199713,6 +199743,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &4769036649266395284
@@ -200979,6 +201010,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!65 &4812546321872680179
@@ -202097,6 +202129,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!82 &4862724502343415514
@@ -213489,6 +213522,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!33 &5400832204443436380
@@ -214019,6 +214053,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &5424079484317341532
@@ -222996,6 +223031,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!23 &5937365106604532029
@@ -227519,6 +227555,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!23 &6162669050114261394
@@ -228309,6 +228346,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!23 &6189029877503473052
@@ -230805,6 +230843,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &6309695884357417362
@@ -238946,6 +238985,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &6714129688216970072
@@ -244502,6 +244542,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!23 &6981876541109361934
@@ -252348,6 +252389,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!23 &7338697368987074735
@@ -255107,6 +255149,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!4 &7453502104312134011
@@ -256851,6 +256894,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!33 &7529631879415517673
@@ -259161,6 +259205,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!33 &7637239537581081813
@@ -262458,6 +262503,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!23 &7772390672544603061
@@ -265884,6 +265930,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &7902990203708837561
@@ -266137,6 +266184,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 1
   isUnlocked: 0
 --- !u!4 &7906546897335811093
@@ -275960,6 +276008,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!4 &8339603897700662388
@@ -278766,6 +278815,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &8499614719872144842
@@ -279612,6 +279662,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &8540488778878141617
@@ -282064,6 +282115,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!33 &8652462062565700767
@@ -284144,6 +284196,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!1 &8741867898571016887
@@ -287723,6 +287776,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!33 &8945469118841341154
@@ -288533,6 +288587,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &8972618107154288835
