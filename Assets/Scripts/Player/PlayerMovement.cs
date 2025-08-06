@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform playerObj;
     [SerializeField] Transform orientation;
     [SerializeField] Transform cameraPos;
-    [SerializeField] LayerMask groundMask;
     [SerializeField] Image staminaBar;
     [SerializeField] Image staminaBarBackground;
 
@@ -95,6 +94,14 @@ public class PlayerMovement : MonoBehaviour
         targetPlayerPositionY = originalPlayerPositionY - (originalPlayerScaleY - originalPlayerScaleY * crouchHeightRatio);
         targetPlayerScaleY = originalPlayerScaleY * crouchHeightRatio;
         targetCameraPosY = crouchHeight - originalCameraPosY;
+
+        // Ignore collisions between the player and tagged objects
+        foreach (GameObject objectToIgnore in GameObject.FindGameObjectsWithTag("NoCollide"))
+        {
+            // "NoCollide" only needs to be applied to the parent object
+            foreach (Collider collider in objectToIgnore.GetComponentsInChildren<Collider>())
+                Physics.IgnoreCollision(GetComponent<Collider>(), collider, true);
+        }
     }
 
     void Update()
