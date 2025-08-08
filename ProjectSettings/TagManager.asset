@@ -19,6 +19,7 @@ TagManager:
   - Obstacle
   - AccessMechanism
   - InteractiveProp
+  - InteractionClip
   layers:
   - Default
   - TransparentFX
