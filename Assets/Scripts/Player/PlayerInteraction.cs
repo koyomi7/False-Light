@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
@@ -28,8 +25,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (heldObject != null) return;
 
-        Rigidbody rb = obj.GetComponent<Rigidbody>();
-        if (rb != null) rb.isKinematic = true; // Disable physics
+        obj.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+        obj.GetComponent<Collider>().enabled = false; // Disable collision
 
         obj.transform.SetParent(holdPoint);
         obj.transform.localPosition = Vector3.zero;
@@ -46,6 +43,8 @@ public class PlayerInteraction : MonoBehaviour
         
         Rigidbody rb = heldObject.GetComponent<Rigidbody>();
         rb.isKinematic = false; // Re-enable physics
+        heldObject.GetComponent<Collider>().enabled = true; // Re-enable collision
+
         if (_throw) rb.AddForce(holdPoint.forward * throwForce, ForceMode.Impulse); // Throw
         heldObject.transform.SetParent(null); // Unparent
         Debug.Log(_throw ? $"Player threw {heldObject.name}" : $"Player dropped {heldObject.name}");
@@ -78,7 +77,7 @@ public class PlayerInteraction : MonoBehaviour
         foreach (RaycastHit hit in hits)
         {
             // Obstacle blocks everything behind it
-            if (hit.collider.CompareTag("Obstacle"))
+            if (hit.collider.CompareTag("Obstacle") || hit.collider.CompareTag("InteractionClip"))
             {
                 return;
             }
