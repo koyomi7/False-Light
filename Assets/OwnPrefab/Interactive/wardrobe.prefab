@@ -90,7 +90,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5589583394412701185}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4631023214574074865}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -424,6 +424,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &965524164662158100
@@ -588,7 +589,7 @@ GameObject:
   - component: {fileID: 8908609255642241848}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -704,6 +705,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &6937432720913038163
@@ -872,7 +874,7 @@ GameObject:
   - component: {fileID: 542915168989853675}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1072,6 +1074,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &6565952585208553108
@@ -1240,7 +1243,7 @@ GameObject:
   - component: {fileID: 4718226499588656428}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1440,6 +1443,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &1378820304881792531
@@ -1608,7 +1612,7 @@ GameObject:
   - component: {fileID: 6590533216116876902}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1808,6 +1812,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &2444233035580102932
@@ -2004,7 +2009,7 @@ GameObject:
   - component: {fileID: 4246576583581941952}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2120,6 +2125,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &2613956429525486854
@@ -2291,7 +2297,7 @@ GameObject:
   - component: {fileID: 5487673782820040537}
   m_Layer: 0
   m_Name: Body Model
-  m_TagString: NoCollide
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2664,7 +2670,7 @@ GameObject:
   - component: {fileID: 1685487248277233284}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2677,7 +2683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6713736720422117325}
   serializedVersion: 2
-  m_LocalRotation: {x: -8.3214945e-17, y: 0.8751482, z: 8.3214945e-17, w: 0.48385498}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -2768,7 +2774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   closedClip: {fileID: 7400000, guid: 6b9c8bba4231252419b69abded39f782, type: 2}
@@ -2780,6 +2786,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &4794176689363845835
@@ -3012,7 +3019,7 @@ GameObject:
   - component: {fileID: 5783173954004829802}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3212,6 +3219,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &7580134474615141999
@@ -3412,7 +3420,7 @@ GameObject:
   - component: {fileID: 8851042684440586291}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3612,6 +3620,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &5056417587943107118
@@ -3776,7 +3785,7 @@ GameObject:
   - component: {fileID: 6549252846970356035}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3789,7 +3798,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8816206260144224460}
   serializedVersion: 2
-  m_LocalRotation: {x: -2.551176e-17, y: 0.88404346, z: 2.551176e-17, w: -0.4674048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -3880,7 +3889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   closedClip: {fileID: 7400000, guid: 6b3ec1b81d2da1d4b9ba634a8e0fafaf, type: 2}
@@ -3892,6 +3901,7 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &7066123655263307233
