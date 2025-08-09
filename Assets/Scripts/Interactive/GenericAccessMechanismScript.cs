@@ -26,7 +26,7 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
     [SerializeField] private float playerDetectionRadius = 10f; // Only activate when player is nearby
     public bool isOnCooldown = false;
     private float cooldownTimer = 0f;
-    private const float CooldownDuration = 1f;
+    [SerializeField] float CooldownDuration = 1f;
 
     [Header("Key Settings")]
     [SerializeField] public bool requiresKey = false; 
