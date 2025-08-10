@@ -79,6 +79,7 @@ public class PlayerInteraction : MonoBehaviour
             // Obstacle blocks everything behind it
             if (hit.collider.CompareTag("Obstacle") || hit.collider.CompareTag("InteractionClip"))
             {
+                Debug.Log("Hit Obstacle");
                 return;
             }
 
@@ -92,6 +93,7 @@ public class PlayerInteraction : MonoBehaviour
             // Access Mechanism
             if (hit.collider.CompareTag("AccessMechanism"))
             {
+                Debug.Log("Access");
                 GenericAccessMechanismScript access = hit.collider.GetComponent<GenericAccessMechanismScript>();
                 bool accessible = !access.isOnCooldown;
                 bool closed = access.state == GenericAccessMechanismScript.states.CLOSED ? true : false;
@@ -101,6 +103,7 @@ public class PlayerInteraction : MonoBehaviour
             // Interactive Prop
             else if (hit.collider.CompareTag("InteractiveProp"))
             {
+                Debug.Log("Prop");
                 interactionText.SetText("[F] to pickup");
                 interactionText.gameObject.SetActive(true);
             }
