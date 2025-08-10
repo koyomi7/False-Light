@@ -29723,7 +29723,7 @@ Transform:
   m_Children:
   - {fileID: 1729920679313747795}
   - {fileID: 977080940}
-  - {fileID: 4889080646374617031}
+  - {fileID: 2073905873}
   - {fileID: 6773121160987829262}
   - {fileID: 6898462258134253995}
   - {fileID: 5956038771364992316}
@@ -29731,12 +29731,12 @@ Transform:
   - {fileID: 5782915799567297617}
   - {fileID: 1251077560356308050}
   - {fileID: 7537408853048548856}
+  - {fileID: 8355718915253122222}
   - {fileID: 432734820539401592}
   - {fileID: 1426484931}
   - {fileID: 1809273724}
   - {fileID: 795199410}
   - {fileID: 4655014028073762456}
-  - {fileID: 8355718915253122222}
   m_Father: {fileID: 1900897100}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &730023022
@@ -87110,6 +87110,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073617268}
   m_Mesh: {fileID: 4477159147229158108, guid: e0147f4678533444ca8209554a9ead22, type: 3}
+--- !u!1 &2073905872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073905873}
+  m_Layer: 0
+  m_Name: waterDispenser Parent
+  m_TagString: NoCollide
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2073905873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073905872}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4889080646374617031}
+  m_Father: {fileID: 727824252}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2074047916
 GameObject:
   m_ObjectHideFlags: 0
@@ -114295,7 +114327,7 @@ GameObject:
   - component: {fileID: 7193998824346729334}
   m_Layer: 6
   m_Name: penHolder
-  m_TagString: NoCollide
+  m_TagString: InteractiveProp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117753,7 +117785,7 @@ GameObject:
   - component: {fileID: 6747847444618428209}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145278,7 +145310,7 @@ GameObject:
   - component: {fileID: 53567010833858598}
   m_Layer: 0
   m_Name: bookOpen
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -148964,7 +148996,7 @@ GameObject:
   - component: {fileID: 8579991953727793263}
   m_Layer: 6
   m_Name: stapler
-  m_TagString: NoCollide
+  m_TagString: InteractiveProp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165689,7 +165721,7 @@ GameObject:
   - component: {fileID: 8399968920493173866}
   m_Layer: 6
   m_Name: pencil
-  m_TagString: NoCollide
+  m_TagString: InteractiveProp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179702,7 +179734,7 @@ GameObject:
   - component: {fileID: 8868762471132601381}
   m_Layer: 6
   m_Name: marker
-  m_TagString: NoCollide
+  m_TagString: InteractiveProp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180538,7 +180570,7 @@ GameObject:
   - component: {fileID: 7066997183694926503}
   m_Layer: 0
   m_Name: waterDispenser
-  m_TagString: NoCollide
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -183522,11 +183554,11 @@ Transform:
   m_GameObject: {fileID: 4748223126167526246}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.365, y: 0.00066804886, z: 1.804}
+  m_LocalPosition: {x: -1.3649998, y: 0.00066804886, z: 1.8039999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 727824252}
+  m_Father: {fileID: 2073905873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4889384130153110111
 GameObject:
@@ -189393,7 +189425,7 @@ GameObject:
   - component: {fileID: 8252026876376559768}
   m_Layer: 0
   m_Name: documentHolder
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -190187,7 +190219,7 @@ GameObject:
   - component: {fileID: 7783097931548379253}
   m_Layer: 6
   m_Name: coffePot
-  m_TagString: NoCollide
+  m_TagString: InteractiveProp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205413,7 +205445,7 @@ GameObject:
   - component: {fileID: 7771846561336394480}
   m_Layer: 6
   m_Name: printer
-  m_TagString: Untagged
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218510,7 +218542,7 @@ GameObject:
   - component: {fileID: 4970995538253156828}
   m_Layer: 0
   m_Name: Body Model
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -223462,8 +223494,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.40259323, y: 1.5780748, z: 0.44976437}
-  m_Center: {x: -0.00000025331974, y: 0.78836936, z: 0.013205312}
+  m_Size: {x: 0.3392346, y: 1.5780748, z: 0.38654566}
+  m_Center: {x: -0.0017989874, y: 0.78836936, z: 0.009763956}
 --- !u!1 &7067360665503488577
 GameObject:
   m_ObjectHideFlags: 0
@@ -238201,7 +238233,7 @@ GameObject:
   - component: {fileID: 7740830279601175933}
   m_Layer: 6
   m_Name: pen
-  m_TagString: NoCollide
+  m_TagString: InteractiveProp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256146,7 +256178,7 @@ GameObject:
   - component: {fileID: 7359579605670935767}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262027,7 +262059,7 @@ GameObject:
   - component: {fileID: 1860942321574305260}
   m_Layer: 0
   m_Name: Body Model
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
