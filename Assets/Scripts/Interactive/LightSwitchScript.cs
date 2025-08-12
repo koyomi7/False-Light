@@ -34,6 +34,7 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
     private float ceilingFanVelocity = 0f;
     [SerializeField] private float ceilingFanAcceleration = 0f;
     [SerializeField] private float ceilingFanDrag = 0f;
+    public bool state;
 
     void Start() {
         meshRenderer = new MeshRenderer[lampObject.Length];
@@ -69,11 +70,12 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
         }
     }
 
-    private void SetLightState(bool state, bool start=false) {
-        lightObject.SetActive(state);
-        if (hasLightSwitch) lightSwitchObject.GetComponent<Animator>().Play(state ? "switchOn" : "switchOff");
-        materials[i] = state ? stateMaterial[1] : stateMaterial[0];
-        audioSource.clip = state ? 
+    private void SetLightState(bool _state, bool start=false) {
+        state = _state;
+        lightObject.SetActive(_state);
+        if (hasLightSwitch) lightSwitchObject.GetComponent<Animator>().Play(_state ? "switchOn" : "switchOff");
+        materials[i] = _state ? stateMaterial[1] : stateMaterial[0];
+        audioSource.clip = _state ? 
             toggleOnSound[UnityEngine.Random.Range(0, toggleOnSound.Length)] : 
             toggleOffSound[UnityEngine.Random.Range(0, toggleOffSound.Length)];
 

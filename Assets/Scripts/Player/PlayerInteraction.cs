@@ -33,7 +33,7 @@ public class PlayerInteraction : MonoBehaviour
         obj.transform.localRotation = Quaternion.identity;
         heldObject = obj;
         currentInteractable = null;
-        interactionText.SetText("[F] to drop\n[LMB] to throw");
+        interactionText.SetText("[F] Drop\n[LMB] Throw");
         Debug.Log($"Player picked up {heldObject.name}");
     }
 
@@ -93,18 +93,24 @@ public class PlayerInteraction : MonoBehaviour
             // Access Mechanism
             if (hit.collider.CompareTag("AccessMechanism"))
             {
-                Debug.Log("Access");
                 GenericAccessMechanismScript access = hit.collider.GetComponent<GenericAccessMechanismScript>();
                 bool accessible = !access.isOnCooldown;
                 bool closed = access.state == GenericAccessMechanismScript.states.CLOSED ? true : false;
-                interactionText.SetText(closed ? "[F] to open" : "[F] to close");
+                interactionText.SetText(closed ? "[F] Open" : "[F] Close");
                 if (accessible) interactionText.gameObject.SetActive(true);
             }
             // Interactive Prop
             else if (hit.collider.CompareTag("InteractiveProp"))
             {
-                Debug.Log("Prop");
-                interactionText.SetText("[F] to pickup");
+                interactionText.SetText("[F] Pickup");
+                interactionText.gameObject.SetActive(true);
+            }
+            // Light Switch
+            else if (hit.collider.CompareTag("LightSwitch"))
+            {
+                LightSwitchScript lightSwitch = hit.collider.GetComponent<LightSwitchScript>();
+                bool off = lightSwitch.state;
+                interactionText.SetText(off ? "[F] Turn On" : "[F] Turn Off");
                 interactionText.gameObject.SetActive(true);
             }
 
