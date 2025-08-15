@@ -79,7 +79,7 @@ public class PlayerInteraction : MonoBehaviour
             // Obstacle blocks everything behind it
             if (hit.collider.CompareTag("Obstacle") || hit.collider.CompareTag("InteractionClip"))
             {
-                Debug.Log("Hit Obstacle");
+                // Debug.Log("Hit Obstacle");
                 return;
             }
 
