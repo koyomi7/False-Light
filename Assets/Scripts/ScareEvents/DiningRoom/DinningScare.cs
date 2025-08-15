@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
 
 public class DinningScare : MonoBehaviour
 {
@@ -18,11 +17,11 @@ public class DinningScare : MonoBehaviour
     [SerializeField] private float maxStareTime = 3f; 
     [SerializeField] private Transform teleportTarget; 
     [SerializeField] private CanvasGroup blackoutPanel; 
-    [SerializeField] private PostProcessVolume postProcessVolume; 
+    // [SerializeField] private PostProcessVolume postProcessVolume; 
     [SerializeField] private LayerMask ghostLayer; 
     [SerializeField] private float shakeIntensityMax = 0.3f; 
     private float stareTime = 0f;
-    private Vignette vignette;
+    // private Vignette vignette;
     private Transform playerTransform;
     private Camera playerCamera; 
     private Vector3 originalCameraLocalPos; // Store original camera position
@@ -34,11 +33,11 @@ public class DinningScare : MonoBehaviour
         endingTrigger.SetActive(false);
 
         // Initialize post-processing
-        if (postProcessVolume != null)
-        {
-            postProcessVolume.profile.TryGetSettings(out vignette);
-            if (vignette != null) vignette.intensity.value = 0f;
-        }
+        // if (postProcessVolume != null)
+        // {
+        //     postProcessVolume.profile.TryGetSettings(out vignette);
+        //     if (vignette != null) vignette.intensity.value = 0f;
+        // }
 
         // Hide blackout panel
         if (blackoutPanel != null)
@@ -124,14 +123,14 @@ public class DinningScare : MonoBehaviour
 
     private void UpdateStareEffects()
     {
-        if (vignette == null || playerCamera == null) return;
+        // if (vignette == null || playerCamera == null) return;
 
         // Calculate effect intensity (0 to 1)
         float effectIntensity = Mathf.Clamp01(stareTime / maxStareTime);
 
         // Vignette with pulse
         float pulse = Mathf.Sin(Time.time * 5f) * 0.1f; // Pulse amplitude
-        vignette.intensity.value = effectIntensity * 0.7f + pulse;
+        // vignette.intensity.value = effectIntensity * 0.7f + pulse;
 
         // Camera shake
         float shakeIntensity = effectIntensity * shakeIntensityMax;
@@ -190,7 +189,7 @@ public class DinningScare : MonoBehaviour
 
     private void ResetEffects()
     {
-        if (vignette != null) vignette.intensity.value = 0f;
+        // if (vignette != null) vignette.intensity.value = 0f;
         if (playerCamera != null) playerCamera.transform.localPosition = originalCameraLocalPos; // Reset to original position
     }
 }
