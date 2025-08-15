@@ -25,6 +25,10 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
 
     private MeshRenderer[] meshRenderer;
     private Material[] materials;
+    Material lightSwitchMat;
+    Material buttonMat;
+    Color lightSwitchEmissionColor;
+    Color buttonEmissionColor;
     private AudioSource audioSource;
     private const string activeMaterial = "EmissiveWarm";
     private int i = 0; // index of material emission state in materials array
@@ -36,7 +40,16 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
     [SerializeField] private float ceilingFanDrag = 0f;
     public bool state;
 
-    void Start() {
+    void Start()
+    {
+        hasLightSwitch = lightSwitchObject != null;
+
+        // Glow in the dark light switch
+        lightSwitchMat = GetComponent<Renderer>().material;
+        if (hasLightSwitch) buttonMat = lightSwitchObject.GetComponent<Renderer>().material;
+        lightSwitchEmissionColor = new Color(0.05f, 0.05f, 0.05f);
+        buttonEmissionColor = new Color(0.8874815f, 1.276985f, 0.8587812f);
+
         meshRenderer = new MeshRenderer[lampObject.Length];
         for (int _i = 0; _i < lampObject.Length; _i++)
             meshRenderer[_i] = lampObject[_i].GetComponent<MeshRenderer>();
@@ -44,10 +57,10 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
 
         for (; i < materials.Length; i++)
             if (materials[i].name.Contains(activeMaterial)) break;
-        
+
         audioSource = transform.GetComponent<AudioSource>();
 
-        hasLightSwitch = lightSwitchObject != null;
+        
 
         // Sets light state
         SetLightState(startsOn, true);
@@ -56,6 +69,8 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
         {
             StartCoroutine(RandomEventCoroutine());
         }
+
+        
     }
 
     void Update() {
@@ -70,19 +85,33 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
         }
     }
 
-    private void SetLightState(bool _state, bool start=false) {
+    private void SetLightState(bool _state, bool start = false)
+    {
         state = _state;
         lightObject.SetActive(_state);
         if (hasLightSwitch) lightSwitchObject.GetComponent<Animator>().Play(_state ? "switchOn" : "switchOff");
         materials[i] = _state ? stateMaterial[1] : stateMaterial[0];
-        audioSource.clip = _state ? 
-            toggleOnSound[UnityEngine.Random.Range(0, toggleOnSound.Length)] : 
+        audioSource.clip = _state ?
+            toggleOnSound[UnityEngine.Random.Range(0, toggleOnSound.Length)] :
             toggleOffSound[UnityEngine.Random.Range(0, toggleOffSound.Length)];
 
         for (int _i = 0; _i < meshRenderer.Length; _i++)
             meshRenderer[_i].materials = materials;
-        
+
         if (!start) audioSource.Play();
+
+        if (!_state)
+        {
+            Debug.Log("Off");
+            lightSwitchMat.SetColor("_EmissionColor", lightSwitchEmissionColor);
+            if (hasLightSwitch) buttonMat.SetColor("_EmissionColor", buttonEmissionColor);
+        }
+        else
+        {
+            lightSwitchMat.SetColor("_EmissionColor", Color.black);
+            if (hasLightSwitch) buttonMat.SetColor("_EmissionColor", Color.black);
+            Debug.Log("On");
+        }
     }
 
     public void Interact() {
