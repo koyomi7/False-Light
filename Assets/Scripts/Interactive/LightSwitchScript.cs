@@ -3,13 +3,15 @@ using System.Collections;
 using UnityEngine;
 
 public class LightSwitchScript : MonoBehaviour, IInteractable {
-    [SerializeField] private GameObject lightSwitchObject;
-    [SerializeField] private GameObject lightObject;
-    [SerializeField] private GameObject[] lampObject;
-    [SerializeField] private Material[] stateMaterial; // inactive = 0, active = 1
-    [SerializeField] private AudioClip[] toggleOnSound;
-    [SerializeField] private AudioClip[] toggleOffSound;
-    [SerializeField] private bool startsOn = false;
+    [Header("Light Settings")]
+    [SerializeField] bool startsOn = false;
+
+    [Header("Ceiling Fan")]
+    [SerializeField] bool isCeilingFan = false;
+    [SerializeField] float ceilingFanAcceleration = 0f;
+    [SerializeField] float ceilingFanDrag = 0f;
+    const float CEILING_FAN_MAX_VELOCITY = 130f;
+    float ceilingFanVelocity = 0f;
 
     [Header("Random Behavior")]
     [SerializeField] private bool enableRandomEvents = true;
@@ -21,67 +23,65 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
     [SerializeField] private bool canFlicker = true;
     [SerializeField] private float flickerDuration = 1f;
     [SerializeField] private int flickerCount = 3;
-    [SerializeField] private bool isCeilingFan = false;
 
-    private MeshRenderer[] meshRenderer;
-    private Material[] materials;
+    [Header("References")]
+    [SerializeField] GameObject buttonObject;
+    [SerializeField] GameObject lightObject;
+    [SerializeField] GameObject[] lampObject;
+    [SerializeField] Material[] stateMaterial; // inactive = 0, active = 1
+    [SerializeField] AudioClip[] toggleOnSound;
+    [SerializeField] AudioClip[] toggleOffSound;
+
+    MeshRenderer[] meshRenderer;
+    Material[] materials;
+    AudioSource audioSource;
+    const string activeMaterial = "EmissiveWarm";
+    int i = 0; // index of material emission state in materials array
+    bool isFlickering = false;
+    bool hasLightSwitch;
+    [HideInInspector] public bool state; // inactive = false, active = true
+
+    // Glow-in-the-dark light switches
     Material lightSwitchMat;
     Material buttonMat;
     Color lightSwitchEmissionColor;
     Color buttonEmissionColor;
-    private AudioSource audioSource;
-    private const string activeMaterial = "EmissiveWarm";
-    private int i = 0; // index of material emission state in materials array
-    private bool isFlickering = false;
-    private bool hasLightSwitch;
-    private const float CEILING_FAN_MAX_VELOCITY = 130f;
-    private float ceilingFanVelocity = 0f;
-    [SerializeField] private float ceilingFanAcceleration = 0f;
-    [SerializeField] private float ceilingFanDrag = 0f;
-    public bool state;
 
     void Start()
     {
-        hasLightSwitch = lightSwitchObject != null;
+        hasLightSwitch = buttonObject != null;
 
-        // Glow in the dark light switch
+        // Glow-in-the-dark light switches
         lightSwitchMat = GetComponent<Renderer>().material;
-        if (hasLightSwitch) buttonMat = lightSwitchObject.GetComponent<Renderer>().material;
+        if (hasLightSwitch) buttonMat = buttonObject.GetComponent<Renderer>().material;
         lightSwitchEmissionColor = new Color(0.05f, 0.05f, 0.05f);
         buttonEmissionColor = new Color(0.8874815f, 1.276985f, 0.8587812f);
 
+        // Builds the materials array to access the emission state
         meshRenderer = new MeshRenderer[lampObject.Length];
         for (int _i = 0; _i < lampObject.Length; _i++)
             meshRenderer[_i] = lampObject[_i].GetComponent<MeshRenderer>();
         materials = meshRenderer[0].materials;
 
+        // Gets the index of the material emission state
         for (; i < materials.Length; i++)
             if (materials[i].name.Contains(activeMaterial)) break;
-
-        audioSource = transform.GetComponent<AudioSource>();
-
         
+        audioSource = transform.GetComponent<AudioSource>();
 
         // Sets light state
         SetLightState(startsOn, true);
 
-        if (enableRandomEvents)
-        {
-            StartCoroutine(RandomEventCoroutine());
-        }
-
-        
+        if (enableRandomEvents) StartCoroutine(RandomEventCoroutine());
     }
 
     void Update() {
-        if (isCeilingFan) {
-            // Rotate ceiling fan
-            for (int i = 0; i < lampObject.Length; i++) {
+        // Rotates ceiling fan
+        if (isCeilingFan)
+        {
+            for (int i = 0; i < lampObject.Length; i++)
                 lampObject[i].transform.Rotate(0, ceilingFanVelocity * Time.deltaTime, 0);
-            }
-            if (lightObject.activeSelf)
-                ceilingFanVelocity = Mathf.Clamp(ceilingFanVelocity + ceilingFanAcceleration * Time.deltaTime, 0, CEILING_FAN_MAX_VELOCITY);
-            else ceilingFanVelocity = ceilingFanVelocity * (1 - ceilingFanDrag * Time.deltaTime);
+            ceilingFanVelocity = lightObject.activeSelf ? Mathf.Clamp(ceilingFanVelocity + ceilingFanAcceleration * Time.deltaTime, 0, CEILING_FAN_MAX_VELOCITY) : ceilingFanVelocity = ceilingFanVelocity * (1 - ceilingFanDrag * Time.deltaTime);
         }
     }
 
@@ -89,7 +89,7 @@ public class LightSwitchScript : MonoBehaviour, IInteractable {
     {
         state = _state;
         lightObject.SetActive(_state);
-        if (hasLightSwitch) lightSwitchObject.GetComponent<Animator>().Play(_state ? "switchOn" : "switchOff");
+        if (hasLightSwitch) buttonObject.GetComponent<Animator>().Play(_state ? "switchOn" : "switchOff");
         materials[i] = _state ? stateMaterial[1] : stateMaterial[0];
         audioSource.clip = _state ?
             toggleOnSound[UnityEngine.Random.Range(0, toggleOnSound.Length)] :
