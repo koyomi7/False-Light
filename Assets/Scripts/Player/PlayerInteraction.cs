@@ -13,12 +13,29 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] LayerMask interactableLayer;
 
     GameObject heldObject;
+    Quaternion initialRotationOffset;
     IInteractable currentInteractable;
 
     void Update()
     {
         CheckForInteractable();
         HandleInteraction();
+    }
+
+    void LateUpdate()
+    {
+        if (heldObject != null)
+        {
+            // Get the camera's Y rotation (yaw) only (ignoring pitch & roll)
+            float cameraYaw = playerCam.transform.eulerAngles.y;
+            Quaternion yawOnlyRotation = Quaternion.Euler(0, cameraYaw, 0);
+
+            // Apply the yaw rotation + initial offset to the object
+            heldObject.transform.rotation = yawOnlyRotation * initialRotationOffset;
+            
+            // Update position to follow holdPoint
+            heldObject.transform.position = holdPoint.position;
+        }
     }
 
     public void Pickup(GameObject obj)
@@ -28,9 +45,17 @@ public class PlayerInteraction : MonoBehaviour
         obj.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
         obj.GetComponent<Collider>().enabled = false; // Disable collision
 
-        obj.transform.SetParent(holdPoint);
-        obj.transform.localPosition = Vector3.zero;
-        obj.transform.localRotation = Quaternion.identity;
+        // obj.transform.SetParent(holdPoint);
+        // obj.transform.localPosition = Vector3.zero;
+        // obj.transform.localRotation = Quaternion.identity;
+
+        Quaternion worldRotation = obj.transform.rotation;
+        
+        // Removes the camera's yaw influence from the initial offset
+        float cameraYaw = playerCam.transform.eulerAngles.y;
+        Quaternion inverseYaw = Quaternion.Euler(0, -cameraYaw, 0);
+        initialRotationOffset = inverseYaw * worldRotation;
+
         heldObject = obj;
         currentInteractable = null;
         interactionText.SetText("[F] Drop\n[LMB] Throw");
@@ -46,7 +71,7 @@ public class PlayerInteraction : MonoBehaviour
         heldObject.GetComponent<Collider>().enabled = true; // Re-enable collision
 
         if (_throw) rb.AddForce(holdPoint.forward * throwForce, ForceMode.Impulse); // Throw
-        heldObject.transform.SetParent(null); // Unparent
+        // heldObject.transform.SetParent(null); // Unparent
         Debug.Log(_throw ? $"Player threw {heldObject.name}" : $"Player dropped {heldObject.name}");
         heldObject = null;
     }
