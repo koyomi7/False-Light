@@ -125880,16 +125880,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startsOn: 1
+  isFlickering: 1
+  flickerSpeed: 1
+  minIntensity: 0.5
+  maxIntensity: 1
   isCeilingFan: 0
   ceilingFanAcceleration: 0
   ceilingFanDrag: 0
-  enableRandomEvents: 1
-  minTimeBetweenEvents: 50
-  maxTimeBetweenEvents: 120
-  eventChance: 0.3
-  canFlicker: 1
-  flickerDuration: 1
-  flickerCount: 3
   buttonObject: {fileID: 0}
   lightObject: {fileID: 6737565157866995777}
   lampObject:
@@ -151395,16 +151392,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startsOn: 0
+  isFlickering: 1
+  flickerSpeed: 1
+  minIntensity: 0.5
+  maxIntensity: 1
   isCeilingFan: 0
   ceilingFanAcceleration: 0
   ceilingFanDrag: 0
-  enableRandomEvents: 1
-  minTimeBetweenEvents: 50
-  maxTimeBetweenEvents: 120
-  eventChance: 0.3
-  canFlicker: 1
-  flickerDuration: 1
-  flickerCount: 3
   buttonObject: {fileID: 0}
   lightObject: {fileID: 1598576564365472579}
   lampObject:
@@ -156053,16 +156047,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startsOn: 0
+  isFlickering: 0
+  flickerSpeed: 1
+  minIntensity: 0.5
+  maxIntensity: 1
   isCeilingFan: 0
   ceilingFanAcceleration: 0
   ceilingFanDrag: 0
-  enableRandomEvents: 1
-  minTimeBetweenEvents: 50
-  maxTimeBetweenEvents: 120
-  eventChance: 0.3
-  canFlicker: 1
-  flickerDuration: 1
-  flickerCount: 3
   buttonObject: {fileID: 1207344155451594056}
   lightObject: {fileID: 7421914974323274167}
   lampObject:
@@ -190900,16 +190891,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startsOn: 1
+  isFlickering: 1
+  flickerSpeed: 1
+  minIntensity: 0.5
+  maxIntensity: 1
   isCeilingFan: 0
   ceilingFanAcceleration: 0
   ceilingFanDrag: 0
-  enableRandomEvents: 1
-  minTimeBetweenEvents: 50
-  maxTimeBetweenEvents: 120
-  eventChance: 0.3
-  canFlicker: 1
-  flickerDuration: 1
-  flickerCount: 3
   buttonObject: {fileID: 0}
   lightObject: {fileID: 8272063367774308297}
   lampObject:
@@ -193865,16 +193853,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startsOn: 0
+  isFlickering: 1
+  flickerSpeed: 1
+  minIntensity: 0.5
+  maxIntensity: 1
   isCeilingFan: 0
   ceilingFanAcceleration: 0
   ceilingFanDrag: 0
-  enableRandomEvents: 1
-  minTimeBetweenEvents: 50
-  maxTimeBetweenEvents: 120
-  eventChance: 0.3
-  canFlicker: 1
-  flickerDuration: 1
-  flickerCount: 3
   buttonObject: {fileID: 0}
   lightObject: {fileID: 1147678741328742697}
   lampObject:
@@ -209762,16 +209747,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startsOn: 0
+  isFlickering: 1
+  flickerSpeed: 1
+  minIntensity: 0.5
+  maxIntensity: 1
   isCeilingFan: 0
   ceilingFanAcceleration: 0
   ceilingFanDrag: 0
-  enableRandomEvents: 1
-  minTimeBetweenEvents: 50
-  maxTimeBetweenEvents: 120
-  eventChance: 0.3
-  canFlicker: 1
-  flickerDuration: 1
-  flickerCount: 3
   buttonObject: {fileID: 0}
   lightObject: {fileID: 5711722761135233782}
   lampObject:
@@ -209801,16 +209783,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startsOn: 0
+  isFlickering: 1
+  flickerSpeed: 1
+  minIntensity: 0.5
+  maxIntensity: 1
   isCeilingFan: 1
   ceilingFanAcceleration: 5.5
   ceilingFanDrag: 0.12
-  enableRandomEvents: 1
-  minTimeBetweenEvents: 50
-  maxTimeBetweenEvents: 120
-  eventChance: 0.3
-  canFlicker: 1
-  flickerDuration: 1
-  flickerCount: 3
   buttonObject: {fileID: 0}
   lightObject: {fileID: 5711722760285255745}
   lampObject:
@@ -219714,16 +219693,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startsOn: 0
+  isFlickering: 1
+  flickerSpeed: 1
+  minIntensity: 0.5
+  maxIntensity: 1
   isCeilingFan: 0
   ceilingFanAcceleration: 0
   ceilingFanDrag: 0
-  enableRandomEvents: 1
-  minTimeBetweenEvents: 50
-  maxTimeBetweenEvents: 120
-  eventChance: 0.3
-  canFlicker: 1
-  flickerDuration: 1
-  flickerCount: 3
   buttonObject: {fileID: 0}
   lightObject: {fileID: 6820897700135526898}
   lampObject:
