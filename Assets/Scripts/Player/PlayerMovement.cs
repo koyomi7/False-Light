@@ -114,6 +114,12 @@ public class PlayerMovement : MonoBehaviour
         HandleFootstepSounds();
     }
 
+    void OnDrawGizmos()
+    {
+        if (!Application.isPlaying) return;
+        CanStandUpDebug();
+    }
+
     void HandleInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -151,11 +157,52 @@ public class PlayerMovement : MonoBehaviour
 
     bool CanStandUp()
     {
+        // Slightly smaller radius than hitbox (capsule collider/player controller) to avoid imprecision glitches when attempting to stand
+        float reducedRadius = controllerRadius * 0.95f;
+
         // Casts a sphere from the player's crouched position to the player's standing position to check for obstacles
-        Vector3 castOrigin = transform.position + Vector3.up * (-standingHeight * 0.5f + targetControllerHeight - controllerRadius);
+        Vector3 castOrigin = transform.position + Vector3.up * (-standingHeight * 0.5f + targetControllerHeight - reducedRadius);
         float castDistance = originalControllerHeight - targetControllerHeight;
 
-        return !Physics.SphereCast(castOrigin, controller.radius, Vector3.up, out RaycastHit hit, castDistance);
+        return !Physics.SphereCast(castOrigin, reducedRadius, Vector3.up, out RaycastHit hit, castDistance);
+    }
+
+    void CanStandUpDebug()
+    {
+        // Slightly smaller radius than hitbox (capsule collider/player controller) to avoid imprecision glitches when attempting to stand
+        float reducedRadius = controllerRadius * 0.95f;
+
+        // Casts a sphere from the player's crouched position to the player's standing position to check for obstacles
+        Vector3 castOrigin = transform.position + Vector3.up * (-standingHeight * 0.5f + targetControllerHeight - reducedRadius);
+        float castDistance = originalControllerHeight - targetControllerHeight;
+
+        // Draws the cast origin sphere
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(castOrigin, reducedRadius);
+
+        // Draws the cast direction sphere and end point
+        Vector3 castEnd = castOrigin + Vector3.up * castDistance;
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(castOrigin, castEnd);
+        Gizmos.DrawWireSphere(castEnd, reducedRadius);
+
+        // Perform the actual sphere cast for visualization
+        if (Physics.SphereCast(castOrigin, reducedRadius, Vector3.up, out RaycastHit hit, castDistance))
+        {
+            // Draws the hit point and surface normal
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(hit.point, 0.1f);
+            Gizmos.DrawLine(hit.point, hit.point + hit.normal * 0.5f);
+            
+            // Draws the sphere at the hit point
+            Gizmos.DrawWireSphere(hit.point, reducedRadius);
+        }
+        else
+        {
+            // Draws successful path in green if no obstruction
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(castOrigin, castEnd);
+        }
     }
 
     IEnumerator SmoothCrouch(bool crouch)
