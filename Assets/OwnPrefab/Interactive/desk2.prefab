@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8330251563105527276}
   m_Layer: 0
   m_Name: Body Model
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 895055444108166359}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,6 +425,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
+  CooldownDuration: 1
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &4827009240699506058
@@ -622,7 +624,7 @@ GameObject:
   - component: {fileID: 3365627759073225180}
   m_Layer: 0
   m_Name: Body Model
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -886,7 +888,7 @@ GameObject:
   - component: {fileID: 4029791447369860913}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1086,6 +1088,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
+  CooldownDuration: 1
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &8426473452659283256
