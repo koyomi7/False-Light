@@ -138,6 +138,12 @@ public class PlayerInteraction : MonoBehaviour
                 interactionText.SetText(off ? "[F] Turn On" : "[F] Turn Off");
                 interactionText.gameObject.SetActive(true);
             }
+            // Pills
+            else if (hit.collider.CompareTag("Pill"))
+            {
+                interactionText.SetText("[F] Consume");
+                interactionText.gameObject.SetActive(true);
+            }
 
             return; // don't check further objects
         }
@@ -147,10 +153,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (heldObject != null)
-            {
-                Drop();
-            }
+            if (heldObject != null) Drop();
             else if (currentInteractable != null)
             {
                 // Check if the interactable is a door requiring a key
@@ -170,19 +173,10 @@ public class PlayerInteraction : MonoBehaviour
                     //     KeysAudioSource.Play();
                     // }
                 }
-                else
-                {
-                    currentInteractable.Interact();
-                }
+                else currentInteractable.Interact();
 
             }
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (heldObject != null)
-            {
-                Drop(true);
-            }
-        }
+        if (Input.GetMouseButtonDown(0) && (heldObject != null)) Drop(true);
     }
 }
