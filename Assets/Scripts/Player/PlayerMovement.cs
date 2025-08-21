@@ -164,7 +164,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 castOrigin = transform.position + Vector3.up * (-standingHeight * 0.5f + targetControllerHeight - reducedRadius);
         float castDistance = originalControllerHeight - targetControllerHeight;
 
-        return !Physics.SphereCast(castOrigin, reducedRadius, Vector3.up, out RaycastHit hit, castDistance);
+        // Excludes the layer of interactable objects
+        int layerMask = ~(1 << LayerMask.NameToLayer("Interactable"));
+
+        return !Physics.SphereCast(castOrigin, reducedRadius, Vector3.up, out RaycastHit hit, castDistance, layerMask);
     }
 
     void CanStandUpDebug()
@@ -175,6 +178,9 @@ public class PlayerMovement : MonoBehaviour
         // Casts a sphere from the player's crouched position to the player's standing position to check for obstacles
         Vector3 castOrigin = transform.position + Vector3.up * (-standingHeight * 0.5f + targetControllerHeight - reducedRadius);
         float castDistance = originalControllerHeight - targetControllerHeight;
+
+        // Excludes the layer of interactable objects
+        int layerMask = ~(1 << LayerMask.NameToLayer("Interactable"));
 
         // Draws the cast origin sphere
         Gizmos.color = Color.yellow;
@@ -187,7 +193,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(castEnd, reducedRadius);
 
         // Perform the actual sphere cast for visualization
-        if (Physics.SphereCast(castOrigin, reducedRadius, Vector3.up, out RaycastHit hit, castDistance))
+        if (Physics.SphereCast(castOrigin, reducedRadius, Vector3.up, out RaycastHit hit, castDistance, layerMask))
         {
             // Draws the hit point and surface normal
             Gizmos.color = Color.red;
