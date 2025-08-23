@@ -134,7 +134,7 @@ public class PlayerInteraction : MonoBehaviour
             else if (hit.collider.CompareTag("LightSwitch"))
             {
                 LightSwitchScript lightSwitch = hit.collider.GetComponent<LightSwitchScript>();
-                bool off = lightSwitch.state;
+                bool off = !lightSwitch.state;
                 interactionText.SetText(off ? "[F] Turn On" : "[F] Turn Off");
                 interactionText.gameObject.SetActive(true);
             }
