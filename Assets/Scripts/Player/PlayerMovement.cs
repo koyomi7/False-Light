@@ -164,8 +164,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 castOrigin = transform.position + Vector3.up * (-standingHeight * 0.5f + targetControllerHeight - reducedRadius);
         float castDistance = originalControllerHeight - targetControllerHeight;
 
-        // Excludes the layer of interactable objects
-        int layerMask = ~(1 << LayerMask.NameToLayer("Interactable"));
+        // Excludes the layers of interactable objects and brushes
+        int layerMask = ~((1 << LayerMask.NameToLayer("Interactable")) | (1 << LayerMask.NameToLayer("Brush")));
 
         return !Physics.SphereCast(castOrigin, reducedRadius, Vector3.up, out RaycastHit hit, castDistance, layerMask);
     }
