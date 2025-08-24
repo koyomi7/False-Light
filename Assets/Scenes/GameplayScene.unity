@@ -64923,8 +64923,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1509625533}
   - component: {fileID: 1509625536}
+  - component: {fileID: 1509625539}
   - component: {fileID: 1509625535}
   - component: {fileID: 1509625537}
+  - component: {fileID: 1509625538}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -65020,12 +65022,125 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionDistance: 1
   throwForce: 10
+  openDoorFailSound: {fileID: 8300000, guid: 6241c5fda881cb4498239d6f29f64b7c, type: 3}
+  doorUnlockSound: {fileID: 8300000, guid: a98f55646ceec394e8bb7dab6755ba0f, type: 3}
   holdPoint: {fileID: 245458352}
   playerCam: {fileID: 1522447383}
   interactionText: {fileID: 805979569}
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
+  keysNeededText: {fileID: 1840030780}
+--- !u!114 &1509625538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509625532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e3abb4243f9b94887c65e2d1cd19ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyCount: 0
+  keyCountText: {fileID: 622041101}
+--- !u!82 &1509625539
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509625532}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1513733963
 GameObject:
   m_ObjectHideFlags: 0
@@ -124509,8 +124624,8 @@ GameObject:
   - component: {fileID: 524964560278850742}
   - component: {fileID: 5364118845222163441}
   - component: {fileID: 4923510138248768708}
-  - component: {fileID: 3426140457134504708}
   - component: {fileID: 6280448488997093439}
+  - component: {fileID: 3426140457134504708}
   m_Layer: 6
   m_Name: Switch
   m_TagString: LightSwitch
@@ -157534,7 +157649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3fe2588bb7ecc4aa6d394a9ae7b57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startsOn: 1
+  startsOn: 0
   isFlickering: 0
   flickerSpeed: 1
   minIntensity: 0.5
@@ -164877,7 +164992,7 @@ GameObject:
   - component: {fileID: 1280755360}
   m_Layer: 6
   m_Name: key
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259579,8 +259694,8 @@ GameObject:
   - component: {fileID: 6140923191362469550}
   - component: {fileID: 2796737753122234026}
   - component: {fileID: 4366509121171184349}
-  - component: {fileID: 5412648296896112354}
   - component: {fileID: 7723468932033268057}
+  - component: {fileID: 5412648296896112354}
   m_Layer: 6
   m_Name: deskLight
   m_TagString: LightSwitch
@@ -265529,7 +265644,7 @@ MonoBehaviour:
   playerDetectionRadius: 10
   isOnCooldown: 0
   CooldownDuration: 1
-  requiresKey: 0
+  requiresKey: 1
   isUnlocked: 0
 --- !u!95 &8972618107154288835
 Animator:
