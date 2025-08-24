@@ -20,6 +20,7 @@ TagManager:
   - AccessMechanism
   - InteractiveProp
   - InteractionClip
+  - Key
   layers:
   - Default
   - TransparentFX
