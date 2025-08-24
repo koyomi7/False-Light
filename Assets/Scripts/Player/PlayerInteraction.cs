@@ -6,20 +6,36 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] float interactionDistance;
     [SerializeField] float throwForce;
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip openDoorFailSound;
+    [SerializeField] AudioClip doorUnlockSound;
+    AudioSource keyAudioSource;
+
     [Header("References")]
     [SerializeField] Transform holdPoint;
     [SerializeField] Camera playerCam;
     [SerializeField] TMPro.TextMeshProUGUI interactionText;
     [SerializeField] LayerMask interactableLayer;
+    [SerializeField] TMPro.TextMeshProUGUI keysNeededText; // NEW: Reference to the "Keys Needed" text
 
     GameObject heldObject;
     Quaternion initialRotationOffset;
     IInteractable currentInteractable;
 
+    // Timer for "Keys Needed" visibility
+    float keysNeededTimer = 0f;
+    const float KeysNeededDisplayTime = 2f; // Time in seconds to show "Keys Needed"
+
+    void Start()
+    {
+        keyAudioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         CheckForInteractable();
         HandleInteraction();
+        UpdateKeysNeededVisibility();
     }
 
     void LateUpdate()
@@ -32,7 +48,7 @@ public class PlayerInteraction : MonoBehaviour
 
             // Apply the yaw rotation + initial offset to the object
             heldObject.transform.rotation = yawOnlyRotation * initialRotationOffset;
-            
+
             // Update position to follow holdPoint
             heldObject.transform.position = holdPoint.position;
         }
@@ -50,7 +66,7 @@ public class PlayerInteraction : MonoBehaviour
         // obj.transform.localRotation = Quaternion.identity;
 
         Quaternion worldRotation = obj.transform.rotation;
-        
+
         // Removes the camera's yaw influence from the initial offset
         float cameraYaw = playerCam.transform.eulerAngles.y;
         Quaternion inverseYaw = Quaternion.Euler(0, -cameraYaw, 0);
@@ -65,7 +81,7 @@ public class PlayerInteraction : MonoBehaviour
     public void Drop(bool _throw = false)
     {
         if (heldObject == null) return;
-        
+
         Rigidbody rb = heldObject.GetComponent<Rigidbody>();
         rb.isKinematic = false; // Re-enable physics
         heldObject.GetComponent<Collider>().enabled = true; // Re-enable collision
@@ -79,7 +95,7 @@ public class PlayerInteraction : MonoBehaviour
     void CheckForInteractable()
     {
         if (heldObject != null) return;
-        
+
         // Gets camera's pitch angle from local rotation
         float pitch = playerCam.transform.localEulerAngles.x;
         pitch = (pitch > 180) ? pitch - 360 : pitch; // Normalize to -180 to 180 range
@@ -144,6 +160,12 @@ public class PlayerInteraction : MonoBehaviour
                 interactionText.SetText("[F] Consume");
                 interactionText.gameObject.SetActive(true);
             }
+            // Key
+            else if (hit.collider.CompareTag("Key"))
+            {
+                interactionText.SetText("[F] Grab Key");
+                interactionText.gameObject.SetActive(true);
+            }
 
             return; // don't check further objects
         }
@@ -160,23 +182,43 @@ public class PlayerInteraction : MonoBehaviour
                 GenericAccessMechanismScript door = currentInteractable as GenericAccessMechanismScript;
                 if (door != null && door.requiresKey && !door.isUnlocked)
                 {
-                    // if (!KeyInventory.Instance.HasKey())
-                    // {
-                    //     ShowKeysNeededText();
-                    //     KeysAudioSource.clip = OpenDoorFailedSound;
-                    //     KeysAudioSource.Play();
-                    // }
-                    // else
-                    // {
-                    currentInteractable.Interact();
-                    //     KeysAudioSource.clip = UnlockDoorSound;
-                    //     KeysAudioSource.Play();
-                    // }
+                    if (!KeyInventory.Instance.HasKey())
+                    {
+                        ShowKeysNeededText();
+                        keyAudioSource.clip = openDoorFailSound;
+                    }
+                    else
+                    {
+                        currentInteractable.Interact();
+                        keyAudioSource.clip = doorUnlockSound;
+                    }
+                    keyAudioSource.Play();
                 }
                 else currentInteractable.Interact();
 
             }
         }
         if (Input.GetMouseButtonDown(0) && (heldObject != null)) Drop(true);
+    }
+    
+    void ShowKeysNeededText()
+    {
+        if (keysNeededText != null)
+        {
+            keysNeededText.gameObject.SetActive(true);
+            keysNeededTimer = KeysNeededDisplayTime; // Reset timer
+        }
+    }
+
+    void UpdateKeysNeededVisibility()
+    {
+        if (keysNeededText != null && keysNeededText.gameObject.activeSelf)
+        {
+            keysNeededTimer -= Time.deltaTime;
+            if (keysNeededTimer <= 0f)
+            {
+                keysNeededText.gameObject.SetActive(false); // Hide after timer expires
+            }
+        }
     }
 }
