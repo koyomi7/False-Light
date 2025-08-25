@@ -241011,8 +241011,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
-  closeSound: {fileID: 0}
-  openSound: {fileID: 0}
+  closeSound: {fileID: 8300000, guid: dabe4e533a88d54438b843271e9e0824, type: 3}
+  openSound: {fileID: 8300000, guid: dabe4e533a88d54438b843271e9e0824, type: 3}
   closedClip: {fileID: 7400000, guid: 74512b178d94a7941bd4ec554cddff2f, type: 2}
   openClip: {fileID: 7400000, guid: 42d58ea0f30c62c4d84322e934cd2635, type: 2}
   partlyOpen1Clip: {fileID: 0}
