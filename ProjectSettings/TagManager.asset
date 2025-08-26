@@ -21,6 +21,7 @@ TagManager:
   - InteractiveProp
   - InteractionClip
   - Key
+  - Printer
   layers:
   - Default
   - TransparentFX
