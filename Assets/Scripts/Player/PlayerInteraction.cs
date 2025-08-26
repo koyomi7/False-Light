@@ -132,12 +132,16 @@ public class PlayerInteraction : MonoBehaviour
             currentInteractable = interactable;
 
             // Access Mechanism
-            if (hit.collider.CompareTag("AccessMechanism"))
+            if (hit.collider.CompareTag("AccessMechanism") || hit.collider.CompareTag("Printer"))
             {
                 GenericAccessMechanismScript access = hit.collider.GetComponent<GenericAccessMechanismScript>();
                 bool accessible = !access.isOnCooldown;
-                bool closed = access.state == GenericAccessMechanismScript.states.CLOSED ? true : false;
-                interactionText.SetText(closed ? "[F] Open" : "[F] Close");
+                if (hit.collider.CompareTag("Printer")) interactionText.SetText("[F] Roll");
+                else
+                {
+                    bool closed = access.state == GenericAccessMechanismScript.states.CLOSED ? true : false;
+                    interactionText.SetText(closed ? "[F] Open" : "[F] Close");
+                }
                 if (accessible) interactionText.gameObject.SetActive(true);
             }
             // Interactive Prop
