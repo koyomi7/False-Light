@@ -22,6 +22,7 @@ TagManager:
   - InteractionClip
   - Key
   - Printer
+  - GhostTriggerClip
   layers:
   - Default
   - TransparentFX
