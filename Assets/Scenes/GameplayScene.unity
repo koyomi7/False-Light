@@ -22950,6 +22950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pills: 0
+  eventCooldownDuration: 2
 --- !u!1 &558937368
 GameObject:
   m_ObjectHideFlags: 0
