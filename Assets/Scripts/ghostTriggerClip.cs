@@ -21,8 +21,10 @@ public class ghostTriggerClip : MonoBehaviour
     {
         if (hasBeenTriggered && oneTimeUse) return;
         if (!other.CompareTag("Player")) return;
+        if (!GameManager.Instance.CanTriggerEvent()) return;
 
         Debug.Log($"Player entered trigger {eventName}");
+        GameManager.Instance.StartEvent();
         ExecuteTrigger();
         
         if (oneTimeUse) hasBeenTriggered = true;
@@ -35,7 +37,6 @@ public class ghostTriggerClip : MonoBehaviour
             case Triggers.None:
                 Debug.Log("None");
                 break;
-
             case Triggers.DownstairsOfficeScare1:
                 Debug.Log("Activating downstairs office scare 1");
                 break;
