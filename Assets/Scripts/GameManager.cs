@@ -6,13 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public AudioManager AudioManager { get; private set; }
-    
     [HideInInspector] public int pills = 0;
-
-    // Event trigger cooldown system
-    bool isEventPlaying = false;
-    float eventCooldownTimer = 0f;
-    [SerializeField] public float eventCooldownDuration;
+    int eventIdPlaying = 0;
     
     void Awake()
     {
@@ -28,30 +23,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public bool CanTriggerEvent(int eventId, bool start = true)
     {
-        HandleEventCooldown();
+        return eventIdPlaying == (start ? 0 : eventId);
     }
 
-    void HandleEventCooldown()
+    public void StartEvent(int eventId)
     {
-        if (eventCooldownTimer > 0f)
-        {
-            eventCooldownTimer -= Time.deltaTime;
-            if (eventCooldownTimer <= 0f) isEventPlaying = false;
-        }
+        eventIdPlaying = eventId;
+        Debug.Log($"Event started (eventId = {eventId})");
     }
 
-    public bool CanTriggerEvent()
+    public void EndEvent(int eventId)
     {
-        return !isEventPlaying;
-    }
-
-    public void StartEvent()
-    {
-        isEventPlaying = true;
-        eventCooldownTimer = eventCooldownDuration;
-        Debug.Log("Event started");
+        eventIdPlaying = 0;
+        Debug.Log($"Event ended (eventId = {eventId})");
     }
 
     public void UpdatePillsCount(int consumed = 1)
