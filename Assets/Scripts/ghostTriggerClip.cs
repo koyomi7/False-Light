@@ -6,9 +6,8 @@ public class ghostTriggerClip : MonoBehaviour
 {
     public enum Triggers
     {
-        None,
-        DownstairsOfficeScare1,
-        DownstairsOfficeScare2,
+        DownstairsOfficeScareStart,
+        DownstairsOfficeScareEnd,
     }
     
     [SerializeField] Triggers trigger;
@@ -21,27 +20,34 @@ public class ghostTriggerClip : MonoBehaviour
     {
         if (hasBeenTriggered && oneTimeUse) return;
         if (!other.CompareTag("Player")) return;
-        if (!GameManager.Instance.CanTriggerEvent()) return;
-
-        Debug.Log($"Player entered trigger {eventName}");
-        GameManager.Instance.StartEvent();
-        ExecuteTrigger();
         
-        if (oneTimeUse) hasBeenTriggered = true;
+        Debug.Log($"Player entered trigger {eventName}");
+        ExecuteTrigger();
     }
     
     private void ExecuteTrigger()
     {
         switch (trigger)
         {
-            case Triggers.None:
-                Debug.Log("None");
+            case Triggers.DownstairsOfficeScareStart:
+                Debug.Log("Executing downstairs office scare start...");
+                if (!GameManager.Instance.CanTriggerEvent(1))
+                {
+                    Debug.Log("Cannot execute downstairs office scare start");
+                    break;
+                }
+                GameManager.Instance.StartEvent(1);
+                hasBeenTriggered = true;
                 break;
-            case Triggers.DownstairsOfficeScare1:
-                Debug.Log("Activating downstairs office scare 1");
-                break;
-            case Triggers.DownstairsOfficeScare2:
-                Debug.Log("Activating downstairs office scare 2");
+            case Triggers.DownstairsOfficeScareEnd:
+                Debug.Log("Executing downstairs office scare end...");
+                if (!GameManager.Instance.CanTriggerEvent(1, start:false))
+                {
+                    Debug.Log("Cannot execute downstairs office scare end");
+                    break;
+                }
+                GameManager.Instance.EndEvent(1);
+                hasBeenTriggered = true;
                 break;
         }
     }
