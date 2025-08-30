@@ -37,6 +37,7 @@ public class ghostTriggerClip : MonoBehaviour
                     break;
                 }
                 GameManager.Instance.StartEvent(1);
+                GhostEvent.Instance.DownstairsOfficeScareStart();
                 hasBeenTriggered = true;
                 break;
             case Triggers.DownstairsOfficeScareEnd:
@@ -47,6 +48,7 @@ public class ghostTriggerClip : MonoBehaviour
                     break;
                 }
                 GameManager.Instance.EndEvent(1);
+                GhostEvent.Instance.DownstairsOfficeScareEnd();
                 hasBeenTriggered = true;
                 break;
         }
