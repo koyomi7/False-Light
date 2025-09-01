@@ -9,11 +9,12 @@ public class GhostEvent : MonoBehaviour
     [Header("References")]
     [SerializeField] protected GameObject Ghost;
     [SerializeField] protected Transform Player;
+    [SerializeField] protected AudioSource audioSource1;
+    [SerializeField] protected AudioSource audioSource2;
+    [SerializeField] protected AudioSource audioSource3;
     protected Animator animator;
-    protected AudioSource audioSource;
 
     // Stuff that I need to figure out how to make an object for to reference as a child
-    [SerializeField] private AudioSource footstepAudioSource;
     [SerializeField] private AudioClip HeavyBreathing;
     [SerializeField] private AudioClip GhostRoar;
     [SerializeField] private AudioClip GhostFootsteps;
@@ -36,7 +37,9 @@ public class GhostEvent : MonoBehaviour
     void Start()
     {
         animator = Ghost.GetComponent<Animator>();
-        audioSource = Ghost.GetComponent<AudioSource>();
+        audioSource1.Stop();
+        audioSource2.Stop();
+        audioSource3.Stop();
         Ghost.SetActive(false);
     }
 
@@ -49,15 +52,15 @@ public class GhostEvent : MonoBehaviour
     {
         Ghost.SetActive(true);
         animator.Play("Seizure");
-        audioSource.clip = HeavyBreathing;
-        audioSource.Play();
+        audioSource1.clip = HeavyBreathing;
+        audioSource1.Play();
     }
 
     public void DownstairsOfficeScareEnd()
     {
         Ghost.SetActive(false);
-        audioSource.Stop();
-        footstepAudioSource.Stop(); 
+        audioSource1.Stop();
+        audioSource2.Stop();
         StartCoroutine(ReappearAndRun());
     }
 
@@ -71,11 +74,11 @@ public class GhostEvent : MonoBehaviour
         Ghost.SetActive(true);
         animator.Play("ClownRun");
 
-        audioSource.clip = GhostRoar;
-        audioSource.Play();
-        footstepAudioSource.clip = GhostFootsteps;
-        footstepAudioSource.loop = true;
-        footstepAudioSource.Play();
+        audioSource1.clip = GhostRoar;
+        audioSource1.Play();
+        audioSource2.clip = GhostFootsteps;
+        audioSource2.loop = true;
+        audioSource2.Play();
 
         isGhostRunning = true;
     }
@@ -91,8 +94,8 @@ public class GhostEvent : MonoBehaviour
         if (Vector3.Distance(Ghost.transform.position, Player.position) < 0.5f)
         {
             isGhostRunning = false;
-            audioSource.Stop();
-            footstepAudioSource.Stop();
+            audioSource1.Stop();
+            audioSource2.Stop();
             Ghost.SetActive(false);
         }
     }
