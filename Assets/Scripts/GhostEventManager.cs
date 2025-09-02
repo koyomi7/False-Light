@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostEvent : MonoBehaviour
+public class GhostEventManager : MonoBehaviour
 {
-    public static GhostEvent Instance { get; private set; }
+    public static GhostEventManager Instance { get; private set; }
 
     [Header("References")]
     [SerializeField] protected GameObject Ghost;
