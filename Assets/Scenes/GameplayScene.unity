@@ -29992,7 +29992,7 @@ GameObject:
   - component: {fileID: 737070396}
   - component: {fileID: 737070395}
   m_Layer: 0
-  m_Name: GhostEvent
+  m_Name: GhostEventManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
