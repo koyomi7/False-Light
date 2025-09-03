@@ -6,19 +6,26 @@ public class GhostEventManager : MonoBehaviour
 {
     public static GhostEventManager Instance { get; private set; }
 
-    [Header("References")]
-    [SerializeField] protected GameObject Ghost;
-    [SerializeField] protected Transform Player;
-    [SerializeField] protected AudioSource audioSource1;
-    [SerializeField] protected AudioSource audioSource2;
-    [SerializeField] protected AudioSource audioSource3;
-    protected Animator animator;
+    public enum Occurrences
+    {
+        Start,
+        End,
+        Both
+    }
 
-    // Stuff that I need to figure out how to make an object for to reference as a child
-    [SerializeField] private AudioClip HeavyBreathing;
-    [SerializeField] private AudioClip GhostRoar;
-    [SerializeField] private AudioClip GhostFootsteps;
-    [SerializeField] private float ghostSpeed;
+    [Header("References")]
+    [SerializeField] GameObject Ghost;
+    [SerializeField] Transform Player;
+    [SerializeField] AudioSource audioSource1;
+    [SerializeField] AudioSource audioSource2;
+    [SerializeField] AudioSource audioSource3;
+    Animator animator;
+
+    [Header("Downstairs Office Scare")]
+    [SerializeField] AudioClip HeavyBreathing;
+    [SerializeField] AudioClip GhostRoar;
+    [SerializeField] AudioClip GhostFootsteps;
+    [SerializeField] float ghostSpeed;
     bool isGhostRunning = false;
 
     void Awake()
@@ -45,25 +52,32 @@ public class GhostEventManager : MonoBehaviour
 
     void Update()
     {
-        RunToPlayer();
+        RunToPlayer(); // DownstairsOfficeScare
     }
 
-    public void DownstairsOfficeScareStart()
+    public void DownstairsOfficeScare(Occurrences occurrence)
     {
-        Ghost.SetActive(true);
-        animator.Play("Seizure");
-        audioSource1.clip = HeavyBreathing;
-        audioSource1.Play();
+        switch (occurrence)
+        {
+            case Occurrences.Start:
+                Ghost.SetActive(true);
+                animator.Play("Seizure");
+                audioSource1.clip = HeavyBreathing;
+                audioSource1.Play();
+                break;
+            case Occurrences.End:
+                Ghost.SetActive(false);
+                audioSource1.Stop();
+                audioSource2.Stop();
+                StartCoroutine(ReappearAndRun());
+                break;
+            default:
+                Debug.Log($"Error: DownstairsOfficeScare() does not have a {occurrence} occurance");
+                break;
+        }
     }
 
-    public void DownstairsOfficeScareEnd()
-    {
-        Ghost.SetActive(false);
-        audioSource1.Stop();
-        audioSource2.Stop();
-        StartCoroutine(ReappearAndRun());
-    }
-
+    // DownstairsOfficeScare
     IEnumerator ReappearAndRun()
     {
         yield return new WaitForSeconds(1f); 
@@ -83,6 +97,7 @@ public class GhostEventManager : MonoBehaviour
         isGhostRunning = true;
     }
 
+    // DownstairsOfficeScare
     void RunToPlayer()
     {
         if (!isGhostRunning) return;
