@@ -65230,8 +65230,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3938fc45b16af74588b017dac55f72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: 1
-  eventName: END EVENT
+  trigger: 0
+  Occurrence: 1
+  eventName: Downstairs Office Scare END
   oneTimeUse: 1
 --- !u!65 &1511975025
 BoxCollider:
@@ -250419,7 +250420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 0
-  eventName: START EVENT
+  Occurrence: 0
+  eventName: Downstairs Office Scare START
   oneTimeUse: 1
 --- !u!33 &8083858236587304932
 MeshFilter:
