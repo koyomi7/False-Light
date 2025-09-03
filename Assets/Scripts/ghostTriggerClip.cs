@@ -6,11 +6,11 @@ public class ghostTriggerClip : MonoBehaviour
 {
     public enum Triggers
     {
-        DownstairsOfficeScareStart,
-        DownstairsOfficeScareEnd,
+        DownstairsOfficeScare
     }
     
     [SerializeField] Triggers trigger;
+    [SerializeField] GhostEventManager.Occurrences Occurrence;
     [SerializeField] string eventName;
     [SerializeField] bool oneTimeUse = true;
 
@@ -22,33 +22,17 @@ public class ghostTriggerClip : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         
         Debug.Log($"Player entered trigger {eventName}");
-        ExecuteTrigger();
+        ExecuteTrigger(Occurrence);
     }
     
-    private void ExecuteTrigger()
+    private void ExecuteTrigger(GhostEventManager.Occurrences occurrence)
     {
         switch (trigger)
         {
-            case Triggers.DownstairsOfficeScareStart:
-                Debug.Log("Executing downstairs office scare start...");
-                if (!GameManager.Instance.CanTriggerEvent(1))
-                {
-                    Debug.Log("Cannot execute downstairs office scare start");
-                    break;
-                }
+            case Triggers.DownstairsOfficeScare:
+                if (!GameManager.Instance.CanTriggerEvent(1, occurrence != GhostEventManager.Occurrences.End)) break;
                 GameManager.Instance.StartEvent(1);
-                GhostEventManager.Instance.DownstairsOfficeScareStart();
-                hasBeenTriggered = true;
-                break;
-            case Triggers.DownstairsOfficeScareEnd:
-                Debug.Log("Executing downstairs office scare end...");
-                if (!GameManager.Instance.CanTriggerEvent(1, start:false))
-                {
-                    Debug.Log("Cannot execute downstairs office scare end");
-                    break;
-                }
-                GameManager.Instance.EndEvent(1);
-                GhostEventManager.Instance.DownstairsOfficeScareEnd();
+                GhostEventManager.Instance.DownstairsOfficeScare(occurrence);
                 hasBeenTriggered = true;
                 break;
         }
