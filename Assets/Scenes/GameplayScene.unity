@@ -65000,7 +65000,7 @@ Transform:
   m_GameObject: {fileID: 1509625532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.352, y: 0.814, z: 5.024}
+  m_LocalPosition: {x: 5.309, y: 0.814, z: 5.024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -65314,8 +65314,8 @@ Transform:
   m_GameObject: {fileID: 1511975023}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.804, y: 0.5832, z: 5.8342}
-  m_LocalScale: {x: 0.71483725, y: 0.96633, z: 0.65527004}
+  m_LocalPosition: {x: 7.5, y: 0.5832, z: 7.24}
+  m_LocalScale: {x: 2.344783, y: 0.96633, z: 0.65527004}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -119070,7 +119070,7 @@ GameObject:
   - component: {fileID: 8499649676145968184}
   - component: {fileID: 8083715405429223463}
   m_Layer: 8
-  m_Name: Ghost Trigger Clip Brush
+  m_Name: Ghost Trigger Clip Brush (1)
   m_TagString: GhostTriggerClip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165847,8 +165847,8 @@ Transform:
   m_GameObject: {fileID: 1387044540872518808}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.0737, y: 0.5832, z: 5.8342}
-  m_LocalScale: {x: 0.71483725, y: 0.96633, z: 0.65527004}
+  m_LocalPosition: {x: 3.2857, y: 0.5832, z: 2.4184}
+  m_LocalScale: {x: 0.66737205, y: 0.96633, z: 1.152489}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
