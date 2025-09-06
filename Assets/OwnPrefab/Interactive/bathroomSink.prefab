@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2376576070575955057}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,6 +134,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
+  CooldownDuration: 1
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &2029525679104002345
@@ -298,7 +300,7 @@ GameObject:
   - component: {fileID: 1921239269729291764}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,6 +416,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
+  CooldownDuration: 1
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &8380123058706272073
@@ -576,7 +580,7 @@ GameObject:
   - component: {fileID: 7696682031783732117}
   m_Layer: 6
   m_Name: pivot
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -642,6 +646,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
+  CooldownDuration: 1
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &4131292549777478060
@@ -874,7 +880,7 @@ GameObject:
   - component: {fileID: 9202127198614409299}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1074,6 +1080,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
+  CooldownDuration: 1
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &2184090017611188478
@@ -1242,7 +1250,7 @@ GameObject:
   - component: {fileID: 9195185875685636111}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1442,6 +1450,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
+  CooldownDuration: 1
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &4418140622312606331
@@ -1863,7 +1873,7 @@ GameObject:
   - component: {fileID: 4215363741626676841}
   m_Layer: 0
   m_Name: bathroomSink
-  m_TagString: Untagged
+  m_TagString: NoCollide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1906,7 +1916,7 @@ GameObject:
   - component: {fileID: 8477828146498580542}
   m_Layer: 6
   m_Name: pivot
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1972,6 +1982,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
+  isOnCooldown: 0
+  CooldownDuration: 1
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &4385506992469216638
@@ -2172,7 +2184,7 @@ GameObject:
   - component: {fileID: 8432398803428033696}
   m_Layer: 0
   m_Name: Body Model
-  m_TagString: NoCollide
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
