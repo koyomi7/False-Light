@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostEventManager : MonoBehaviour
@@ -22,11 +21,18 @@ public class GhostEventManager : MonoBehaviour
     Animator animator;
 
     [Header("Downstairs Office Scare")]
-    [SerializeField] AudioClip HeavyBreathing;
-    [SerializeField] AudioClip GhostRoar;
-    [SerializeField] AudioClip GhostFootsteps;
+    [SerializeField] RuntimeAnimatorController downstairsOfficeScareController;
+    [SerializeField] AudioClip heavyBreathing;
+    [SerializeField] AudioClip ghostRoar;
+    [SerializeField] AudioClip ghostFootsteps;
     [SerializeField] float ghostSpeed;
     bool isGhostRunning = false;
+
+    [Header("Downstairs Bathroom Scare")]
+    [SerializeField] RuntimeAnimatorController downstairsBathroomScareController;
+    [SerializeField] GenericAccessMechanismScript downstairsBathroomDoor;
+    [SerializeField] AudioClip footstepsBehindDoor;
+    [SerializeField] AudioClip doorSlamSound;
 
     void Awake()
     {
@@ -60,9 +66,12 @@ public class GhostEventManager : MonoBehaviour
         switch (occurrence)
         {
             case Occurrences.Start:
+                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsOfficeScareController;
+                Ghost.transform.position = new Vector3(7.12599993f, 1.43995976f, 13.243f);
+                Ghost.transform.rotation = Quaternion.Euler(new Vector3(90f, 55.2999878f, 0f));
                 Ghost.SetActive(true);
                 animator.Play("Seizure");
-                audioSource1.clip = HeavyBreathing;
+                audioSource1.clip = heavyBreathing;
                 audioSource1.Play();
                 break;
             case Occurrences.End:
@@ -77,6 +86,98 @@ public class GhostEventManager : MonoBehaviour
         }
     }
 
+    public void DownstairsBathroomScare(Occurrences occurrence)
+    {
+        switch (occurrence)
+        {
+            case Occurrences.Both:
+                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsBathroomScareController;
+                Ghost.transform.position = new Vector3(8.09600067f, 0.0820000172f, 9.92300034f);
+                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
+                Ghost.SetActive(true);
+                if (downstairsBathroomDoor.state == GenericAccessMechanismScript.states.CLOSED)
+                {
+                    StartCoroutine(ScaryAndSlamSequence());
+                }
+                else
+                {
+                    StartCoroutine(FootstepsAndCloseDoorSequence());
+                }
+                break;
+            default:
+                Debug.Log($"Error: DownstairsBathroomScare() does not have a {occurrence} occurance");
+                break;
+        }
+    }
+
+    // DownstairsBathroomScare
+    IEnumerator FootstepsAndCloseDoorSequence()
+    {
+        // Enable and setup ghost
+        Ghost.SetActive(true);
+        animator.Play("GoofyRun");
+
+        // Play footsteps from ghost
+        audioSource1.clip = footstepsBehindDoor;
+        audioSource1.Play();
+
+        float runDuration = 1.5f;
+        float elapsedTime = 0f;
+        Vector3 startPos = Ghost.transform.position;
+        Vector3 targetPos = new Vector3(8.01299953f, 0f, 7.24499941f);
+
+        // Move ghost to door
+        while (elapsedTime < runDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / runDuration;
+
+            // Calculate direction and rotation
+            Vector3 directionToDoor = (targetPos - Ghost.transform.position).normalized;
+            directionToDoor.y = 0;
+
+            if (directionToDoor != Vector3.zero)
+            {
+                Ghost.transform.forward = directionToDoor;
+            }
+
+            // Move ghost
+            Ghost.transform.position = Vector3.Lerp(startPos, targetPos, t);
+
+            yield return null;
+        }
+
+        // Close door
+        downstairsBathroomDoor.Interact();
+
+        // Play door slam sound
+        yield return new WaitForSeconds(0.5f); // Wait for door animation to start
+        audioSource2.clip = doorSlamSound;
+        audioSource2.Play();
+
+        // Wait extra second before destroying ghost
+        yield return new WaitForSeconds(1f);
+        
+        Ghost.SetActive(false);
+        audioSource1.Stop();
+        audioSource2.Stop();
+    }
+
+    // DownstairsBathroomScare
+    IEnumerator ScaryAndSlamSequence()
+    {
+        // Play the scary sound
+        audioSource1.clip = footstepsBehindDoor;
+        audioSource1.Play();
+
+        // Wait for the scary sound to finish 
+        yield return new WaitForSeconds(footstepsBehindDoor.length);
+
+        // Play the door slam sound
+        audioSource2.clip = doorSlamSound;
+        audioSource2.Play();
+    }
+
     // DownstairsOfficeScare
     IEnumerator ReappearAndRun()
     {
@@ -88,9 +189,9 @@ public class GhostEventManager : MonoBehaviour
         Ghost.SetActive(true);
         animator.Play("ClownRun");
 
-        audioSource1.clip = GhostRoar;
+        audioSource1.clip = ghostRoar;
         audioSource1.Play();
-        audioSource2.clip = GhostFootsteps;
+        audioSource2.clip = ghostFootsteps;
         audioSource2.loop = true;
         audioSource2.Play();
 
