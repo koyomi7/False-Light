@@ -8589,6 +8589,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -30029,7 +30030,7 @@ MonoBehaviour:
   audioSource3: {fileID: 103336370}
   downstairsOfficeScareController: {fileID: 9100000, guid: a24fd2035d67a734591f87faa9f113c9,
     type: 2}
-  heavyBreathing: {fileID: 8300000, guid: 6b5721e30f29c584eb44159e8e78dcf6, type: 3}
+  heavyBreathing: {fileID: 8300000, guid: 55ea3b95231838f4aa7f95c43ef68944, type: 3}
   ghostRoar: {fileID: 8300000, guid: e2e79931b8aa4884dbd5d84a6e70b34d, type: 3}
   ghostFootsteps: {fileID: 8300000, guid: 7723dddaaadb36848a0515a32492109a, type: 3}
   ghostSpeed: 2
@@ -30038,6 +30039,7 @@ MonoBehaviour:
   downstairsBathroomDoor: {fileID: 1409344704}
   footstepsBehindDoor: {fileID: 8300000, guid: 5a8317aeb8ad0aa45a4ee8010d07cace, type: 3}
   doorSlamSound: {fileID: 8300000, guid: e469232fe5d373e49b149bdf7d855a30, type: 3}
+  doorSlamClip: {fileID: 7400000, guid: 450057e6fd8a00e4f9e46647b3b676be, type: 2}
 --- !u!4 &737070396
 Transform:
   m_ObjectHideFlags: 0
@@ -35083,6 +35085,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -48621,6 +48624,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -59468,6 +59472,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -65022,7 +65027,7 @@ Transform:
   m_GameObject: {fileID: 1509625532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.578, y: 0.869, z: 7.648}
+  m_LocalPosition: {x: 9.386, y: 0.869, z: 7.083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -100521,6 +100526,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -100675,6 +100681,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -103463,6 +103470,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: f4badcdecaa238949aa2c817d47e5001, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -103522,6 +103530,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: aa5f68e591e24384bb45b9a90fce7f76, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -110192,6 +110201,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -114663,6 +114673,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -128833,6 +128844,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -129253,6 +129265,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: c8d6051c32bc57a4ea974d1ee240eb92, type: 2}
   partlyOpen1Clip: {fileID: 7400000, guid: 1286b0b0bcca0034091a34d3aadf714a, type: 2}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -132338,6 +132351,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: c8d6051c32bc57a4ea974d1ee240eb92, type: 2}
   partlyOpen1Clip: {fileID: 7400000, guid: 1286b0b0bcca0034091a34d3aadf714a, type: 2}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -138019,6 +138033,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: f2e9e87dd4589f74f8cdce4166f98646, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -160875,6 +160890,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -161478,6 +161494,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -163608,6 +163625,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -174225,6 +174243,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -180186,6 +180205,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -183469,6 +183489,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: d51b193c886b639418891a31460c0137, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -183514,6 +183535,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -184679,6 +184701,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -196402,6 +196425,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: f2e9e87dd4589f74f8cdce4166f98646, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -196992,6 +197016,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -198420,6 +198445,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: f4badcdecaa238949aa2c817d47e5001, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -205711,6 +205737,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: c8d6051c32bc57a4ea974d1ee240eb92, type: 2}
   partlyOpen1Clip: {fileID: 7400000, guid: 1286b0b0bcca0034091a34d3aadf714a, type: 2}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -209882,6 +209909,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 9dc5faefab56209479048b7815d1b948, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -210547,6 +210575,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: c8d6051c32bc57a4ea974d1ee240eb92, type: 2}
   partlyOpen1Clip: {fileID: 7400000, guid: 1286b0b0bcca0034091a34d3aadf714a, type: 2}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -212631,6 +212660,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -220146,6 +220176,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -225551,6 +225582,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -230449,6 +230481,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: d51b193c886b639418891a31460c0137, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -235882,6 +235915,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: aa5f68e591e24384bb45b9a90fce7f76, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -237376,6 +237410,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: aa5f68e591e24384bb45b9a90fce7f76, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -239538,6 +239573,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: b0534a0179b8e7b4e8ad2b99c935388e, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -242933,6 +242969,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 42d58ea0f30c62c4d84322e934cd2635, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -246299,6 +246336,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 56f6b92275d033442b266a73d7adbcb2, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -246533,6 +246571,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -256145,6 +256184,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -258816,6 +258856,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -259638,6 +259679,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -261920,6 +261962,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -263746,6 +263789,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: e6992b3eda9383041a41b907218e9923, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -267305,6 +267349,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -268061,6 +268106,7 @@ MonoBehaviour:
   openClip: {fileID: 7400000, guid: 88b69166ded4b08459cd76a4569d10c7, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  overrideController: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
