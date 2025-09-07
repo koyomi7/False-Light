@@ -32,8 +32,7 @@ public class ghostTriggerClip : MonoBehaviour
         {
             case Triggers.DownstairsOfficeScare:
                 if (!GameManager.Instance.CanTriggerEvent(1, occurrence != GhostEventManager.Occurrences.End)) break;
-                GameManager.Instance.StartEvent(1);
-                GhostEventManager.Instance.DownstairsOfficeScare(occurrence);
+                StartCoroutine(GhostEventManager.Instance.DownstairsOfficeScare(occurrence));
                 hasBeenTriggered = true;
                 break;
             case Triggers.DownstairsBathroomScare:
@@ -41,7 +40,6 @@ public class ghostTriggerClip : MonoBehaviour
                 GameManager.Instance.StartEvent(2);
                 GhostEventManager.Instance.DownstairsBathroomScare(occurrence);
                 hasBeenTriggered = true;
-                GameManager.Instance.EndEvent(2);
                 break;
         }
     }

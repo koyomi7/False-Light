@@ -30029,7 +30029,7 @@ MonoBehaviour:
   audioSource3: {fileID: 103336370}
   downstairsOfficeScareController: {fileID: 9100000, guid: a24fd2035d67a734591f87faa9f113c9,
     type: 2}
-  heavyBreathing: {fileID: 8300000, guid: 6b5721e30f29c584eb44159e8e78dcf6, type: 3}
+  heavyBreathing: {fileID: 8300000, guid: 55ea3b95231838f4aa7f95c43ef68944, type: 3}
   ghostRoar: {fileID: 8300000, guid: e2e79931b8aa4884dbd5d84a6e70b34d, type: 3}
   ghostFootsteps: {fileID: 8300000, guid: 7723dddaaadb36848a0515a32492109a, type: 3}
   ghostSpeed: 2
@@ -65022,7 +65022,7 @@ Transform:
   m_GameObject: {fileID: 1509625532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.578, y: 0.869, z: 7.648}
+  m_LocalPosition: {x: 5.324, y: 0.869, z: 5.127}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
