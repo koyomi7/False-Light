@@ -33,6 +33,7 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] GenericAccessMechanismScript downstairsBathroomDoor;
     [SerializeField] AudioClip footstepsBehindDoor;
     [SerializeField] AudioClip doorSlamSound;
+    [SerializeField] AnimationClip doorSlamClip;
 
     void Awake()
     {
@@ -173,11 +174,14 @@ public class GhostEventManager : MonoBehaviour
                         yield return null;
                     }
 
+                    AnimationClip temp = downstairsBathroomDoor.openClip;
+                    downstairsBathroomDoor.overrideController["OPEN"] = doorSlamClip;
+                    
                     // Close door
-                    downstairsBathroomDoor.Interact();
+                    downstairsBathroomDoor.Close();
 
                     // Play door slam sound
-                    yield return new WaitForSeconds(0.5f); // Wait for door animation to start
+                    yield return new WaitForSeconds(0.1f); // Wait for door animation to start
                     audioSource2.clip = doorSlamSound;
                     audioSource2.Play();
 
@@ -187,6 +191,7 @@ public class GhostEventManager : MonoBehaviour
                     Ghost.SetActive(false);
                     audioSource1.Stop();
                     audioSource2.Stop();
+                    downstairsBathroomDoor.overrideController["OPEN"] = temp;
 
                     ClearAudios();
                     GameManager.Instance.EndEvent(2);

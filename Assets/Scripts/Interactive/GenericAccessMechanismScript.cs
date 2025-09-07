@@ -12,10 +12,11 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
 
     [Header("Animation Settings")]
     [SerializeField] private AnimationClip closedClip; // if closed we want to open -> use opening clip
-    [SerializeField] private AnimationClip openClip; // if open we want to close -> use closing clip
+    [SerializeField] public AnimationClip openClip; // if open we want to close -> use closing clip
     [SerializeField] private AnimationClip partlyOpen1Clip;
     [SerializeField] private AnimationClip partlyOpen2Clip;
     [HideInInspector] private Animator animator;
+    [HideInInspector] public AnimatorOverrideController overrideController;
     [HideInInspector] private AudioSource audioSource;
 
     [Header("Random Interaction Settings")]
@@ -29,8 +30,8 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
     [SerializeField] float CooldownDuration = 1f;
 
     [Header("Key Settings")]
-    [SerializeField] public bool requiresKey = false; 
-    [SerializeField] public bool isUnlocked = false; 
+    [SerializeField] public bool requiresKey = false;
+    [SerializeField] public bool isUnlocked = false;
 
     // Other variables
     private Transform player;
@@ -39,7 +40,7 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
     void Start()
     {
         animator = GetComponent<Animator>();
-        AnimatorOverrideController overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+        overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = overrideController;
 
         overrideController["CLOSED"] = closedClip;
@@ -87,12 +88,13 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
         if (isOnCooldown) return;
 
         float randomValue = Random.value;
-        
+
         // if door is locked, do not open it randomly
-        if (requiresKey && !isUnlocked && state.Equals(states.CLOSED)){
+        if (requiresKey && !isUnlocked && state.Equals(states.CLOSED))
+        {
             Debug.Log("Door is locked, cannot open randomly");
             return;
-        } 
+        }
 
         if ((state.Equals(states.CLOSED) && randomValue > 0.5f) || (!state.Equals(states.CLOSED) && randomValue <= 0.5f))
             Interact();
@@ -138,5 +140,11 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
         audioSource.Play();
         isOnCooldown = true;
         cooldownTimer = CooldownDuration;
+    }
+
+    public void Close()
+    {
+        animator.SetTrigger("OPEN");
+        state = states.CLOSED;
     }
 }
