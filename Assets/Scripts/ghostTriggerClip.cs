@@ -37,8 +37,7 @@ public class ghostTriggerClip : MonoBehaviour
                 break;
             case Triggers.DownstairsBathroomScare:
                 if (!GameManager.Instance.CanTriggerEvent(2)) break;
-                GameManager.Instance.StartEvent(2);
-                GhostEventManager.Instance.DownstairsBathroomScare(occurrence);
+                StartCoroutine(GhostEventManager.Instance.DownstairsBathroomScare(occurrence));
                 hasBeenTriggered = true;
                 break;
         }
