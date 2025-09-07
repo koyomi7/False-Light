@@ -61,11 +61,12 @@ public class GhostEventManager : MonoBehaviour
         RunToPlayer(); // DownstairsOfficeScare
     }
 
-    public void DownstairsOfficeScare(Occurrences occurrence)
+    public IEnumerator DownstairsOfficeScare(Occurrences occurrence)
     {
         switch (occurrence)
         {
             case Occurrences.Start:
+                GameManager.Instance.StartEvent(1);
                 Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsOfficeScareController;
                 Ghost.transform.position = new Vector3(7.12599993f, 1.43995976f, 13.243f);
                 Ghost.transform.rotation = Quaternion.Euler(new Vector3(90f, 55.2999878f, 0f));
@@ -78,7 +79,21 @@ public class GhostEventManager : MonoBehaviour
                 Ghost.SetActive(false);
                 audioSource1.Stop();
                 audioSource2.Stop();
-                StartCoroutine(ReappearAndRun());
+                yield return new WaitForSeconds(1f);
+
+                // Reappear the ghost
+                Ghost.transform.position = new Vector3(Ghost.transform.position.x, 0f, Ghost.transform.position.z);
+                Ghost.transform.rotation = Quaternion.Euler(180, 180, 0);
+                Ghost.SetActive(true);
+                animator.Play("ClownRun");
+
+                audioSource1.clip = ghostRoar;
+                audioSource1.Play();
+                audioSource2.clip = ghostFootsteps;
+                audioSource2.loop = true;
+                audioSource2.Play();
+
+                isGhostRunning = true; // RunToPlayer() until the event ends
                 break;
             default:
                 Debug.Log($"Error: DownstairsOfficeScare() does not have a {occurrence} occurance");
@@ -179,26 +194,6 @@ public class GhostEventManager : MonoBehaviour
     }
 
     // DownstairsOfficeScare
-    IEnumerator ReappearAndRun()
-    {
-        yield return new WaitForSeconds(1f); 
-
-        // Reappear the ghost
-        Ghost.transform.position = new Vector3(Ghost.transform.position.x, 0f, Ghost.transform.position.z);
-        Ghost.transform.rotation = Quaternion.Euler(180, 180, 0);
-        Ghost.SetActive(true);
-        animator.Play("ClownRun");
-
-        audioSource1.clip = ghostRoar;
-        audioSource1.Play();
-        audioSource2.clip = ghostFootsteps;
-        audioSource2.loop = true;
-        audioSource2.Play();
-
-        isGhostRunning = true;
-    }
-
-    // DownstairsOfficeScare
     void RunToPlayer()
     {
         if (!isGhostRunning) return;
@@ -213,6 +208,7 @@ public class GhostEventManager : MonoBehaviour
             audioSource1.Stop();
             audioSource2.Stop();
             Ghost.SetActive(false);
+            GameManager.Instance.EndEvent(1);
         }
     }
 }
