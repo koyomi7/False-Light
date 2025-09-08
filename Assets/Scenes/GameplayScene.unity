@@ -11324,7 +11324,6 @@ Transform:
   m_Children:
   - {fileID: 503815166}
   - {fileID: 199066801}
-  - {fileID: 918027322}
   - {fileID: 543450652474551623}
   m_Father: {fileID: 1476094017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38745,12 +38744,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918027321}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2550002, y: 0, z: -0.73700047}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 8.825, y: 0, z: 7.424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 272855891}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &918303634
 GameObject:
@@ -106150,7 +106149,7 @@ GameObject:
   - component: {fileID: 1689100123399200879}
   m_Layer: 0
   m_Name: toilet_lid
-  m_TagString: NoCollide
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -255926,7 +255925,7 @@ GameObject:
   - component: {fileID: 4542845805001998147}
   m_Layer: 0
   m_Name: toilet_body
-  m_TagString: NoCollide
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -272558,7 +272557,7 @@ GameObject:
   - component: {fileID: 7655448549330306099}
   m_Layer: 0
   m_Name: toilet_lever
-  m_TagString: NoCollide
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -273381,6 +273380,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1458831958}
   - {fileID: 554589325}
+  - {fileID: 918027322}
   - {fileID: 1476094017}
   - {fileID: 1032956476}
   - {fileID: 2126144581}
