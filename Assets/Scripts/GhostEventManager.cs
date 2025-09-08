@@ -151,7 +151,8 @@ public class GhostEventManager : MonoBehaviour
                     float runDuration = 1.5f;
                     float elapsedTime = 0f;
                     Vector3 startPos = Ghost.transform.position;
-                    Vector3 targetPos = new Vector3(8.01299953f, 0f, 7.24499941f);
+                    Vector3 targetPos = new Vector3(8.01299953f, 0f, 7.42399979f);
+                    Vector3 targetPos2 = new Vector3(8.82499981f, 0f, 7.42399979f);
 
                     // Move ghost to door
                     while (elapsedTime < runDuration)
@@ -173,23 +174,24 @@ public class GhostEventManager : MonoBehaviour
 
                         yield return null;
                     }
-
-                    AnimationClip temp = downstairsBathroomDoor.openClip;
-                    downstairsBathroomDoor.overrideController["OPEN"] = doorSlamClip;
-                    
-                    // Close door
-                    downstairsBathroomDoor.Close();
-
-                    // Play door slam sound
-                    yield return new WaitForSeconds(0.1f); // Wait for door animation to start
-                    audioSource2.clip = doorSlamSound;
-                    audioSource2.Play();
+                    Ghost.transform.forward = (targetPos2 - Ghost.transform.position).normalized;
 
                     // Wait extra second before destroying ghost
-                    yield return new WaitForSeconds(1f);
+                    yield return new WaitForSeconds(0.8f);
 
-                    Ghost.SetActive(false);
+                    // Close door and play door slam sound
+                    AnimationClip temp = downstairsBathroomDoor.openClip;
+                    downstairsBathroomDoor.overrideController["OPEN"] = doorSlamClip;
+                    downstairsBathroomDoor.Close();
+                    yield return new WaitForSeconds(doorSlamClip.length); // Wait for door animation to start
+                    audioSource2.clip = doorSlamSound;
+                    audioSource2.Play();
+                    Ghost.transform.position = targetPos;
+                    animator.Play("Idle");
                     audioSource1.Stop();
+                    yield return new WaitForSeconds(doorSlamSound.length);
+                    Ghost.SetActive(false);
+                    
                     audioSource2.Stop();
                     downstairsBathroomDoor.overrideController["OPEN"] = temp;
 
