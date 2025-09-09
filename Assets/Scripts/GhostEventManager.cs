@@ -137,6 +137,7 @@ public class GhostEventManager : MonoBehaviour
                     yield return new WaitForSeconds(doorSlamSound.length);
 
                     ClearAudios();
+                    Ghost.SetActive(false);
                     GameManager.Instance.EndEvent(2);
                 }
                 else
