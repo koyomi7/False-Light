@@ -12,9 +12,10 @@ public class ghostTriggerClip : MonoBehaviour
     }
     
     [SerializeField] Triggers trigger;
-    [SerializeField] GhostEventManager.Occurrences Occurrence;
+    [SerializeField] public GhostEventManager.Occurrences occurrence;
     [SerializeField] string eventName;
     [SerializeField] bool oneTimeUse = true;
+    [SerializeField] public bool visualTrigger = false;
 
     bool hasBeenTriggered = false;
     
@@ -22,12 +23,21 @@ public class ghostTriggerClip : MonoBehaviour
     {
         if (hasBeenTriggered && oneTimeUse) return;
         if (!other.CompareTag("Player")) return;
+        if (visualTrigger) return;
         
         Debug.Log($"Player entered trigger {eventName}");
-        ExecuteTrigger(Occurrence);
+        ExecuteTrigger(occurrence);
+    }
+
+    public void VisualTrigger()
+    {
+        if (hasBeenTriggered && oneTimeUse) return;
+
+        Debug.Log($"Player looked at trigger {eventName}");
+        ExecuteTrigger(occurrence);
     }
     
-    private void ExecuteTrigger(GhostEventManager.Occurrences occurrence)
+    void ExecuteTrigger(GhostEventManager.Occurrences occurrence)
     {
         switch (trigger)
         {
@@ -42,7 +52,7 @@ public class ghostTriggerClip : MonoBehaviour
                 hasBeenTriggered = true;
                 break;
             case Triggers.DownstairsBedroomScare:
-                if (!GameManager.Instance.CanTriggerEvent(3)) break;
+                if (!GameManager.Instance.CanTriggerEvent(3, occurrence != GhostEventManager.Occurrences.End)) break;
                 StartCoroutine(GhostEventManager.Instance.DownstairsBedroomScare(occurrence));
                 hasBeenTriggered = true;
                 break;
