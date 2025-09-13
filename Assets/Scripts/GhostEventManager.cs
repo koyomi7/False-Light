@@ -92,6 +92,7 @@ public class GhostEventManager : MonoBehaviour
                 animator.Play("Seizure");
                 audioSource1.clip = heavyBreathing;
                 audioSource1.Play();
+                GameManager.Instance.EndEventReady();
                 break;
             case Occurrences.End:
                 Ghost.SetActive(false);
@@ -221,9 +222,33 @@ public class GhostEventManager : MonoBehaviour
     {
         switch (occurrence)
         {
-            case Occurrences.Both:
-                GameManager.Instance.StartEvent(1);
+            case Occurrences.Start:
+                GameManager.Instance.StartEvent(3);
                 Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsBedroomScareController;
+                Ghost.transform.position = new Vector3(2.88400006f, 0.578959823f, 9.03600025f);
+                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 270f, 0f));
+                Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                Ghost.SetActive(true);
+                animator.Play("SlowGettingUp");
+                audioSource1.clip = fleshSoundEffect;
+                audioSource1.Play();
+                yield return new WaitUntil(() => isSlowGettingUpFinished);
+                audioSource1.Stop();
+                Ghost.transform.position = new Vector3(2.97500014f, 0.634959817f, 8.77799988f);
+                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 62.3800011f, 0f));
+                Ghost.transform.localScale = new Vector3(0.09f, 0.09f, 0.09f);
+                animator.Play("RunAndHit");
+                audioSource2.clip = runAndHitSound;
+                audioSource2.Play();
+                yield return new WaitUntil(() => isRunAndHitFinished);
+                blood.SetActive(true);
+                audioSource1.Stop();
+                audioSource2.Stop();
+                Ghost.SetActive(false);
+                ClearAudios();
+                GameManager.Instance.EndEventReady();
+                break;
+            case Occurrences.End:
                 Ghost.transform.position = new Vector3(3.26799989f, 0.550000012f, 8.78999996f);
                 Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 55f, 0f));
                 Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -231,30 +256,10 @@ public class GhostEventManager : MonoBehaviour
                 animator.Play("CrawlBack");
                 yield return new WaitUntil(() => isCrawlBackFinished);
                 isCrawlBackFinished = false;
-
-                // Ghost.transform.position = new Vector3(2.88400006f, 0.578959823f, 9.03600025f);
-                // Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 270f, 0f));
-                // Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                // Ghost.SetActive(true);
-                // animator.Play("SlowGettingUp");
-                // audioSource1.clip = fleshSoundEffect;
-                // audioSource1.Play();
-                // yield return new WaitUntil(() => isSlowGettingUpFinished);
-                // audioSource1.Stop();
-                // Ghost.transform.position = new Vector3(2.97500014f, 0.634959817f, 8.77799988f);
-                // Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 62.3800011f, 0f));
-                // Ghost.transform.localScale = new Vector3(0.09f, 0.09f, 0.09f);
-                // animator.Play("RunAndHit");
-                // audioSource2.clip = runAndHitSound;
-                // audioSource2.Play();
-                // yield return new WaitUntil(() => isRunAndHitFinished);
-                // blood.SetActive(true);
                 audioSource1.Stop();
                 audioSource2.Stop();
                 Ghost.SetActive(false);
-                ClearAudios();
-                GameManager.Instance.EndEvent(1);
-                yield return null;
+                GameManager.Instance.EndEvent(3);
                 break;
             default:
                 Debug.Log($"Error: DownstairsBedroomScare() does not have a {occurrence} occurrence");
