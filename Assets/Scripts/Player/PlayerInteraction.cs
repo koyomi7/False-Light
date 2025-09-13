@@ -36,6 +36,7 @@ public class PlayerInteraction : MonoBehaviour
         CheckForInteractable();
         HandleInteraction();
         UpdateKeysNeededVisibility();
+        CheckForGhostTrigger();
     }
 
     void LateUpdate()
@@ -204,7 +205,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && (heldObject != null)) Drop(true);
     }
-    
+
     void ShowKeysNeededText()
     {
         if (keysNeededText != null)
@@ -222,6 +223,23 @@ public class PlayerInteraction : MonoBehaviour
             if (keysNeededTimer <= 0f)
             {
                 keysNeededText.gameObject.SetActive(false); // Hide after timer expires
+            }
+        }
+    }
+
+    void CheckForGhostTrigger()
+    {
+        const float maxDistance = 35f;
+        LayerMask layerMask = 1 << LayerMask.NameToLayer("Brush");
+        RaycastHit[] hits = Physics.RaycastAll(playerCam.transform.position, playerCam.transform.forward, maxDistance, layerMask);
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider.CompareTag("GhostTriggerClip"))
+            {
+                ghostTriggerClip trigger = hit.collider.GetComponent<ghostTriggerClip>();
+                if (trigger != null && trigger.visualTrigger) trigger.VisualTrigger();
+                else continue;
+                break;
             }
         }
     }
