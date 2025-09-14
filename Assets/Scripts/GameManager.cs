@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public AudioManager AudioManager { get; private set; }
     [HideInInspector] public int pills = 0;
     int eventIdPlaying = 0;
-    bool isPlaying = false;
+    int occurrence = 0;
     
     void Awake()
     {
@@ -24,28 +24,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool CanTriggerEvent(int eventId, bool start = true)
+    public bool CanTriggerEvent(int eventId, int occurrence, bool start = true)
     {
-        return eventIdPlaying == (start ? 0 : eventId) && !isPlaying;
+        return eventIdPlaying == (start ? 0 : eventId) && this.occurrence == occurrence - 1;
     }
 
     public void StartEvent(int eventId)
     {
         eventIdPlaying = eventId;
-        isPlaying = true;
         Debug.Log($"Event started (eventId = {eventId})");
     }
 
     public void EndEvent(int eventId)
     {
         eventIdPlaying = 0;
-        isPlaying = false;
+        occurrence = 0;
         Debug.Log($"Event ended (eventId = {eventId})");
     }
 
-    public void EndEventReady()
+    public void NextEventReady()
     {
-        isPlaying = false;
+        occurrence++;
     }
 
     public void UpdatePillsCount(int consumed = 1)
