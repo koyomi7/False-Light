@@ -61622,7 +61622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 2
-  occurrence: 1
+  occurrence: 2
   eventName: Downstairs Bedroom Scare END
   oneTimeUse: 1
   visualTrigger: 1
@@ -65118,7 +65118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 0
-  occurrence: 1
+  occurrence: 2
   eventName: Downstairs Office Scare END
   oneTimeUse: 1
   visualTrigger: 0
@@ -128825,7 +128825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 1
-  occurrence: 2
+  occurrence: 1
   eventName: Downstairs Bathroom Scare
   oneTimeUse: 0
   visualTrigger: 0
@@ -226990,7 +226990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 2
-  occurrence: 0
+  occurrence: 1
   eventName: Downstairs Bedroom Scare START
   oneTimeUse: 1
   visualTrigger: 0
@@ -251140,7 +251140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 0
-  occurrence: 0
+  occurrence: 1
   eventName: Downstairs Office Scare START
   oneTimeUse: 1
   visualTrigger: 0

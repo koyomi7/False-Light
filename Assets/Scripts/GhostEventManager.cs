@@ -5,13 +5,6 @@ public class GhostEventManager : MonoBehaviour
 {
     public static GhostEventManager Instance { get; private set; }
 
-    public enum Occurrences
-    {
-        Start,
-        End,
-        Both
-    }
-
     [Header("References")]
     [SerializeField] GameObject Ghost;
     [SerializeField] Transform Player;
@@ -78,11 +71,11 @@ public class GhostEventManager : MonoBehaviour
         audioSource3.clip = null;
     }
 
-    public IEnumerator DownstairsOfficeScare(Occurrences occurrence)
+    public IEnumerator DownstairsOfficeScare(int occurrence)
     {
         switch (occurrence)
         {
-            case Occurrences.Start:
+            case 1: // Start
                 GameManager.Instance.StartEvent(1);
                 Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsOfficeScareController;
                 Ghost.transform.position = new Vector3(7.12599993f, 1.43995976f, 13.243f);
@@ -94,7 +87,7 @@ public class GhostEventManager : MonoBehaviour
                 audioSource1.Play();
                 GameManager.Instance.EndEventReady();
                 break;
-            case Occurrences.End:
+            case 2: // End
                 Ghost.SetActive(false);
                 audioSource1.Stop();
                 audioSource2.Stop();
@@ -120,11 +113,11 @@ public class GhostEventManager : MonoBehaviour
         }
     }
 
-    public IEnumerator DownstairsBathroomScare(Occurrences occurrence)
+    public IEnumerator DownstairsBathroomScare(int occurrence)
     {
         switch (occurrence)
         {
-            case Occurrences.Both:
+            case 1:
                 Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsBathroomScareController;
                 Ghost.transform.position = new Vector3(8.09600067f, 0.0820000172f, 9.92300034f);
                 Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
@@ -218,11 +211,11 @@ public class GhostEventManager : MonoBehaviour
         }
     }
 
-    public IEnumerator DownstairsBedroomScare(Occurrences occurrence)
+    public IEnumerator DownstairsBedroomScare(int occurrence)
     {
         switch (occurrence)
         {
-            case Occurrences.Start:
+            case 1:
                 GameManager.Instance.StartEvent(3);
                 Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsBedroomScareController;
                 Ghost.transform.position = new Vector3(2.88400006f, 0.578959823f, 9.03600025f);
@@ -248,7 +241,7 @@ public class GhostEventManager : MonoBehaviour
                 ClearAudios();
                 GameManager.Instance.EndEventReady();
                 break;
-            case Occurrences.End:
+            case 2:
                 Ghost.transform.position = new Vector3(3.26799989f, 0.550000012f, 8.78999996f);
                 Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 55f, 0f));
                 Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
