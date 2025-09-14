@@ -5,13 +5,6 @@ public class GhostEventManager : MonoBehaviour
 {
     public static GhostEventManager Instance { get; private set; }
 
-    public enum Occurrences
-    {
-        Start,
-        End,
-        Both
-    }
-
     [Header("References")]
     [SerializeField] GameObject Ghost;
     [SerializeField] Transform Player;
@@ -37,12 +30,13 @@ public class GhostEventManager : MonoBehaviour
 
     [Header("Downstairs Bedroom Scare")]
     [SerializeField] RuntimeAnimatorController downstairsBedroomScareController;
+    [SerializeField] GameObject downstairsBedroomPill;
     [SerializeField] AudioClip fleshSoundEffect;
     [SerializeField] AudioClip runAndHitSound;
     [SerializeField] GameObject blood;
-    public bool isSlowGettingUpFinished = false;
-    public bool isRunAndHitFinished = false;
-    public bool isCrawlBackFinished = false;
+    [HideInInspector] public bool isSlowGettingUpFinished = false;
+    [HideInInspector] public bool isRunAndHitFinished = false;
+    [HideInInspector] public bool isCrawlBackFinished = false;
 
     void Awake()
     {
@@ -78,11 +72,11 @@ public class GhostEventManager : MonoBehaviour
         audioSource3.clip = null;
     }
 
-    public IEnumerator DownstairsOfficeScare(Occurrences occurrence)
+    public IEnumerator DownstairsOfficeScare(int occurrence)
     {
         switch (occurrence)
         {
-            case Occurrences.Start:
+            case 1: // Start
                 GameManager.Instance.StartEvent(1);
                 Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsOfficeScareController;
                 Ghost.transform.position = new Vector3(7.12599993f, 1.43995976f, 13.243f);
@@ -92,9 +86,9 @@ public class GhostEventManager : MonoBehaviour
                 animator.Play("Seizure");
                 audioSource1.clip = heavyBreathing;
                 audioSource1.Play();
-                GameManager.Instance.EndEventReady();
+                GameManager.Instance.NextEventReady();
                 break;
-            case Occurrences.End:
+            case 2: // End
                 Ghost.SetActive(false);
                 audioSource1.Stop();
                 audioSource2.Stop();
@@ -120,11 +114,11 @@ public class GhostEventManager : MonoBehaviour
         }
     }
 
-    public IEnumerator DownstairsBathroomScare(Occurrences occurrence)
+    public IEnumerator DownstairsBathroomScare(int occurrence)
     {
         switch (occurrence)
         {
-            case Occurrences.Both:
+            case 1:
                 Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsBathroomScareController;
                 Ghost.transform.position = new Vector3(8.09600067f, 0.0820000172f, 9.92300034f);
                 Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
@@ -218,11 +212,11 @@ public class GhostEventManager : MonoBehaviour
         }
     }
 
-    public IEnumerator DownstairsBedroomScare(Occurrences occurrence)
+    public IEnumerator DownstairsBedroomScare(int occurrence)
     {
         switch (occurrence)
         {
-            case Occurrences.Start:
+            case 1:
                 GameManager.Instance.StartEvent(3);
                 Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsBedroomScareController;
                 Ghost.transform.position = new Vector3(2.88400006f, 0.578959823f, 9.03600025f);
@@ -246,13 +240,18 @@ public class GhostEventManager : MonoBehaviour
                 audioSource2.Stop();
                 Ghost.SetActive(false);
                 ClearAudios();
-                GameManager.Instance.EndEventReady();
+                yield return new WaitUntil(() => downstairsBedroomPill == null);
+                Ghost.transform.position = new Vector3(3.79900002f, 0.150000006f, 8.92000008f);
+                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 63.52f, 0f));
+                Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                Ghost.SetActive(true);
+                animator.Play("BedSit");
+                GameManager.Instance.NextEventReady();
                 break;
-            case Occurrences.End:
+            case 2:
                 Ghost.transform.position = new Vector3(3.26799989f, 0.550000012f, 8.78999996f);
                 Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 55f, 0f));
                 Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                Ghost.SetActive(true);
                 animator.Play("CrawlBack");
                 yield return new WaitUntil(() => isCrawlBackFinished);
                 isCrawlBackFinished = false;

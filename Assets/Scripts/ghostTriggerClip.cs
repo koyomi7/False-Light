@@ -12,7 +12,7 @@ public class ghostTriggerClip : MonoBehaviour
     }
     
     [SerializeField] Triggers trigger;
-    [SerializeField] public GhostEventManager.Occurrences occurrence;
+    [SerializeField, Range(1, 10)] int occurrence;
     [SerializeField] string eventName;
     [SerializeField] bool oneTimeUse = true;
     [SerializeField] public bool visualTrigger = false;
@@ -37,22 +37,22 @@ public class ghostTriggerClip : MonoBehaviour
         ExecuteTrigger(occurrence);
     }
     
-    void ExecuteTrigger(GhostEventManager.Occurrences occurrence)
+    void ExecuteTrigger(int occurrence)
     {
         switch (trigger)
         {
             case Triggers.DownstairsOfficeScare:
-                if (!GameManager.Instance.CanTriggerEvent(1, occurrence != GhostEventManager.Occurrences.End)) break;
+                if (!GameManager.Instance.CanTriggerEvent(1, occurrence, occurrence == 1)) break;
                 StartCoroutine(GhostEventManager.Instance.DownstairsOfficeScare(occurrence));
                 hasBeenTriggered = true;
                 break;
             case Triggers.DownstairsBathroomScare:
-                if (!GameManager.Instance.CanTriggerEvent(2)) break;
+                if (!GameManager.Instance.CanTriggerEvent(2, occurrence, occurrence == 1)) break;
                 StartCoroutine(GhostEventManager.Instance.DownstairsBathroomScare(occurrence));
                 hasBeenTriggered = true;
                 break;
             case Triggers.DownstairsBedroomScare:
-                if (!GameManager.Instance.CanTriggerEvent(3, occurrence != GhostEventManager.Occurrences.End)) break;
+                if (!GameManager.Instance.CanTriggerEvent(3, occurrence, occurrence == 1)) break;
                 StartCoroutine(GhostEventManager.Instance.DownstairsBedroomScare(occurrence));
                 hasBeenTriggered = true;
                 break;
