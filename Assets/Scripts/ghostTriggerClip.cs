@@ -42,17 +42,17 @@ public class ghostTriggerClip : MonoBehaviour
         switch (trigger)
         {
             case Triggers.DownstairsOfficeScare:
-                if (!GameManager.Instance.CanTriggerEvent(1, occurrence == 1)) break;
+                if (!GameManager.Instance.CanTriggerEvent(1, occurrence, occurrence == 1)) break;
                 StartCoroutine(GhostEventManager.Instance.DownstairsOfficeScare(occurrence));
                 hasBeenTriggered = true;
                 break;
             case Triggers.DownstairsBathroomScare:
-                if (!GameManager.Instance.CanTriggerEvent(2, occurrence == 1)) break;
+                if (!GameManager.Instance.CanTriggerEvent(2, occurrence, occurrence == 1)) break;
                 StartCoroutine(GhostEventManager.Instance.DownstairsBathroomScare(occurrence));
                 hasBeenTriggered = true;
                 break;
             case Triggers.DownstairsBedroomScare:
-                if (!GameManager.Instance.CanTriggerEvent(3, occurrence == 1)) break;
+                if (!GameManager.Instance.CanTriggerEvent(3, occurrence, occurrence == 1)) break;
                 StartCoroutine(GhostEventManager.Instance.DownstairsBedroomScare(occurrence));
                 hasBeenTriggered = true;
                 break;
