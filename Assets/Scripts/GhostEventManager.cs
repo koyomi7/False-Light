@@ -30,12 +30,13 @@ public class GhostEventManager : MonoBehaviour
 
     [Header("Downstairs Bedroom Scare")]
     [SerializeField] RuntimeAnimatorController downstairsBedroomScareController;
+    [SerializeField] GameObject downstairsBedroomPill;
     [SerializeField] AudioClip fleshSoundEffect;
     [SerializeField] AudioClip runAndHitSound;
     [SerializeField] GameObject blood;
-    public bool isSlowGettingUpFinished = false;
-    public bool isRunAndHitFinished = false;
-    public bool isCrawlBackFinished = false;
+    [HideInInspector] public bool isSlowGettingUpFinished = false;
+    [HideInInspector] public bool isRunAndHitFinished = false;
+    [HideInInspector] public bool isCrawlBackFinished = false;
 
     void Awake()
     {
@@ -85,7 +86,7 @@ public class GhostEventManager : MonoBehaviour
                 animator.Play("Seizure");
                 audioSource1.clip = heavyBreathing;
                 audioSource1.Play();
-                GameManager.Instance.EndEventReady();
+                GameManager.Instance.NextEventReady();
                 break;
             case 2: // End
                 Ghost.SetActive(false);
@@ -239,13 +240,18 @@ public class GhostEventManager : MonoBehaviour
                 audioSource2.Stop();
                 Ghost.SetActive(false);
                 ClearAudios();
-                GameManager.Instance.EndEventReady();
+                yield return new WaitUntil(() => downstairsBedroomPill == null);
+                Ghost.transform.position = new Vector3(3.79900002f, 0.150000006f, 8.92000008f);
+                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 63.52f, 0f));
+                Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                Ghost.SetActive(true);
+                animator.Play("BedSit");
+                GameManager.Instance.NextEventReady();
                 break;
             case 2:
                 Ghost.transform.position = new Vector3(3.26799989f, 0.550000012f, 8.78999996f);
                 Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 55f, 0f));
                 Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                Ghost.SetActive(true);
                 animator.Play("CrawlBack");
                 yield return new WaitUntil(() => isCrawlBackFinished);
                 isCrawlBackFinished = false;
