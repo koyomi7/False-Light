@@ -454,9 +454,9 @@ GameObject:
   - component: {fileID: 4711950398440756134}
   - component: {fileID: 4923923251853716555}
   - component: {fileID: 7506783638597583410}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: button
-  m_TagString: LightSwitch
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

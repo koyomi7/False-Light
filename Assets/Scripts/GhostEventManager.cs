@@ -11,6 +11,7 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] AudioSource audioSource1;
     [SerializeField] AudioSource audioSource2;
     [SerializeField] AudioSource audioSource3;
+    [SerializeField] AudioSource auxiliaryAudioSource;
     Animator animator;
 
     [Header("Downstairs Office Scare")]
@@ -38,6 +39,13 @@ public class GhostEventManager : MonoBehaviour
     [HideInInspector] public bool isRunAndHitFinished = false;
     [HideInInspector] public bool isCrawlBackFinished = false;
 
+    [Header("Downstairs Living Room Scare")]
+    [SerializeField] RuntimeAnimatorController downstairsLivingRoomScareController;
+    [SerializeField] AudioClip glassBreak;
+    [SerializeField] GameObject spotLight;
+    [HideInInspector] public bool isFallingFinished = false;
+    [HideInInspector] public bool isVanishFinished = false;
+
     void Awake()
     {
         if (Instance == null)
@@ -54,10 +62,7 @@ public class GhostEventManager : MonoBehaviour
     void Start()
     {
         animator = Ghost.GetComponent<Animator>();
-        audioSource1.Stop();
-        audioSource2.Stop();
-        audioSource3.Stop();
-        Ghost.SetActive(false);
+        ResetAll();
     }
 
     void Update()
@@ -65,11 +70,22 @@ public class GhostEventManager : MonoBehaviour
         RunToPlayer(); // DownstairsOfficeScare
     }
 
-    void ClearAudios()
+    void ResetAll()
     {
+        audioSource1.Stop();
+        audioSource2.Stop();
+        audioSource3.Stop();
+        auxiliaryAudioSource.Stop();
         audioSource1.clip = null;
         audioSource2.clip = null;
         audioSource3.clip = null;
+        auxiliaryAudioSource.clip = null;
+        Ghost.transform.position = new Vector3(0f, 0f, 0f);
+        Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+        Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Ghost.GetComponent<Animator>().runtimeAnimatorController = null;
+        animator.applyRootMotion = true;
+        Ghost.SetActive(false);
     }
 
     public IEnumerator DownstairsOfficeScare(int occurrence)
@@ -141,9 +157,7 @@ public class GhostEventManager : MonoBehaviour
 
                     // Wait for door slam sound to finish
                     yield return new WaitForSeconds(doorSlamSound.length);
-
-                    ClearAudios();
-                    Ghost.SetActive(false);
+                    ResetAll();
                     GameManager.Instance.EndEvent(2);
                 }
                 else
@@ -198,11 +212,8 @@ public class GhostEventManager : MonoBehaviour
                     audioSource1.Stop();
                     yield return new WaitForSeconds(doorSlamSound.length);
                     Ghost.SetActive(false);
-                    
-                    audioSource2.Stop();
                     downstairsBathroomDoor.overrideController["OPEN"] = temp;
-
-                    ClearAudios();
+                    ResetAll();
                     GameManager.Instance.EndEvent(2);
                 }
                 break;
@@ -236,10 +247,7 @@ public class GhostEventManager : MonoBehaviour
                 audioSource2.Play();
                 yield return new WaitUntil(() => isRunAndHitFinished);
                 blood.SetActive(true);
-                audioSource1.Stop();
-                audioSource2.Stop();
-                Ghost.SetActive(false);
-                ClearAudios();
+                ResetAll();
                 yield return new WaitUntil(() => downstairsBedroomPill == null);
                 Ghost.transform.position = new Vector3(3.79900002f, 0.150000006f, 8.92000008f);
                 Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 63.52f, 0f));
@@ -255,9 +263,7 @@ public class GhostEventManager : MonoBehaviour
                 animator.Play("CrawlBack");
                 yield return new WaitUntil(() => isCrawlBackFinished);
                 isCrawlBackFinished = false;
-                audioSource1.Stop();
-                audioSource2.Stop();
-                Ghost.SetActive(false);
+                ResetAll();
                 GameManager.Instance.EndEvent(3);
                 break;
             default:
@@ -266,6 +272,48 @@ public class GhostEventManager : MonoBehaviour
         }
     }
     
+    public IEnumerator DownstairsLivingRoomScare(int occurrence)
+    {
+        switch (occurrence)
+        {
+            case 1:
+                GameManager.Instance.StartEvent(4);
+                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsLivingRoomScareController;
+                auxiliaryAudioSource.transform.position = new Vector3(7.48999977f, 3.58100009f, 19.1130009f);
+                auxiliaryAudioSource.clip = glassBreak;
+                auxiliaryAudioSource.Play();
+                GameManager.Instance.NextEventReady();
+                break;
+            case 2:
+                Ghost.transform.position = new Vector3(7.53399992f, 0.397959799f, 19.6789989f);
+                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 283.464966f, 0f));
+                Ghost.transform.localScale = new Vector3(0.13f, 0.13f, 0.13f);
+                Ghost.SetActive(true);
+                animator.Play("FallingOnImpact");
+                yield return new WaitUntil(() => isFallingFinished);
+                Ghost.transform.position = new Vector3(11.6700001f, -0.0520402193f, 14.6309986f);
+                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 270f, 0f));
+                Ghost.transform.localScale = new Vector3(0.13f, 0.13f, 0.13f);
+                animator.applyRootMotion = false;
+                spotLight.SetActive(true);
+                animator.Play("Trapped");
+                GameManager.Instance.NextEventReady();
+                break;
+            case 3:
+                animator.applyRootMotion = true;
+                animator.Play("Vanish");
+                yield return new WaitUntil(() => isVanishFinished);
+                spotLight.SetActive(false);
+                ResetAll();
+                Ghost.SetActive(false);
+                GameManager.Instance.EndEvent(4);
+                break;
+            default:
+                Debug.Log($"Error: DownstairsLivingRoomScare() does not have a {occurrence} occurrence");
+                break;
+        }
+    }
+
     // DownstairsOfficeScare
     void RunToPlayer()
     {
@@ -278,11 +326,7 @@ public class GhostEventManager : MonoBehaviour
         if (Vector3.Distance(Ghost.transform.position, Player.position) < 0.5f)
         {
             isGhostRunning = false;
-            audioSource1.Stop();
-            audioSource2.Stop();
-            Ghost.SetActive(false);
-
-            ClearAudios();
+            ResetAll();
             GameManager.Instance.EndEvent(1);
         }
     }

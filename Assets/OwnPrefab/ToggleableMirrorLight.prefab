@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 489525898986334413}
   - component: {fileID: 6121917936220380194}
   - component: {fileID: 2539858741173029371}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: button
-  m_TagString: LightSwitch
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
