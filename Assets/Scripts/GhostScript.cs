@@ -16,8 +16,21 @@ public class GhostScript : MonoBehaviour
         GhostEventManager.Instance.isRunAndHitFinished = true;
     }
 
+    // DownstairsBedroomScare
     void OnCrawlBackComplete()
     {
         GhostEventManager.Instance.isCrawlBackFinished = true;
+    }
+
+    // DownstairsLivingRoomScare
+    void OnFallingComplete()
+    {
+        GhostEventManager.Instance.isFallingFinished = true;
+    }
+
+    // DownstairsLivingRoomScare
+    void OnVanishComplete()
+    {
+        GhostEventManager.Instance.isVanishFinished = true;
     }
 }
