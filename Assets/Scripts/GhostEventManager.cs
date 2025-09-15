@@ -223,7 +223,7 @@ public class GhostEventManager : MonoBehaviour
                 Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 270f, 0f));
                 Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 Ghost.SetActive(true);
-                animator.Play("SlowGettingUp");
+                animator.Play("SlowGetUp");
                 audioSource1.clip = fleshSoundEffect;
                 audioSource1.Play();
                 yield return new WaitUntil(() => isSlowGettingUpFinished);
