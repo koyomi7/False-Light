@@ -33,4 +33,10 @@ public class GhostScript : MonoBehaviour
     {
         GhostEventManager.Instance.isVanishFinished = true;
     }
+
+    // DownstairsHallwayScare
+    void OnFastCrawlComplete()
+    {
+        GhostEventManager.Instance.isFastCrawlFinished = true;
+    }
 }

@@ -46,6 +46,13 @@ public class GhostEventManager : MonoBehaviour
     [HideInInspector] public bool isFallingFinished = false;
     [HideInInspector] public bool isVanishFinished = false;
 
+    [Header("Downstairs Hallway Scare")]
+    [SerializeField] RuntimeAnimatorController downstairsHallwayScareController;
+    [SerializeField] AudioClip downstairsHallwayScareFootstepSound;
+    [SerializeField] AudioClip downstairsHallwayScareDoorSlamSound;
+    [SerializeField] Animator downstairsHallwayScareDoorAnimator;
+    [HideInInspector] public bool isFastCrawlFinished = false;
+
     void Awake()
     {
         if (Instance == null)
@@ -305,11 +312,39 @@ public class GhostEventManager : MonoBehaviour
                 yield return new WaitUntil(() => isVanishFinished);
                 spotLight.SetActive(false);
                 ResetAll();
-                Ghost.SetActive(false);
                 GameManager.Instance.EndEvent(4);
                 break;
             default:
                 Debug.Log($"Error: DownstairsLivingRoomScare() does not have a {occurrence} occurrence");
+                break;
+        }
+    }
+
+    public IEnumerator DownstairsHallwayScare(int occurrence)
+    {
+        switch (occurrence)
+        {
+            case 1:
+                GameManager.Instance.StartEvent(5);
+                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsHallwayScareController;
+                Ghost.transform.position = new Vector3(5.47200012f, 0.0850000009f, 4.9380002f);
+                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
+                Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                Ghost.SetActive(true);
+                animator.Play("FastCrawl");
+                audioSource1.clip = downstairsHallwayScareFootstepSound;
+                audioSource1.Play();
+                downstairsHallwayScareDoorAnimator.Play("Open");
+                yield return new WaitForSeconds(2.1f);
+                audioSource1.Stop();
+                Ghost.SetActive(false);
+                auxiliaryAudioSource.transform.position = new Vector3(8.7173996f, 1.21599996f, 4.99700022f);
+                auxiliaryAudioSource.clip = downstairsHallwayScareDoorSlamSound;
+                auxiliaryAudioSource.Play();
+                downstairsHallwayScareDoorAnimator.Play("Slam");
+                yield return new WaitForSeconds(0.3f);
+                ResetAll();
+                GameManager.Instance.EndEvent(5);
                 break;
         }
     }
