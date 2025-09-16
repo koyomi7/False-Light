@@ -25,6 +25,7 @@ public class StalkerGhostController : MonoBehaviour
     [SerializeField] public AudioClip Footstep;
 
     private bool hasRevealed;
+    bool stopFly = false;
 
     // ─────────────────────────────────────────────────────────────
     void OnEnable()
@@ -73,10 +74,12 @@ public class StalkerGhostController : MonoBehaviour
     // ───────── LOOK DETECTION ─────────
     void CheckIfPlayerLooking()
     {
+        if (stopFly) return;
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(.5f, .5f, 0));
         if (Physics.Raycast(ray, out RaycastHit hit, 10f, ghostLayer) &&
             hit.collider.transform == transform)
         {
+            stopFly = true;
             FlyIntoPlayer();
         }
     }
