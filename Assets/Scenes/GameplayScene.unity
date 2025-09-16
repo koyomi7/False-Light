@@ -29056,6 +29056,14 @@ MonoBehaviour:
   spotLight: {fileID: 750212652}
   isFallingFinished: 0
   isVanishFinished: 0
+  downstairsHallwayScareController: {fileID: 9100000, guid: e66560be463ffbf4683ca587fdeba1ea,
+    type: 2}
+  downstairsHallwayScareFootstepSound: {fileID: 8300000, guid: b91fa39437a144949920151c9c5f4dae,
+    type: 3}
+  downstairsHallwayScareDoorSlamSound: {fileID: 8300000, guid: 19ed23bbe23fbc14bb53e4e00bea0e95,
+    type: 3}
+  downstairsHallwayScareDoorAnimator: {fileID: 8014418436373131801}
+  isFastCrawlFinished: 0
 --- !u!4 &737070396
 Transform:
   m_ObjectHideFlags: 0
@@ -52984,7 +52992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1294777436
 Transform:
   m_ObjectHideFlags: 0
@@ -63027,7 +63035,7 @@ Transform:
   m_GameObject: {fileID: 1509625532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.395, y: 1.575, z: 13.212}
+  m_LocalPosition: {x: 7.909, y: 0.85, z: 13.212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -65922,17 +65930,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sequenceTrigger: {fileID: 1294777435}
-  player: {fileID: 0}
+  player: {fileID: 1509625533}
   followDistance: 1.2
   followSpeed: 5
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 1522447383}
   ghostLayer:
     serializedVersion: 2
     m_Bits: 512
   ghostAnimator: {fileID: 1561628396}
   flyInSpeed: 12
   footstepAudio: {fileID: 1561628398}
-  playerController: {fileID: 0}
+  playerController: {fileID: 1509625536}
   rotationFollowSpeed: 0.3
   Gasp: {fileID: 8300000, guid: 6e392d5d17f62394aa9d821853b41aed, type: 3}
   Footstep: {fileID: 8300000, guid: b91fa39437a144949920151c9c5f4dae, type: 3}
@@ -73922,6 +73930,7 @@ Transform:
   - {fileID: 8239391944804762161}
   - {fileID: 659003796}
   - {fileID: 2142441504}
+  - {fileID: 674845489523655617}
   m_Father: {fileID: 1900897100}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1775888443
@@ -93065,6 +93074,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!33 &132023902496319774
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449055468480403196}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &132505532956560816
 Transform:
   m_ObjectHideFlags: 0
@@ -102543,8 +102560,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147570575789}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 5.472, y: 0.085, z: 4.938}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -102558,7 +102575,7 @@ Transform:
   - {fileID: 1769740051}
   - {fileID: 103336371}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &543450652181280882
 Transform:
   m_ObjectHideFlags: 0
@@ -104942,6 +104959,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!4 &674845489523655617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449055468480403196}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.5813, y: 0.476, z: 11.324841}
+  m_LocalScale: {x: 1.5633612, y: 0.75205004, z: 0.1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1775253320}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &678696640032644411
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -141910,6 +141942,48 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005973863334291795}
   m_Mesh: {fileID: 4803645095775272474, guid: e0147f4678533444ca8209554a9ead22, type: 3}
+--- !u!23 &2616589403851681236
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449055468480403196}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 04f6cbc962db54746b77dcd767487b6e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2617501604592621087
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -158819,6 +158893,26 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &3449055468480403196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 674845489523655617}
+  - component: {fileID: 132023902496319774}
+  - component: {fileID: 2616589403851681236}
+  - component: {fileID: 5266562142291410524}
+  - component: {fileID: 5534189818156370499}
+  m_Layer: 8
+  m_Name: Ghost Trigger Clip Brush (4)
+  m_TagString: GhostTriggerClip
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 126
   m_IsActive: 1
 --- !u!65 &3450163916288457305
 BoxCollider:
@@ -195073,6 +195167,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8959997, y: 2.0370002, z: 0.066000335}
   m_Center: {x: 0.4459999, y: 1.0195, z: 0.031999942}
+--- !u!65 &5266562142291410524
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449055468480403196}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &5267261315983986361
 Transform:
   m_ObjectHideFlags: 0
@@ -200031,6 +200146,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!114 &5534189818156370499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449055468480403196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3938fc45b16af74588b017dac55f72b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: 4
+  occurrence: 1
+  eventName: Downstairs Hallway Scare START
+  oneTimeUse: 1
+  visualTrigger: 0
 --- !u!4 &5537878807953855142
 Transform:
   m_ObjectHideFlags: 0
@@ -206231,10 +206363,10 @@ Animator:
   m_GameObject: {fileID: 919132147570575789}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 82f61721054f231459cde9ebed66e742, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e66560be463ffbf4683ca587fdeba1ea, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -252055,6 +252187,7 @@ GameObject:
   - component: {fileID: 662379418876567008}
   - component: {fileID: 3110599424492033350}
   - component: {fileID: 6074529054214644402}
+  - component: {fileID: 8014418436373131801}
   m_Layer: 0
   m_Name: Interior_Door
   m_TagString: Untagged
@@ -252062,6 +252195,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &8014418436373131801
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8014418436373131800}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63d725cca2849c24492da79aa40c7782, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!33 &8014724702596054928
 MeshFilter:
   m_ObjectHideFlags: 0
