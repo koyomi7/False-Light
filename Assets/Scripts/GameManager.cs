@@ -42,9 +42,9 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Event ended (eventId = {eventId})");
     }
 
-    public void NextEventReady()
+    public void NextEventReady(int next = 1)
     {
-        occurrence++;
+        occurrence += next;
     }
 
     public void UpdatePillsCount(int consumed = 1)
