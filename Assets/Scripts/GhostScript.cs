@@ -35,8 +35,8 @@ public class GhostScript : MonoBehaviour
     }
 
     // DownstairsHallwayScare
-    void OnFastCrawlComplete()
+    void OnWalkingBackComplete()
     {
-        GhostEventManager.Instance.isFastCrawlFinished = true;
+        GhostEventManager.Instance.isWalkingBackFinished = true;
     }
 }
