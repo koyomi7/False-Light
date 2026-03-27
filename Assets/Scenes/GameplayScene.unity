@@ -9059,10 +9059,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -25658,7 +25660,7 @@ Transform:
   - {fileID: 8595165855838744917}
   - {fileID: 8595165857416307527}
   - {fileID: 212909751167982498}
-  - {fileID: 6359080826509172155}
+  - {fileID: 6964019151533373637}
   - {fileID: 4929333679807936477}
   - {fileID: 6784774639385411733}
   - {fileID: 9222617453647749028}
@@ -36193,10 +36195,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -50657,10 +50661,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -61150,10 +61156,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
@@ -101386,6 +101394,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &287317908340668322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589506780791358446}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.14349477, z: -0, w: 0.98965114}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6424247051300220889}
+  m_Father: {fileID: 6964019151533373637}
+  m_LocalEulerAnglesHint: {x: 0, y: 16.5, z: 0}
 --- !u!4 &289357742870074514
 Transform:
   m_ObjectHideFlags: 0
@@ -103914,10 +103938,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -104105,10 +104131,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 6b3ec1b81d2da1d4b9ba634a8e0fafaf, type: 2}
   openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -106964,10 +106992,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: f601047c8e7fc6344804f9f5798f3dc5, type: 2}
   openClip: {fileID: 7400000, guid: f4badcdecaa238949aa2c817d47e5001, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -107024,10 +107054,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 993a0d9b94860fb4ebff2dacaa3b0013, type: 2}
   openClip: {fileID: 7400000, guid: aa5f68e591e24384bb45b9a90fce7f76, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -107689,6 +107721,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3051039435680938453}
   m_Mesh: {fileID: 738402290047349354, guid: efd1f08bfa5d6ec4b968e57fba68ff02, type: 3}
+--- !u!1 &589506780791358446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 287317908340668322}
+  m_Layer: 0
+  m_Name: Lid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!23 &590338752691377646
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -113829,10 +113877,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 6b9c8bba4231252419b69abded39f782, type: 2}
   openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -117974,6 +118024,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3997028804161663025}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1145876051540445327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830840103672051216}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.14890881, z: -0, w: 0.98885095}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6964019151533373637}
+  m_LocalEulerAnglesHint: {x: 0, y: -17.127, z: 0}
 --- !u!33 &1146516834224405992
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -118196,10 +118261,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -123720,27 +123787,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2370077438630743589}
   m_Mesh: {fileID: -3163800863220610298, guid: 18566a61b75973749b7a37b617d7fa4b, type: 3}
---- !u!65 &1456212872555224099
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7333877108108785103}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.120000064, y: 0.27420172, z: 0.12000003}
-  m_Center: {x: -0.0000000037252903, y: 0.1371008, z: 0}
 --- !u!1 &1462960621918333819
 GameObject:
   m_ObjectHideFlags: 0
@@ -126908,25 +126954,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!1 &1608162611246580484
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1734403538484630667}
-  - component: {fileID: 2722389691419903588}
-  - component: {fileID: 3759021891838795916}
-  - component: {fileID: 7974369191144022665}
-  m_Layer: 0
-  m_Name: soapDispenser_lid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
 --- !u!4 &1608410380074226574
 Transform:
   m_ObjectHideFlags: 0
@@ -129418,21 +129445,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!4 &1734403538484630667
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608162611246580484}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.38586217, z: -0, w: 0.92255646}
-  m_LocalPosition: {x: -0.000008544922, y: 0.2357, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6359080826509172155}
-  m_LocalEulerAnglesHint: {x: 0, y: 45.395, z: 0}
 --- !u!4 &1734403539679851569
 Transform:
   m_ObjectHideFlags: 0
@@ -132185,14 +132197,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7333877109069436277}
   m_Mesh: {fileID: 6900067135022738808, guid: 7dfb700e957707b4691966b8f154916c, type: 3}
---- !u!33 &1883240990188341411
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7333877108108785103}
-  m_Mesh: {fileID: 6900067135022738808, guid: 7dfb700e957707b4691966b8f154916c, type: 3}
 --- !u!65 &1884162544981341176
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -133203,10 +133207,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 6b3ec1b81d2da1d4b9ba634a8e0fafaf, type: 2}
   openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -133701,10 +133707,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 80a5f9b08847027499ff7bbe9dda2192, type: 2}
   openClip: {fileID: 7400000, guid: c8d6051c32bc57a4ea974d1ee240eb92, type: 2}
   partlyOpen1Clip: {fileID: 7400000, guid: 1286b0b0bcca0034091a34d3aadf714a, type: 2}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -134277,10 +134285,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 38e2ae13f7d762b4aac9437a5c52939b, type: 3}
   openSound: {fileID: 8300000, guid: d0d6a217c8fa84f45a4be7e4ed046f1e, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 19ab1ecbf00b793429b48a5a59d0f0e1, type: 2}
   openClip: {fileID: 7400000, guid: 6bf2e9ae6de4c4744adff9c2a220cbde, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -137117,10 +137127,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 80a5f9b08847027499ff7bbe9dda2192, type: 2}
   openClip: {fileID: 7400000, guid: c8d6051c32bc57a4ea974d1ee240eb92, type: 2}
   partlyOpen1Clip: {fileID: 7400000, guid: 1286b0b0bcca0034091a34d3aadf714a, type: 2}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -143308,10 +143320,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: da9f08f614ddb5a4f94e58c89b04e5f5, type: 2}
   openClip: {fileID: 7400000, guid: f2e9e87dd4589f74f8cdce4166f98646, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -147062,10 +147076,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 94cc4e06dabf5ab4e9a918034c5861c7, type: 2}
   openClip: {fileID: 7400000, guid: b970c9a3076815a4d91cf0f245ff1e5c, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -149742,14 +149758,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &2722389691419903588
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608162611246580484}
-  m_Mesh: {fileID: 4095443688296476577, guid: 7dfb700e957707b4691966b8f154916c, type: 3}
 --- !u!33 &2722389692573443806
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -158977,6 +158985,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.75212634, y: 2.4999995, z: 0.10000068}
   m_Center: {x: 0.87393683, y: 1.2499998, z: 0.00000027939677}
+--- !u!114 &3187146437304645418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625061118308668809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 4
+  closeSound: {fileID: 0}
+  openSound: {fileID: 0}
+  readySound: {fileID: 8300000, guid: e3d26ac6fff4ff949a7d1cac02732473, type: 3}
+  closedClip: {fileID: 0}
+  openClip: {fileID: 0}
+  partlyOpen1Clip: {fileID: 0}
+  partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 7400000, guid: 20f2c1cce7cd0c14785642e1c7e7847f, type: 2}
+  overrideController: {fileID: 0}
+  enableRandomInteractions: 1
+  minTimeBetweenRandomInteractions: 60
+  maxTimeBetweenRandomInteractions: 120
+  randomInteractionChance: 0.3
+  playerDetectionRadius: 10
+  isOnCooldown: 0
+  CooldownDuration: 1
+  requiresKey: 0
+  isUnlocked: 0
 --- !u!1 &3190274762319283538
 GameObject:
   m_ObjectHideFlags: 0
@@ -167141,10 +167180,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -167766,10 +167807,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 6b9c8bba4231252419b69abded39f782, type: 2}
   openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -167780,6 +167823,28 @@ MonoBehaviour:
   CooldownDuration: 1
   requiresKey: 0
   isUnlocked: 0
+--- !u!1 &3625061118308668809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6424247051300220889}
+  - component: {fileID: 4639620294042621919}
+  - component: {fileID: 5535627135206996220}
+  - component: {fileID: 9220499465206607834}
+  - component: {fileID: 3187146437304645418}
+  - component: {fileID: 6831332328673450451}
+  - component: {fileID: 7358242313050480454}
+  m_Layer: 6
+  m_Name: Model
+  m_TagString: SoapDispenser
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &3625182154776426495
 Transform:
   m_ObjectHideFlags: 0
@@ -168027,6 +168092,48 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a69a286068c80114dabc6886c1882062, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!23 &3644253841716196214
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830840103672051216}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 35261150e5398c0439d6fd7481f62b62, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -169970,10 +170077,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -170195,48 +170304,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!23 &3759021891838795916
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608162611246580484}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 3441f6441092d3c459a48c3c48ea63c6, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &3759021892857839670
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -181227,10 +181294,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -187367,10 +187436,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -188276,6 +188347,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6751096181460004836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4639620294042621919
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625061118308668809}
+  m_Mesh: {fileID: 4095443688296476577, guid: 7dfb700e957707b4691966b8f154916c, type: 3}
 --- !u!1 &4641218731680120683
 GameObject:
   m_ObjectHideFlags: 0
@@ -190577,10 +190656,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: f711820fda711e24ca16252c0d4ba614, type: 2}
   openClip: {fileID: 7400000, guid: d51b193c886b639418891a31460c0137, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -190606,10 +190687,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 6b3ec1b81d2da1d4b9ba634a8e0fafaf, type: 2}
   openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -191885,10 +191968,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -204080,10 +204165,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: da9f08f614ddb5a4f94e58c89b04e5f5, type: 2}
   openClip: {fileID: 7400000, guid: f2e9e87dd4589f74f8cdce4166f98646, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -204767,10 +204854,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 6b9c8bba4231252419b69abded39f782, type: 2}
   openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -206229,10 +206318,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: f601047c8e7fc6344804f9f5798f3dc5, type: 2}
   openClip: {fileID: 7400000, guid: f4badcdecaa238949aa2c817d47e5001, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -206384,6 +206475,48 @@ MonoBehaviour:
   eventName: Downstairs Hallway Scare START
   oneTimeUse: 1
   visualTrigger: 0
+--- !u!23 &5535627135206996220
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625061118308668809}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3441f6441092d3c459a48c3c48ea63c6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!4 &5537878807953855142
 Transform:
   m_ObjectHideFlags: 0
@@ -214065,10 +214198,12 @@ MonoBehaviour:
   state: 2
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 80a5f9b08847027499ff7bbe9dda2192, type: 2}
   openClip: {fileID: 7400000, guid: c8d6051c32bc57a4ea974d1ee240eb92, type: 2}
   partlyOpen1Clip: {fileID: 7400000, guid: 1286b0b0bcca0034091a34d3aadf714a, type: 2}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -218421,10 +218556,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 305502aacf9102c4a8d2dd417ac710f7, type: 2}
   openClip: {fileID: 7400000, guid: 9dc5faefab56209479048b7815d1b948, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -219018,10 +219155,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 80a5f9b08847027499ff7bbe9dda2192, type: 2}
   openClip: {fileID: 7400000, guid: c8d6051c32bc57a4ea974d1ee240eb92, type: 2}
   partlyOpen1Clip: {fileID: 7400000, guid: 1286b0b0bcca0034091a34d3aadf714a, type: 2}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -221232,10 +221371,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -222266,23 +222407,6 @@ Transform:
   - {fileID: 1734403539679851569}
   m_Father: {fileID: 365560048}
   m_LocalEulerAnglesHint: {x: 0, y: 226.774, z: 0}
---- !u!4 &6359080826509172155
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6630495802737744031}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.2115, y: 0.9357, z: 18.5649}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7717582897648553641}
-  - {fileID: 1734403538484630667}
-  m_Father: {fileID: 609266492}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6361749466810994882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -223407,6 +223531,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &6424247051300220889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625061118308668809}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.2537, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 287317908340668322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6428112748671914178
 Transform:
   m_ObjectHideFlags: 0
@@ -225663,10 +225802,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 67800082ea18a2c41891df82f7343b9a, type: 2}
   openClip: {fileID: 7400000, guid: 63b37e05eef22ad4896fa71fe974f178, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -227578,22 +227719,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!1 &6630495802737744031
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6359080826509172155}
-  m_Layer: 0
-  m_Name: soapDispenser
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
 --- !u!1 &6632286906333375881
 GameObject:
   m_ObjectHideFlags: 0
@@ -229329,10 +229454,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 6b3ec1b81d2da1d4b9ba634a8e0fafaf, type: 2}
   openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -231948,6 +232075,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!95 &6831332328673450451
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625061118308668809}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &6833024154766538482
 Transform:
   m_ObjectHideFlags: 0
@@ -233295,6 +233443,14 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5717237, y: 1.9008313, z: 0.20316583}
   m_Center: {x: 0.50485796, y: 1.4495847, z: -0.30155843}
+--- !u!33 &6905166885484156666
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830840103672051216}
+  m_Mesh: {fileID: 6900067135022738808, guid: 7dfb700e957707b4691966b8f154916c, type: 3}
 --- !u!4 &6905790654672951950
 Transform:
   m_ObjectHideFlags: 0
@@ -234529,6 +234685,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8586059458488769773}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &6964019151533373637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7908856575710348287}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.21390536, z: -0, w: 0.97685444}
+  m_LocalPosition: {x: 5.2115, y: 0.9357, z: 18.5649}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1145876051540445327}
+  - {fileID: 287317908340668322}
+  m_Father: {fileID: 609266492}
+  m_LocalEulerAnglesHint: {x: 0, y: 24.703, z: 0}
 --- !u!1 &6964732434208581857
 GameObject:
   m_ObjectHideFlags: 0
@@ -234840,10 +235013,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -240022,10 +240197,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: f711820fda711e24ca16252c0d4ba614, type: 2}
   openClip: {fileID: 7400000, guid: d51b193c886b639418891a31460c0137, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -241538,48 +241715,6 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 3441f6441092d3c459a48c3c48ea63c6, type: 2}
   - {fileID: 2100000, guid: 31e87d42f3ffa2546b1f527e7a0a4b9d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!23 &7290665361280248950
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7333877108108785103}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 35261150e5398c0439d6fd7481f62b62, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -243140,25 +243275,6 @@ Transform:
   - {fileID: 6724514351617039404}
   m_Father: {fileID: 7168873364164925499}
   m_LocalEulerAnglesHint: {x: 0, y: -98.8, z: 0}
---- !u!1 &7333877108108785103
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7717582897648553641}
-  - component: {fileID: 1883240990188341411}
-  - component: {fileID: 7290665361280248950}
-  - component: {fileID: 1456212872555224099}
-  m_Layer: 0
-  m_Name: soapDispenser_body
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
 --- !u!1 &7333877109069436277
 GameObject:
   m_ObjectHideFlags: 0
@@ -243686,6 +243802,102 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!82 &7358242313050480454
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625061118308668809}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!54 &7359579605670935767
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -245872,10 +246084,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 993a0d9b94860fb4ebff2dacaa3b0013, type: 2}
   openClip: {fileID: 7400000, guid: aa5f68e591e24384bb45b9a90fce7f76, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -247408,10 +247622,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 993a0d9b94860fb4ebff2dacaa3b0013, type: 2}
   openClip: {fileID: 7400000, guid: aa5f68e591e24384bb45b9a90fce7f76, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -249533,10 +249749,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 50d5615e4c0aa9544ba7b9c5285b43a8, type: 2}
   openClip: {fileID: 7400000, guid: b0534a0179b8e7b4e8ad2b99c935388e, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -249967,10 +250185,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 38e2ae13f7d762b4aac9437a5c52939b, type: 3}
   openSound: {fileID: 8300000, guid: d0d6a217c8fa84f45a4be7e4ed046f1e, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 59c0017fd3c89e14f95db854f78534ad, type: 2}
   openClip: {fileID: 7400000, guid: 10d02906a7ee8044db8c2739f2127913, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -251592,21 +251812,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1024521345409754659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &7717582897648553641
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7333877108108785103}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.10737831, z: -0, w: 0.99421823}
-  m_LocalPosition: {x: -0, y: 0.00000005967915, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6359080826509172155}
-  m_LocalEulerAnglesHint: {x: 0, y: 12.328, z: 0}
 --- !u!4 &7717582898768539155
 Transform:
   m_ObjectHideFlags: 0
@@ -253104,10 +253309,12 @@ MonoBehaviour:
   state: 1
   closeSound: {fileID: 8300000, guid: dabe4e533a88d54438b843271e9e0824, type: 3}
   openSound: {fileID: 8300000, guid: dabe4e533a88d54438b843271e9e0824, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 74512b178d94a7941bd4ec554cddff2f, type: 2}
   openClip: {fileID: 7400000, guid: 42d58ea0f30c62c4d84322e934cd2635, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
@@ -255171,6 +255378,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!1 &7830840103672051216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1145876051540445327}
+  - component: {fileID: 6905166885484156666}
+  - component: {fileID: 3644253841716196214}
+  m_Layer: 0
+  m_Name: Body Model
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
 --- !u!114 &7830930697980781063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256543,10 +256768,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 6ecccba7879098247a8262dafd1c2822, type: 2}
   openClip: {fileID: 7400000, guid: 56f6b92275d033442b266a73d7adbcb2, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -256778,10 +257005,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
   openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -256943,6 +257172,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2114819303201290764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7908856575710348287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6964019151533373637}
+  m_Layer: 0
+  m_Name: soapDispenser
+  m_TagString: NoCollide
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
 --- !u!23 &7909131297557002599
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -258355,27 +258600,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7974369191144022665
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608162611246580484}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.12661293, y: 0.03986707, z: 0.03363315}
-  m_Center: {x: 0.046494383, y: 0.019016052, z: -0.0000009769574}
 --- !u!33 &7976648412873577395
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -266831,10 +267055,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -269640,10 +269866,12 @@ MonoBehaviour:
   state: 1
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 6b9c8bba4231252419b69abded39f782, type: 2}
   openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -270564,10 +270792,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -273186,10 +273416,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -275042,10 +275274,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: 59fcc61a36e89da4e9465f432b893fec, type: 3}
   openSound: {fileID: 8300000, guid: 0a0ed12ebe90dd6478bc6228d35bf95c, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: b351d287efd0dd147bc177f37796888d, type: 2}
   openClip: {fileID: 7400000, guid: e6992b3eda9383041a41b907218e9923, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
@@ -278877,10 +279111,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
   openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
@@ -279619,10 +279855,12 @@ MonoBehaviour:
   state: 0
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: d6418f861c5698d47a989c29203de552, type: 2}
   openClip: {fileID: 7400000, guid: 88b69166ded4b08459cd76a4569d10c7, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   overrideController: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
@@ -285094,6 +285332,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7425391803595129461}
   m_Mesh: {fileID: 5959524059823513152, guid: e0147f4678533444ca8209554a9ead22, type: 3}
+--- !u!136 &9220499465206607834
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625061118308668809}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.06
+  m_Height: 0.35
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.125, z: 0}
 --- !u!4 &9222186084808763482
 Transform:
   m_ObjectHideFlags: 0

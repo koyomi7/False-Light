@@ -133,11 +133,12 @@ public class PlayerInteraction : MonoBehaviour
             currentInteractable = interactable;
 
             // Access Mechanism
-            if (hit.collider.CompareTag("AccessMechanism") || hit.collider.CompareTag("Printer"))
+            if (hit.collider.CompareTag("AccessMechanism") || hit.collider.CompareTag("Printer") || hit.collider.CompareTag("SoapDispenser"))
             {
                 GenericAccessMechanismScript access = hit.collider.GetComponent<GenericAccessMechanismScript>();
                 bool accessible = !access.isOnCooldown;
                 if (hit.collider.CompareTag("Printer")) interactionText.SetText("[F] Roll");
+                else if (hit.collider.CompareTag("SoapDispenser")) interactionText.SetText("[F] Squirt");
                 else
                 {
                     bool closed = access.state == GenericAccessMechanismScript.states.CLOSED ? true : false;
