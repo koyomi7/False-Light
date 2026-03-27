@@ -9,12 +9,14 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
     [Header("Audio Settings")]
     [SerializeField] private AudioClip closeSound;
     [SerializeField] private AudioClip openSound;
+    [SerializeField] private AudioClip readySound;
 
     [Header("Animation Settings")]
     [SerializeField] private AnimationClip closedClip; // if closed we want to open -> use opening clip
     [SerializeField] public AnimationClip openClip; // if open we want to close -> use closing clip
     [SerializeField] private AnimationClip partlyOpen1Clip;
     [SerializeField] private AnimationClip partlyOpen2Clip;
+    [SerializeField] private AnimationClip readyClip;
     [HideInInspector] private Animator animator;
     [HideInInspector] public AnimatorOverrideController overrideController;
     [HideInInspector] private AudioSource audioSource;
@@ -35,7 +37,7 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
 
     // Other variables
     private Transform player;
-    public enum states { CLOSED, OPEN, PARTLY_OPEN_1, PARTLY_OPEN_2 };
+    public enum states { CLOSED, OPEN, PARTLY_OPEN_1, PARTLY_OPEN_2, READY };
 
     void Start()
     {
@@ -47,6 +49,7 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
         overrideController["OPEN"] = openClip;
         overrideController["PARTLY_OPEN_1"] = partlyOpen1Clip;
         overrideController["PARTLY_OPEN_2"] = partlyOpen2Clip;
+        overrideController["READY"] = readyClip;
 
         audioSource = GetComponent<AudioSource>();
         audioSource.enabled = true;
@@ -135,6 +138,9 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
             case states.PARTLY_OPEN_2:
                 state = states.CLOSED;
                 audioSource.clip = closeSound;
+                break;
+            case states.READY:
+                audioSource.clip = readySound;
                 break;
         }
         audioSource.Play();

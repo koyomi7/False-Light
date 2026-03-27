@@ -23,6 +23,7 @@ TagManager:
   - Key
   - Printer
   - GhostTriggerClip
+  - SoapDispenser
   layers:
   - Default
   - TransparentFX
