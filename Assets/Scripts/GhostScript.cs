@@ -39,4 +39,10 @@ public class GhostScript : MonoBehaviour
     {
         GhostEventManager.Instance.isWalkingBackFinished = true;
     }
+
+    // DownstairsKitchenScare
+    void OnGhostDiveComplete()
+    {
+        GhostEventManager.Instance.isGhostDiveFinished = true;
+    }
 }
