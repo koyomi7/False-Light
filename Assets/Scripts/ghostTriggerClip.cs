@@ -10,7 +10,8 @@ public class ghostTriggerClip : MonoBehaviour
         DownstairsBathroomScare,
         DownstairsBedroomScare,
         DownstairsLivingRoomScare,
-        DownstairsHallwayScare
+        DownstairsHallwayScare,
+        DownstairsKitchenScare
     }
     
     [SerializeField] Triggers trigger;
@@ -66,6 +67,11 @@ public class ghostTriggerClip : MonoBehaviour
             case Triggers.DownstairsHallwayScare:
                 if (!GameManager.Instance.CanTriggerEvent(5, occurrence, occurrence == 1)) break;
                 StartCoroutine(GhostEventManager.Instance.DownstairsHallwayScare(occurrence));
+                hasBeenTriggered = true;
+                break;
+            case Triggers.DownstairsKitchenScare:
+                if (!GameManager.Instance.CanTriggerEvent(6, occurrence, occurrence == 1)) break;
+                StartCoroutine(GhostEventManager.Instance.DownstairsKitchenScare(occurrence));
                 hasBeenTriggered = true;
                 break;
         }

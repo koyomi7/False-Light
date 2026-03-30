@@ -118,7 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3938fc45b16af74588b017dac55f72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: 0
-  customEventName: 
-  soundClip: {fileID: 0}
+  trigger: 0
+  occurrence: 1
+  eventName: 
   oneTimeUse: 1
+  visualTrigger: 0
