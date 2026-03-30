@@ -4,45 +4,11 @@ using UnityEngine;
 
 public class GhostScript : MonoBehaviour
 {
-    // DownstairsBedroomScare
-    void OnGettingUpComplete()
+    public void OnAnimationComplete(string flagName)
     {
-        GhostEventManager.Instance.isSlowGettingUpFinished = true;
-    }
+        var manager = GhostEventManager.Instance;
+        var field = manager.GetType().GetField(flagName);
 
-    // DownstairsBedroomScare
-    void OnRunningAndHittingComplete()
-    {
-        GhostEventManager.Instance.isRunAndHitFinished = true;
-    }
-
-    // DownstairsBedroomScare
-    void OnCrawlBackComplete()
-    {
-        GhostEventManager.Instance.isCrawlBackFinished = true;
-    }
-
-    // DownstairsLivingRoomScare
-    void OnFallingComplete()
-    {
-        GhostEventManager.Instance.isFallingFinished = true;
-    }
-
-    // DownstairsLivingRoomScare
-    void OnVanishComplete()
-    {
-        GhostEventManager.Instance.isVanishFinished = true;
-    }
-
-    // DownstairsHallwayScare
-    void OnWalkingBackComplete()
-    {
-        GhostEventManager.Instance.isWalkingBackFinished = true;
-    }
-
-    // DownstairsKitchenScare
-    void OnGhostDiveComplete()
-    {
-        GhostEventManager.Instance.isGhostDiveFinished = true;
+        if (field != null) field.SetValue(manager, true);
     }
 }

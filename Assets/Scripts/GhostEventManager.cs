@@ -257,6 +257,7 @@ public class GhostEventManager : MonoBehaviour
                 blood.SetActive(true);
                 ResetAll();
                 yield return new WaitUntil(() => downstairsBedroomPill == null);
+                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsBedroomScareController;
                 Ghost.transform.position = new Vector3(3.79900002f, 0.150000006f, 8.92000008f);
                 Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 63.52f, 0f));
                 Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
