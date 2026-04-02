@@ -24,6 +24,7 @@ TagManager:
   - Printer
   - GhostTriggerClip
   - SoapDispenser
+  - TV
   layers:
   - Default
   - TransparentFX
