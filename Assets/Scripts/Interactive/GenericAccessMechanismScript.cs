@@ -1,14 +1,16 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
 {
     [Header("State Settings")]
     [SerializeField] public states state = states.CLOSED;
+    [SerializeField] GameObject someObject = null;
 
     [Header("Audio Settings")]
     [SerializeField] private AudioClip closeSound;
-    [SerializeField] private AudioClip openSound;
+    [SerializeField] public AudioClip openSound;
     [SerializeField] private AudioClip readySound;
 
     [Header("Animation Settings")]
@@ -29,7 +31,7 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
     [SerializeField] private float playerDetectionRadius = 10f; // Only activate when player is nearby
     public bool isOnCooldown = false;
     private float cooldownTimer = 0f;
-    [SerializeField] float CooldownDuration = 1f;
+    [SerializeField] public float CooldownDuration = 1f;
 
     [Header("Key Settings")]
     [SerializeField] public bool requiresKey = false;
@@ -126,10 +128,12 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
             case states.CLOSED:
                 state = states.OPEN;
                 audioSource.clip = openSound;
+                if (someObject != null) someObject.SetActive(true);
                 break;
             case states.OPEN:
                 state = states.CLOSED;
                 audioSource.clip = closeSound;
+                if (someObject != null) someObject.SetActive(false);
                 break;
             case states.PARTLY_OPEN_1:
                 state = states.CLOSED;
@@ -148,9 +152,15 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
         cooldownTimer = CooldownDuration;
     }
 
-    public void Close()
+    public void Close(bool playAudio = false)
     {
         animator.SetTrigger("OPEN");
         state = states.CLOSED;
+        if (playAudio)
+        {
+            audioSource.clip = closeSound;
+            audioSource.Play();
+        }
+        if (someObject != null) someObject.SetActive(false);
     }
 }

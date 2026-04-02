@@ -61,6 +61,15 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] Animator downstairsKitchenScarePropsAnimator;
     [HideInInspector] public bool isGhostDiveFinished = false;
 
+    [Header("Downstairs Secret Scare")]
+    [SerializeField] RuntimeAnimatorController downstairsSecretScareController;
+    [SerializeField] GameObject downstairsSecretChair;
+    [SerializeField] GameObject downstairsSecretTVObject;
+    [SerializeField] GenericAccessMechanismScript downstairsSecretTV;
+    [SerializeField] AudioClip downstairsSecretTVGlitchSound;
+    [SerializeField] Light downstairsSecretSpotLight;
+    [SerializeField] Light downstairsSecretPointLight;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -410,6 +419,53 @@ public class GhostEventManager : MonoBehaviour
                 yield return new WaitForSeconds(downstairsKitchenScareScatterSound.length);
                 ResetAll();
                 GameManager.Instance.EndEvent(6);
+                break;
+        }
+    }
+
+    public IEnumerator DownstairsSecretScare(int occurrence)
+    {
+        switch (occurrence)
+        {
+            case 1: // Player near TV
+                GameManager.Instance.StartEvent(7);
+                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsSecretScareController;
+                Ghost.transform.position = new Vector3(9.52799988f, 0.0869999975f, 3.39700007f);
+                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, -149.744f, 0f));
+                Ghost.transform.localScale = new Vector3(0.13f, 0.13f, 0.13f);
+                Ghost.SetActive(true);
+                animator.applyRootMotion = false;
+                animator.Play("Sitting");
+                float tempCoolDownDuration = downstairsSecretTV.CooldownDuration;
+                downstairsSecretTV.CooldownDuration = 4f;
+                // Player uses the TV (turns it on) -> TV turns off after 3 seconds
+                yield return new WaitUntil(() => downstairsSecretTV.state == GenericAccessMechanismScript.states.OPEN);
+                yield return new WaitForSeconds(3f);
+                downstairsSecretTV.Close(playAudio: true);
+                // Player uses the TV again -> Scare
+                Ghost.transform.position = new Vector3(11.21f,0.625f,6.4000001f);
+                Ghost.transform.rotation = Quaternion.Euler(new Vector3(-35f, 36.796f, 0f));
+                animator.Play("Trapped");
+                downstairsSecretChair.transform.position = new Vector3(9.56000042f, 0.342000008f, 3.48799992f);
+                downstairsSecretChair.transform.rotation = Quaternion.Euler(new Vector3(90f, 155.230011f, 0f));
+                downstairsSecretSpotLight.enabled = true;
+                AudioClip tempOpenSound = downstairsSecretTV.openSound;
+                downstairsSecretTV.openSound = downstairsSecretTVGlitchSound;
+                downstairsSecretTV.CooldownDuration = 6f;
+                float tempIntensity = downstairsSecretPointLight.intensity;
+                downstairsSecretPointLight.intensity = 1f;
+                yield return new WaitUntil(() => downstairsSecretTV.state == GenericAccessMechanismScript.states.OPEN);
+                yield return new WaitForSeconds(5f);
+                downstairsSecretSpotLight.enabled = false;
+                downstairsSecretTV.Close(playAudio: true);
+                downstairsSecretTV.openSound = tempOpenSound;
+                downstairsSecretTV.CooldownDuration = tempCoolDownDuration;
+                downstairsSecretPointLight.intensity = tempIntensity;
+                ResetAll();
+                GameManager.Instance.EndEvent(7);
+                break;
+            default:
+                Debug.Log($"Error: DownstairsSecretScare() does not have a {occurrence} occurrence");
                 break;
         }
     }
