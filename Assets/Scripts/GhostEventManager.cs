@@ -6,12 +6,13 @@ public class GhostEventManager : MonoBehaviour
     public static GhostEventManager Instance { get; private set; }
 
     [Header("References")]
-    [SerializeField] GameObject Ghost;
+    [SerializeField] GameObject GhostModel;
     [SerializeField] Transform Player;
     [SerializeField] AudioSource audioSource1;
     [SerializeField] AudioSource audioSource2;
     [SerializeField] AudioSource audioSource3;
     [SerializeField] AudioSource auxiliaryAudioSource;
+    GameObject Ghost;
     Animator animator;
 
     [Header("Downstairs Office Scare")]
@@ -77,7 +78,8 @@ public class GhostEventManager : MonoBehaviour
 
     void Start()
     {
-        animator = Ghost.GetComponent<Animator>();
+        animator = GhostModel.GetComponent<Animator>();
+        Ghost = GhostModel.transform.parent.gameObject;
         ResetAll();
     }
 
@@ -86,23 +88,96 @@ public class GhostEventManager : MonoBehaviour
         RunToPlayer(); // DownstairsOfficeScare
     }
 
+    void ResetAnimatorState()
+    {
+        // Inside the Inspector for an animation clip:
+            // Make sure Root Transform Position (XZ) is Based Upon Original
+            // if you want runtime behavior to match what you see in the Animation preview
+        animator.Rebind();
+        GhostModel.transform.localPosition = Vector3.zero;
+        GhostModel.transform.localRotation = Quaternion.identity;
+    }
+
+    void SetTransform(float posX = 0f, float posY = 0f, float posZ = 0f, float rotX = 0f, float rotY = 0f, float rotZ = 0f, float scale = 0.13f)
+    {
+        Ghost.transform.position = new Vector3(posX, posY, posZ);
+        Ghost.transform.rotation = Quaternion.Euler(new Vector3(rotX, rotY, rotZ));
+        Ghost.transform.localScale = new Vector3(scale, scale, scale);
+        Ghost.SetActive(true);
+    }
+
+    void PlayAnimation(string name, bool useRootMotion)
+    {
+        animator.applyRootMotion = useRootMotion;
+        animator.Play(name, 0, 0f);
+    }
+
+    void PlayAudio(AudioClip clip = null, int source = 1, float posX = 0f, float posY = 0f, float posZ = 0f)
+    {
+        switch (source)
+        {
+            case 1:
+                audioSource1.clip = clip;
+                audioSource1.Play();
+                break;
+            case 2:
+                audioSource2.clip = clip;
+                audioSource2.Play();
+                break;
+            case 3:
+                audioSource3.clip = clip;
+                audioSource3.Play();
+                break;
+            case 4:
+                auxiliaryAudioSource.transform.position = new Vector3(posX, posY, posZ);
+                auxiliaryAudioSource.clip = clip;
+                auxiliaryAudioSource.Play();
+                break;
+            default:
+                Debug.Log($"Error: PlayAudio() does not have a source {source}");
+                break;
+        }
+    }
+
+    void StopAudio(int source = 1)
+    {
+        switch (source)
+        {
+            case 1:
+                audioSource1.Stop();
+                audioSource1.clip = null;
+                break;
+            case 2:
+                audioSource2.Stop();
+                audioSource2.clip = null;
+                break;
+            case 3:
+                audioSource3.Stop();
+                audioSource3.clip = null;
+                break;
+            case 4:
+                auxiliaryAudioSource.transform.position = Vector3.zero;
+                auxiliaryAudioSource.Stop();
+                auxiliaryAudioSource.clip = null;
+                break;
+            default:
+                Debug.Log($"Error: StopAudio() does not have a source {source}");
+                break;
+        }
+    }
+
     void ResetAll()
     {
-        audioSource1.Stop();
-        audioSource2.Stop();
-        audioSource3.Stop();
-        auxiliaryAudioSource.Stop();
-        audioSource1.clip = null;
-        audioSource2.clip = null;
-        audioSource3.clip = null;
-        auxiliaryAudioSource.clip = null;
-        Ghost.GetComponent<Animator>().runtimeAnimatorController = null;
+        StopAudio(1);
+        StopAudio(2);
+        StopAudio(3);
+        StopAudio(4);
+        animator.runtimeAnimatorController = null;
         animator.applyRootMotion = true;
         animator.speed = 1;
         Ghost.SetActive(false);
-        Ghost.transform.position = new Vector3(0f, 0f, 0f);
-        Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-        Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        ResetAnimatorState();
+        SetTransform();
     }
 
     public IEnumerator DownstairsOfficeScare(int occurrence)
@@ -244,43 +319,39 @@ public class GhostEventManager : MonoBehaviour
     {
         switch (occurrence)
         {
-            case 1:
+            case 1: // Player enters downstairs bedroom
                 GameManager.Instance.StartEvent(3);
-                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsBedroomScareController;
-                Ghost.transform.position = new Vector3(2.88400006f, 0.578959823f, 9.03600025f);
-                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 270f, 0f));
-                Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                Ghost.SetActive(true);
-                animator.Play("SlowGetUp");
-                audioSource1.clip = fleshSoundEffect;
-                audioSource1.Play();
+                animator.runtimeAnimatorController = downstairsBedroomScareController;
+
+                // Ghost slowly gets up from laying facedown on the bed
+                ResetAnimatorState();
+                SetTransform(2.88400006f, 0.578959823f, 9.03600025f, 0f, 270f, 0f, 0.1f);
+                PlayAnimation("SlowGetUp", true);
+                PlayAudio(fleshSoundEffect, 1);
                 yield return new WaitUntil(() => isSlowGettingUpFinished);
-                audioSource1.Stop();
-                Ghost.transform.position = new Vector3(2.97500014f, 0.634959817f, 8.77799988f);
-                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 62.3800011f, 0f));
-                Ghost.transform.localScale = new Vector3(0.09f, 0.09f, 0.09f);
-                animator.Play("RunAndHit");
-                audioSource2.clip = runAndHitSound;
-                audioSource2.Play();
+                StopAudio(1);
+
+                // Ghost runs from the bed and jumps to the wardrobe, hanging from it -> disappears and blood leads the player to the drawer with the pill inside
+                ResetAnimatorState();
+                SetTransform(2.97500014f, 0.634959817f, 8.77799988f, 0f, 62.3800011f, 0f, 0.1f);
+                PlayAnimation("RunAndHit", false);
+                PlayAudio(runAndHitSound, 2);
                 yield return new WaitUntil(() => isRunAndHitFinished);
                 blood.SetActive(true);
-                ResetAll();
+                Ghost.SetActive(false);
                 yield return new WaitUntil(() => downstairsBedroomPill == null);
-                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsBedroomScareController;
-                Ghost.transform.position = new Vector3(3.79900002f, 0.150000006f, 8.92000008f);
-                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 63.52f, 0f));
-                Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                Ghost.SetActive(true);
-                animator.Play("BedSit");
+
+                // Player consumes the pill -> Ghost is sitting on the bed staring at the player
+                ResetAnimatorState();
+                SetTransform(3.79900002f, 0.150000006f, 8.92000008f, 0f, 63.52f, 0f, 0.1f);
+                PlayAnimation("BedSit", true);
                 GameManager.Instance.NextEventReady();
                 break;
-            case 2:
-                Ghost.transform.position = new Vector3(3.26799989f, 0.550000012f, 8.78999996f);
-                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 55f, 0f));
-                Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                animator.Play("CrawlBack");
+            case 2: // Player looks at the ghost -> ghost crawls away from the player
+                ResetAnimatorState();
+                SetTransform(3.26799989f, 0.550000012f, 8.78999996f, 0f, 55f, 0f, 0.1f);
+                PlayAnimation("CrawlBack", true);
                 yield return new WaitUntil(() => isCrawlBackFinished);
-                isCrawlBackFinished = false;
                 ResetAll();
                 GameManager.Instance.EndEvent(3);
                 break;
@@ -348,6 +419,7 @@ public class GhostEventManager : MonoBehaviour
                     animator.Play("FastCrawl");
                     audioSource1.clip = downstairsHallwayScareBreathingSound;
                     audioSource1.Play();
+                    downstairsHallwayScareDoorAnimator.Play("Open");
                     GameManager.Instance.NextEventReady();
                 }
                 else if (downstairsHallwayDoor.state == GenericAccessMechanismScript.states.CLOSED)
@@ -368,7 +440,6 @@ public class GhostEventManager : MonoBehaviour
                 animator.speed = 1;
                 audioSource2.clip = downstairsHallwayScareFootstepSound;
                 audioSource2.Play();
-                downstairsHallwayScareDoorAnimator.Play("Open");
                 yield return new WaitForSeconds(2.1f);
                 audioSource1.Stop();
                 audioSource2.Stop();
@@ -377,7 +448,7 @@ public class GhostEventManager : MonoBehaviour
                 auxiliaryAudioSource.clip = downstairsHallwayScareDoorSlamSound;
                 auxiliaryAudioSource.Play();
                 downstairsHallwayScareDoorAnimator.Play("Slam");
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(downstairsHallwayScareDoorSlamSound.length);
                 ResetAll();
                 GameManager.Instance.EndEvent(5);
                 break;
