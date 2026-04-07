@@ -114,6 +114,8 @@ public class GhostEventManager : MonoBehaviour
 
     void PlayAudio(AudioClip clip = null, int source = 1, float posX = 0f, float posY = 0f, float posZ = 0f)
     {
+        // source 1, 2, 3: ghost audio sources
+        // source 4: auxiliary audio source
         switch (source)
         {
             case 1:
@@ -141,6 +143,8 @@ public class GhostEventManager : MonoBehaviour
 
     void StopAudio(int source = 1)
     {
+        // source 1, 2, 3: ghost audio sources
+        // source 4: auxiliary audio source
         switch (source)
         {
             case 1:
@@ -175,9 +179,37 @@ public class GhostEventManager : MonoBehaviour
         animator.runtimeAnimatorController = null;
         animator.applyRootMotion = true;
         animator.speed = 1;
-        Ghost.SetActive(false);
         ResetAnimatorState();
         SetTransform();
+        Ghost.SetActive(false);
+    }
+    
+    IEnumerator MoveToPoint(Vector3 targetPos, float duration)
+    {
+        Vector3 startPos = Ghost.transform.position;
+        
+        // Calculates direction and rotation
+        Vector3 direction = (targetPos - startPos).normalized;
+        direction.y = 0;
+
+        // Face the target immediately
+        if (direction != Vector3.zero) Ghost.transform.forward = direction;
+
+        float elapsedTime = 0f;
+        
+        // Smoothly move to position for duration
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+            
+            Ghost.transform.position = Vector3.Lerp(startPos, targetPos, t);
+            
+            yield return null;
+        }
+
+        // Ensure we land exactly on the target to prevent drift
+        Ghost.transform.position = targetPos;
     }
 
     public IEnumerator DownstairsOfficeScare(int occurrence)
@@ -226,88 +258,44 @@ public class GhostEventManager : MonoBehaviour
     {
         switch (occurrence)
         {
-            case 1:
-                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsBathroomScareController;
-                Ghost.transform.position = new Vector3(8.09600067f, 0.0820000172f, 9.92300034f);
-                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
-                Ghost.transform.localScale = new Vector3(0.13f, 0.13f, 0.13f);
-                Ghost.SetActive(true);
-                if (downstairsBathroomDoor.state == GenericAccessMechanismScript.states.CLOSED)
-                {
-                    GameManager.Instance.StartEvent(2);
+            case 1: // Player enters downstairs bathroom
+                GameManager.Instance.StartEvent(2);
+                animator.runtimeAnimatorController = downstairsBathroomScareController;
+                if (downstairsBathroomDoor.state == GenericAccessMechanismScript.states.OPEN) goto DoorOpen;
+                
+                // Door is closed -> player hears footsteps and then a slam on the door
+                PlayAudio(footstepsBehindDoor, 4, 8.1f, 0.16f, 10f);
+                yield return new WaitForSeconds(footstepsBehindDoor.length);
+                PlayAudio(doorSlamSound, 4, 8.1f, 0.16f, 7.5f);
+                yield return new WaitForSeconds(doorSlamSound.length);
+                ResetAll();
+                GameManager.Instance.EndEvent(2);
+                break;
+                
+                // Door is open -> player hears footsteps and sees the ghost running outside
+                DoorOpen:
+                ResetAnimatorState();
+                SetTransform(8.1f, 0.16f, 10f, 0f, 180f, 0f, 0.13f);
+                PlayAnimation("GoofyRun", false);
+                PlayAudio(footstepsBehindDoor, 1);
 
-                    // Play the scary sound
-                    audioSource1.clip = footstepsBehindDoor;
-                    audioSource1.Play();
+                // Ghost moves towards the door, turns -> ghost moves into the bathroom then disappears
+                yield return MoveToPoint(new Vector3(8.1f, 0.16f, 7.5f), 1f);
+                yield return MoveToPoint(new Vector3(10f, 0.16f, 7.5f), 1f);
+                yield return new WaitForSeconds(0.05f);
+                Ghost.SetActive(false);
+                StopAudio(1); // stops footsteps sound
 
-                    // Wait for the scary sound to finish 
-                    yield return new WaitForSeconds(footstepsBehindDoor.length);
-
-                    // Play the door slam sound
-                    audioSource2.clip = doorSlamSound;
-                    audioSource2.Play();
-
-                    // Wait for door slam sound to finish
-                    yield return new WaitForSeconds(doorSlamSound.length);
-                    ResetAll();
-                    GameManager.Instance.EndEvent(2);
-                }
-                else
-                {
-                    GameManager.Instance.StartEvent(2);
-                    animator.Play("GoofyRun");
-
-                    // Play footsteps from ghost
-                    audioSource1.clip = footstepsBehindDoor;
-                    audioSource1.Play();
-
-                    float runDuration = 1.5f;
-                    float elapsedTime = 0f;
-                    Vector3 startPos = Ghost.transform.position;
-                    Vector3 targetPos = new Vector3(8.01299953f, 0f, 7.42399979f);
-                    Vector3 targetPos2 = new Vector3(8.82499981f, 0f, 7.42399979f);
-
-                    // Move ghost to door
-                    while (elapsedTime < runDuration)
-                    {
-                        elapsedTime += Time.deltaTime;
-                        float t = elapsedTime / runDuration;
-
-                        // Calculate direction and rotation
-                        Vector3 directionToDoor = (targetPos - Ghost.transform.position).normalized;
-                        directionToDoor.y = 0;
-
-                        if (directionToDoor != Vector3.zero)
-                        {
-                            Ghost.transform.forward = directionToDoor;
-                        }
-
-                        // Move ghost
-                        Ghost.transform.position = Vector3.Lerp(startPos, targetPos, t);
-
-                        yield return null;
-                    }
-                    Ghost.transform.forward = (targetPos2 - Ghost.transform.position).normalized;
-
-                    // Wait extra second before destroying ghost
-                    yield return new WaitForSeconds(0.8f);
-
-                    // Close door and play door slam sound
-                    AnimationClip temp = downstairsBathroomDoor.openClip;
-                    downstairsBathroomDoor.overrideController["OPEN"] = doorSlamClip;
-                    downstairsBathroomDoor.Close();
-                    yield return new WaitForSeconds(doorSlamClip.length); // Wait for door animation to start
-                    audioSource2.clip = doorSlamSound;
-                    audioSource2.Play();
-                    Ghost.transform.position = targetPos;
-                    animator.Play("Idle");
-                    audioSource1.Stop();
-                    yield return new WaitForSeconds(doorSlamSound.length);
-                    Ghost.SetActive(false);
-                    downstairsBathroomDoor.overrideController["OPEN"] = temp;
-                    ResetAll();
-                    GameManager.Instance.EndEvent(2);
-                }
+                // Door slams shut
+                AnimationClip temp = downstairsBathroomDoor.openClip;
+                downstairsBathroomDoor.overrideController["OPEN"] = doorSlamClip;
+                downstairsBathroomDoor.Close();
+                yield return new WaitForSeconds(doorSlamClip.length);
+                PlayAudio(doorSlamSound, 4, 8.1f, 0.16f, 7.5f);
+                yield return new WaitForSeconds(doorSlamSound.length);
+                downstairsBathroomDoor.overrideController["OPEN"] = temp;
+                ResetAll();
+                GameManager.Instance.EndEvent(2);
                 break;
             default:
                 Debug.Log($"Error: DownstairsBathroomScare() does not have a {occurrence} occurrence");
@@ -341,7 +329,7 @@ public class GhostEventManager : MonoBehaviour
                 Ghost.SetActive(false);
                 yield return new WaitUntil(() => downstairsBedroomPill == null);
 
-                // Player consumes the pill -> Ghost is sitting on the bed staring at the player
+                // Player consumes the pill -> ghost is sitting on the bed staring at the player
                 ResetAnimatorState();
                 SetTransform(3.79900002f, 0.150000006f, 8.92000008f, 0f, 63.52f, 0f, 0.1f);
                 PlayAnimation("BedSit", true);
