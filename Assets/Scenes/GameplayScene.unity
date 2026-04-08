@@ -5433,8 +5433,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116538726}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10.001, y: 0.16, z: 7.5}
+  m_LocalRotation: {x: 0, y: 0.9781476, z: -0.20791169, w: 0}
+  m_LocalPosition: {x: 7.3, y: 0.96, z: 8.75}
   m_LocalScale: {x: 0.13, y: 0.13, z: 0.13}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5443,7 +5443,7 @@ Transform:
   - {fileID: 1769740051}
   - {fileID: 103336371}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 24, y: 180, z: 0}
 --- !u!1 &117665863
 GameObject:
   m_ObjectHideFlags: 0
@@ -30638,28 +30638,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GhostModel: {fileID: 919132147570575789}
-  Player: {fileID: 1509625533}
   audioSource1: {fileID: 25703696}
   audioSource2: {fileID: 1769740052}
   audioSource3: {fileID: 103336370}
   auxiliaryAudioSource: {fileID: 2054539242}
   downstairsOfficeScareController: {fileID: 9100000, guid: 973eb161869d2a14d8b673b39fa290c4,
     type: 2}
-  heavyBreathing: {fileID: 8300000, guid: 55ea3b95231838f4aa7f95c43ef68944, type: 3}
-  ghostRoar: {fileID: 8300000, guid: e2e79931b8aa4884dbd5d84a6e70b34d, type: 3}
-  ghostFootsteps: {fileID: 8300000, guid: 7723dddaaadb36848a0515a32492109a, type: 3}
-  ghostSpeed: 2
+  downstairsOfficeGhostFootsteps: {fileID: 8300000, guid: 7723dddaaadb36848a0515a32492109a,
+    type: 3}
+  downstairsOfficeGhostRoar: {fileID: 8300000, guid: e2e79931b8aa4884dbd5d84a6e70b34d,
+    type: 3}
+  downstairsOfficeHeavyBreathing: {fileID: 8300000, guid: 55ea3b95231838f4aa7f95c43ef68944,
+    type: 3}
   downstairsBathroomScareController: {fileID: 9100000, guid: bd09c277544ca43428da9d3308881b90,
     type: 2}
   downstairsBathroomDoor: {fileID: 1409344704}
-  footstepsBehindDoor: {fileID: 8300000, guid: 5a8317aeb8ad0aa45a4ee8010d07cace, type: 3}
-  doorSlamSound: {fileID: 8300000, guid: e469232fe5d373e49b149bdf7d855a30, type: 3}
+  downstairsBathroomDoorSlam: {fileID: 8300000, guid: e469232fe5d373e49b149bdf7d855a30,
+    type: 3}
+  downstairsBathroomGhostFootsteps: {fileID: 8300000, guid: 5a8317aeb8ad0aa45a4ee8010d07cace,
+    type: 3}
   doorSlamClip: {fileID: 7400000, guid: 450057e6fd8a00e4f9e46647b3b676be, type: 2}
   downstairsBedroomScareController: {fileID: 9100000, guid: e6881ffd448916841ac8bd8ff75f2402,
     type: 2}
   downstairsBedroomPill: {fileID: 7523081180727458459}
-  fleshSoundEffect: {fileID: 8300000, guid: d04893621d381b04d908c323cef87683, type: 3}
-  runAndHitSound: {fileID: 8300000, guid: a5d0f60935a962d4bb2ed90a316b5972, type: 3}
+  downstairsBedroomFlesh: {fileID: 8300000, guid: d04893621d381b04d908c323cef87683,
+    type: 3}
+  downstairsBedroomRunAndHit: {fileID: 8300000, guid: a5d0f60935a962d4bb2ed90a316b5972,
+    type: 3}
   blood: {fileID: 1843114667}
   isSlowGettingUpFinished: 0
   isRunAndHitFinished: 0
@@ -105768,7 +105773,7 @@ Transform:
   m_GameObject: {fileID: 919132147570575789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -210720,7 +210725,7 @@ Animator:
   m_GameObject: {fileID: 919132147570575789}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 82f61721054f231459cde9ebed66e742, type: 3}
-  m_Controller: {fileID: 9100000, guid: bd09c277544ca43428da9d3308881b90, type: 2}
+  m_Controller: {fileID: 9100000, guid: 973eb161869d2a14d8b673b39fa290c4, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
