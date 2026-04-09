@@ -40,17 +40,18 @@ public class GhostEventManager : MonoBehaviour
     [Header("Downstairs Living Room Scare")]
     [SerializeField] RuntimeAnimatorController downstairsLivingRoomScareController;
     [SerializeField] AudioClip downstairsLivingRoomWindowBreak;
-    [SerializeField] GameObject downstairsLivingRoomSpotLight;
+    [SerializeField] Light downstairsLivingRoomSpotLight;
     [HideInInspector] public bool isFallingFinished = false;
     [HideInInspector] public bool isVanishFinished = false;
 
     [Header("Downstairs Hallway Scare")]
     [SerializeField] RuntimeAnimatorController downstairsHallwayScareController;
+    [SerializeField] AudioClip downstairsHallwayBreathing;
+    [SerializeField] AudioClip downstairsHallwayDoorSlam;
+    [SerializeField] AudioClip downstairsHallwayWalk;
+    [SerializeField] GameObject downstairsHallwayPill;
     [SerializeField] GenericAccessMechanismScript downstairsHallwayDoor;
-    [SerializeField] AudioClip downstairsHallwayScareBreathingSound;
-    [SerializeField] AudioClip downstairsHallwayScareFootstepSound;
-    [SerializeField] AudioClip downstairsHallwayScareDoorSlamSound;
-    [SerializeField] Animator downstairsHallwayScareDoorAnimator;
+    [SerializeField] Animator downstairsHallwaySecretDoorAnimator;
     [HideInInspector] public bool isWalkingBackFinished = false;
 
     [Header("Downstairs Kitchen Scare")]
@@ -82,10 +83,10 @@ public class GhostEventManager : MonoBehaviour
 
     void ResetAnimatorState()
     {
-        // Inside the Inspector for an animation clip:
-            // Make sure Root Transform Rotation is Based Upon (at Start) Original and
-            // Root Transform Position (XZ) is Based Upon Original
-            // if you want runtime behavior to match what you see in the Animation preview
+        // If you want runtime behavior to match what you see in the Animation preview:
+            // For root-driven animations -> use Original
+            // For body-driven animations -> use Center of Mass
+        // There is no correct answer; experiment with Root Transform Rotation, Root Transform Position (Y), and Root Transform Position (XZ)
         animator.Rebind();
         GhostModel.transform.localPosition = Vector3.zero;
         GhostModel.transform.localRotation = Quaternion.identity;
@@ -367,11 +368,11 @@ public class GhostEventManager : MonoBehaviour
                 ResetAnimatorState();
                 SetTransform(new Vector3(12.25f, 0.04f, 14.631f), new Vector3(0f, 270f, 0f), 0.13f);
                 PlayAnimation("Trapped", true);
-                downstairsLivingRoomSpotLight.SetActive(true);
+                downstairsLivingRoomSpotLight.enabled = true;
                 GameManager.Instance.NextEventReady();
                 break;
             case 3: // Player looks at the ghost through the window on the right -> ghost vanishes
-                downstairsLivingRoomSpotLight.SetActive(false);
+                downstairsLivingRoomSpotLight.enabled = false;
                 ResetAnimatorState();
                 PlayAnimation("Vanish", true);
                 yield return new WaitUntil(() => isVanishFinished);
@@ -388,59 +389,52 @@ public class GhostEventManager : MonoBehaviour
     {
         switch (occurrence)
         {
-            case 1:
+            case 1: // Player goes near the table in the downstairs hallway -> player picks up the pill
                 GameManager.Instance.StartEvent(5);
-                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsHallwayScareController;
-                if (downstairsHallwayDoor.state == GenericAccessMechanismScript.states.OPEN)
-                {
-                    Ghost.transform.position = new Vector3(5.47200012f, 0.0850000009f, 4.9380002f);
-                    Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
-                    Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                    Ghost.SetActive(true);
-                    animator.speed = 0;
-                    animator.Play("FastCrawl");
-                    audioSource1.clip = downstairsHallwayScareBreathingSound;
-                    audioSource1.Play();
-                    downstairsHallwayScareDoorAnimator.Play("Open");
-                    GameManager.Instance.NextEventReady();
-                }
-                else if (downstairsHallwayDoor.state == GenericAccessMechanismScript.states.CLOSED)
-                {
-                    Ghost.transform.position = new Vector3(10.3109035f, 1.47300005f, 13.0962687f);
-                    Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 242.046951f, 0f));
-                    Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                    Ghost.SetActive(true);
-                    animator.speed = 0;
-                    animator.applyRootMotion = false;
-                    animator.Play("WalkingBack");
-                    audioSource1.clip = downstairsHallwayScareBreathingSound;
-                    audioSource1.Play();
-                    GameManager.Instance.NextEventReady(2); // skip to case 3
-                }
+                animator.runtimeAnimatorController = downstairsHallwayScareController;
+                yield return new WaitUntil(() => downstairsHallwayPill == null);
+                if (downstairsHallwayDoor.state == GenericAccessMechanismScript.states.OPEN) goto DoorOpen;
+
+                // Office door is closed -> ghost appears in the stairwell above the player
+                ResetAnimatorState();
+                SetTransform(new Vector3(10.31f, 1.45f, 13.1f), new Vector3(0f, 242f, 0f), 0.1f);
+                PlayAnimation("WalkingBack", false, 0);
+                PlayAudio(1, downstairsHallwayBreathing, true);
+                GameManager.Instance.NextEventReady(2); // skip to case 3
                 break;
-            case 2: // Downstairs office door open -> crawls to ghost room
+
+                // Office door is open -> downstairs secret door opens and ghost gets into position inside the office out of sight from the player
+                DoorOpen:
+                ResetAnimatorState();
+                SetTransform(new Vector3(5.472f, 0.085f, 4.938f), new Vector3(0f, 90f, 0f), 0.1f);
+                PlayAnimation("FastCrawl", true, 0);
+                PlayAudio(1, downstairsHallwayBreathing, true);
+                downstairsHallwaySecretDoorAnimator.Play("Open");
+                GameManager.Instance.NextEventReady();
+                break;
+            case 2: // Player looks down the hallway -> ghost crawls into secret room
                 animator.speed = 1;
-                audioSource2.clip = downstairsHallwayScareFootstepSound;
-                audioSource2.Play();
-                yield return new WaitForSeconds(2.1f);
-                audioSource1.Stop();
-                audioSource2.Stop();
+                PlayAudio(2, downstairsHallwayWalk);
+                yield return new WaitForSeconds(2.1f); // waits for ghost to crawl into the secret room -> downstairs secret door slams shut
+                StopAudio(1);
+                StopAudio(2);
                 Ghost.SetActive(false);
-                auxiliaryAudioSource.transform.position = new Vector3(8.7173996f, 1.21599996f, 4.99700022f);
-                auxiliaryAudioSource.clip = downstairsHallwayScareDoorSlamSound;
-                auxiliaryAudioSource.Play();
-                downstairsHallwayScareDoorAnimator.Play("Slam");
-                yield return new WaitForSeconds(downstairsHallwayScareDoorSlamSound.length);
+                PlayAudio(4, downstairsHallwayDoorSlam, false, new Vector3(8.7173996f, 1.21599996f, 4.99700022f));
+                downstairsHallwaySecretDoorAnimator.Play("Slam");
+                yield return new WaitForSeconds(downstairsHallwayDoorSlam.length);
                 ResetAll();
                 GameManager.Instance.EndEvent(5);
                 break;
-            case 3: // Downstairs office door closed -> appears at stairs and walks backwards
+            case 3: // Player looks at ghost -> ghost walks backwards up the stairwell
                 animator.speed = 1;
-                audioSource2.clip = downstairsHallwayScareFootstepSound;
-                audioSource2.Play();
+                StopAudio(1);
+                PlayAudio(2, downstairsHallwayWalk);
                 yield return new WaitUntil(() => isWalkingBackFinished);
                 ResetAll();
                 GameManager.Instance.EndEvent(5);
+                break;
+            default:
+                Debug.Log($"Error: DownstairsHallwayScare() does not have a {occurrence} occurrence");
                 break;
         }
     }
