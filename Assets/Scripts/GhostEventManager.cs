@@ -22,25 +22,25 @@ public class GhostEventManager : MonoBehaviour
 
     [Header("Downstairs Bathroom Scare")]
     [SerializeField] RuntimeAnimatorController downstairsBathroomScareController;
-    [SerializeField] GenericAccessMechanismScript downstairsBathroomDoor;
     [SerializeField] AudioClip downstairsBathroomDoorSlam;
     [SerializeField] AudioClip downstairsBathroomGhostFootsteps;
-    [SerializeField] AnimationClip doorSlamClip;
+    [SerializeField] GenericAccessMechanismScript downstairsBathroomDoor;
+    [SerializeField] AnimationClip downstairsBathroomDoorSlamClip;
 
     [Header("Downstairs Bedroom Scare")]
     [SerializeField] RuntimeAnimatorController downstairsBedroomScareController;
-    [SerializeField] GameObject downstairsBedroomPill;
     [SerializeField] AudioClip downstairsBedroomFlesh;
     [SerializeField] AudioClip downstairsBedroomRunAndHit;
-    [SerializeField] GameObject blood;
+    [SerializeField] GameObject downstairsBedroomPill;
+    [SerializeField] GameObject downstairsBedroomBlood;
     [HideInInspector] public bool isSlowGettingUpFinished = false;
     [HideInInspector] public bool isRunAndHitFinished = false;
     [HideInInspector] public bool isCrawlBackFinished = false;
 
     [Header("Downstairs Living Room Scare")]
     [SerializeField] RuntimeAnimatorController downstairsLivingRoomScareController;
-    [SerializeField] AudioClip glassBreak;
-    [SerializeField] GameObject spotLight;
+    [SerializeField] AudioClip downstairsLivingRoomWindowBreak;
+    [SerializeField] GameObject downstairsLivingRoomSpotLight;
     [HideInInspector] public bool isFallingFinished = false;
     [HideInInspector] public bool isVanishFinished = false;
 
@@ -83,7 +83,8 @@ public class GhostEventManager : MonoBehaviour
     void ResetAnimatorState()
     {
         // Inside the Inspector for an animation clip:
-            // Make sure Root Transform Position (XZ) is Based Upon Original
+            // Make sure Root Transform Rotation is Based Upon (at Start) Original and
+            // Root Transform Position (XZ) is Based Upon Original
             // if you want runtime behavior to match what you see in the Animation preview
         animator.Rebind();
         GhostModel.transform.localPosition = Vector3.zero;
@@ -285,9 +286,9 @@ public class GhostEventManager : MonoBehaviour
 
                 // Door slams shut
                 AnimationClip temp = downstairsBathroomDoor.openClip;
-                downstairsBathroomDoor.overrideController["OPEN"] = doorSlamClip;
+                downstairsBathroomDoor.overrideController["OPEN"] = downstairsBathroomDoorSlamClip;
                 downstairsBathroomDoor.Close();
-                yield return new WaitForSeconds(doorSlamClip.length);
+                yield return new WaitForSeconds(downstairsBathroomDoorSlamClip.length);
                 PlayAudio(4, downstairsBathroomDoorSlam, false, new Vector3(8.1f, 0.16f, 7.5f));
                 yield return new WaitForSeconds(downstairsBathroomDoorSlam.length);
                 downstairsBathroomDoor.overrideController["OPEN"] = temp;
@@ -322,7 +323,7 @@ public class GhostEventManager : MonoBehaviour
                 PlayAnimation("RunAndHit", false);
                 PlayAudio(2, downstairsBedroomRunAndHit);
                 yield return new WaitUntil(() => isRunAndHitFinished);
-                blood.SetActive(true);
+                downstairsBedroomBlood.SetActive(true);
                 Ghost.SetActive(false);
                 yield return new WaitUntil(() => downstairsBedroomPill == null);
 
@@ -350,34 +351,30 @@ public class GhostEventManager : MonoBehaviour
     {
         switch (occurrence)
         {
-            case 1:
+            case 1: // Player enters the living room downstairs
                 GameManager.Instance.StartEvent(4);
-                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsLivingRoomScareController;
-                auxiliaryAudioSource.transform.position = new Vector3(7.48999977f, 3.58100009f, 19.1130009f);
-                auxiliaryAudioSource.clip = glassBreak;
-                auxiliaryAudioSource.Play();
+                animator.runtimeAnimatorController = downstairsLivingRoomScareController;
                 GameManager.Instance.NextEventReady();
                 break;
-            case 2:
-                Ghost.transform.position = new Vector3(7.53399992f, 0.397959799f, 19.6789989f);
-                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 283.464966f, 0f));
-                Ghost.transform.localScale = new Vector3(0.13f, 0.13f, 0.13f);
-                Ghost.SetActive(true);
-                animator.Play("FallingOnImpact");
+            case 2: // Player looks at window in front -> player hears glass breaking and sees the ghost falling outside the window
+                PlayAudio(4, downstairsLivingRoomWindowBreak, false, new Vector3(7.5f, 3.6f, 19f));
+                ResetAnimatorState();
+                SetTransform(new Vector3(7.5f, 0.4f, 19.6f), new Vector3(0f, 270f, 0f), 0.13f);
+                PlayAnimation("FallingOnImpact", true);
                 yield return new WaitUntil(() => isFallingFinished);
-                Ghost.transform.position = new Vector3(11.6700001f, -0.0520402193f, 14.6309986f);
-                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 270f, 0f));
-                Ghost.transform.localScale = new Vector3(0.13f, 0.13f, 0.13f);
-                animator.applyRootMotion = false;
-                spotLight.SetActive(true);
-                animator.Play("Trapped");
+
+                // Ghost stares at player through the window on the right
+                ResetAnimatorState();
+                SetTransform(new Vector3(12.25f, 0.04f, 14.631f), new Vector3(0f, 270f, 0f), 0.13f);
+                PlayAnimation("Trapped", true);
+                downstairsLivingRoomSpotLight.SetActive(true);
                 GameManager.Instance.NextEventReady();
                 break;
-            case 3:
-                animator.applyRootMotion = true;
-                animator.Play("Vanish");
+            case 3: // Player looks at the ghost through the window on the right -> ghost vanishes
+                downstairsLivingRoomSpotLight.SetActive(false);
+                ResetAnimatorState();
+                PlayAnimation("Vanish", true);
                 yield return new WaitUntil(() => isVanishFinished);
-                spotLight.SetActive(false);
                 ResetAll();
                 GameManager.Instance.EndEvent(4);
                 break;
