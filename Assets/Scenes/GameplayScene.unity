@@ -30691,9 +30691,9 @@ MonoBehaviour:
   isWalkingBackFinished: 0
   downstairsKitchenScareController: {fileID: 9100000, guid: 6805cb2fb0d8d0c4da579eaf7c4da9a2,
     type: 2}
-  downstairsKitchenScareScatterSound: {fileID: 8300000, guid: b8b5720e0bd5b6440ab74fb39559e227,
+  downstairsKitchenScatter: {fileID: 8300000, guid: b8b5720e0bd5b6440ab74fb39559e227,
     type: 3}
-  downstairsKitchenScarePropsAnimator: {fileID: 6760796319944375192}
+  downstairsKitchenProps: {fileID: 6760796319944375192}
   isGhostDiveFinished: 0
   downstairsSecretScareController: {fileID: 9100000, guid: e627413e22bbaa24d9b926756641ed42,
     type: 2}
@@ -65690,7 +65690,7 @@ Transform:
   m_GameObject: {fileID: 1509625532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.885, y: 0.85, z: 13.192}
+  m_LocalPosition: {x: 5.48, y: 0.85, z: 16.803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -210847,10 +210847,10 @@ Animator:
   m_GameObject: {fileID: 919132147570575789}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 82f61721054f231459cde9ebed66e742, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6805cb2fb0d8d0c4da579eaf7c4da9a2, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
