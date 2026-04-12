@@ -56,8 +56,8 @@ public class GhostEventManager : MonoBehaviour
 
     [Header("Downstairs Kitchen Scare")]
     [SerializeField] RuntimeAnimatorController downstairsKitchenScareController;
-    [SerializeField] AudioClip downstairsKitchenScareScatterSound;
-    [SerializeField] Animator downstairsKitchenScarePropsAnimator;
+    [SerializeField] AudioClip downstairsKitchenScatter;
+    [SerializeField] Animator downstairsKitchenProps;
     [HideInInspector] public bool isGhostDiveFinished = false;
 
     [Header("Downstairs Secret Scare")]
@@ -445,27 +445,25 @@ public class GhostEventManager : MonoBehaviour
         {
             case 1: // Player walks into the kitchen
                 GameManager.Instance.StartEvent(6);
-                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsKitchenScareController;
-                Ghost.transform.position = new Vector3(2.34100008f, 0.120959818f, 14.1019993f);
-                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-                Ghost.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                Ghost.SetActive(false);
-                animator.applyRootMotion = false;
-                animator.speed = 0;
+                animator.runtimeAnimatorController = downstairsKitchenScareController;
                 GameManager.Instance.NextEventReady();
                 break;
-            case 2: // Ghost dives through kitchen window
-                Ghost.SetActive(true);
-                animator.speed = 1;
-                animator.Play("Dive");
-                yield return new WaitForSeconds(0.2f);
-                audioSource2.clip = downstairsKitchenScareScatterSound;
-                audioSource2.Play();
+            case 2: // Player looks into the kitchen -> ghost dives through kitchen window
+                ResetAnimatorState();
+                SetTransform(new Vector3(2.341f, 0.12f, 14.1f), new Vector3(0f, 0f, 0f), 0.1f);
+                PlayAnimation("Dive", false);
+
+                // Ghost knocks over kitchen props
+                yield return new WaitForSeconds(0.5f); // Delaying audio manually since the audio clip of glass shattering is delayed
+                PlayAudio(4, downstairsKitchenScatter, false, new Vector3(2f, 1f, 17.75f));
                 yield return new WaitUntil(() => isGhostDiveFinished);
-                downstairsKitchenScarePropsAnimator.GetComponent<Animator>().Play("Scatter");
-                yield return new WaitForSeconds(downstairsKitchenScareScatterSound.length);
+                downstairsKitchenProps.Play("Scatter");
+                yield return new WaitForSeconds(downstairsKitchenScatter.length);
                 ResetAll();
                 GameManager.Instance.EndEvent(6);
+                break;
+            default:
+                Debug.Log($"Error: DownstairsKitchenScare() does not have a {occurrence} occurrence");
                 break;
         }
     }
