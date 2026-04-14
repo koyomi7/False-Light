@@ -62,10 +62,10 @@ public class GhostEventManager : MonoBehaviour
 
     [Header("Downstairs Secret Scare")]
     [SerializeField] RuntimeAnimatorController downstairsSecretScareController;
-    [SerializeField] GameObject downstairsSecretChair;
+    [SerializeField] AudioClip downstairsSecretTVGlitch;
     [SerializeField] GameObject downstairsSecretTVObject;
+    [SerializeField] GameObject downstairsSecretChair;
     [SerializeField] GenericAccessMechanismScript downstairsSecretTV;
-    [SerializeField] AudioClip downstairsSecretTVGlitchSound;
     [SerializeField] Light downstairsSecretSpotLight;
     [SerializeField] Light downstairsSecretPointLight;
 
@@ -472,33 +472,36 @@ public class GhostEventManager : MonoBehaviour
     {
         switch (occurrence)
         {
-            case 1: // Player near TV
+            case 1: // Player is near the TV
                 GameManager.Instance.StartEvent(7);
-                Ghost.GetComponent<Animator>().runtimeAnimatorController = downstairsSecretScareController;
-                Ghost.transform.position = new Vector3(9.52799988f, 0.0869999975f, 3.39700007f);
-                Ghost.transform.rotation = Quaternion.Euler(new Vector3(0f, -149.744f, 0f));
-                Ghost.transform.localScale = new Vector3(0.13f, 0.13f, 0.13f);
-                Ghost.SetActive(true);
-                animator.applyRootMotion = false;
-                animator.Play("Sitting");
-                float tempCoolDownDuration = downstairsSecretTV.CooldownDuration;
-                downstairsSecretTV.CooldownDuration = 4f;
+                animator.runtimeAnimatorController = downstairsSecretScareController;
+
+                // Ghost gets into position sitting on the chair in the secret room
+                ResetAnimatorState();
+                SetTransform(new Vector3(9.52799988f, 0.0869999975f, 3.39700007f), new Vector3(0f, -149.744f, 0f), 0.13f);
+                PlayAnimation("Sitting", false);
+
                 // Player uses the TV (turns it on) -> TV turns off after 3 seconds
+                float tempCoolDownDuration = downstairsSecretTV.CooldownDuration;
+                downstairsSecretTV.CooldownDuration = 4f; // +1 second for interaction delay
                 yield return new WaitUntil(() => downstairsSecretTV.state == GenericAccessMechanismScript.states.OPEN);
                 yield return new WaitForSeconds(3f);
                 downstairsSecretTV.Close(playAudio: true);
-                // Player uses the TV again -> Scare
-                Ghost.transform.position = new Vector3(11.21f,0.625f,6.4000001f);
-                Ghost.transform.rotation = Quaternion.Euler(new Vector3(-35f, 36.796f, 0f));
-                animator.Play("Trapped");
+
+                // Ghost gets into position staring at the camera and the chair falls over
+                ResetAnimatorState();
+                SetTransform(new Vector3(11.21f, 0.625f, 6.4000001f), new Vector3(-35f, 36.796f, 0f), 0.13f);
+                PlayAnimation("Trapped", false);
                 downstairsSecretChair.transform.position = new Vector3(9.56000042f, 0.342000008f, 3.48799992f);
                 downstairsSecretChair.transform.rotation = Quaternion.Euler(new Vector3(90f, 155.230011f, 0f));
                 downstairsSecretSpotLight.enabled = true;
+
+                // Player uses the TV again -> ghost stares at the player and the TV is glitching with static -> TV turns off after 5 seconds
                 AudioClip tempOpenSound = downstairsSecretTV.openSound;
-                downstairsSecretTV.openSound = downstairsSecretTVGlitchSound;
-                downstairsSecretTV.CooldownDuration = 6f;
+                downstairsSecretTV.openSound = downstairsSecretTVGlitch;
+                downstairsSecretTV.CooldownDuration = 6f; // +1 second for interaction delay
                 float tempIntensity = downstairsSecretPointLight.intensity;
-                downstairsSecretPointLight.intensity = 1f;
+                downstairsSecretPointLight.intensity = 1f; // the light that the TV is emitting is brighter during the scare
                 yield return new WaitUntil(() => downstairsSecretTV.state == GenericAccessMechanismScript.states.OPEN);
                 yield return new WaitForSeconds(5f);
                 downstairsSecretSpotLight.enabled = false;
