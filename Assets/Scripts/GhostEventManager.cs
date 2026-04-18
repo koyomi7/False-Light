@@ -56,7 +56,10 @@ public class GhostEventManager : MonoBehaviour
 
     [Header("Downstairs Kitchen Scare")]
     [SerializeField] RuntimeAnimatorController downstairsKitchenScareController;
+    [SerializeField] AudioClip downstairsKitchenGlitch;
+    [SerializeField] AudioClip downstairsKitchenHeavyBreathing;
     [SerializeField] AudioClip downstairsKitchenScatter;
+    [SerializeField] Transform downstairsKitchenChair;
     [SerializeField] Animator downstairsKitchenProps;
     [HideInInspector] public bool isGhostDiveFinished = false;
 
@@ -458,7 +461,16 @@ public class GhostEventManager : MonoBehaviour
                 PlayAudio(4, downstairsKitchenScatter, false, new Vector3(2f, 1f, 17.75f));
                 yield return new WaitUntil(() => isGhostDiveFinished);
                 downstairsKitchenProps.Play("Scatter");
-                yield return new WaitForSeconds(downstairsKitchenScatter.length);
+                GameManager.Instance.NextEventReady();
+                break;
+            case 3:
+                downstairsKitchenChair.localPosition = new Vector3(2.382f, 0.101659417f, 13.482f);
+                ResetAnimatorState();
+                SetTransform(new Vector3(2.482f, 0.08f, 13.528f), new Vector3(0f, 90f, 0f), 0.1f);
+                PlayAnimation("Glitched Sitting", false, 0.1f);
+                PlayAudio(1, downstairsKitchenHeavyBreathing, true);
+                PlayAudio(2, downstairsKitchenGlitch, true);
+                break;
                 ResetAll();
                 GameManager.Instance.EndEvent(6);
                 break;
