@@ -26,6 +26,17 @@ public class PlayerInteraction : MonoBehaviour
     float keysNeededTimer = 0f;
     const float KeysNeededDisplayTime = 2f; // Time in seconds to show "Keys Needed"
 
+    // For ghost trigger hits
+    RaycastHit[] ghostTriggerHits = new RaycastHit[10];
+    ghostTriggerClip currentGhostTrigger;
+    LayerMask brushLayerMask;
+    const float ghostTriggerMaxDistance = 35f;
+
+    void Awake()
+    {
+        brushLayerMask = 1 << LayerMask.NameToLayer("Brush");
+    }
+
     void Start()
     {
         keyAudioSource = GetComponent<AudioSource>();
@@ -235,18 +246,30 @@ public class PlayerInteraction : MonoBehaviour
 
     void CheckForGhostTrigger()
     {
-        const float maxDistance = 35f;
-        LayerMask layerMask = 1 << LayerMask.NameToLayer("Brush");
-        RaycastHit[] hits = Physics.RaycastAll(playerCam.transform.position, playerCam.transform.forward, maxDistance, layerMask);
-        foreach (RaycastHit hit in hits)
+        int hitCount = Physics.RaycastNonAlloc(playerCam.transform.position, playerCam.transform.forward, ghostTriggerHits, ghostTriggerMaxDistance, brushLayerMask);
+
+        ghostTriggerClip newTrigger = null;
+        float closestDistance = float.MaxValue;
+
+        for (int i = 0; i < hitCount; i++)
         {
-            if (hit.collider.CompareTag("GhostTriggerClip"))
+            var hit = ghostTriggerHits[i];
+
+            if (!hit.collider.CompareTag("GhostTriggerClip")) continue;
+
+            if (hit.distance < closestDistance)
             {
-                ghostTriggerClip trigger = hit.collider.GetComponent<ghostTriggerClip>();
-                if (trigger != null && trigger.visualTrigger) trigger.VisualTrigger();
-                else continue;
-                break;
+                closestDistance = hit.distance;
+                newTrigger = hit.collider.GetComponent<ghostTriggerClip>();
             }
         }
+        
+        if (currentGhostTrigger != newTrigger)
+        {
+            if (currentGhostTrigger != null && currentGhostTrigger.visualTrigger) currentGhostTrigger.VisualTrigger(false);
+            if (newTrigger != null && newTrigger.visualTrigger) newTrigger.VisualTrigger(true);
+        }
+
+        currentGhostTrigger = newTrigger;
     }
 }
