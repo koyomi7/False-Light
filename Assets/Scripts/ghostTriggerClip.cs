@@ -20,33 +20,68 @@ public class ghostTriggerClip : MonoBehaviour
     [SerializeField] string eventName; // A description of the scare trigger for developers
     [SerializeField] bool oneTimeUse = true;
     [SerializeField] public bool visualTrigger = false;
+    [SerializeField] bool progressBar = false;
+    [SerializeField, Range(0.1f, 5f)] float progressBarFillSpeed = 1f;
+    [SerializeField, Range(0.1f, 5f)] float progressBarDrainSpeed = 2f;
+    [SerializeField] bool debug = false;
 
     bool hasBeenTriggered = false;
+    bool incrementProgressBar = false;
+    float progressBarValue = 0f;
     
-    void OnTriggerEnter(Collider other)
+    void Update()
     {
-        if (hasBeenTriggered && oneTimeUse) return;
-        if (!other.CompareTag("Player")) return;
-        if (visualTrigger) return; // Handled in PlayerInteraction.CheckForGhostTrigger(), not during player collision
-        
-        // Debug.Log($"Player entered trigger {eventName}");
-        ExecuteTrigger(occurrence);
+        UpdateProgressBar();
     }
 
-    public void VisualTrigger()
+    void OnTriggerEnter(Collider other)
     {
-        if (hasBeenTriggered && oneTimeUse) return;
+        if (!CanTriggerEvent(occurrence)) return;   // Trigger is inactive
+        if (hasBeenTriggered && oneTimeUse) return; // Trigger has already been triggered
+        if (!other.CompareTag("Player")) return;    // Trigger is not being triggered by the player
+        
+        if (debug) Debug.Log($"Player entered trigger {eventName}");
+        if (progressBar) incrementProgressBar = true;
+        else ExecuteTrigger(occurrence);
+    }
 
-        // Debug.Log($"Player looked at trigger {eventName}");
-        ExecuteTrigger(occurrence);
+    void OnTriggerExit(Collider other)
+    {
+        if (!CanTriggerEvent(occurrence)) return;   // Trigger is inactive
+        if (hasBeenTriggered && oneTimeUse) return; // Trigger has already been triggered
+        if (!other.CompareTag("Player")) return;    // Trigger is not being triggered by the player
+
+        if (debug) Debug.Log($"Player exited trigger {eventName}");
+        if (progressBar) incrementProgressBar = false;
+    }
+
+    public void VisualTrigger(bool isLookingAtTrigger)
+    {
+        if (!CanTriggerEvent(occurrence)) return;   // Trigger is inactive
+        if (hasBeenTriggered && oneTimeUse) return; // Trigger has already been triggered
+
+        if (isLookingAtTrigger)
+        {
+            if (debug) Debug.Log($"Player is looking at trigger {eventName}");
+            if (progressBar) incrementProgressBar = true;
+            else ExecuteTrigger(occurrence);
+        }
+        else
+        {
+            if (debug) Debug.Log($"Player is NOT looking at trigger {eventName}");
+            if (progressBar) incrementProgressBar = false;
+        }
+    }
+
+    bool CanTriggerEvent(int occurrence)
+    {
+        int id = (int)trigger + 1;
+
+        return GameManager.Instance.CanTriggerEvent(id, occurrence, occurrence == 1);
     }
     
     void ExecuteTrigger(int occurrence)
     {
-        int id = (int)trigger + 1;
-
-        if (!GameManager.Instance.CanTriggerEvent(id, occurrence, occurrence == 1)) return;
-
         var methodName = trigger.ToString();
         var method = typeof(GhostEventManager).GetMethod(methodName);
 
@@ -56,5 +91,23 @@ public class ghostTriggerClip : MonoBehaviour
             StartCoroutine(coroutine);
             hasBeenTriggered = true;
         }
+    }
+
+    void UpdateProgressBar()
+    {
+        if (!progressBar) return;
+
+        if (incrementProgressBar)
+        {
+            progressBarValue = Mathf.MoveTowards(progressBarValue, 1f, progressBarFillSpeed * Time.deltaTime);
+            if (progressBarValue >= 1f)
+            {
+                progressBarValue = 1f;
+                ExecuteTrigger(occurrence);
+            }
+        }
+        else progressBarValue = Mathf.MoveTowards(progressBarValue, 0f, progressBarDrainSpeed * Time.deltaTime);
+        
+        if (debug) Debug.Log($"Progress bar value: {progressBarValue}");
     }
 }
