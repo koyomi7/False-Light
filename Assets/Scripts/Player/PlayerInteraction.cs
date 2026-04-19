@@ -255,8 +255,12 @@ public class PlayerInteraction : MonoBehaviour
         {
             var hit = ghostTriggerHits[i];
 
+            // Skip other brushes, non-visual (collision) triggers, and visual triggers that are inactive
             if (!hit.collider.CompareTag("GhostTriggerClip")) continue;
+            if (!hit.collider.GetComponent<ghostTriggerClip>().visualTrigger) continue;
+            if (!hit.collider.GetComponent<ghostTriggerClip>().CanTriggerEvent()) continue;
 
+            // Get the closest visual trigger
             if (hit.distance < closestDistance)
             {
                 closestDistance = hit.distance;
@@ -266,8 +270,8 @@ public class PlayerInteraction : MonoBehaviour
         
         if (currentGhostTrigger != newTrigger)
         {
-            if (currentGhostTrigger != null && currentGhostTrigger.visualTrigger) currentGhostTrigger.VisualTrigger(false);
-            if (newTrigger != null && newTrigger.visualTrigger) newTrigger.VisualTrigger(true);
+            if (currentGhostTrigger != null) currentGhostTrigger.VisualTrigger(false);
+            if (newTrigger != null) newTrigger.VisualTrigger(true);
         }
 
         currentGhostTrigger = newTrigger;

@@ -4,6 +4,7 @@ using UnityEngine;
 public class GhostEventManager : MonoBehaviour
 {
     public static GhostEventManager Instance { get; private set; }
+    public static System.Action<float> OnProgressBarChanged;
 
     [Header("References")]
     [SerializeField] GameObject GhostModel;
@@ -152,19 +153,23 @@ public class GhostEventManager : MonoBehaviour
             case 1:
                 audioSource1.Stop();
                 audioSource1.clip = null;
+                audioSource1.volume = 1f;
                 break;
             case 2:
                 audioSource2.Stop();
                 audioSource2.clip = null;
+                audioSource2.volume = 1f;
                 break;
             case 3:
                 audioSource3.Stop();
                 audioSource3.clip = null;
+                audioSource3.volume = 1f;
                 break;
             case 4:
                 auxiliaryAudioSource.transform.position = Vector3.zero;
                 auxiliaryAudioSource.Stop();
                 auxiliaryAudioSource.clip = null;
+                auxiliaryAudioSource.volume = 1f;
                 break;
             default:
                 Debug.Log($"Error: StopAudio() does not have a source {source}");
@@ -444,6 +449,12 @@ public class GhostEventManager : MonoBehaviour
 
     public IEnumerator DownstairsKitchenScare(int occurrence)
     {
+        void HandleKitchenProgress(float value)
+        {
+            animator.speed = Mathf.Lerp(0.1f, 2f, value);
+            audioSource2.volume = Mathf.Lerp(0f, 1f, value);
+        }
+        
         switch (occurrence)
         {
             case 1: // Player walks into the kitchen
@@ -463,14 +474,20 @@ public class GhostEventManager : MonoBehaviour
                 downstairsKitchenProps.Play("Scatter");
                 GameManager.Instance.NextEventReady();
                 break;
-            case 3:
+            case 3: // Player walks out of the kitchen -> ghost is sitting down and glitching out
                 downstairsKitchenChair.localPosition = new Vector3(2.382f, 0.101659417f, 13.482f);
                 ResetAnimatorState();
                 SetTransform(new Vector3(2.482f, 0.08f, 13.528f), new Vector3(0f, 90f, 0f), 0.1f);
                 PlayAnimation("Glitched Sitting", false, 0.1f);
                 PlayAudio(1, downstairsKitchenHeavyBreathing, true);
                 PlayAudio(2, downstairsKitchenGlitch, true);
+                OnProgressBarChanged += HandleKitchenProgress;
+                GameManager.Instance.NextEventReady();
                 break;
+            case 4: // As the player keeps looking at the ghost, the ghost becomes more agitated, a glitching sound is heard, and the player's vision starts to fade
+                OnProgressBarChanged -= HandleKitchenProgress;
+
+                // Player is teleported to spawn
                 ResetAll();
                 GameManager.Instance.EndEvent(6);
                 break;

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ghostTriggerClip : MonoBehaviour
@@ -36,20 +35,20 @@ public class ghostTriggerClip : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!CanTriggerEvent(occurrence)) return;   // Trigger is inactive
+        if (!CanTriggerEvent())             return; // Trigger is inactive
         if (hasBeenTriggered && oneTimeUse) return; // Trigger has already been triggered
-        if (!other.CompareTag("Player")) return;    // Trigger is not being triggered by the player
+        if (!other.CompareTag("Player"))    return; // Trigger is not being triggered by the player
         
         if (debug) Debug.Log($"Player entered trigger {eventName}");
         if (progressBar) incrementProgressBar = true;
-        else ExecuteTrigger(occurrence);
+        else ExecuteTrigger();
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (!CanTriggerEvent(occurrence)) return;   // Trigger is inactive
+        if (!CanTriggerEvent())             return; // Trigger is inactive
         if (hasBeenTriggered && oneTimeUse) return; // Trigger has already been triggered
-        if (!other.CompareTag("Player")) return;    // Trigger is not being triggered by the player
+        if (!other.CompareTag("Player"))    return; // Trigger is not being triggered by the player
 
         if (debug) Debug.Log($"Player exited trigger {eventName}");
         if (progressBar) incrementProgressBar = false;
@@ -57,14 +56,14 @@ public class ghostTriggerClip : MonoBehaviour
 
     public void VisualTrigger(bool isLookingAtTrigger)
     {
-        if (!CanTriggerEvent(occurrence)) return;   // Trigger is inactive
+        if (!CanTriggerEvent())             return; // Trigger is inactive
         if (hasBeenTriggered && oneTimeUse) return; // Trigger has already been triggered
 
         if (isLookingAtTrigger)
         {
             if (debug) Debug.Log($"Player is looking at trigger {eventName}");
             if (progressBar) incrementProgressBar = true;
-            else ExecuteTrigger(occurrence);
+            else ExecuteTrigger();
         }
         else
         {
@@ -73,14 +72,14 @@ public class ghostTriggerClip : MonoBehaviour
         }
     }
 
-    bool CanTriggerEvent(int occurrence)
+    public bool CanTriggerEvent()
     {
         int id = (int)trigger + 1;
 
         return GameManager.Instance.CanTriggerEvent(id, occurrence, occurrence == 1);
     }
     
-    void ExecuteTrigger(int occurrence)
+    void ExecuteTrigger()
     {
         var methodName = trigger.ToString();
         var method = typeof(GhostEventManager).GetMethod(methodName);
@@ -95,7 +94,8 @@ public class ghostTriggerClip : MonoBehaviour
 
     void UpdateProgressBar()
     {
-        if (!progressBar) return;
+        if (!progressBar)                   return; // Trigger does not have a progress bar
+        if (hasBeenTriggered && oneTimeUse) return; // Trigger has already been triggered
 
         if (incrementProgressBar)
         {
@@ -103,10 +103,12 @@ public class ghostTriggerClip : MonoBehaviour
             if (progressBarValue >= 1f)
             {
                 progressBarValue = 1f;
-                ExecuteTrigger(occurrence);
+                ExecuteTrigger();
             }
         }
         else progressBarValue = Mathf.MoveTowards(progressBarValue, 0f, progressBarDrainSpeed * Time.deltaTime);
+
+        GhostEventManager.OnProgressBarChanged?.Invoke(progressBarValue);
         
         if (debug) Debug.Log($"Progress bar value: {progressBarValue}");
     }
