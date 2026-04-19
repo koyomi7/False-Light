@@ -246,6 +246,9 @@ public class PlayerInteraction : MonoBehaviour
 
     void CheckForGhostTrigger()
     {
+        // 2 glitches:
+            // 1. if looking at a trigger before it is ready to activate -> cannot activate when ready without looking away and looking at it again
+            // 2. non-visual triggers (colliders) are treated as visual triggers, so they effectively "block" the view of the visual trigger
         int hitCount = Physics.RaycastNonAlloc(playerCam.transform.position, playerCam.transform.forward, ghostTriggerHits, ghostTriggerMaxDistance, brushLayerMask);
 
         ghostTriggerClip newTrigger = null;
