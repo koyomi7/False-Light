@@ -246,9 +246,6 @@ public class PlayerInteraction : MonoBehaviour
 
     void CheckForGhostTrigger()
     {
-        // 2 glitches:
-            // 1. if looking at a trigger before it is ready to activate -> cannot activate when ready without looking away and looking at it again
-            // 2. non-visual triggers (colliders) are treated as visual triggers, so they effectively "block" the view of the visual trigger
         int hitCount = Physics.RaycastNonAlloc(playerCam.transform.position, playerCam.transform.forward, ghostTriggerHits, ghostTriggerMaxDistance, brushLayerMask);
 
         ghostTriggerClip newTrigger = null;
@@ -258,8 +255,12 @@ public class PlayerInteraction : MonoBehaviour
         {
             var hit = ghostTriggerHits[i];
 
+            // Skip other brushes, non-visual (collision) triggers, and visual triggers that are inactive
             if (!hit.collider.CompareTag("GhostTriggerClip")) continue;
+            if (!hit.collider.GetComponent<ghostTriggerClip>().visualTrigger) continue;
+            if (!hit.collider.GetComponent<ghostTriggerClip>().CanTriggerEvent()) continue;
 
+            // Get the closest visual trigger
             if (hit.distance < closestDistance)
             {
                 closestDistance = hit.distance;
@@ -269,8 +270,8 @@ public class PlayerInteraction : MonoBehaviour
         
         if (currentGhostTrigger != newTrigger)
         {
-            if (currentGhostTrigger != null && currentGhostTrigger.visualTrigger) currentGhostTrigger.VisualTrigger(false);
-            if (newTrigger != null && newTrigger.visualTrigger) newTrigger.VisualTrigger(true);
+            if (currentGhostTrigger != null) currentGhostTrigger.VisualTrigger(false);
+            if (newTrigger != null) newTrigger.VisualTrigger(true);
         }
 
         currentGhostTrigger = newTrigger;
