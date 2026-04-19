@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ghostTriggerClip : MonoBehaviour
@@ -23,7 +22,6 @@ public class ghostTriggerClip : MonoBehaviour
     [SerializeField] bool progressBar = false;
     [SerializeField, Range(0.1f, 5f)] float progressBarFillSpeed = 1f;
     [SerializeField, Range(0.1f, 5f)] float progressBarDrainSpeed = 2f;
-    [SerializeField] string progressBarFlagName;
     [SerializeField] bool debug = false;
 
     bool hasBeenTriggered = false;
@@ -110,10 +108,7 @@ public class ghostTriggerClip : MonoBehaviour
         }
         else progressBarValue = Mathf.MoveTowards(progressBarValue, 0f, progressBarDrainSpeed * Time.deltaTime);
 
-        var manager = GhostEventManager.Instance;
-        var field = manager.GetType().GetField(progressBarFlagName);
-
-        if (field != null) field.SetValue(manager, progressBarValue);
+        GhostEventManager.OnProgressBarChanged?.Invoke(progressBarValue);
         
         if (debug) Debug.Log($"Progress bar value: {progressBarValue}");
     }
