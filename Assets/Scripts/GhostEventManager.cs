@@ -62,6 +62,7 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] Transform downstairsKitchenChair;
     [SerializeField] Animator downstairsKitchenProps;
     [HideInInspector] public bool isGhostDiveFinished = false;
+    [HideInInspector] public float downstairsKitchenProgressBarValue = 0f;
 
     [Header("Downstairs Secret Scare")]
     [SerializeField] RuntimeAnimatorController downstairsSecretScareController;
@@ -470,7 +471,9 @@ public class GhostEventManager : MonoBehaviour
                 PlayAnimation("Glitched Sitting", false, 0.1f);
                 PlayAudio(1, downstairsKitchenHeavyBreathing, true);
                 PlayAudio(2, downstairsKitchenGlitch, true);
+                GameManager.Instance.NextEventReady();
                 break;
+            case 4:
                 ResetAll();
                 GameManager.Instance.EndEvent(6);
                 break;
