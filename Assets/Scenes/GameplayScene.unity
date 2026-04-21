@@ -6422,7 +6422,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!65 &138419891
 BoxCollider:
@@ -8527,7 +8526,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!65 &195561980
 BoxCollider:
@@ -13421,10 +13419,9 @@ MonoBehaviour:
   oneTimeUse: 1
   visualTrigger: 1
   progressBar: 1
-  progressBarFillSpeed: 0.2
+  progressBarFillSpeed: 0.14
   progressBarDrainSpeed: 0.4
-  progressBarFlagName: downstairsKitchenProgressBarValue
-  debug: 1
+  debug: 0
 --- !u!65 &300297700
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22059,7 +22056,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!65 &510377141
 BoxCollider:
@@ -27915,7 +27911,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!65 &659003798
 BoxCollider:
@@ -31016,6 +31011,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GhostModel: {fileID: 919132147570575789}
+  Player: {fileID: 1509625532}
+  PlayerCam: {fileID: 1522447378}
   audioSource1: {fileID: 25703696}
   audioSource2: {fileID: 1769740052}
   audioSource3: {fileID: 103336370}
@@ -31077,8 +31074,13 @@ MonoBehaviour:
     type: 3}
   downstairsKitchenChair: {fileID: 795837832}
   downstairsKitchenProps: {fileID: 6760796319944375192}
+  downstairsKitchenBlackoutPanel: {fileID: 2103339630}
+  downstairsKitchenShakeIntensity: 0.1
+  downstairsKitchenPulseStartThreshold: 0.1
+  downstairsKitchenPulseAmplitudeMax: 0.12
+  downstairsKitchenPulseFrequencyMin: 1
+  downstairsKitchenPulseFrequencyMax: 2
   isGhostDiveFinished: 0
-  downstairsKitchenProgressBarValue: 0
   downstairsSecretScareController: {fileID: 9100000, guid: e627413e22bbaa24d9b926756641ed42,
     type: 2}
   downstairsSecretTVGlitch: {fileID: 8300000, guid: 5290aa5fb2b125f4790b8e8f1618a0a5,
@@ -39700,7 +39702,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!65 &906458681
 BoxCollider:
@@ -62908,7 +62909,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!65 &1448516057
 BoxCollider:
@@ -66323,7 +66323,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!65 &1511975025
 BoxCollider:
@@ -85280,7 +85279,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!65 &1971402668
 BoxCollider:
@@ -92394,7 +92392,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!65 &2122385727
 BoxCollider:
@@ -93701,7 +93698,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!65 &2142441506
 BoxCollider:
@@ -131864,7 +131860,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!1 &1903911992508992251
 GameObject:
@@ -174106,7 +174101,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!1 &4020809260668916702
 GameObject:
@@ -204867,7 +204861,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!23 &5535627135206996220
 MeshRenderer:
@@ -234042,7 +234035,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!65 &7036938061201100236
 BoxCollider:
@@ -259316,7 +259308,6 @@ MonoBehaviour:
   progressBar: 0
   progressBarFillSpeed: 1
   progressBarDrainSpeed: 2
-  progressBarFlagName: 
   debug: 0
 --- !u!33 &8083858236587304932
 MeshFilter:

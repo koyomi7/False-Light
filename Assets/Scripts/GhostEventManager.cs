@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GhostEventManager : MonoBehaviour
 {
@@ -8,12 +10,16 @@ public class GhostEventManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] GameObject GhostModel;
+    [SerializeField] GameObject Player;
+    [SerializeField] GameObject PlayerCam;
     [SerializeField] AudioSource audioSource1;
     [SerializeField] AudioSource audioSource2;
     [SerializeField] AudioSource audioSource3;
     [SerializeField] AudioSource auxiliaryAudioSource;
     GameObject Ghost;
     Animator animator;
+    Volume volume;
+    Vignette vignette;
 
     [Header("Downstairs Office Scare")]
     [SerializeField] RuntimeAnimatorController downstairsOfficeScareController;
@@ -62,6 +68,12 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] AudioClip downstairsKitchenScatter;
     [SerializeField] Transform downstairsKitchenChair;
     [SerializeField] Animator downstairsKitchenProps;
+    [SerializeField] CanvasGroup downstairsKitchenBlackoutPanel;
+    [SerializeField, Range(0f, 1f)] float downstairsKitchenShakeIntensity;
+    [SerializeField, Range(0f, 0.5f)] float downstairsKitchenPulseStartThreshold = 0.3f; // Pulse only activates when progress exceeds this
+    [SerializeField, Range(0f, 0.25f)] float downstairsKitchenPulseAmplitudeMax = 0.05f; // Max pulse strength at full progress
+    [SerializeField, Range(0f, 1f)] float downstairsKitchenPulseFrequencyMin = 1f; // Slow pulse at start
+    [SerializeField, Range(1f, 4f)] float downstairsKitchenPulseFrequencyMax = 2f; // Fast pulse at full intensity
     [HideInInspector] public bool isGhostDiveFinished = false;
 
     [Header("Downstairs Secret Scare")]
@@ -82,6 +94,7 @@ public class GhostEventManager : MonoBehaviour
     {
         animator = GhostModel.GetComponent<Animator>();
         Ghost = GhostModel.transform.parent.gameObject;
+        volume = PlayerCam.GetComponent<Volume>();
         ResetAll();
     }
 
@@ -451,10 +464,39 @@ public class GhostEventManager : MonoBehaviour
     {
         void HandleKitchenProgress(float value)
         {
+            // Twitching and glitch sound
             animator.speed = Mathf.Lerp(0.1f, 2f, value);
             audioSource2.volume = Mathf.Lerp(0f, 1f, value);
+
+            // Vignette with pulse
+            if (volume != null && volume.profile != null && volume.profile.TryGet(out vignette))
+            {
+                // Base vignette intensity - scales with progress
+                float baseIntensity = Mathf.Lerp(0f, 1f, value);
+                
+                // Pulse effect - only active above threshold, scales with progress
+                float pulse = 0f;
+                if (value > downstairsKitchenPulseStartThreshold)
+                {
+                    // Scale pulse strength and frequency with progress
+                    float normalizedPulseProgress = Mathf.InverseLerp(downstairsKitchenPulseStartThreshold, 1f, value);
+                    float currentPulseAmplitude = Mathf.Lerp(0f, downstairsKitchenPulseAmplitudeMax, normalizedPulseProgress);
+                    float currentPulseFrequency = Mathf.Lerp(downstairsKitchenPulseFrequencyMin, downstairsKitchenPulseFrequencyMax, normalizedPulseProgress);
+                    pulse = Mathf.Sin(Time.time * currentPulseFrequency) * currentPulseAmplitude;
+                }
+
+                vignette.intensity.value = Mathf.Clamp(baseIntensity + pulse, 0f, 1f);
+            }
+
+            // Camera shake
+            float shakeOffset = downstairsKitchenShakeIntensity * value;
+            PlayerCam.transform.localPosition = new Vector3(
+                0f,
+                Random.Range(-shakeOffset, shakeOffset),
+                Random.Range(-shakeOffset, shakeOffset)
+            );
         }
-        
+
         switch (occurrence)
         {
             case 1: // Player walks into the kitchen
@@ -487,7 +529,38 @@ public class GhostEventManager : MonoBehaviour
             case 4: // As the player keeps looking at the ghost, the ghost becomes more agitated, a glitching sound is heard, and the player's vision starts to fade
                 OnProgressBarChanged -= HandleKitchenProgress;
 
-                // Player is teleported to spawn
+                // Player is teleported to spawn (BlackoutAndTeleport)
+                downstairsKitchenBlackoutPanel.gameObject.SetActive(true);
+                float fadeTime = 1f;
+                float elapsed = 0f;
+
+                while (elapsed < fadeTime)
+                {
+                    elapsed += Time.deltaTime;
+                    downstairsKitchenBlackoutPanel.alpha = Mathf.Lerp(0f, 1f, elapsed / fadeTime);
+                    yield return null;
+                }
+                downstairsKitchenBlackoutPanel.alpha = 1f;
+                
+                yield return new WaitForSeconds(1.5f);
+
+                // Player.transform.position = teleportTarget.position;
+                // Player.transform.rotation = teleportTarget.rotation;
+
+                float fadeOutTime = 1f;
+                float elapsedOut = 0f;
+
+                while (elapsedOut < fadeOutTime)
+                {
+                    elapsedOut += Time.deltaTime;
+                    downstairsKitchenBlackoutPanel.alpha = Mathf.Lerp(1f, 0f, elapsedOut / fadeOutTime);
+                    yield return null;
+                }
+                downstairsKitchenBlackoutPanel.gameObject.SetActive(false);
+                
+                vignette.intensity.value = 0.3f;
+                PlayerCam.transform.localPosition = new Vector3(0f, 0f, 0f);
+                
                 ResetAll();
                 GameManager.Instance.EndEvent(6);
                 break;
