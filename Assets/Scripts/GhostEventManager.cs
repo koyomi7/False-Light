@@ -11,7 +11,8 @@ public class GhostEventManager : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject GhostModel;
     [SerializeField] GameObject Player;
-    [SerializeField] GameObject PlayerCam;
+    [SerializeField] Transform PlayerCam;
+    [SerializeField] PlayerCam playerCamScript;
     [SerializeField] AudioSource audioSource1;
     [SerializeField] AudioSource audioSource2;
     [SerializeField] AudioSource audioSource3;
@@ -529,38 +530,38 @@ public class GhostEventManager : MonoBehaviour
             case 4: // As the player keeps looking at the ghost, the ghost becomes more agitated, a glitching sound is heard, and the player's vision starts to fade
                 OnProgressBarChanged -= HandleKitchenProgress;
 
-                // Player is teleported to spawn (BlackoutAndTeleport)
-                downstairsKitchenBlackoutPanel.gameObject.SetActive(true);
+                // Player's vision becomes black
                 float fadeTime = 1f;
                 float elapsed = 0f;
-
                 while (elapsed < fadeTime)
                 {
                     elapsed += Time.deltaTime;
                     downstairsKitchenBlackoutPanel.alpha = Mathf.Lerp(0f, 1f, elapsed / fadeTime);
+                    audioSource1.volume = Mathf.Lerp(1f, 0f, elapsed / fadeTime);
+                    audioSource2.volume = Mathf.Lerp(1f, 0f, elapsed / fadeTime);
                     yield return null;
                 }
                 downstairsKitchenBlackoutPanel.alpha = 1f;
+
+                // The vignette and camera should not be hardcoded like this in case default values change
+                vignette.intensity.value = 0.3f;
+                playerCamScript.SetRotation(45f, 0f);
                 
+                // Player is teleported to spawn
                 yield return new WaitForSeconds(1.5f);
+                Player.transform.position = new Vector3(1.82f, 3.36f, 9.266f);
 
-                // Player.transform.position = teleportTarget.position;
-                // Player.transform.rotation = teleportTarget.rotation;
-
-                float fadeOutTime = 1f;
-                float elapsedOut = 0f;
-
-                while (elapsedOut < fadeOutTime)
+                // Player's vision comes back
+                fadeTime = 2f;
+                elapsed = 0f;
+                while (elapsed < fadeTime)
                 {
-                    elapsedOut += Time.deltaTime;
-                    downstairsKitchenBlackoutPanel.alpha = Mathf.Lerp(1f, 0f, elapsedOut / fadeOutTime);
+                    elapsed += Time.deltaTime;
+                    downstairsKitchenBlackoutPanel.alpha = Mathf.Lerp(1f, 0f, elapsed / fadeTime);
                     yield return null;
                 }
-                downstairsKitchenBlackoutPanel.gameObject.SetActive(false);
-                
-                vignette.intensity.value = 0.3f;
-                PlayerCam.transform.localPosition = new Vector3(0f, 0f, 0f);
-                
+                downstairsKitchenBlackoutPanel.alpha = 0f;
+
                 ResetAll();
                 GameManager.Instance.EndEvent(6);
                 break;
