@@ -31012,7 +31012,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GhostModel: {fileID: 919132147570575789}
   Player: {fileID: 1509625532}
-  PlayerCam: {fileID: 1522447378}
+  PlayerCam: {fileID: 1522447379}
+  playerCamScript: {fileID: 1522447380}
   audioSource1: {fileID: 25703696}
   audioSource2: {fileID: 1769740052}
   audioSource3: {fileID: 103336370}
