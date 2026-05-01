@@ -163,4 +163,16 @@ public class GenericAccessMechanismScript : MonoBehaviour, IInteractable
         }
         if (someObject != null) someObject.SetActive(false);
     }
+
+    public void Open(bool playAudio = false)
+    {
+        animator.SetTrigger("CLOSED");
+        state = states.OPEN;
+        if (playAudio)
+        {
+            audioSource.clip = openSound;
+            audioSource.Play();
+        }
+        if (someObject != null) someObject.SetActive(true);
+    }
 }
