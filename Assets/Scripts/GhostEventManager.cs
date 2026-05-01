@@ -86,6 +86,11 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] Light downstairsSecretSpotLight;
     [SerializeField] Light downstairsSecretPointLight;
 
+    [Header("Upstairs Loft Scare")]
+    [SerializeField] RuntimeAnimatorController upstairsLoftScareController;
+    [SerializeField] AudioClip upstairsLoftFootsteps;
+    [SerializeField] GenericAccessMechanismScript upstairsLoftDoor;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -617,6 +622,40 @@ public class GhostEventManager : MonoBehaviour
                 break;
             default:
                 Debug.Log($"Error: DownstairsSecretScare() does not have a {occurrence} occurrence");
+                break;
+        }
+    }
+
+    public IEnumerator UpstairsLoftScare(int occurrence)
+    {
+        switch (occurrence)
+        {
+            case 1: // Player is near the mirror
+                GameManager.Instance.StartEvent(8);
+                animator.runtimeAnimatorController = upstairsLoftScareController;
+                ResetAnimatorState();
+                if (upstairsLoftDoor.state == GenericAccessMechanismScript.states.OPEN) goto DoorOpen;
+
+                // Door is closed -> door opens and player sees the ghost hanging
+                SetTransform(new Vector3(7.43f, 5.009f, 14.577f), new Vector3(0f, 180f, 180f), 0.13f);
+                PlayAnimation("Hanging", false);
+                upstairsLoftDoor.Open(playAudio: true);
+                yield return new WaitForSeconds(2f);
+                ResetAll();
+                GameManager.Instance.EndEvent(2);
+                break;
+
+                // Door is open -> ghost crawls towards the player
+                DoorOpen:
+                SetTransform(new Vector3(7.43f, 2.595f, 14.577f), new Vector3(0f, 180f, 0f), 0.13f);
+                PlayAnimation("FastCrawl", false);
+                PlayAudio(1, upstairsLoftFootsteps, true);
+                yield return MoveToPoint(new Vector3(8.61f, 2.595f, 10.2f), 1f);
+                ResetAll();
+                GameManager.Instance.EndEvent(8);
+                break;
+            default:
+                Debug.Log($"Error: UpstairsLoftScare() does not have a {occurrence} occurrence");
                 break;
         }
     }

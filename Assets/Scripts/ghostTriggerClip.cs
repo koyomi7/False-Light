@@ -11,7 +11,8 @@ public class ghostTriggerClip : MonoBehaviour
         DownstairsLivingRoomScare,
         DownstairsHallwayScare,
         DownstairsKitchenScare,
-        DownstairsSecretScare
+        DownstairsSecretScare,
+        UpstairsLoftScare
     }
     
     [SerializeField] Triggers trigger; // The scare scenario that triggers
