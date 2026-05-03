@@ -550,11 +550,11 @@ public class GhostEventManager : MonoBehaviour
 
                 // The vignette and camera should not be hardcoded like this in case default values change
                 vignette.intensity.value = 0.3f;
-                playerCamScript.SetRotation(45f, 0f);
+                playerCamScript.SetRotation(135f, 0f);
                 
                 // Player is teleported to spawn
                 yield return new WaitForSeconds(1.5f);
-                Player.transform.position = new Vector3(1.82f, 3.36f, 9.266f);
+                Player.transform.position = new Vector3(1.71f, 3.36f, 13.314f);
 
                 // Player's vision comes back
                 fadeTime = 2f;
