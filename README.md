@@ -10,6 +10,8 @@ Current Progress
 ## Premise
 
 ## Assets
+- [Pills](https://poly.pizza/m/8XEcolZDyt5)
+- [Grey Bricks](https://poly.pizza/m/nTCBOYDl5Z)
 - [crazy ex GF game mesh](https://sketchfab.com/3d-models/crazy-ex-gf-game-mesh-fdecbc5840eb4d2da3a871fb49fed9bd)
 - [House Interior - Free](https://assetstore.unity.com/packages/3d/props/interior/house-interior-free-258782)
 - [Kitchen Set - Interior](https://assetstore.unity.com/packages/3d/props/furniture/kitchen-set-interior-263284)
