@@ -91,6 +91,13 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] AudioClip upstairsLoftFootsteps;
     [SerializeField] GenericAccessMechanismScript upstairsLoftDoor;
 
+    [Header("Upstairs Red Room Scare")]
+    [SerializeField] RuntimeAnimatorController upstairsRedRoomScareController;
+    [SerializeField] AudioClip upstairsRedRoomWalk;
+    [SerializeField] GameObject upstairsRedRoomPill;
+    [SerializeField] GenericAccessMechanismScript upstairsRedRoomDoor;
+    [HideInInspector] public bool isUpstairsRedRoomWalkingBackFinished = false;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -642,7 +649,7 @@ public class GhostEventManager : MonoBehaviour
                 upstairsLoftDoor.Open(playAudio: true);
                 yield return new WaitForSeconds(2f);
                 ResetAll();
-                GameManager.Instance.EndEvent(2);
+                GameManager.Instance.EndEvent(8);
                 break;
 
                 // Door is open -> ghost crawls towards the player
@@ -653,6 +660,39 @@ public class GhostEventManager : MonoBehaviour
                 yield return MoveToPoint(new Vector3(8.61f, 2.595f, 10.2f), 1f);
                 ResetAll();
                 GameManager.Instance.EndEvent(8);
+                break;
+            default:
+                Debug.Log($"Error: UpstairsLoftScare() does not have a {occurrence} occurrence");
+                break;
+        }
+    }
+
+    public IEnumerator UpstairsRedRoomScare(int occurrence)
+    {
+        switch (occurrence)
+        {
+            case 1: // Player is near the storage container in the red room
+                GameManager.Instance.StartEvent(9);
+                animator.runtimeAnimatorController = upstairsRedRoomScareController;
+                if (upstairsRedRoomDoor.state == GenericAccessMechanismScript.states.OPEN) goto DoorOpen;
+
+                // Door is closed -> door opens
+                upstairsRedRoomDoor.Open(playAudio: true);
+
+                // Door is open -> ghost appears in the doorway after the player eats the pill
+                DoorOpen:
+                yield return new WaitUntil(() => upstairsRedRoomPill == null);
+                ResetAnimatorState();
+                SetTransform(new Vector3(4.85099983f, 2.58018637f, 13.9729996f), new Vector3(180f, 190f, 180f), 0.1f);
+                PlayAnimation("Sad", false);
+                GameManager.Instance.NextEventReady();
+                break;
+            case 2: // Player looks at the ghost OR walks to the ghost -> ghost walks backwards out of sight
+                PlayAnimation("WalkingBack", false);
+                PlayAudio(1, upstairsRedRoomWalk, true);
+                yield return new WaitUntil(() => isUpstairsRedRoomWalkingBackFinished);
+                ResetAll();
+                GameManager.Instance.EndEvent(9);
                 break;
             default:
                 Debug.Log($"Error: UpstairsLoftScare() does not have a {occurrence} occurrence");

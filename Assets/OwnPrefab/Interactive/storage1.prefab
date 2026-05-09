@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 2017060478916669541}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 3667769515283373948}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -863,7 +863,7 @@ GameObject:
   - component: {fileID: 4295128507808293715}
   m_Layer: 0
   m_Name: Body Model
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1118,7 +1118,7 @@ GameObject:
   - component: {fileID: 8271715262146128312}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1488,7 +1488,7 @@ GameObject:
   - component: {fileID: 8008506946275747514}
   m_Layer: 6
   m_Name: Model
-  m_TagString: NoCollide
+  m_TagString: AccessMechanism
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
