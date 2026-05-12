@@ -69,6 +69,21 @@ public class PlayerMovement : MonoBehaviour
     CharacterController controller;
     Coroutine crouchCoroutine;
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody body = hit.collider.attachedRigidbody;
+
+        // Check if the object has a rigidbody and is movable
+        if (body == null || body.isKinematic) return;
+
+        // Apply push in the direction we're moving
+        Vector3 pushDirection = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+        body.AddForce(pushDirection, ForceMode.Impulse);
+
+        // Optional: Add slight drag to feel more natural
+        // body.AddForce(-body.velocity * 0.1f, ForceMode.VelocityChange);
+    }
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
