@@ -25,6 +25,7 @@ TagManager:
   - GhostTriggerClip
   - SoapDispenser
   - TV
+  - YogaBall
   layers:
   - Default
   - TransparentFX
