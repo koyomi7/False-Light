@@ -188,6 +188,11 @@ public class PlayerInteraction : MonoBehaviour
                 interactionText.SetText("[F] Grab Key");
                 interactionText.gameObject.SetActive(true);
             }
+            else if (hit.collider.CompareTag("YogaBall"))
+            {
+                interactionText.SetText("[F] Push");
+                interactionText.gameObject.SetActive(true);
+            }
 
             return; // don't check further objects
         }
