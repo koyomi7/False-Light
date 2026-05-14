@@ -77,11 +77,7 @@ public class PlayerMovement : MonoBehaviour
         if (body == null || body.isKinematic) return;
 
         // Apply push in the direction we're moving
-        Vector3 pushDirection = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-        body.AddForce(pushDirection, ForceMode.Impulse);
-
-        // Optional: Add slight drag to feel more natural
-        // body.AddForce(-body.velocity * 0.1f, ForceMode.VelocityChange);
+        body.AddForce(hit.moveDirection, ForceMode.Impulse);
     }
 
     void Start()

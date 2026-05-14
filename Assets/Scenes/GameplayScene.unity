@@ -205351,9 +205351,10 @@ GameObject:
   - component: {fileID: 7207432555090676562}
   - component: {fileID: 6486881039957724766}
   - component: {fileID: 8539371432239894759}
-  m_Layer: 0
+  - component: {fileID: 8539371432239894760}
+  m_Layer: 6
   m_Name: yogaBall
-  m_TagString: Untagged
+  m_TagString: YogaBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248810,7 +248811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startsOn: 0
-  isFlickering: 1
+  isFlickering: 0
   flickerSpeed: 0.2
   minIntensity: 0.115
   maxIntensity: 0.13
@@ -248818,9 +248819,9 @@ MonoBehaviour:
   ceilingFanAcceleration: 0
   ceilingFanDrag: 0
   buttonObject: {fileID: 8314312127707800355}
-  lightObject: {fileID: 0}
+  lightObject: {fileID: 2501849001909682788}
   lampObject:
-  - {fileID: 0}
+  - {fileID: 4268022766248762506}
   stateMaterial:
   - {fileID: 2100000, guid: 3441f6441092d3c459a48c3c48ea63c6, type: 2}
   - {fileID: 2100000, guid: ad2591d1028f32d4a8bae13135f480f7, type: 2}
@@ -269881,6 +269882,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8539371432239894760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541066209854553528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da2884700c57f3c4b92242a3e766c3b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushStrength: 3
 --- !u!4 &8539769766012943115
 Transform:
   m_ObjectHideFlags: 0
