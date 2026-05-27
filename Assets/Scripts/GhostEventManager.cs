@@ -98,6 +98,14 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] GenericAccessMechanismScript upstairsRedRoomDoor;
     [HideInInspector] public bool isUpstairsRedRoomWalkingBackFinished = false;
 
+    [Header("Upstairs Blue Room Scare")]
+    [SerializeField] RuntimeAnimatorController upstairsBlueRoomScareController;
+    [SerializeField] AudioClip upstairsBlueRoomGlassTapping;
+    [SerializeField] AudioClip upstairsBlueRoomBreakIn;
+    [SerializeField] Animator upstairsBlueRoomWindowAnimator;
+    [HideInInspector] public bool isSwimmingUpComplete = false;
+    [HideInInspector] public bool isBreakInWindowComplete = false;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -695,7 +703,39 @@ public class GhostEventManager : MonoBehaviour
                 GameManager.Instance.EndEvent(9);
                 break;
             default:
-                Debug.Log($"Error: UpstairsLoftScare() does not have a {occurrence} occurrence");
+                Debug.Log($"Error: UpstairsRedRoomScare() does not have a {occurrence} occurrence");
+                break;
+        }
+    }
+
+    public IEnumerator UpstairsBlueRoomScare(int occurrence)
+    {
+        switch (occurrence)
+        {
+            case 1: // Player is near the window next to the bed
+                GameManager.Instance.StartEvent(10);
+                animator.runtimeAnimatorController = upstairsBlueRoomScareController;
+                
+                // Ghost swims up to the window
+                ResetAnimatorState();
+                SetTransform(new Vector3(12.5245142f, 1.72095978f, 14.704855f), new Vector3(180f, 90f, 180f), 0.13f);
+                PlayAnimation("SwimmingUp", false);
+                yield return new WaitUntil(() => isSwimmingUpComplete);
+
+                // Ghost taps on the window
+                PlayAudio(1, upstairsBlueRoomGlassTapping);
+                GameManager.Instance.NextEventReady();
+                break;
+            case 2: // Player looks at the ghost -> ghost breaks through the window
+                PlayAnimation("BreakInWindow", false);
+                upstairsBlueRoomWindowAnimator.Play("BrokenInto");
+                PlayAudio(2, upstairsBlueRoomBreakIn);
+                yield return new WaitUntil(() => isBreakInWindowComplete);
+                ResetAll();
+                GameManager.Instance.EndEvent(10);
+                break;
+            default:
+                Debug.Log($"Error: UpstairsBlueRoomScare() does not have a {occurrence} occurrence");
                 break;
         }
     }
