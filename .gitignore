@@ -73,21 +73,17 @@ crashlytics-build.properties
 
 #-=-=-=Large and unchanging assets=-=-=-
 # UNITY IMPORTS
-[Aa]ssets/ModularHousePack1/
-[Aa]ssets/nappin/
-[Aa]ssets/GeniusCrate_Games/
-[Aa]ssets/SmallBigSquare/
-[Aa]ssets/TextMesh\ Pro/
-[Aa]ssets/ModularLowpolyStreetsFree/
-[Aa]ssets/BloodDecalsAndEffects/
-[Aa]ssets/Blood\ decal\ pack
-[Aa]ssets/KeysPack/
-
-# EXTERNAL IMPORTS
-[Aa]ssets/Import/
-[Aa]ssets/Animations/
-[Aa]ssets/Sound/
-[Aa]ssets/Models/
+[Aa]ssets/*
+![Aa]ssets/0-Scripts/
+![Aa]ssets/1-Prefabs/
+![Aa]ssets/2-Materials/
+![Aa]ssets/3-Sprites/
+![Aa]ssets/Editor/
+![Aa]ssets/Scenes/
+![Aa]ssets/Settings/
+![Aa]ssets/LightingSettings*
+![Aa]ssets/Master*
+![Aa]ssets/UniversalRenderPipelineGlobalSettings*
 
 # OTHER
 .vscode/
