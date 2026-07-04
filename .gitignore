@@ -84,6 +84,7 @@ crashlytics-build.properties
 ![Aa]ssets/LightingSettings*
 ![Aa]ssets/Master*
 ![Aa]ssets/UniversalRenderPipelineGlobalSettings*
+![Aa]ssets/*.meta
 
 # OTHER
 .vscode/
