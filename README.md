@@ -8,6 +8,10 @@ Current Progress
 ![snapshot2-ezgif com-resize](https://github.com/user-attachments/assets/6754a413-8aa0-4356-a42c-97223ea9df29)
 
 ## Premise
+Schizophrenia.
+
+## Features
+Some scares.
 
 ## Assets
 
@@ -33,7 +37,56 @@ Current Progress
 - [Pills](https://poly.pizza/m/8XEcolZDyt5)
   - Used for pill models
 
-## Features
+### Built-in
+- TextMeshPro
+- Universal RP
+
+## Setup
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/koyomi7/False-Light.git
+   ```
+   - Alternatively, you can fork this repository and clone your fork
+
+2. **Download the external assets**
+   - *Note: Large asset files are excluded from Git*
+   - Download external assets from [some URL]
+   - Extract the contents directly into the assets folder of this project so the file structure looks like this:
+     ```text
+     False-Light/
+     ├── Assets/
+         ├── ...
+         ├── 4-Animations/
+         ├── 5-Sounds/
+         ├── 6-Import/
+         └── ...
+     ```
+
+3. **Open the project**
+   - Open Unity Hub, click **Add**, and select the root `False-Light` folder
+   - Let Unity load the project (this may take a few minutes)
+
+4. **Open the main scene**
+   - Navigate to `False-Light/Assets/Scenes/GameplayScene.unity`
+   - Open it in your Unity project
+
+5. **Import Asset Store packages**
+   - Go to https://assetstore.unity.com and sign in
+   - Subscribe to the **Unity Asset Store** assets that are listed above
+   - Navigate to `Window` -> `Package Manager`
+   - Download and import the packages that this project requires
+
+6. **Upgrade to URP (Universal Render Pipeline)**
+   - Navigate to `Window` -> `Rendering` -> `Render Pipeline Converter`
+   - Select **Built-in to URP** and **Material Upgrade** then click `Initialize And Convert`
+   - *Note: You can safely ignore the warning about 9 materials failing to upgrade; this is expected behavior for this project*
+
+7. **Import TextMeshPro**
+   - Go to `Window` -> `TextMeshPro` -> `Import TMP Essentials Resources`
+   - Click `Import` on the popup window
+
+8. **Play the game**
+   - Press the **Play** button
 
 ## Credits
 Alex Akoopie
