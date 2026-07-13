@@ -260,8 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   someObject: {fileID: 0}
-  closeSound: {fileID: 8300000, guid: 82c81960ce797954abf1a095d719e472, type: 3}
-  openSound: {fileID: 8300000, guid: 228b6da2d9a0f9f469088256e8457c8c, type: 3}
+  closeSound: {fileID: 8300000, guid: 51d652bc46375fe43a2733ab31519b6f, type: 3}
+  openSound: {fileID: 8300000, guid: a1e2eb68513a7d7458319dc018b58fe4, type: 3}
   readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 24ffdbcf17b69864dbf9c8e41dab9442, type: 2}
   openClip: {fileID: 7400000, guid: 1381247dc0428004680a3c25eca596b3, type: 2}
@@ -755,8 +755,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   someObject: {fileID: 0}
-  closeSound: {fileID: 8300000, guid: 82c81960ce797954abf1a095d719e472, type: 3}
-  openSound: {fileID: 8300000, guid: 228b6da2d9a0f9f469088256e8457c8c, type: 3}
+  closeSound: {fileID: 8300000, guid: 51d652bc46375fe43a2733ab31519b6f, type: 3}
+  openSound: {fileID: 8300000, guid: a1e2eb68513a7d7458319dc018b58fe4, type: 3}
   readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: 0056eef5a24f8f847989b732fe6d21f4, type: 2}
   openClip: {fileID: 7400000, guid: cffc4c0729bb68041a08d7f3710acafa, type: 2}
