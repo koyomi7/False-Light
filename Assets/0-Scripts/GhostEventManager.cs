@@ -24,9 +24,9 @@ public class GhostEventManager : MonoBehaviour
 
     [Header("Downstairs Office Scare")]
     [SerializeField] RuntimeAnimatorController downstairsOfficeScareController;
+    [SerializeField] AudioClip downstairsOfficeGhostMoan;
     [SerializeField] AudioClip downstairsOfficeGhostFootsteps;
     [SerializeField] AudioClip downstairsOfficeGhostRoar;
-    [SerializeField] AudioClip downstairsOfficeHeavyBreathing;
 
     [Header("Downstairs Bathroom Scare")]
     [SerializeField] RuntimeAnimatorController downstairsBathroomScareController;
@@ -56,7 +56,7 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] RuntimeAnimatorController downstairsHallwayScareController;
     [SerializeField] AudioClip downstairsHallwayBreathing;
     [SerializeField] AudioClip downstairsHallwayDoorSlam;
-    [SerializeField] AudioClip downstairsHallwayWalk;
+    [SerializeField] AudioClip downstairsHallwayGhostFootsteps;
     [SerializeField] GameObject downstairsHallwayPill;
     [SerializeField] GenericAccessMechanism downstairsHallwayDoor;
     [SerializeField] Animator downstairsHallwaySecretDoorAnimator;
@@ -271,7 +271,7 @@ public class GhostEventManager : MonoBehaviour
                 ResetAnimatorState();
                 SetTransform(new Vector3(7.12599993f, 1.43995976f, 13.243f), new Vector3(90f, 55.2999878f, 0f), 0.13f);
                 PlayAnimation("Seizure", true);
-                PlayAudio(1, downstairsOfficeHeavyBreathing, true);
+                PlayAudio(1, downstairsOfficeGhostMoan, true);
                 GameManager.Instance.NextEventReady();
                 break;
             case 2: // Play comes near the ghost -> ghost disappears for 1 second
@@ -456,7 +456,7 @@ public class GhostEventManager : MonoBehaviour
                 break;
             case 2: // Player looks down the hallway -> ghost crawls into secret room
                 animator.speed = 1;
-                PlayAudio(2, downstairsHallwayWalk);
+                PlayAudio(2, downstairsHallwayGhostFootsteps);
                 yield return new WaitForSeconds(2.1f); // waits for ghost to crawl into the secret room -> downstairs secret door slams shut
                 StopAudio(1);
                 StopAudio(2);
@@ -470,7 +470,7 @@ public class GhostEventManager : MonoBehaviour
             case 3: // Player looks at ghost -> ghost walks backwards up the stairwell
                 animator.speed = 1;
                 StopAudio(1);
-                PlayAudio(2, downstairsHallwayWalk);
+                PlayAudio(2, downstairsHallwayGhostFootsteps);
                 yield return new WaitUntil(() => isWalkingBackFinished);
                 ResetAll();
                 GameManager.Instance.EndEvent(5);
