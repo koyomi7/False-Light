@@ -37,6 +37,7 @@ public class LightSwitch : MonoBehaviour, IInteractable {
     int i = 0; // index of material emission state in materials array
     bool hasLightSwitch;
     [HideInInspector] public bool state; // inactive = false, active = true
+    Animator switchAnimator;
 
     // Glow-in-the-dark light switches
     Material lightSwitchMat;
@@ -50,7 +51,10 @@ public class LightSwitch : MonoBehaviour, IInteractable {
 
         // Glow-in-the-dark light switches
         lightSwitchMat = GetComponent<Renderer>().material;
-        if (hasLightSwitch) buttonMat = buttonObject.GetComponent<Renderer>().material;
+        if (hasLightSwitch) {
+            buttonMat = buttonObject.GetComponent<Renderer>().material;
+            switchAnimator = buttonObject.GetComponent<Animator>();
+        }
         lightSwitchEmissionColor = new Color(0.05f, 0.05f, 0.05f);
         buttonEmissionColor = new Color(0.8874815f, 1.276985f, 0.8587812f);
 
@@ -102,7 +106,7 @@ public class LightSwitch : MonoBehaviour, IInteractable {
     {
         state = _state;
         lightObject.SetActive(_state);
-        if (hasLightSwitch) buttonObject.GetComponent<Animator>().Play(_state ? "switchOn" : "switchOff");
+        if (hasLightSwitch) switchAnimator.SetBool("isOn", _state);
         materials[i] = _state ? stateMaterial[1] : stateMaterial[0];
         audioSource.clip = _state
         ? toggleOnSound[UnityEngine.Random.Range(0, toggleOnSound.Length)]

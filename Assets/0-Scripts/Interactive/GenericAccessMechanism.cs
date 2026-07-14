@@ -19,7 +19,7 @@ public class GenericAccessMechanism : MonoBehaviour, IInteractable
     [SerializeField] private AnimationClip partlyOpen2Clip;
     [SerializeField] private AnimationClip readyClip;
     [HideInInspector] private Animator animator;
-    [HideInInspector] public AnimatorOverrideController overrideController;
+    // [HideInInspector] public AnimatorOverrideController overrideController;
     [HideInInspector] private AudioSource audioSource;
 
     [Header("Random Interaction Settings")]
@@ -43,14 +43,14 @@ public class GenericAccessMechanism : MonoBehaviour, IInteractable
     void Start()
     {
         animator = GetComponent<Animator>();
-        overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
-        animator.runtimeAnimatorController = overrideController;
+        // overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+        // animator.runtimeAnimatorController = overrideController;
 
-        overrideController["CLOSED"] = closedClip;
-        overrideController["OPEN"] = openClip;
-        overrideController["PARTLY_OPEN_1"] = partlyOpen1Clip;
-        overrideController["PARTLY_OPEN_2"] = partlyOpen2Clip;
-        overrideController["READY"] = readyClip;
+        // overrideController["CLOSED"] = closedClip;
+        // overrideController["OPEN"] = openClip;
+        // overrideController["PARTLY_OPEN_1"] = partlyOpen1Clip;
+        // overrideController["PARTLY_OPEN_2"] = partlyOpen2Clip;
+        // overrideController["READY"] = readyClip;
 
         audioSource = GetComponent<AudioSource>();
         audioSource.enabled = true;
@@ -121,7 +121,7 @@ public class GenericAccessMechanism : MonoBehaviour, IInteractable
         }
 
         // Proceed with state change and animation
-        animator.SetTrigger(state.ToString());
+        animator.SetTrigger("Toggle");
         switch (state)
         {
             case states.CLOSED:
@@ -153,7 +153,7 @@ public class GenericAccessMechanism : MonoBehaviour, IInteractable
 
     public void Close(bool playAudio = false)
     {
-        animator.SetTrigger("OPEN");
+        animator.SetTrigger("Toggle");
         state = states.CLOSED;
         if (playAudio)
         {
@@ -165,7 +165,7 @@ public class GenericAccessMechanism : MonoBehaviour, IInteractable
 
     public void Open(bool playAudio = false)
     {
-        animator.SetTrigger("CLOSED");
+        animator.SetTrigger("Toggle");
         state = states.OPEN;
         if (playAudio)
         {
