@@ -329,12 +329,12 @@ public class GhostEventManager : MonoBehaviour
 
                 // Door slams shut
                 AnimationClip temp = downstairsBathroomDoor.openClip;
-                downstairsBathroomDoor.overrideController["OPEN"] = downstairsBathroomDoorSlamClip;
+                // downstairsBathroomDoor.overrideController["OPEN"] = downstairsBathroomDoorSlamClip;
                 downstairsBathroomDoor.Close();
                 yield return new WaitForSeconds(downstairsBathroomDoorSlamClip.length);
                 PlayAudio(4, downstairsBathroomDoorSlam, false, new Vector3(8.1f, 0.16f, 7.5f));
                 yield return new WaitForSeconds(downstairsBathroomDoorSlam.length);
-                downstairsBathroomDoor.overrideController["OPEN"] = temp;
+                // downstairsBathroomDoor.overrideController["OPEN"] = temp;
                 ResetAll();
                 GameManager.Instance.EndEvent(2);
                 break;

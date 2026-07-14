@@ -123,12 +123,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: da9f08f614ddb5a4f94e58c89b04e5f5, type: 2}
   openClip: {fileID: 7400000, guid: f2e9e87dd4589f74f8cdce4166f98646, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -405,12 +408,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: f601047c8e7fc6344804f9f5798f3dc5, type: 2}
   openClip: {fileID: 7400000, guid: f4badcdecaa238949aa2c817d47e5001, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -635,12 +641,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: f601047c8e7fc6344804f9f5798f3dc5, type: 2}
   openClip: {fileID: 7400000, guid: f4badcdecaa238949aa2c817d47e5001, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
@@ -1069,19 +1078,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: f711820fda711e24ca16252c0d4ba614, type: 2}
   openClip: {fileID: 7400000, guid: d51b193c886b639418891a31460c0137, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
   isOnCooldown: 0
-  CooldownDuration: 1
+  CooldownDuration: 0.3
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &2184090017611188478
@@ -1094,7 +1106,7 @@ Animator:
   m_GameObject: {fileID: 2933614972600725936}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: a4b5408cc78537c47b2ef0549c570b9c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -1439,19 +1451,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: f711820fda711e24ca16252c0d4ba614, type: 2}
   openClip: {fileID: 7400000, guid: d51b193c886b639418891a31460c0137, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   playerDetectionRadius: 10
   isOnCooldown: 0
-  CooldownDuration: 1
+  CooldownDuration: 0.3
   requiresKey: 0
   isUnlocked: 0
 --- !u!95 &4418140622312606331
@@ -1464,7 +1479,7 @@ Animator:
   m_GameObject: {fileID: 3886813481618962187}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: a4b5408cc78537c47b2ef0549c570b9c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -1971,12 +1986,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
+  readySound: {fileID: 0}
   closedClip: {fileID: 7400000, guid: da9f08f614ddb5a4f94e58c89b04e5f5, type: 2}
   openClip: {fileID: 7400000, guid: f2e9e87dd4589f74f8cdce4166f98646, type: 2}
   partlyOpen1Clip: {fileID: 0}
   partlyOpen2Clip: {fileID: 0}
+  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
