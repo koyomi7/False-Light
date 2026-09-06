@@ -328,9 +328,9 @@ public class GhostEventManager : MonoBehaviour
                 StopAudio(1); // stops footsteps sound
 
                 // Door slams shut
-                AnimationClip temp = downstairsBathroomDoor.openClip;
+                // AnimationClip temp = downstairsBathroomDoor.openClip;
                 // downstairsBathroomDoor.overrideController["OPEN"] = downstairsBathroomDoorSlamClip;
-                downstairsBathroomDoor.Close();
+                downstairsBathroomDoor.Toggle(force: GenericAccessMechanism.states.CLOSED, playAudio: false);
                 yield return new WaitForSeconds(downstairsBathroomDoorSlamClip.length);
                 PlayAudio(4, downstairsBathroomDoorSlam, false, new Vector3(8.1f, 0.16f, 7.5f));
                 yield return new WaitForSeconds(downstairsBathroomDoorSlam.length);
@@ -605,11 +605,10 @@ public class GhostEventManager : MonoBehaviour
                 PlayAnimation("Sitting", false);
 
                 // Player uses the TV (turns it on) -> TV turns off after 3 seconds
-                float tempCoolDownDuration = downstairsSecretTV.CooldownDuration;
-                downstairsSecretTV.CooldownDuration = 4f; // +1 second for interaction delay
+                downstairsSecretTV.cooldownDuration = 4f; // +1 second for interaction delay
                 yield return new WaitUntil(() => downstairsSecretTV.state == GenericAccessMechanism.states.OPEN);
                 yield return new WaitForSeconds(3f);
-                downstairsSecretTV.Close(playAudio: true);
+                downstairsSecretTV.Toggle(force: GenericAccessMechanism.states.CLOSED, playAudio: true);
 
                 // Ghost gets into position staring at the camera and the chair falls over
                 ResetAnimatorState();
@@ -622,15 +621,15 @@ public class GhostEventManager : MonoBehaviour
                 // Player uses the TV again -> ghost stares at the player and the TV is glitching with static -> TV turns off after 5 seconds
                 AudioClip tempOpenSound = downstairsSecretTV.openSound;
                 downstairsSecretTV.openSound = downstairsSecretTVGlitch;
-                downstairsSecretTV.CooldownDuration = 6f; // +1 second for interaction delay
+                downstairsSecretTV.cooldownDuration = 6f; // +1 second for interaction delay
                 float tempIntensity = downstairsSecretPointLight.intensity;
                 downstairsSecretPointLight.intensity = 1f; // the light that the TV is emitting is brighter during the scare
                 yield return new WaitUntil(() => downstairsSecretTV.state == GenericAccessMechanism.states.OPEN);
                 yield return new WaitForSeconds(5f);
                 downstairsSecretSpotLight.enabled = false;
-                downstairsSecretTV.Close(playAudio: true);
+                downstairsSecretTV.Toggle(force: GenericAccessMechanism.states.CLOSED, playAudio: true);
                 downstairsSecretTV.openSound = tempOpenSound;
-                downstairsSecretTV.CooldownDuration = tempCoolDownDuration;
+                downstairsSecretTV.cooldownDuration = 0f;
                 downstairsSecretPointLight.intensity = tempIntensity;
                 ResetAll();
                 GameManager.Instance.EndEvent(7);
@@ -654,7 +653,7 @@ public class GhostEventManager : MonoBehaviour
                 // Door is closed -> door opens and player sees the ghost hanging
                 SetTransform(new Vector3(7.43f, 5.009f, 14.577f), new Vector3(0f, 180f, 180f), 0.13f);
                 PlayAnimation("Hanging", false);
-                upstairsLoftDoor.Open(playAudio: true);
+                upstairsLoftDoor.Toggle(force: GenericAccessMechanism.states.OPEN, playAudio: true);
                 yield return new WaitForSeconds(2f);
                 ResetAll();
                 GameManager.Instance.EndEvent(8);
@@ -685,7 +684,7 @@ public class GhostEventManager : MonoBehaviour
                 if (upstairsRedRoomDoor.state == GenericAccessMechanism.states.OPEN) goto DoorOpen;
 
                 // Door is closed -> door opens
-                upstairsRedRoomDoor.Open(playAudio: true);
+                upstairsRedRoomDoor.Toggle(force: GenericAccessMechanism.states.OPEN, playAudio: true);
 
                 // Door is open -> ghost appears in the doorway after the player eats the pill
                 DoorOpen:

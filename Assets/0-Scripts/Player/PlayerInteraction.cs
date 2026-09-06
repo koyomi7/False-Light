@@ -207,7 +207,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 // Check if the interactable is a door requiring a key
                 GenericAccessMechanism door = currentInteractable as GenericAccessMechanism;
-                if (door != null && door.requiresKey && !door.isUnlocked)
+                if (door != null && door.isLocked)
                 {
                     if (!KeyInventory.Instance.HasKey())
                     {
