@@ -9063,20 +9063,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
-  openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 2
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!65 &204615726
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35690,20 +35683,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
-  openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 2
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!95 &826137033
 Animator:
   serializedVersion: 5
@@ -51106,20 +51092,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
-  openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 2
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!65 &1194638655
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60593,20 +60572,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
-  openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 2
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!54 &1409344705
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -65021,7 +64993,7 @@ Transform:
   m_GameObject: {fileID: 1509625532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.71, y: 3.36, z: 13.314}
+  m_LocalPosition: {x: 9.376, y: 0.914, z: 8.277}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -103008,20 +102980,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!33 &485292081865329272
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -111084,20 +111049,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!65 &939542425096641129
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122848,20 +122806,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 993a0d9b94860fb4ebff2dacaa3b0013, type: 2}
-  openClip: {fileID: 7400000, guid: aa5f68e591e24384bb45b9a90fce7f76, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!4 &1529880039130681448
 Transform:
   m_ObjectHideFlags: 0
@@ -131531,20 +131482,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 38e2ae13f7d762b4aac9437a5c52939b, type: 3}
   openSound: {fileID: 8300000, guid: d0d6a217c8fa84f45a4be7e4ed046f1e, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 19ab1ecbf00b793429b48a5a59d0f0e1, type: 2}
-  openClip: {fileID: 7400000, guid: 6bf2e9ae6de4c4744adff9c2a220cbde, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!4 &1968405761066005631
 Transform:
   m_ObjectHideFlags: 0
@@ -134372,20 +134316,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 80a5f9b08847027499ff7bbe9dda2192, type: 2}
-  openClip: {fileID: 7400000, guid: c8d6051c32bc57a4ea974d1ee240eb92, type: 2}
-  partlyOpen1Clip: {fileID: 7400000, guid: 1286b0b0bcca0034091a34d3aadf714a, type: 2}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!4 &2125809567515974099
 Transform:
   m_ObjectHideFlags: 0
@@ -144011,20 +143948,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 94cc4e06dabf5ab4e9a918034c5861c7, type: 2}
-  openClip: {fileID: 7400000, guid: b970c9a3076815a4d91cf0f245ff1e5c, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!23 &2608129594056847485
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -166083,20 +166013,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!23 &3749345052250478691
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -171859,20 +171782,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 541c0122e262aaa4983aac4085dd72bb, type: 2}
-  openClip: {fileID: 7400000, guid: 01374770379a9444d976ed113a16f37b, type: 2}
-  partlyOpen1Clip: {fileID: 7400000, guid: 255061ef8147de547983a68f80980090, type: 2}
-  partlyOpen2Clip: {fileID: 7400000, guid: 926dccb0b5c105245af9c179aede4170, type: 2}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!65 &4047192284143455621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -175448,20 +175364,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 541c0122e262aaa4983aac4085dd72bb, type: 2}
-  openClip: {fileID: 7400000, guid: 01374770379a9444d976ed113a16f37b, type: 2}
-  partlyOpen1Clip: {fileID: 7400000, guid: 255061ef8147de547983a68f80980090, type: 2}
-  partlyOpen2Clip: {fileID: 7400000, guid: 926dccb0b5c105245af9c179aede4170, type: 2}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!4 &4218790710457243056
 Transform:
   m_ObjectHideFlags: 0
@@ -176507,20 +176416,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: c608af5d8987cc84da9e9b1ab023524a, type: 2}
-  openClip: {fileID: 7400000, guid: 26dd3dbc33c26384998a38e961e739a7, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!33 &4264479795838908439
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -178494,20 +178396,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 541c0122e262aaa4983aac4085dd72bb, type: 2}
-  openClip: {fileID: 7400000, guid: 01374770379a9444d976ed113a16f37b, type: 2}
-  partlyOpen1Clip: {fileID: 7400000, guid: 255061ef8147de547983a68f80980090, type: 2}
-  partlyOpen2Clip: {fileID: 7400000, guid: 926dccb0b5c105245af9c179aede4170, type: 2}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &4360231825843025964
 GameObject:
   m_ObjectHideFlags: 0
@@ -183131,20 +183026,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &4591980491542162196
 GameObject:
   m_ObjectHideFlags: 0
@@ -186275,20 +186163,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b3ec1b81d2da1d4b9ba634a8e0fafaf, type: 2}
-  openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &4769036649266395284
 GameObject:
   m_ObjectHideFlags: 0
@@ -187448,20 +187329,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &4813420847767421406
 GameObject:
   m_ObjectHideFlags: 0
@@ -190469,20 +190343,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!65 &4957021871777860347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -193884,20 +193751,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b9c8bba4231252419b69abded39f782, type: 2}
-  openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &5135498004947827564
 GameObject:
   m_ObjectHideFlags: 0
@@ -195111,20 +194971,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 305502aacf9102c4a8d2dd417ac710f7, type: 2}
-  openClip: {fileID: 7400000, guid: 9dc5faefab56209479048b7815d1b948, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!4 &5172730286459312988
 Transform:
   m_ObjectHideFlags: 0
@@ -201020,20 +200873,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b9c8bba4231252419b69abded39f782, type: 2}
-  openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &5424079484317341532
 GameObject:
   m_ObjectHideFlags: 0
@@ -204542,20 +204388,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &5663508011837011528
 GameObject:
   m_ObjectHideFlags: 0
@@ -216020,20 +215859,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 80a5f9b08847027499ff7bbe9dda2192, type: 2}
-  openClip: {fileID: 7400000, guid: c8d6051c32bc57a4ea974d1ee240eb92, type: 2}
-  partlyOpen1Clip: {fileID: 7400000, guid: 1286b0b0bcca0034091a34d3aadf714a, type: 2}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!23 &6189029877503473052
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -218530,20 +218362,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!4 &6311250573538254061
 Transform:
   m_ObjectHideFlags: 0
@@ -222994,20 +222819,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 38e2ae13f7d762b4aac9437a5c52939b, type: 3}
   openSound: {fileID: 8300000, guid: d0d6a217c8fa84f45a4be7e4ed046f1e, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a8c08f41e640d084e9236217c5155c79, type: 2}
-  openClip: {fileID: 7400000, guid: b68f6bf3174201a47930c3712d0da20f, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &6533129995760617463
 GameObject:
   m_ObjectHideFlags: 0
@@ -223072,20 +222890,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 67800082ea18a2c41891df82f7343b9a, type: 2}
-  openClip: {fileID: 7400000, guid: 63b37e05eef22ad4896fa71fe974f178, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &6540125424747823624
 GameObject:
   m_ObjectHideFlags: 0
@@ -226450,20 +226261,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b3ec1b81d2da1d4b9ba634a8e0fafaf, type: 2}
-  openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!65 &6713131454350970857
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -231695,20 +231499,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: d7af39af9e325be4a9762878713b7c39, type: 2}
-  openClip: {fileID: 7400000, guid: 41b2f3bd53b611c41880a3bfa94461f5, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 2
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!54 &6977485692402286211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -235276,20 +235073,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 332a469fafb31dd40a8134af99828ef7, type: 2}
-  openClip: {fileID: 7400000, guid: 294ab657e7e83e14f9249e3fa37cb896, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 2
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!54 &7157945860830622870
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -238406,20 +238196,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!65 &7297116258298300816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -245982,20 +245765,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 38e2ae13f7d762b4aac9437a5c52939b, type: 3}
   openSound: {fileID: 8300000, guid: d0d6a217c8fa84f45a4be7e4ed046f1e, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 59c0017fd3c89e14f95db854f78534ad, type: 2}
-  openClip: {fileID: 7400000, guid: 10d02906a7ee8044db8c2739f2127913, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!23 &7666004317890989749
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -252273,20 +252049,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: d7af39af9e325be4a9762878713b7c39, type: 2}
-  openClip: {fileID: 7400000, guid: 41b2f3bd53b611c41880a3bfa94461f5, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 2
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!54 &7905854442607213802
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -253868,20 +253637,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: fe288ff8582fa9b4f8d499d419d9b5aa, type: 3}
   openSound: {fileID: 8300000, guid: 00430b964fd305a46a598080570e6389, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 0}
-  openClip: {fileID: 0}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 0.1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!95 &7971603959977488961
 Animator:
   serializedVersion: 5
@@ -256033,20 +255795,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b3ec1b81d2da1d4b9ba634a8e0fafaf, type: 2}
-  openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &8041922715621500821
 GameObject:
   m_ObjectHideFlags: 0
@@ -257378,20 +257133,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!4 &8105580724598713503
 Transform:
   m_ObjectHideFlags: 0
@@ -257565,20 +257313,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b3ec1b81d2da1d4b9ba634a8e0fafaf, type: 2}
-  openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!4 &8113779479843184319
 Transform:
   m_ObjectHideFlags: 0
@@ -264312,20 +264053,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 993a0d9b94860fb4ebff2dacaa3b0013, type: 2}
-  openClip: {fileID: 7400000, guid: aa5f68e591e24384bb45b9a90fce7f76, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!4 &8445914504150775361
 Transform:
   m_ObjectHideFlags: 0
@@ -265418,20 +265152,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b9c8bba4231252419b69abded39f782, type: 2}
-  openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &8499614719872144842
 GameObject:
   m_ObjectHideFlags: 0
@@ -266128,20 +265855,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!33 &8538109420078686409
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -270442,20 +270162,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 86cf269b616362f4b9120286c8dd4dbe, type: 3}
   openSound: {fileID: 8300000, guid: 5599b30c89e89494892460cd4d588902, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: b351d287efd0dd147bc177f37796888d, type: 2}
-  openClip: {fileID: 7400000, guid: e6992b3eda9383041a41b907218e9923, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &8741867898571016887
 GameObject:
   m_ObjectHideFlags: 0
@@ -271543,20 +271256,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b9c8bba4231252419b69abded39f782, type: 2}
-  openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!1 &8790723041592324712
 GameObject:
   m_ObjectHideFlags: 0
@@ -271980,20 +271686,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 993a0d9b94860fb4ebff2dacaa3b0013, type: 2}
-  openClip: {fileID: 7400000, guid: aa5f68e591e24384bb45b9a90fce7f76, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!65 &8808542959476772777
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -274233,20 +273932,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!33 &8945469118841341154
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -274980,20 +274672,13 @@ MonoBehaviour:
   closeSound: {fileID: 8300000, guid: cc7afebf61e143f488c9ec62105d8700, type: 3}
   openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: d6418f861c5698d47a989c29203de552, type: 2}
-  openClip: {fileID: 7400000, guid: 88b69166ded4b08459cd76a4569d10c7, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
-  isOnCooldown: 0
-  CooldownDuration: 2
-  requiresKey: 1
-  isUnlocked: 0
+  isLocked: 0
+  cooldownDuration: 0
+  cooldownTimer: 0
 --- !u!95 &8972618107154288835
 Animator:
   serializedVersion: 5
