@@ -31,13 +31,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511321233015105920}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.656059, z: 0, w: 0.75470966}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7266716919663680634}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 82, z: 0}
 --- !u!33 &6972109066104191792
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 2
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
@@ -132,8 +132,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
+  isOnCooldown: 0
   cooldownDuration: 0
-  cooldownTimer: 0
 --- !u!95 &2029525679104002345
 Animator:
   serializedVersion: 5
@@ -144,7 +144,7 @@ Animator:
   m_GameObject: {fileID: 511321233015105920}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: fc01e2f86dc1aca4b9b97923e6d4ea2d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -166,7 +166,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
@@ -410,8 +410,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
+  isOnCooldown: 0
   cooldownDuration: 0
-  cooldownTimer: 0
 --- !u!95 &8380123058706272073
 Animator:
   serializedVersion: 5
@@ -422,7 +422,7 @@ Animator:
   m_GameObject: {fileID: 753457113576398748}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 7eab25b4a642ba645aaaf5771b5726f1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -444,7 +444,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
@@ -636,8 +636,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
+  isOnCooldown: 0
   cooldownDuration: 0
-  cooldownTimer: 0
 --- !u!95 &4131292549777478060
 Animator:
   serializedVersion: 5
@@ -648,7 +648,7 @@ Animator:
   m_GameObject: {fileID: 933391883856980249}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 7eab25b4a642ba645aaaf5771b5726f1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -670,7 +670,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1066,8 +1066,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
+  isOnCooldown: 0
   cooldownDuration: 0
-  cooldownTimer: 0
 --- !u!95 &2184090017611188478
 Animator:
   serializedVersion: 5
@@ -1248,7 +1248,7 @@ Transform:
   m_GameObject: {fileID: 3886813481618962187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1422,7 +1422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 2
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
@@ -1432,8 +1432,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
+  isOnCooldown: 0
   cooldownDuration: 0
-  cooldownTimer: 0
 --- !u!95 &4418140622312606331
 Animator:
   serializedVersion: 5
@@ -1937,7 +1937,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.45337525, y: 0.57858753, z: 0.0148158}
-  m_Center: {x: -0.2415, y: -0.000000044703484, z: 0.00740785}
+  m_Center: {x: -0.2115, y: -0.000000044703484, z: 0.00740785}
 --- !u!114 &2438561169778163325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1950,7 +1950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
@@ -1960,8 +1960,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
+  isOnCooldown: 0
   cooldownDuration: 0
-  cooldownTimer: 0
 --- !u!95 &4385506992469216638
 Animator:
   serializedVersion: 5
@@ -1972,7 +1972,7 @@ Animator:
   m_GameObject: {fileID: 7726207010997108722}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: fc01e2f86dc1aca4b9b97923e6d4ea2d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -1994,7 +1994,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
