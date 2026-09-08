@@ -92,7 +92,7 @@ public class GenericAccessMechanism : MonoBehaviour, IInteractable
                 return; // Exit if no key is available
             }
             KeyInventory.Instance.UseKey(); // Consume the key
-            isLocked = true; // Mark the door as unlocked
+            isLocked = false; // Mark the door as unlocked
         }
 
         // Proceed with state change and animation
@@ -119,6 +119,9 @@ public class GenericAccessMechanism : MonoBehaviour, IInteractable
                 state = states.CLOSED;
                 audioSource.clip = closeSound;
                 if (someObject != null) someObject.SetActive(false);
+                break;
+            case states.READY:
+                audioSource.clip = readySound;
                 break;
         }
         if (playAudio) audioSource.Play();

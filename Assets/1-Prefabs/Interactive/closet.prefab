@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1325964333977413612}
   m_Layer: 0
-  m_Name: closeDoorLeft Parent
+  m_Name: closeDoorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,26 +258,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 51d652bc46375fe43a2733ab31519b6f, type: 3}
   openSound: {fileID: 8300000, guid: a1e2eb68513a7d7458319dc018b58fe4, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 24ffdbcf17b69864dbf9c8e41dab9442, type: 2}
-  openClip: {fileID: 7400000, guid: 1381247dc0428004680a3c25eca596b3, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &8648510622174418295
 Animator:
   serializedVersion: 5
@@ -288,7 +280,7 @@ Animator:
   m_GameObject: {fileID: 4971888776560499324}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c8c088bff6573894f87da26a476fdeef, type: 2}
+  m_Controller: {fileID: 22100000, guid: 2bf16995ad21561478400462c2c55bc1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -310,7 +302,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -753,26 +745,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 51d652bc46375fe43a2733ab31519b6f, type: 3}
   openSound: {fileID: 8300000, guid: a1e2eb68513a7d7458319dc018b58fe4, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 0056eef5a24f8f847989b732fe6d21f4, type: 2}
-  openClip: {fileID: 7400000, guid: cffc4c0729bb68041a08d7f3710acafa, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &8427638537669368747
 Animator:
   serializedVersion: 5
@@ -783,7 +767,7 @@ Animator:
   m_GameObject: {fileID: 7735308007098790733}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: b12d6acb4464a29449419ba4e3b10dfa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -805,7 +789,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1032,7 +1016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1141126162481638216}
   m_Layer: 0
-  m_Name: Closet Pivot
+  m_Name: closet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1069,7 +1053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4417319485533666345}
   m_Layer: 0
-  m_Name: closetDoorRIght Parent
+  m_Name: closetDoorRIght
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
