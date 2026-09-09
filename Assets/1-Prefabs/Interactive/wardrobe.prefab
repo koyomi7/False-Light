@@ -412,26 +412,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &965524164662158100
 Animator:
   serializedVersion: 5
@@ -442,7 +434,7 @@ Animator:
   m_GameObject: {fileID: 2286960956913256163}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 513dacb7e985447499babdf39564e8b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -464,7 +456,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -698,26 +690,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b3ec1b81d2da1d4b9ba634a8e0fafaf, type: 2}
-  openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &6937432720913038163
 Animator:
   serializedVersion: 5
@@ -728,7 +712,7 @@ Animator:
   m_GameObject: {fileID: 2307791268652353812}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 19833e41d5b5ae34ca2ddf1a0ece12b1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -750,7 +734,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1072,26 +1056,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &6565952585208553108
 Animator:
   serializedVersion: 5
@@ -1102,7 +1078,7 @@ Animator:
   m_GameObject: {fileID: 2536770401016008296}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 513dacb7e985447499babdf39564e8b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -1124,7 +1100,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1446,26 +1422,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &1378820304881792531
 Animator:
   serializedVersion: 5
@@ -1476,7 +1444,7 @@ Animator:
   m_GameObject: {fileID: 2871734972186297171}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 513dacb7e985447499babdf39564e8b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -1498,7 +1466,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1820,26 +1788,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &2444233035580102932
 Animator:
   serializedVersion: 5
@@ -1850,7 +1810,7 @@ Animator:
   m_GameObject: {fileID: 3183480514254067658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 513dacb7e985447499babdf39564e8b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -1872,7 +1832,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2138,26 +2098,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b9c8bba4231252419b69abded39f782, type: 2}
-  openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &2613956429525486854
 Animator:
   serializedVersion: 5
@@ -2168,7 +2120,7 @@ Animator:
   m_GameObject: {fileID: 5912061970268735842}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 75ce9fd2677be8c4ca8eeba8c240b2a0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -2190,7 +2142,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2804,26 +2756,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b9c8bba4231252419b69abded39f782, type: 2}
-  openClip: {fileID: 7400000, guid: 95ee3702c7845644190c8a80a39ae099, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &4794176689363845835
 Animator:
   serializedVersion: 5
@@ -2834,7 +2778,7 @@ Animator:
   m_GameObject: {fileID: 6713736720422117325}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 75ce9fd2677be8c4ca8eeba8c240b2a0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -2856,7 +2800,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3242,26 +3186,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &7580134474615141999
 Animator:
   serializedVersion: 5
@@ -3272,7 +3208,7 @@ Animator:
   m_GameObject: {fileID: 7818895495838271681}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 513dacb7e985447499babdf39564e8b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -3294,7 +3230,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3648,26 +3584,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: c9183aaffcd8cd74fb0171e123678b52, type: 3}
   openSound: {fileID: 8300000, guid: e9cee6c703dd64040b2ed46ed3738806, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: a2ed3a5ac53146242b01063350e9a13f, type: 2}
-  openClip: {fileID: 7400000, guid: edc8846a766edad4fbb0c17f49835f13, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &5056417587943107118
 Animator:
   serializedVersion: 5
@@ -3678,7 +3606,7 @@ Animator:
   m_GameObject: {fileID: 8135751094903536634}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 513dacb7e985447499babdf39564e8b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -3700,7 +3628,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3934,26 +3862,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 69d141f3ddedc0f459562d0dca502bcd, type: 3}
   openSound: {fileID: 8300000, guid: 031ee8d76c9aa864f951af562897d395, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 6b3ec1b81d2da1d4b9ba634a8e0fafaf, type: 2}
-  openClip: {fileID: 7400000, guid: 1354de272e4c1264fb2b6a3e007ef1fd, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 1
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &7066123655263307233
 Animator:
   serializedVersion: 5
@@ -3964,7 +3884,7 @@ Animator:
   m_GameObject: {fileID: 8816206260144224460}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 19833e41d5b5ae34ca2ddf1a0ece12b1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -3986,7 +3906,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
