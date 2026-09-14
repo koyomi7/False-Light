@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5746873222838712564}
   - component: {fileID: 3056635937003732655}
   m_Layer: 6
-  m_Name: printer
+  m_Name: Model
   m_TagString: Printer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62531689548193683}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.707107, z: -0, w: 0.7071066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.00074000005, y: 0.00074000005, z: 0.00074000005}
   m_ConstrainProportionsScale: 1
@@ -125,26 +125,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 2
   someObject: {fileID: 0}
   closeSound: {fileID: 8300000, guid: 6b7933d7cf10b244d926578a75b0c8ca, type: 3}
   openSound: {fileID: 8300000, guid: 6b7933d7cf10b244d926578a75b0c8ca, type: 3}
   readySound: {fileID: 0}
-  closedClip: {fileID: 7400000, guid: 74512b178d94a7941bd4ec554cddff2f, type: 2}
-  openClip: {fileID: 7400000, guid: 42d58ea0f30c62c4d84322e934cd2635, type: 2}
-  partlyOpen1Clip: {fileID: 0}
-  partlyOpen2Clip: {fileID: 0}
-  readyClip: {fileID: 0}
-  overrideController: {fileID: 0}
   enableRandomInteractions: 0
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  playerDetectionRadius: 10
+  isLocked: 0
   isOnCooldown: 0
-  CooldownDuration: 1
-  requiresKey: 0
-  isUnlocked: 0
+  cooldownDuration: 0
 --- !u!95 &5067285437300571230
 Animator:
   serializedVersion: 5
@@ -155,7 +147,7 @@ Animator:
   m_GameObject: {fileID: 62531689548193683}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 22100000, guid: 35f591b329311ad45a2d6c1e8cc516e0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -177,7 +169,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -313,8 +305,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2808816667416747635}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.95, y: 0.1, z: 5.83498}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
