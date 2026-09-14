@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 5101700028445249660}
   - component: {fileID: 6030331429201256090}
   m_Layer: 6
-  m_Name: Switch
+  m_Name: lightSwitch
   m_TagString: LightSwitch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
