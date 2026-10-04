@@ -30647,7 +30647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3e9fd494564614582f2469801f7981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GhostModel: {fileID: 0}
+  GhostModel: {fileID: 6282993864792265226}
   Player: {fileID: 1509625532}
   PlayerCam: {fileID: 1522447379}
   playerCamScript: {fileID: 1522447380}
@@ -30655,7 +30655,7 @@ MonoBehaviour:
   audioSource2: {fileID: 1769740052}
   audioSource3: {fileID: 103336370}
   auxiliaryAudioSource: {fileID: 2054539242}
-  downstairsOfficeScareController: {fileID: 9100000, guid: 973eb161869d2a14d8b673b39fa290c4,
+  downstairsOfficeScareController: {fileID: 9100000, guid: eb478ea311744db49a71b62f1a3e0ec1,
     type: 2}
   downstairsOfficeGhostMoan: {fileID: 8300000, guid: 55ea3b95231838f4aa7f95c43ef68944,
     type: 3}
@@ -64951,7 +64951,7 @@ Transform:
   m_GameObject: {fileID: 1509625532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.71, y: 3.36, z: 13.314}
+  m_LocalPosition: {x: 2.172, y: 0.785, z: 2.295}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -228497,7 +228497,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6282993864792265226}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 19267a5a81f4ad44d9493f1b34401fe1, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -279055,7 +279055,7 @@ MonoBehaviour:
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  isLocked: 1
+  isLocked: 0
   isOnCooldown: 0
   cooldownDuration: 0
 --- !u!95 &8972618107154288835
