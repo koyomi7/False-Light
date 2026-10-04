@@ -7,6 +7,7 @@ public class GhostEventManager : MonoBehaviour
 {
     public static GhostEventManager Instance { get; private set; }
     public static System.Action<float> OnProgressBarChanged;
+    static readonly int IntHash = Animator.StringToHash("Sequence");
 
     [Header("References")]
     [SerializeField] GameObject GhostModel;
@@ -138,11 +139,11 @@ public class GhostEventManager : MonoBehaviour
         Ghost.SetActive(true);
     }
 
-    void PlayAnimation(string name, bool useRootMotion, float speed = 1f)
+    void PlayAnimation(int sequence, bool useRootMotion, float speed = 1f)
     {
         animator.applyRootMotion = useRootMotion;
         animator.speed = speed;
-        animator.Play(name, 0, 0f);
+        animator.SetInteger(IntHash, sequence);
     }
 
     void PlayAudio(int source = 1, AudioClip clip = null, bool loop = false, Vector3 position = default)
@@ -270,7 +271,7 @@ public class GhostEventManager : MonoBehaviour
                 // Player can hear the ghost crying outside -> player sees the ghost having a seizure
                 ResetAnimatorState();
                 SetTransform(new Vector3(7.12599993f, 1.43995976f, 13.243f), new Vector3(90f, 55.2999878f, 0f), 0.13f);
-                PlayAnimation("Seizure", true);
+                PlayAnimation(1, true); // Seizure
                 PlayAudio(1, downstairsOfficeGhostMoan, true);
                 GameManager.Instance.NextEventReady();
                 break;
@@ -282,7 +283,7 @@ public class GhostEventManager : MonoBehaviour
                 // Ghost reappears -> ghost runs at the player
                 ResetAnimatorState();
                 SetTransform(new Vector3(7.3f, 0.96f, 16.5f), new Vector3(24f, 180, 0f), 0.13f);
-                PlayAnimation("ClownRun", false, 1.5f);
+                PlayAnimation(2, false, 1.3f); // ClownRun
                 PlayAudio(1, downstairsOfficeGhostRoar);
                 PlayAudio(2, downstairsOfficeGhostFootsteps, true);
                 yield return MoveToPoint(new Vector3(7.3f, 0.96f, 10.5f), 1f);
@@ -317,7 +318,7 @@ public class GhostEventManager : MonoBehaviour
                 DoorOpen:
                 ResetAnimatorState();
                 SetTransform(new Vector3(8.1f, 0.16f, 10f), new Vector3(0f, 180f, 0f), 0.13f);
-                PlayAnimation("GoofyRun", false);
+                // PlayAnimation("GoofyRun", false);
                 PlayAudio(1, downstairsBathroomGhostFootsteps, true);
 
                 // Ghost moves towards the door, turns -> ghost moves into the bathroom then disappears
@@ -355,7 +356,7 @@ public class GhostEventManager : MonoBehaviour
                 // Ghost slowly gets up from laying facedown on the bed
                 ResetAnimatorState();
                 SetTransform(new Vector3(2.88400006f, 0.578959823f, 9.03600025f), new Vector3(0f, 270f, 0f), 0.1f);
-                PlayAnimation("SlowGetUp", true);
+                // PlayAnimation("SlowGetUp", true);
                 PlayAudio(1, downstairsBedroomFlesh);
                 yield return new WaitUntil(() => isSlowGettingUpFinished);
                 StopAudio(1);
@@ -363,7 +364,7 @@ public class GhostEventManager : MonoBehaviour
                 // Ghost runs from the bed and jumps to the wardrobe, hanging from it -> disappears and blood leads the player to the drawer with the pill inside
                 ResetAnimatorState();
                 SetTransform(new Vector3(2.97500014f, 0.634959817f, 8.77799988f), new Vector3(0f, 62.3800011f, 0f), 0.1f);
-                PlayAnimation("RunAndHit", false);
+                // PlayAnimation("RunAndHit", false);
                 PlayAudio(2, downstairsBedroomRunAndHit);
                 yield return new WaitUntil(() => isRunAndHitFinished);
                 downstairsBedroomBlood.SetActive(true);
@@ -373,13 +374,13 @@ public class GhostEventManager : MonoBehaviour
                 // Player consumes the pill -> ghost is sitting on the bed staring at the player
                 ResetAnimatorState();
                 SetTransform(new Vector3(3.79900002f, 0.150000006f, 8.92000008f), new Vector3(0f, 63.52f, 0f), 0.1f);
-                PlayAnimation("BedSit", true);
+                // PlayAnimation("BedSit", true);
                 GameManager.Instance.NextEventReady();
                 break;
             case 2: // Player looks at the ghost -> ghost crawls away from the player
                 ResetAnimatorState();
                 SetTransform(new Vector3(3.26799989f, 0.550000012f, 8.78999996f), new Vector3(0f, 55f, 0f), 0.1f);
-                PlayAnimation("CrawlBack", true);
+                // PlayAnimation("CrawlBack", true);
                 yield return new WaitUntil(() => isCrawlBackFinished);
                 ResetAll();
                 GameManager.Instance.EndEvent(3);
@@ -403,20 +404,20 @@ public class GhostEventManager : MonoBehaviour
                 PlayAudio(4, downstairsLivingRoomWindowBreak, false, new Vector3(7.5f, 3.6f, 19f));
                 ResetAnimatorState();
                 SetTransform(new Vector3(7.5f, 0.4f, 19.6f), new Vector3(0f, 270f, 0f), 0.13f);
-                PlayAnimation("FallingOnImpact", true);
+                // PlayAnimation("FallingOnImpact", true);
                 yield return new WaitUntil(() => isFallingFinished);
 
                 // Ghost stares at player through the window on the right
                 ResetAnimatorState();
                 SetTransform(new Vector3(12.25f, 0.04f, 14.631f), new Vector3(0f, 270f, 0f), 0.13f);
-                PlayAnimation("Trapped", true);
+                // PlayAnimation("Trapped", true);
                 downstairsLivingRoomSpotLight.enabled = true;
                 GameManager.Instance.NextEventReady();
                 break;
             case 3: // Player looks at the ghost through the window on the right -> ghost vanishes
                 downstairsLivingRoomSpotLight.enabled = false;
                 ResetAnimatorState();
-                PlayAnimation("Vanish", true);
+                // PlayAnimation("Vanish", true);
                 yield return new WaitUntil(() => isVanishFinished);
                 ResetAll();
                 GameManager.Instance.EndEvent(4);
@@ -440,7 +441,7 @@ public class GhostEventManager : MonoBehaviour
                 // Office door is closed -> ghost appears in the stairwell above the player
                 ResetAnimatorState();
                 SetTransform(new Vector3(10.31f, 1.45f, 13.1f), new Vector3(0f, 242f, 0f), 0.1f);
-                PlayAnimation("WalkingBack", false, 0);
+                // PlayAnimation("WalkingBack", false, 0);
                 PlayAudio(1, downstairsHallwayBreathing, true);
                 GameManager.Instance.NextEventReady(2); // skip to case 3
                 break;
@@ -449,7 +450,7 @@ public class GhostEventManager : MonoBehaviour
                 DoorOpen:
                 ResetAnimatorState();
                 SetTransform(new Vector3(5.472f, 0.085f, 4.938f), new Vector3(0f, 90f, 0f), 0.1f);
-                PlayAnimation("FastCrawl", true, 0);
+                // PlayAnimation("FastCrawl", true, 0);
                 PlayAudio(1, downstairsHallwayBreathing, true);
                 downstairsHallwaySecretDoorAnimator.Play("Open");
                 GameManager.Instance.NextEventReady();
@@ -528,7 +529,7 @@ public class GhostEventManager : MonoBehaviour
             case 2: // Player looks into the kitchen -> ghost dives through kitchen window
                 ResetAnimatorState();
                 SetTransform(new Vector3(2.341f, 0.12f, 14.1f), new Vector3(0f, 0f, 0f), 0.1f);
-                PlayAnimation("Dive", false);
+                // PlayAnimation("Dive", false);
 
                 // Ghost knocks over kitchen props
                 yield return new WaitForSeconds(0.5f); // Delaying audio manually since the audio clip of glass shattering is delayed
@@ -541,7 +542,7 @@ public class GhostEventManager : MonoBehaviour
                 downstairsKitchenChair.localPosition = new Vector3(2.382f, 0.101659417f, 13.482f);
                 ResetAnimatorState();
                 SetTransform(new Vector3(2.482f, 0.08f, 13.528f), new Vector3(0f, 90f, 0f), 0.1f);
-                PlayAnimation("Glitched Sitting", false, 0.1f);
+                // PlayAnimation("Glitched Sitting", false, 0.1f);
                 PlayAudio(1, downstairsKitchenHeavyBreathing, true);
                 PlayAudio(2, downstairsKitchenGlitch, true);
                 OnProgressBarChanged += HandleKitchenProgress;
@@ -602,7 +603,7 @@ public class GhostEventManager : MonoBehaviour
                 // Ghost gets into position sitting on the chair in the secret room
                 ResetAnimatorState();
                 SetTransform(new Vector3(9.52799988f, 0.0869999975f, 3.39700007f), new Vector3(0f, -149.744f, 0f), 0.13f);
-                PlayAnimation("Sitting", false);
+                // PlayAnimation("Sitting", false);
 
                 // Player uses the TV (turns it on) -> TV turns off after 3 seconds
                 downstairsSecretTV.cooldownDuration = 4f; // +1 second for interaction delay
@@ -613,7 +614,7 @@ public class GhostEventManager : MonoBehaviour
                 // Ghost gets into position staring at the camera and the chair falls over
                 ResetAnimatorState();
                 SetTransform(new Vector3(11.21f, 0.625f, 6.4000001f), new Vector3(-35f, 36.796f, 0f), 0.13f);
-                PlayAnimation("Trapped", false);
+                // PlayAnimation("Trapped", false);
                 downstairsSecretChair.transform.position = new Vector3(9.56000042f, 0.342000008f, 3.48799992f);
                 downstairsSecretChair.transform.rotation = Quaternion.Euler(new Vector3(90f, 155.230011f, 0f));
                 downstairsSecretSpotLight.enabled = true;
@@ -652,7 +653,7 @@ public class GhostEventManager : MonoBehaviour
 
                 // Door is closed -> door opens and player sees the ghost hanging
                 SetTransform(new Vector3(7.43f, 5.009f, 14.577f), new Vector3(0f, 180f, 180f), 0.13f);
-                PlayAnimation("Hanging", false);
+                // PlayAnimation("Hanging", false);
                 upstairsLoftDoor.Toggle(force: GenericAccessMechanism.states.OPEN, playAudio: true);
                 yield return new WaitForSeconds(2f);
                 ResetAll();
@@ -662,7 +663,7 @@ public class GhostEventManager : MonoBehaviour
                 // Door is open -> ghost crawls towards the player
                 DoorOpen:
                 SetTransform(new Vector3(7.43f, 2.595f, 14.577f), new Vector3(0f, 180f, 0f), 0.13f);
-                PlayAnimation("FastCrawl", false);
+                // PlayAnimation("FastCrawl", false);
                 PlayAudio(1, upstairsLoftFootsteps, true);
                 yield return MoveToPoint(new Vector3(8.61f, 2.595f, 10.2f), 1f);
                 ResetAll();
@@ -691,11 +692,11 @@ public class GhostEventManager : MonoBehaviour
                 yield return new WaitUntil(() => upstairsRedRoomPill == null);
                 ResetAnimatorState();
                 SetTransform(new Vector3(4.85099983f, 2.58018637f, 13.9729996f), new Vector3(180f, 190f, 180f), 0.1f);
-                PlayAnimation("Sad", false);
+                // PlayAnimation("Sad", false);
                 GameManager.Instance.NextEventReady();
                 break;
             case 2: // Player looks at the ghost OR walks to the ghost -> ghost walks backwards out of sight
-                PlayAnimation("WalkingBack", false);
+                // PlayAnimation("WalkingBack", false);
                 PlayAudio(1, upstairsRedRoomWalk, true);
                 yield return new WaitUntil(() => isUpstairsRedRoomWalkingBackFinished);
                 ResetAll();
@@ -718,7 +719,7 @@ public class GhostEventManager : MonoBehaviour
                 // Ghost swims up to the window
                 ResetAnimatorState();
                 SetTransform(new Vector3(12.5245142f, 1.72095978f, 14.704855f), new Vector3(180f, 90f, 180f), 0.13f);
-                PlayAnimation("SwimmingUp", false);
+                // PlayAnimation("SwimmingUp", false);
                 yield return new WaitUntil(() => isSwimmingUpComplete);
 
                 // Ghost taps on the window
@@ -726,7 +727,7 @@ public class GhostEventManager : MonoBehaviour
                 GameManager.Instance.NextEventReady();
                 break;
             case 2: // Player looks at the ghost -> ghost breaks through the window
-                PlayAnimation("BreakInWindow", false);
+                // PlayAnimation("BreakInWindow", false);
                 upstairsBlueRoomWindowAnimator.Play("BrokenInto");
                 PlayAudio(2, upstairsBlueRoomBreakIn);
                 yield return new WaitUntil(() => isBreakInWindowComplete);
