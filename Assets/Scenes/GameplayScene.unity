@@ -30663,14 +30663,14 @@ MonoBehaviour:
     type: 3}
   downstairsOfficeGhostRoar: {fileID: 8300000, guid: e2e79931b8aa4884dbd5d84a6e70b34d,
     type: 3}
-  downstairsBathroomScareController: {fileID: 9100000, guid: bd09c277544ca43428da9d3308881b90,
+  downstairsBathroomScareController: {fileID: 9100000, guid: 45f88c29b6b31bb458bbe86e6e359e70,
     type: 2}
   downstairsBathroomDoorSlam: {fileID: 8300000, guid: e469232fe5d373e49b149bdf7d855a30,
     type: 3}
   downstairsBathroomGhostFootsteps: {fileID: 8300000, guid: 5a8317aeb8ad0aa45a4ee8010d07cace,
     type: 3}
-  downstairsBathroomDoor: {fileID: 1409344704}
-  downstairsBathroomDoorSlamClip: {fileID: 7400000, guid: 450057e6fd8a00e4f9e46647b3b676be,
+  downstairsBathroomDoor: {fileID: 1409344697}
+  downstairsBathroomDoorAnimator: {fileID: 22100000, guid: 66be3e2b42944d64284c8d1464b019cd,
     type: 2}
   downstairsBedroomScareController: {fileID: 9100000, guid: e6881ffd448916841ac8bd8ff75f2402,
     type: 2}
@@ -64951,7 +64951,7 @@ Transform:
   m_GameObject: {fileID: 1509625532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.172, y: 0.785, z: 2.295}
+  m_LocalPosition: {x: 9.301, y: 0.785, z: 7.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

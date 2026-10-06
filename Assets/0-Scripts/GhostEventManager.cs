@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -33,8 +34,8 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] RuntimeAnimatorController downstairsBathroomScareController;
     [SerializeField] AudioClip downstairsBathroomDoorSlam;
     [SerializeField] AudioClip downstairsBathroomGhostFootsteps;
-    [SerializeField] GenericAccessMechanism downstairsBathroomDoor;
-    [SerializeField] AnimationClip downstairsBathroomDoorSlamClip;
+    [SerializeField] Object downstairsBathroomDoor;
+    [SerializeField] AnimatorOverrideController downstairsBathroomDoorAnimator;
 
     [Header("Downstairs Bedroom Scare")]
     [SerializeField] RuntimeAnimatorController downstairsBedroomScareController;
@@ -298,12 +299,16 @@ public class GhostEventManager : MonoBehaviour
 
     public IEnumerator DownstairsBathroomScare(int occurrence)
     {
+        // Temporary variables resolving door components
+        Animator _animator = downstairsBathroomDoor.GetComponent<Animator>();
+        RuntimeAnimatorController _originalruntimeAnimatorController = _animator.runtimeAnimatorController;
+        GenericAccessMechanism _script = downstairsBathroomDoor.GetComponent<GenericAccessMechanism>();
         switch (occurrence)
         {
             case 1: // Player enters downstairs bathroom
                 GameManager.Instance.StartEvent(2);
                 animator.runtimeAnimatorController = downstairsBathroomScareController;
-                if (downstairsBathroomDoor.state == GenericAccessMechanism.states.OPEN) goto DoorOpen;
+                if (_script.state == GenericAccessMechanism.states.OPEN) goto DoorOpen;
                 
                 // Door is closed -> player hears footsteps and then a slam on the door
                 PlayAudio(4, downstairsBathroomGhostFootsteps, false, new Vector3(8.1f, 0.16f, 10f));
@@ -318,7 +323,7 @@ public class GhostEventManager : MonoBehaviour
                 DoorOpen:
                 ResetAnimatorState();
                 SetTransform(new Vector3(8.1f, 0.16f, 10f), new Vector3(0f, 180f, 0f), 0.13f);
-                // PlayAnimation("GoofyRun", false);
+                PlayAnimation(1, false); // GoofyRun
                 PlayAudio(1, downstairsBathroomGhostFootsteps, true);
 
                 // Ghost moves towards the door, turns -> ghost moves into the bathroom then disappears
@@ -329,13 +334,13 @@ public class GhostEventManager : MonoBehaviour
                 StopAudio(1); // stops footsteps sound
 
                 // Door slams shut
-                // AnimationClip temp = downstairsBathroomDoor.openClip;
-                // downstairsBathroomDoor.overrideController["OPEN"] = downstairsBathroomDoorSlamClip;
-                downstairsBathroomDoor.Toggle(force: GenericAccessMechanism.states.CLOSED, playAudio: false);
-                yield return new WaitForSeconds(downstairsBathroomDoorSlamClip.length);
+                _animator.runtimeAnimatorController = downstairsBathroomDoorAnimator;
+                _script.Toggle(force: GenericAccessMechanism.states.CLOSED, playAudio: false);
+                _animator.Update(0f);
+                yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
                 PlayAudio(4, downstairsBathroomDoorSlam, false, new Vector3(8.1f, 0.16f, 7.5f));
                 yield return new WaitForSeconds(downstairsBathroomDoorSlam.length);
-                // downstairsBathroomDoor.overrideController["OPEN"] = temp;
+                _animator.runtimeAnimatorController = _originalruntimeAnimatorController;
                 ResetAll();
                 GameManager.Instance.EndEvent(2);
                 break;
