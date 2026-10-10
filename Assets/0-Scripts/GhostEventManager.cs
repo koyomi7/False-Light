@@ -361,7 +361,7 @@ public class GhostEventManager : MonoBehaviour
                 // Ghost slowly gets up from laying facedown on the bed
                 ResetAnimatorState();
                 SetTransform(new Vector3(2.88400006f, 0.578959823f, 9.03600025f), new Vector3(0f, 270f, 0f), 0.1f);
-                // PlayAnimation("SlowGetUp", true);
+                PlayAnimation(1, true); // SlowGettingUp
                 PlayAudio(1, downstairsBedroomFlesh);
                 yield return new WaitUntil(() => isSlowGettingUpFinished);
                 StopAudio(1);
@@ -369,7 +369,7 @@ public class GhostEventManager : MonoBehaviour
                 // Ghost runs from the bed and jumps to the wardrobe, hanging from it -> disappears and blood leads the player to the drawer with the pill inside
                 ResetAnimatorState();
                 SetTransform(new Vector3(2.97500014f, 0.634959817f, 8.77799988f), new Vector3(0f, 62.3800011f, 0f), 0.1f);
-                // PlayAnimation("RunAndHit", false);
+                PlayAnimation(2, false); // RunAndHit
                 PlayAudio(2, downstairsBedroomRunAndHit);
                 yield return new WaitUntil(() => isRunAndHitFinished);
                 downstairsBedroomBlood.SetActive(true);
@@ -379,13 +379,13 @@ public class GhostEventManager : MonoBehaviour
                 // Player consumes the pill -> ghost is sitting on the bed staring at the player
                 ResetAnimatorState();
                 SetTransform(new Vector3(3.79900002f, 0.150000006f, 8.92000008f), new Vector3(0f, 63.52f, 0f), 0.1f);
-                // PlayAnimation("BedSit", true);
+                PlayAnimation(3, true); // BedSit
                 GameManager.Instance.NextEventReady();
                 break;
             case 2: // Player looks at the ghost -> ghost crawls away from the player
                 ResetAnimatorState();
                 SetTransform(new Vector3(3.26799989f, 0.550000012f, 8.78999996f), new Vector3(0f, 55f, 0f), 0.1f);
-                // PlayAnimation("CrawlBack", true);
+                PlayAnimation(4, true); // CrawlBack
                 yield return new WaitUntil(() => isCrawlBackFinished);
                 ResetAll();
                 GameManager.Instance.EndEvent(3);
