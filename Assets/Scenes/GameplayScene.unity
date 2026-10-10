@@ -30672,7 +30672,7 @@ MonoBehaviour:
   downstairsBathroomDoor: {fileID: 1409344697}
   downstairsBathroomDoorAnimator: {fileID: 22100000, guid: 66be3e2b42944d64284c8d1464b019cd,
     type: 2}
-  downstairsBedroomScareController: {fileID: 9100000, guid: e6881ffd448916841ac8bd8ff75f2402,
+  downstairsBedroomScareController: {fileID: 9100000, guid: f5d3d29891dc2f64aae311fa54ce8a47,
     type: 2}
   downstairsBedroomFlesh: {fileID: 8300000, guid: d04893621d381b04d908c323cef87683,
     type: 3}
@@ -64951,7 +64951,7 @@ Transform:
   m_GameObject: {fileID: 1509625532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.301, y: 0.785, z: 7.86}
+  m_LocalPosition: {x: 5.246, y: 0.785, z: 7.091}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -228501,7 +228501,7 @@ Animator:
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -279055,7 +279055,7 @@ MonoBehaviour:
   minTimeBetweenRandomInteractions: 60
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
-  isLocked: 0
+  isLocked: 1
   isOnCooldown: 0
   cooldownDuration: 0
 --- !u!95 &8972618107154288835
