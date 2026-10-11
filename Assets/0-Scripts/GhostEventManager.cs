@@ -658,7 +658,7 @@ public class GhostEventManager : MonoBehaviour
 
                 // Door is closed -> door opens and player sees the ghost hanging
                 SetTransform(new Vector3(7.43f, 5.009f, 14.577f), new Vector3(0f, 180f, 180f), 0.13f);
-                // PlayAnimation("Hanging", false);
+                PlayAnimation(1, false); // Hanging
                 upstairsLoftDoor.Toggle(force: GenericAccessMechanism.states.OPEN, playAudio: true);
                 yield return new WaitForSeconds(2f);
                 ResetAll();
@@ -668,7 +668,7 @@ public class GhostEventManager : MonoBehaviour
                 // Door is open -> ghost crawls towards the player
                 DoorOpen:
                 SetTransform(new Vector3(7.43f, 2.595f, 14.577f), new Vector3(0f, 180f, 0f), 0.13f);
-                // PlayAnimation("FastCrawl", false);
+                PlayAnimation(2, false); // FastCrawl
                 PlayAudio(1, upstairsLoftFootsteps, true);
                 yield return MoveToPoint(new Vector3(8.61f, 2.595f, 10.2f), 1f);
                 ResetAll();
@@ -696,12 +696,13 @@ public class GhostEventManager : MonoBehaviour
                 DoorOpen:
                 yield return new WaitUntil(() => upstairsRedRoomPill == null);
                 ResetAnimatorState();
-                SetTransform(new Vector3(4.85099983f, 2.58018637f, 13.9729996f), new Vector3(180f, 190f, 180f), 0.1f);
-                // PlayAnimation("Sad", false);
+                SetTransform(new Vector3(4.99700022f, 2.58018637f, 13.9729996f), new Vector3(180f, 190f, 180f), 0.1f);
+                PlayAnimation(1, false); // Sad
                 GameManager.Instance.NextEventReady();
                 break;
             case 2: // Player looks at the ghost OR walks to the ghost -> ghost walks backwards out of sight
-                // PlayAnimation("WalkingBack", false);
+                ResetAnimatorState();
+                PlayAnimation(2, false); // WalkingBack
                 PlayAudio(1, upstairsRedRoomWalk, true);
                 yield return new WaitUntil(() => isUpstairsRedRoomWalkingBackFinished);
                 ResetAll();
