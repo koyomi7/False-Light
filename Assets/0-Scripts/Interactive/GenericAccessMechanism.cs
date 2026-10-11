@@ -21,9 +21,10 @@ public class GenericAccessMechanism : MonoBehaviour, IInteractable
     [Header("Key Settings")]
     [SerializeField] public bool isLocked = false; // Requires key
 
-    // Interaction cooldown variables
+    [Header("Cooldown Settings")]
+    [Tooltip("=0: Animation clip length\n>0: Wait number of seconds until interactable again")]
+    [SerializeField] public float cooldownDuration = 0f;
     [HideInInspector] public bool isOnCooldown = false;
-    [HideInInspector] public float cooldownDuration = 0f; // 0: Animation clip length
     [HideInInspector] float cooldownTimer = 0f; // Timer from animation clip length OR cooldownDuration -> 0
 
     // Other variables

@@ -5425,7 +5425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 116538727}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30719,7 +30719,7 @@ MonoBehaviour:
   downstairsKitchenPulseFrequencyMin: 1
   downstairsKitchenPulseFrequencyMax: 2
   isGhostDiveFinished: 0
-  downstairsSecretScareController: {fileID: 9100000, guid: e627413e22bbaa24d9b926756641ed42,
+  downstairsSecretScareController: {fileID: 9100000, guid: 070eb6fa73b6dc54c97a4b6783f0f712,
     type: 2}
   downstairsSecretTVGlitch: {fileID: 8300000, guid: faa39f0e41b84c144b761410f52f546f,
     type: 3}
@@ -35494,8 +35494,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!95 &826137033
 Animator:
   serializedVersion: 5
@@ -39536,8 +39536,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!65 &912266630
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51055,8 +51055,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 1
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!65 &1194638655
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60535,8 +60535,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!54 &1409344705
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64951,7 +64951,7 @@ Transform:
   m_GameObject: {fileID: 1509625532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.628, y: 0.785, z: 12.721}
+  m_LocalPosition: {x: 1.71, y: 3.36, z: 13.314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -94625,8 +94625,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 40
   randomInteractionChance: 0.5
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!65 &85279094348517355
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94744,7 +94744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8853510636080060116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95798,8 +95798,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!1 &173916725128134759
 GameObject:
   m_ObjectHideFlags: 0
@@ -102751,8 +102751,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!114 &483612566374618904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102775,8 +102775,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!33 &485292081865329272
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -104005,8 +104005,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!4 &538979416726493219
 Transform:
   m_ObjectHideFlags: 0
@@ -105160,7 +105160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3084935564824622247}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metarig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106676,7 +106676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 199840691739779072}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111407,8 +111407,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!114 &937727429448520026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111431,8 +111431,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!33 &939763191371611075
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113239,7 +113239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3859507851908797816}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: breast.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113581,7 +113581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5966830399426011040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shoulder.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113610,8 +113610,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!1 &1044076111835887840
 GameObject:
   m_ObjectHideFlags: 0
@@ -122413,7 +122413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5010398777367841133}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pelvis.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129667,7 +129667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7238022720151341211}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134197,7 +134197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8140159377763364836}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CreepyBase.obj.cleaner.materialmerger.gles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136117,8 +136117,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!23 &2195125306208751636
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -136904,7 +136904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5658020356415207821}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137484,8 +137484,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!4 &2252166557133309226
 Transform:
   m_ObjectHideFlags: 0
@@ -141346,8 +141346,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!1 &2439911239724940575
 GameObject:
   m_ObjectHideFlags: 0
@@ -142793,8 +142793,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!65 &2508731079047618474
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -150676,8 +150676,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!1 &2867995875746423747
 GameObject:
   m_ObjectHideFlags: 0
@@ -151009,7 +151009,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3496340527844112097}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151554,7 +151554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8459924163681728471}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: heel.02.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156708,8 +156708,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!33 &3155609756201847745
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -156756,7 +156756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1034085656062437550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159315,8 +159315,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!82 &3302961507776777293
 AudioSource:
   m_ObjectHideFlags: 0
@@ -161122,7 +161122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 245796231682927098}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: breast.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164032,7 +164032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8013671166845647928}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pelvis.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169060,7 +169060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8158820855452948553}
   - component: {fileID: 3439978365361930330}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170475,7 +170475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2844032124518771265}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178958,8 +178958,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!65 &4265210980876080040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -179536,7 +179536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8226768877930193639}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181815,7 +181815,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6357188452735938790}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine.006_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183968,8 +183968,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!1 &4491495692727078085
 GameObject:
   m_ObjectHideFlags: 0
@@ -185528,7 +185528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5968649914382958228}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shin.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188925,8 +188925,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!23 &4772842353742076649
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -192239,7 +192239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8997929708837701034}
   - component: {fileID: 7833349484577249669}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192811,8 +192811,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!114 &4956642594908682006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192835,8 +192835,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!65 &4957021871777860347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -192946,7 +192946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 411899596479325315}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: shoulder.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196487,8 +196487,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!114 &5134754993225909457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196511,8 +196511,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!1 &5135498004947827564
 GameObject:
   m_ObjectHideFlags: 0
@@ -200694,7 +200694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1529880039130681448}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: upper_arm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201092,8 +201092,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 40
   randomInteractionChance: 0.5
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!23 &5311384434643093927
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -202863,7 +202863,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 317839384782153688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203005,8 +203005,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!4 &5388572690788744780
 Transform:
   m_ObjectHideFlags: 0
@@ -204854,7 +204854,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5091754873532417075}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205427,8 +205427,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!23 &5515751190029956642
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -206395,7 +206395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5372060807560793078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: heel.02.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206820,8 +206820,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!23 &5604072136992302944
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -207485,8 +207485,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!114 &5661716020346662245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207509,8 +207509,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!33 &5662262542451884712
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -208733,8 +208733,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 300
   randomInteractionChance: 0.15
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!33 &5722124326667528652
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -208955,7 +208955,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6033557181787699173}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217426,7 +217426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7595987115215354407}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218063,7 +218063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3839936111164148623}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: breast.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221030,7 +221030,7 @@ GameObject:
   - component: {fileID: 6663776093542451376}
   - component: {fileID: 6663776093542451378}
   - component: {fileID: 6663776093542451377}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221305,7 +221305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7179640817035526534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222183,7 +222183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3009223674406346678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pelvis.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229961,7 +229961,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8581121749440842240}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: heel.02.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230776,7 +230776,7 @@ Animator:
   m_GameObject: {fileID: 6240015195280580908}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2d145c01f914d69488cb3ed73c0af501, type: 2}
+  m_Controller: {fileID: 9100000, guid: 73dbc2429d87e304a8238f9cf6e1ec97, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -231266,7 +231266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1235492780217231198}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234830,8 +234830,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!54 &6977485692402286211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -234965,8 +234965,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!1 &6984517776100212780
 GameObject:
   m_ObjectHideFlags: 0
@@ -236085,7 +236085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9098062760130003395}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236251,8 +236251,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!33 &7055601145471694509
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -238350,7 +238350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 472612977228551430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: breast.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238620,8 +238620,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!54 &7157945860830622870
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -238846,8 +238846,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!23 &7166622463121817089
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -238917,7 +238917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2091327588933324392}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240046,8 +240046,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!82 &7222484261236412127
 AudioSource:
   m_ObjectHideFlags: 0
@@ -241684,8 +241684,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!114 &7294586178310552491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241708,8 +241708,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!65 &7297116258298300816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -245544,7 +245544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3822581292973460829}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sketchfab_model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245886,8 +245886,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!23 &7484706543051102076
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -246524,7 +246524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4392081533518831572}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247430,8 +247430,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!114 &7582178027599990300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247454,8 +247454,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!4 &7582683811721590488
 Transform:
   m_ObjectHideFlags: 0
@@ -247709,7 +247709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4559576926928317061}
   - component: {fileID: 550116899664527160}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252624,7 +252624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4048896607150038803}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: heel.02.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255594,8 +255594,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 1
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!54 &7905854442607213802
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -257135,7 +257135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   someObject: {fileID: 1132281900}
   closeSound: {fileID: 8300000, guid: fe288ff8582fa9b4f8d499d419d9b5aa, type: 3}
   openSound: {fileID: 8300000, guid: 00430b964fd305a46a598080570e6389, type: 3}
@@ -257145,8 +257145,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
+  cooldownDuration: 0.05
   isOnCooldown: 0
-  cooldownDuration: 0
 --- !u!95 &7971603959977488961
 Animator:
   serializedVersion: 5
@@ -257157,7 +257157,7 @@ Animator:
   m_GameObject: {fileID: 7383827396014064201}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 635c7ad169c738147a9783542afbba37, type: 2}
+  m_Controller: {fileID: 9100000, guid: c12688729e957bf4e97c426243a81f7c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -258360,8 +258360,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!82 &8014418436373131803
 AudioSource:
   m_ObjectHideFlags: 0
@@ -259499,8 +259499,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!114 &8041242446017169884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259523,8 +259523,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!23 &8046986803350530431
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -260884,8 +260884,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!114 &8104083255341155601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260908,8 +260908,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!4 &8105580724598713503
 Transform:
   m_ObjectHideFlags: 0
@@ -261115,8 +261115,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!114 &8113610294037743530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261139,8 +261139,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!4 &8113779479843184319
 Transform:
   m_ObjectHideFlags: 0
@@ -264180,7 +264180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7541393591305798308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267191,7 +267191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3683371951319126645}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269633,7 +269633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1085121300167898325}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: forearm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274391,8 +274391,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!1 &8741867898571016887
 GameObject:
   m_ObjectHideFlags: 0
@@ -275030,7 +275030,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7615621027385628317}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: toe.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275540,8 +275540,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!114 &8787748212437843537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275564,8 +275564,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 0
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!1 &8790723041592324712
 GameObject:
   m_ObjectHideFlags: 0
@@ -279178,8 +279178,8 @@ MonoBehaviour:
   maxTimeBetweenRandomInteractions: 120
   randomInteractionChance: 0.3
   isLocked: 1
-  isOnCooldown: 0
   cooldownDuration: 0
+  isOnCooldown: 0
 --- !u!95 &8972618107154288835
 Animator:
   serializedVersion: 5
@@ -280859,7 +280859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7490022056425689641}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pelvis.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283342,7 +283342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6130066111071792498}
   - component: {fileID: 6828485207863855753}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283829,7 +283829,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7164591239906473137}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284048,7 +284048,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5306312647173584816}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}

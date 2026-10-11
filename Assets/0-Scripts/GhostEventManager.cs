@@ -607,9 +607,10 @@ public class GhostEventManager : MonoBehaviour
                 // Ghost gets into position sitting on the chair in the secret room
                 ResetAnimatorState();
                 SetTransform(new Vector3(9.52799988f, 0.0869999975f, 3.39700007f), new Vector3(0f, -149.744f, 0f), 0.13f);
-                // PlayAnimation("Sitting", false);
+                PlayAnimation(1, false); // Sitting
 
                 // Player uses the TV (turns it on) -> TV turns off after 3 seconds
+                float _cooldownDuration = downstairsSecretTV.cooldownDuration;
                 downstairsSecretTV.cooldownDuration = 4f; // +1 second for interaction delay
                 yield return new WaitUntil(() => downstairsSecretTV.state == GenericAccessMechanism.states.OPEN);
                 yield return new WaitForSeconds(3f);
@@ -618,7 +619,7 @@ public class GhostEventManager : MonoBehaviour
                 // Ghost gets into position staring at the camera and the chair falls over
                 ResetAnimatorState();
                 SetTransform(new Vector3(11.21f, 0.625f, 6.4000001f), new Vector3(-35f, 36.796f, 0f), 0.13f);
-                // PlayAnimation("Trapped", false);
+                PlayAnimation(2, false); // Trapped
                 downstairsSecretChair.transform.position = new Vector3(9.56000042f, 0.342000008f, 3.48799992f);
                 downstairsSecretChair.transform.rotation = Quaternion.Euler(new Vector3(90f, 155.230011f, 0f));
                 downstairsSecretSpotLight.enabled = true;
@@ -634,7 +635,7 @@ public class GhostEventManager : MonoBehaviour
                 downstairsSecretSpotLight.enabled = false;
                 downstairsSecretTV.Toggle(force: GenericAccessMechanism.states.CLOSED, playAudio: true);
                 downstairsSecretTV.openSound = tempOpenSound;
-                downstairsSecretTV.cooldownDuration = 0f;
+                downstairsSecretTV.cooldownDuration = _cooldownDuration;
                 downstairsSecretPointLight.intensity = tempIntensity;
                 ResetAll();
                 GameManager.Instance.EndEvent(7);
