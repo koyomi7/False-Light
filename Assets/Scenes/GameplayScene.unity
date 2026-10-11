@@ -30683,14 +30683,14 @@ MonoBehaviour:
   isSlowGettingUpFinished: 0
   isRunAndHitFinished: 0
   isCrawlBackFinished: 0
-  downstairsLivingRoomScareController: {fileID: 9100000, guid: dc5eb7b227783a14b98703e244731b9f,
+  downstairsLivingRoomScareController: {fileID: 9100000, guid: 1534d7403f38cf34e9ee53a2a9a14753,
     type: 2}
   downstairsLivingRoomWindowBreak: {fileID: 8300000, guid: 77b9f64fcacc1bd4f837ff7a9fbec36e,
     type: 3}
   downstairsLivingRoomSpotLight: {fileID: 750212655}
   isFallingFinished: 0
   isVanishFinished: 0
-  downstairsHallwayScareController: {fileID: 9100000, guid: 4763d426f6a7ce14cbf4457e043869ec,
+  downstairsHallwayScareController: {fileID: 9100000, guid: 4d1f693f25985cc4fbcfdd9a7a30b08a,
     type: 2}
   downstairsHallwayBreathing: {fileID: 8300000, guid: 05160d43b9ddc1c449dd71e475039623,
     type: 3}
@@ -30699,10 +30699,10 @@ MonoBehaviour:
   downstairsHallwayGhostFootsteps: {fileID: 8300000, guid: b91fa39437a144949920151c9c5f4dae,
     type: 3}
   downstairsHallwayPill: {fileID: 1068358558}
-  downstairsHallwayDoor: {fileID: 8972618107154288834}
-  downstairsHallwaySecretDoorAnimator: {fileID: 8014418436373131801}
+  downstairsHallwayOfficeDoor: {fileID: 8972618107154288834}
+  downstairsHallwaySecretDoor: {fileID: 8014418436373131802}
   isWalkingBackFinished: 0
-  downstairsKitchenScareController: {fileID: 9100000, guid: 6805cb2fb0d8d0c4da579eaf7c4da9a2,
+  downstairsKitchenScareController: {fileID: 9100000, guid: 20154ee892a9b1946acdc9f512d81c03,
     type: 2}
   downstairsKitchenGlitch: {fileID: 8300000, guid: 6d4d69c00d4e1fb4cb2f04a17a5206f0,
     type: 3}
@@ -64951,7 +64951,7 @@ Transform:
   m_GameObject: {fileID: 1509625532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.246, y: 0.785, z: 7.091}
+  m_LocalPosition: {x: 5.628, y: 0.785, z: 12.721}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -228501,7 +228501,7 @@ Animator:
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -258308,6 +258308,8 @@ GameObject:
   - component: {fileID: 3110599424492033350}
   - component: {fileID: 6074529054214644402}
   - component: {fileID: 8014418436373131801}
+  - component: {fileID: 8014418436373131802}
+  - component: {fileID: 8014418436373131803}
   m_Layer: 0
   m_Name: Interior_Door_Secret
   m_TagString: Untagged
@@ -258325,7 +258327,7 @@ Animator:
   m_GameObject: {fileID: 8014418436373131800}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3a8a61ab95c05774aabd7b7cc1f4ada8, type: 2}
+  m_Controller: {fileID: 22100000, guid: 66be3e2b42944d64284c8d1464b019cd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -258336,6 +258338,126 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8014418436373131802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8014418436373131800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa0b5e3f155d8e45af6479e48b380d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 1
+  someObject: {fileID: 0}
+  closeSound: {fileID: 8300000, guid: e69d446de27d939448f127dc6aac1f37, type: 3}
+  openSound: {fileID: 8300000, guid: f54b646eafc02ad44bd9fae0c3ef399b, type: 3}
+  readySound: {fileID: 0}
+  enableRandomInteractions: 0
+  minTimeBetweenRandomInteractions: 60
+  maxTimeBetweenRandomInteractions: 120
+  randomInteractionChance: 0.3
+  isLocked: 0
+  isOnCooldown: 0
+  cooldownDuration: 0
+--- !u!82 &8014418436373131803
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8014418436373131800}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!33 &8014724702596054928
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -60,8 +60,8 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] AudioClip downstairsHallwayDoorSlam;
     [SerializeField] AudioClip downstairsHallwayGhostFootsteps;
     [SerializeField] GameObject downstairsHallwayPill;
-    [SerializeField] GenericAccessMechanism downstairsHallwayDoor;
-    [SerializeField] Animator downstairsHallwaySecretDoorAnimator;
+    [SerializeField] GenericAccessMechanism downstairsHallwayOfficeDoor;
+    [SerializeField] GenericAccessMechanism downstairsHallwaySecretDoor;
     [HideInInspector] public bool isWalkingBackFinished = false;
 
     [Header("Downstairs Kitchen Scare")]
@@ -409,20 +409,20 @@ public class GhostEventManager : MonoBehaviour
                 PlayAudio(4, downstairsLivingRoomWindowBreak, false, new Vector3(7.5f, 3.6f, 19f));
                 ResetAnimatorState();
                 SetTransform(new Vector3(7.5f, 0.4f, 19.6f), new Vector3(0f, 270f, 0f), 0.13f);
-                // PlayAnimation("FallingOnImpact", true);
+                PlayAnimation(1, true); // FallingOnImpact
                 yield return new WaitUntil(() => isFallingFinished);
 
                 // Ghost stares at player through the window on the right
                 ResetAnimatorState();
                 SetTransform(new Vector3(12.25f, 0.04f, 14.631f), new Vector3(0f, 270f, 0f), 0.13f);
-                // PlayAnimation("Trapped", true);
+                PlayAnimation(2, true); // Trapped
                 downstairsLivingRoomSpotLight.enabled = true;
                 GameManager.Instance.NextEventReady();
                 break;
             case 3: // Player looks at the ghost through the window on the right -> ghost vanishes
                 downstairsLivingRoomSpotLight.enabled = false;
                 ResetAnimatorState();
-                // PlayAnimation("Vanish", true);
+                PlayAnimation(3, true); // Vanish
                 yield return new WaitUntil(() => isVanishFinished);
                 ResetAll();
                 GameManager.Instance.EndEvent(4);
@@ -441,12 +441,12 @@ public class GhostEventManager : MonoBehaviour
                 GameManager.Instance.StartEvent(5);
                 animator.runtimeAnimatorController = downstairsHallwayScareController;
                 yield return new WaitUntil(() => downstairsHallwayPill == null);
-                if (downstairsHallwayDoor.state == GenericAccessMechanism.states.OPEN) goto DoorOpen;
+                if (downstairsHallwayOfficeDoor.state == GenericAccessMechanism.states.OPEN) goto DoorOpen;
 
                 // Office door is closed -> ghost appears in the stairwell above the player
                 ResetAnimatorState();
                 SetTransform(new Vector3(10.31f, 1.45f, 13.1f), new Vector3(0f, 242f, 0f), 0.1f);
-                // PlayAnimation("WalkingBack", false, 0);
+                PlayAnimation(1, false, 0); // WalkingBack
                 PlayAudio(1, downstairsHallwayBreathing, true);
                 GameManager.Instance.NextEventReady(2); // skip to case 3
                 break;
@@ -455,9 +455,9 @@ public class GhostEventManager : MonoBehaviour
                 DoorOpen:
                 ResetAnimatorState();
                 SetTransform(new Vector3(5.472f, 0.085f, 4.938f), new Vector3(0f, 90f, 0f), 0.1f);
-                // PlayAnimation("FastCrawl", true, 0);
+                PlayAnimation(2, true, 0); // FastCrawl
                 PlayAudio(1, downstairsHallwayBreathing, true);
-                downstairsHallwaySecretDoorAnimator.Play("Open");
+                downstairsHallwaySecretDoor.Toggle(force: GenericAccessMechanism.states.OPEN, playAudio: true);
                 GameManager.Instance.NextEventReady();
                 break;
             case 2: // Player looks down the hallway -> ghost crawls into secret room
@@ -467,8 +467,7 @@ public class GhostEventManager : MonoBehaviour
                 StopAudio(1);
                 StopAudio(2);
                 Ghost.SetActive(false);
-                PlayAudio(4, downstairsHallwayDoorSlam, false, new Vector3(8.7173996f, 1.21599996f, 4.99700022f));
-                downstairsHallwaySecretDoorAnimator.Play("Slam");
+                downstairsHallwaySecretDoor.Toggle(force: GenericAccessMechanism.states.CLOSED, playAudio: true);
                 yield return new WaitForSeconds(downstairsHallwayDoorSlam.length);
                 ResetAll();
                 GameManager.Instance.EndEvent(5);
@@ -534,7 +533,7 @@ public class GhostEventManager : MonoBehaviour
             case 2: // Player looks into the kitchen -> ghost dives through kitchen window
                 ResetAnimatorState();
                 SetTransform(new Vector3(2.341f, 0.12f, 14.1f), new Vector3(0f, 0f, 0f), 0.1f);
-                // PlayAnimation("Dive", false);
+                PlayAnimation(1, false); // Dive
 
                 // Ghost knocks over kitchen props
                 yield return new WaitForSeconds(0.5f); // Delaying audio manually since the audio clip of glass shattering is delayed
@@ -547,7 +546,7 @@ public class GhostEventManager : MonoBehaviour
                 downstairsKitchenChair.localPosition = new Vector3(2.382f, 0.101659417f, 13.482f);
                 ResetAnimatorState();
                 SetTransform(new Vector3(2.482f, 0.08f, 13.528f), new Vector3(0f, 90f, 0f), 0.1f);
-                // PlayAnimation("Glitched Sitting", false, 0.1f);
+                PlayAnimation(2, false, 0.1f); // GlitchedSitting
                 PlayAudio(1, downstairsKitchenHeavyBreathing, true);
                 PlayAudio(2, downstairsKitchenGlitch, true);
                 OnProgressBarChanged += HandleKitchenProgress;
