@@ -104,7 +104,7 @@ public class GhostEventManager : MonoBehaviour
     [SerializeField] RuntimeAnimatorController upstairsBlueRoomScareController;
     [SerializeField] AudioClip upstairsBlueRoomGlassTapping;
     [SerializeField] AudioClip upstairsBlueRoomBreakIn;
-    [SerializeField] Animator upstairsBlueRoomWindowAnimator;
+    [SerializeField] GenericAccessMechanism upstairsBlueRoomWindow;
     [HideInInspector] public bool isSwimmingUpComplete = false;
     [HideInInspector] public bool isBreakInWindowComplete = false;
 
@@ -724,8 +724,8 @@ public class GhostEventManager : MonoBehaviour
                 
                 // Ghost swims up to the window
                 ResetAnimatorState();
-                SetTransform(new Vector3(12.5245142f, 1.72095978f, 14.704855f), new Vector3(180f, 90f, 180f), 0.13f);
-                // PlayAnimation("SwimmingUp", false);
+                SetTransform(new Vector3(12.1345139f, 3.45125961f, 14.6008549f), new Vector3(205f, 90f, 180f), 0.13f);
+                PlayAnimation(1, false); // SwimmingUp
                 yield return new WaitUntil(() => isSwimmingUpComplete);
 
                 // Ghost taps on the window
@@ -733,8 +733,9 @@ public class GhostEventManager : MonoBehaviour
                 GameManager.Instance.NextEventReady();
                 break;
             case 2: // Player looks at the ghost -> ghost breaks through the window
-                // PlayAnimation("BreakInWindow", false);
-                upstairsBlueRoomWindowAnimator.Play("BrokenInto");
+                ResetAnimatorState();
+                PlayAnimation(2, false); // BreakInWindow
+                upstairsBlueRoomWindow.Toggle(force: GenericAccessMechanism.states.OPEN, playAudio: false);
                 PlayAudio(2, upstairsBlueRoomBreakIn);
                 yield return new WaitUntil(() => isBreakInWindowComplete);
                 ResetAll();
